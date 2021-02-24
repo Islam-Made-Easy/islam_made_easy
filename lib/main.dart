@@ -7,6 +7,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get/get.dart';
 import 'package:islam_made_easy/routes/app_route.dart';
+import 'package:islam_made_easy/services/daily.dart';
 import 'package:islam_made_easy/theme/theme.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/quick_util.dart';
@@ -25,6 +26,8 @@ import 'locale/localePro.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await DailyNotification().init();
+  await DailyNotification().getQuoteString();
   StatusbarUtil.setTranslucent();
   // Portrait only
   await SystemChrome.setPreferredOrientations([

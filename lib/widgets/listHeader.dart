@@ -14,7 +14,7 @@ class ListHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          AutoSizeText(
+          Text(
             text,
             overflow: TextOverflow.clip,
             style: Theme.of(context)

@@ -2,6 +2,7 @@ import 'package:double_back_to_close/double_back_to_close.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:islam_made_easy/services/daily.dart';
 import 'package:islam_made_easy/widgets/desktopNav.dart';
 import 'package:islam_made_easy/widgets/panels/mainPanel.dart';
 import 'package:islam_made_easy/widgets/panels/nav_panel.dart';
@@ -16,15 +17,26 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> with TickerProviderStateMixin {
+class _HomeState extends State<Home>
+    with TickerProviderStateMixin, WidgetsBindingObserver {
   AnimationController controller;
   static const header_height = 100.0;
 
   @override
   void initState() {
+    WidgetsBinding.instance.addObserver(this);
     controller = AnimationController(
         vsync: this, duration: Duration(milliseconds: 300), value: 1.0);
+    DailyNotification().getQuoteString();
     super.initState();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    if (state == AppLifecycleState.resumed) {
+      DailyNotification().init();
+    }
   }
 
   @override
