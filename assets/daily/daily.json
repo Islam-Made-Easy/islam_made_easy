@@ -11,13 +11,35 @@
     "Category": "fast"
   },
   {
-    "Quote": "كان أبي ﻻ يترك صوم اﻹثنين والخميس والبيض .",
-    "Detail": "”My dad would not leave fasting on Mondays and Thursdays and the white (days).”",
-    "Author": "From ’Abdullah ibn Ahmad ibn Hanbal who said:",
-    "Reference": "As-Siyar 11/223",
+    "Quote": "الصيام معقل العابدين .",
+    "Detail": "”Fasting is the fortress of the worshippers.”",
+    "Author": "From Badil Al-’Uqayli who said:",
+    "Reference": "Al-Jū’ 258",
     "Tags": [
       "Fasting",
       "experience"
+    ],
+    "Category": "fast"
+  },
+  {
+    "Quote": "الصيام معقل العابدين .",
+    "Detail": "”Fasting is the fortress of the worshippers.”",
+    "Author": "From Hindiyyah the wife of Ibrahim An-Nakh’i who said:",
+    "Reference": "Al-Jū’ 258",
+    "Tags": [
+      "Fasting",
+      "worship"
+    ],
+    "Category": "fast"
+  },
+  {
+    "Quote": "الصيام معقل العابدين .",
+    "Detail": "”Fasting is the fortress of the worshippers.”",
+    "Author": "From Hindiyyah the wife of Ibrahim An-Nakh’i who said:",
+    "Reference": "Al-Jū’ 258",
+    "Tags": [
+      "Fasting",
+      "worship"
     ],
     "Category": "fast"
   }

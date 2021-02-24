@@ -11,7 +11,7 @@ class DailyNotification {
 
   init() async {
     var initializationSettingsAndroid =
-        AndroidInitializationSettings("@drawable/notification");
+        AndroidInitializationSettings("@drawable/log");
     var initializationSettingsIOS = IOSInitializationSettings();
     var initSetttings = InitializationSettings(
         initializationSettingsAndroid, initializationSettingsIOS);

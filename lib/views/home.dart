@@ -18,26 +18,26 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home>
-    with TickerProviderStateMixin, WidgetsBindingObserver {
+    with TickerProviderStateMixin {
   AnimationController controller;
   static const header_height = 100.0;
 
   @override
   void initState() {
-    WidgetsBinding.instance.addObserver(this);
+    // WidgetsBinding.instance.addObserver(this);
     controller = AnimationController(
         vsync: this, duration: Duration(milliseconds: 300), value: 1.0);
-    DailyNotification().getQuoteString();
+    // DailyNotification().getQuoteString();
     super.initState();
   }
 
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    super.didChangeAppLifecycleState(state);
-    if (state == AppLifecycleState.resumed) {
-      DailyNotification().init();
-    }
-  }
+  // @override
+  // void didChangeAppLifecycleState(AppLifecycleState state) {
+  //   super.didChangeAppLifecycleState(state);
+  //   if (state == AppLifecycleState.resumed) {
+  //     DailyNotification().init();
+  //   }
+  // }
 
   @override
   void setState(fn) {
