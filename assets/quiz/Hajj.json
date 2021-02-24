@@ -1,0 +1,123 @@
+[
+  {
+    "1": "For whom Hajj is compulsory ",
+    "2": "Hajj is not completed unless you go to? ",
+    "3": "Muzdalifa is situated between",
+    "4": "When Hajj was made compulsory? ",
+    "5": "Which direction is the Tawaf around the Ka'ba made?",
+    "6": "What is the name of the place where the pilgrims pelt stones on pillars representing the devil?",
+    "7": "What is considered to be the most important part of the Hajj?",
+    "8": "What is the state of purity in which all pilgrims enter Makkah for Hajj called? ",
+    "9": "What does the running or swift walking of pilgrims seven times between the hills of Safaa and Marwah represent? ",
+    "10": "The best Dua to say in the day of Arafah is________",
+    "11": "Sa'i (Walking back and forth between Safa and Marwa) is an important part of Hajj and Umrah.  The act of worship was inspired by the action of ___________",
+    "12": "How many times do the Muslims circumambulate (Tawaf) the Kaabah? ",
+    "13": "What is Hajj?",
+    "14": "How many times do Muslims have to perform Hajj in their lifetime? ",
+    "15": "What do Muslims recite during and throughout the Hajj? "
+  },
+  {
+    "1": {
+      "a": "The rich",
+      "b": "The Poor",
+      "c": "Both Poor & Poor",
+      "d": "Every Muslim"
+    },
+    "2": {
+      "a": "Makkah",
+      "b": "Madina",
+      "c": "Mina",
+      "d": "Arafat"
+    },
+    "3": {
+      "a": "Mina and Kaaba",
+      "b": "Safa and Mina",
+      "c": "Mina and Arafat",
+      "d": "Makkah and Madina"
+    },
+    "4": {
+      "a": "6 A.H",
+      "b": "7 A.H",
+      "c": "8 A.H",
+      "d": "9 A.H"
+    },
+    "5": {
+      "a": "Keep Ka'ba on your left and Walk around. (Anti Clockwise)",
+      "b": "Keep Ka'ba at the centre while Walking around. (ClockTwise)",
+      "c": "Keep Ka'ba on your right and Walk around. (Clockwise)",
+      "d": "Not sure"
+    },
+    "6": {
+      "a": "Al-Jamarat",
+      "b": "Mina",
+      "c": "Muzdalifa",
+      "d": "Al-Ka'abah"
+    },
+    "7": {
+      "a": "The day the pilgrims spend praying on the Plains of Arafah",
+      "b": "Days spent in Mina and Muzdalifah",
+      "c": "When pilgrims circumambulate the Kaabah",
+      "d": "When pilgrims stone the Pillars representing the devil"
+    },
+    "8": {
+      "a": "Istighfar",
+      "b": "Istikhara",
+      "c": "Adhaan",
+      "d": "Ihram"
+    },
+    "9": {
+      "a": "The number of times the Prophet Muhammad performed the Hajj in his lifetime",
+      "b": "The number of times the Prophet Abraham (عليه السالم) tried to build the Kaabah before he succeeded",
+      "c": "The number of miles the Prophet Muhammad travelled from Medina to Mecca to perform the Hajj",
+      "d": "The number of times Hajar ran back and forth between the hills searching for water for her son Ismai(عليه السالم)"
+    },
+    "10": {
+      "a": "Subhaanaallahi",
+      "b": "La illaha-Allah wa dahu la shareeka lahu, lahu mulku wa lahu hamdu wa huwa, ala kuli shayin qadeer",
+      "c": "La haw la wa laa quwwatta illaa billahi",
+      "d": "Alhamdulillah"
+    },
+    "11": {
+      "a": "Haajar (عليه السالم)",
+      "b": "Ismaeel (عليه السالم)",
+      "c": "Muhammad (ﷺ)",
+      "d": "Ibrahim (عليه السالم)"
+    },
+    "12": {
+      "a": "Seven Times only",
+      "b": "Ten Times to make it complete",
+      "c": "Three Times only",
+      "d": "Five Times only"
+    },
+    "13": {
+      "a": "Pilgrimage to Shrines",
+      "b": "Pilgrimage to Monasteries",
+      "c": "Pilgrimage to Makkah",
+      "d": "Pilgrimage to Iran"
+    },
+    "14": {
+      "a": "Every year",
+      "b": "Once in five years",
+      "c": "At least Once in their lifetime",
+      "d": "Once in a decade"
+    },
+    "15": {
+      "a": "Al-Fatiha",
+      "b": "Taalbiya",
+      "c": "Declaration of Hajj",
+      "d": "There is no specific recitation"
+    }
+  },
+  {
+    "1": "The rich",
+    "2": "Arafat",
+    "3": "7",
+    "4": "Yes",
+    "5": "Keep Ka'ba on your left and Walk around. (Anti Clockwise)",
+    "6": "Al-Jamarat",
+    "7": "False",
+    "8": "Ihram",
+    "11": "Haajar (عليه السالم)",
+    "13": "Pilgrimage to Makkah"
+  }
+]

@@ -1,0 +1,118 @@
+---
+name: islam_made_easy
+description: Islamic Quizlet application that let you understand your religion easier.
+publish_to: none
+version: 1.0.0+1
+environment:
+  sdk: '>=2.7.0 <3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^0.1.3
+  window_size:
+    git:
+      url: git://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
+  provider: ^4.3.2+2
+  flutter_screenutil: ^3.2.0
+  font_awesome_flutter: ^8.10.0
+  statusbar_util: ^1.0.1
+  share: ^0.6.5+4
+  liquid_ui: ^1.0.0+9
+  lottie: null
+  flutter_easyrefresh: null
+  in_app_review: any
+  dio: null
+  intl: ^0.17.0-nullsafety.2
+  flutter_animated_dialog: any
+  provide: ^1.0.2
+  flutter_statusbarcolor: null
+  notifier: null
+  morpheus: null
+  universal_html: null
+  sqflite: null
+  sp_util: ^1.0.1
+  shared_preferences: ^0.5.12+4
+  json_annotation: null
+  random_string: null
+  cached_network_image: null
+  flutter_staggered_grid_view: null
+  http: null
+  path: null
+  url_launcher: null
+  in_app_update: null
+  animated_background: null
+  flutter_phoenix: null
+  smooth_page_indicator: null
+  flutter_flip_view: null
+  universal_platform: null
+  adaptive_breakpoints: ^0.0.2
+  get: ^3.24.0
+  package_info: null
+  launch_review: null
+  animations: ^1.1.2
+  flutter_svg: ^0.19.2+1
+  device_info: ^0.4.1+4
+  native_pdf_view: ^2.1.1
+  palette_generator: ^0.2.0
+  delayed_display: ^1.0.3
+  double_back_to_close: ^1.0.2+mit
+  auto_animated: ^2.1.0
+  native_updater: ^0.0.3
+  quick_actions: ^0.4.0+10
+  flutter_systray: ^0.4.0
+  avatar_glow: ^1.2.0
+  scroll_to_index: any
+  animator:
+  flip_card:
+  clippy_flutter:
+  grafpix:
+  animated_text_kit:
+  popover: ^0.0.4
+  auto_size_text:
+  shimmer: ^1.1.2
+#  flutter_local_notifications: ^1.4.4+4
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: null
+  json_serializable: null
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/lottie/
+    - assets/quiz/
+    - assets/fonts/
+flutter_intl:
+  enabled: true
+  fonts:
+    - family: Rubik
+      fonts:
+        - asset: assets/fonts/Rubik-Black.ttf
+        - asset: assets/fonts/Rubik-Regular.ttf
+    - family: Amiri
+      fonts:
+        - asset: assets/fonts/Amiri-Regular.ttf
+        - asset: assets/fonts/Amiri-Bold.ttf
+    - family: Quran
+      fonts:
+        - asset: assets/fonts/ar-Quran1.ttf
+    - family: Scheherazade
+      fonts:
+        - asset: assets/fonts/scheherazade-webfont.ttf
+    - family: noorehidayat
+      fonts:
+        - asset: assets/fonts/noorehidayat.tff
+    - family: KFGQPC Uthman Taha Naskh
+      fonts:
+        - asset: assets/fonts/uthman_tn09.otf
+    - family: ReemKufi
+      fonts:
+        - asset: assets/fonts/ReemKufi-Regular.tff
+    - family: Quattrocento
+      fonts:
+        - asset: assets/fonts/Quattrocento-Regular.ttf
+        - asset: assets/fonts/Quattrocento-Bold.ttf

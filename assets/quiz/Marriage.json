@@ -1,0 +1,84 @@
+[
+    {
+        "1":"Who are mentioned as garments for one another in the Qur’ān?",
+        "2":"How should one treat and live with his wife, according to the Qur’ān? ",
+        "3":"Is polygamy compulsory in Islām?",
+        "4":"What did the prophet(ﷺ) mention about getting married? ",
+        "5":"Whom did Prophet Muhammad (ﷺ) mention as the best of men? ",
+        "6":"The Tawaghit are many and their heads are five except?",
+        "7":"The following are steps required in rejection of Taghut, which one is not?",
+        "8":"To be a monotheist, one should know divine rights of Allah(swt). Which of the following is not",
+        "9":"Is the marriage contract valid if a woman was on her menses?",
+        "10":"Is it permissible to perform Wudū' after [eating] camel meat?",
+        "11":"The following nullifies one's Tawheed except"
+    },
+    {
+        "1": {
+            "a":"True",
+            "b":"False"
+        },
+        "2": {
+            "a":"A man should treat his wife like a slave",
+            "b":"A man should treat his wife like a stranger",
+            "c":"A man should treat his wife with kindness and to live in equity",
+            "d":"I dunno"
+        },
+        "3":{
+            "a":"Polygamy is general",
+            "b":"Polygamy is not a compulsion in Islām - it is an exception",
+            "c":"Polygamy is not permitted in Islām",
+            "d":"Polygamy is compulsory in Islām"
+        },
+        "4":{
+            "a":"Marriage will bring good luck",
+            "b":"Marriage completes half of the religious obligations",
+            "c":"Marriage is a bad omen",
+            "d":"I dunno"
+        },
+        "5":{
+            "a":"The best men are those who do not marry",
+            "b":"The best men are those who have more wives",
+            "c":"None of the men are considered best",
+            "d":"The best among the men are those who are best to their wife"
+        },
+        "6": {
+            "a":"To show Hatred",
+            "b":"Avoid worshipping Taghut",
+            "d":"Al-i’lm (Knowledge)"
+        },
+        "7": {
+            "a":"All the acts that are specific to Allah(swt) alone which no-one should ascribe to other than Allah(swt)",
+            "b":"All the powers of Allah(swt) that controls the entire universe",
+            "c":"All the acts of worship that should be directed to Him Alone",
+            "d":"All the names and attributes, which no one should ascribe to other than Allah(swt)"
+        },
+        "8":{
+            "a":"Yes",
+            "b":"Noo"
+        },
+        "9": {
+            "a":"True",
+            "b":"False"
+        },
+        "10":{
+            "a":"Yes",
+            "b":"Noo"
+        },
+        "11":{
+            "a":"Whoever mocks something from the din of the Messenger or the rewards of Allah or His punishment",
+            "b":"Whoever places between him and Allah intermediaries",
+            "c":"Aiding and supporting the mushrikin against the Muslimin",
+            "d":"Whoever Prays without Wudū'"
+        }
+    },
+    {
+        "1":"True",
+        "2":"Whoever Prays without Wudū'",
+        "3":"7",
+        "4":"Yes",
+        "5":"False",
+        "6":"False",
+        "7":"False",
+        "8":"Noo"
+    }
+]

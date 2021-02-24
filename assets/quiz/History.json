@@ -1,0 +1,168 @@
+[
+  {
+    "1": "What is the name of year when our Beloved Prophet (ﷺ) was born? ",
+    "2": "How many Eid Celebrations are there in Islām?",
+    "3": "Who took care of our Holy Prophet after his grandfather Abdul Muttalib passed away?",
+    "4": "How many sons of our Holy Prophet (ﷺ)? ",
+    "5": "How many daughters of our Holy Prophet (ﷺ)?",
+    "6": "Which member of our Holy Prophet’s family passed away very soon after him?",
+    "7": "Give the names of his two blessed Grandsons of our Holy Prophet Muhammad (ﷺ)? ",
+    "8": "What is the name of first Battle of Islam? ",
+    "9": "Which battle gave muslims decisive win in war with byzantine emperor?",
+    "10": "Who is the first martyr (Shaheed) in Islam? ",
+    "11": "The Sulhu Al hudeybia was written after which battle?",
+    "12": "Who is the first child accepted Islam? ",
+    "13": "Who is the first man accepted Islam?",
+    "14": "What are the names of the four Khulafa-e-Rashideen (رضي الله عنهم)? ",
+    "15": "What are the names of the two Khulafa-e-Rashideen (رضي الله عنهم) a whose daughters married to the Prophet Muhammad (ﷺ)?",
+    "16": "Our beloved Prophet (ﷺ) went on a miraculous night journey to Masjid al-Aqsa and to the Heavens. What is this journey called? ",
+    "17": "What gift did he bring back from Allah from the miraculous night journey to the heavens? ",
+    "18": " Which was the first capital of Islamic State",
+    "19": "What companion of Prophet Muhammad(ﷺ) was awarded with the title of \"The sword of Allah\"?",
+    "20": "Prophet Muhammad (ﷺ) belonged to _____ family?"
+  },
+  {
+    "1": {
+      "a": "The Year of the Cow (Al-Baqarah)",
+      "b": "The Year of the Ant (An-Naml)",
+      "c": "The Year of the Elephant (Al-Fīl)",
+      "d": "The Year of the Goat (Al-Kharuf)"
+    },
+    "2": {
+      "a": "Islāmic New year, Eid Al-Fitr and Adha",
+      "b": "Eid Al-Fitr, Adha, Maulud and Islāmic New year",
+      "c": "Eid of Fitr and Adha",
+      "d": "Parent's Day and Other Day's celebration"
+    },
+    "3": {
+      "a": "Hamza",
+      "b": "Abubakar Siddiq",
+      "c": "Khadijah",
+      "d": "Abu Talib"
+    },
+    "4": {
+      "a": "Three",
+      "b": "Six",
+      "c": "Two",
+      "d": "Four"
+    },
+    "5": {
+      "a": "Three",
+      "b": "Six",
+      "c": "Two",
+      "d": "Four"
+    },
+    "6": {
+      "a": "Zainab",
+      "b": "Umm Kulthoom",
+      "c": "Fatimah",
+      "d": "Rukayyay"
+    },
+    "7": {
+      "a": "Husna and Husain, (رضي الله عنهما)",
+      "b": "Hasan and Husarah, (رضي الله عنهما)",
+      "c": "Hasanat and Husainat, (رضي الله عنهما)",
+      "d": "Hasan and Husain, (رضي الله عنهما)"
+    },
+    "8": {
+      "a": "Battle of Uhad",
+      "b": "Battle of Ahzāb",
+      "c": "Battle of Qadsiyyah",
+      "d": "Battle of Badr"
+    },
+    "9": {
+      "a": "Battle of Yarmuk",
+      "b": "Battle of Badr",
+      "c": "Battle of Khaybar",
+      "d": "Battle of Khandak"
+    },
+    "10": {
+      "a": "Hamza (رضي الله عنه)",
+      "b": "Fatimah (رضي الله عنها)",
+      "c": "Sumayyah (رضي الله عنها)",
+      "d": "Yasir (رضي الله عنه)"
+    },
+    "11": {
+      "a": "Battle of Uhad",
+      "b": "Battle of Ahzāb",
+      "c": "Battle of Badr",
+      "d": "Battle of Qadsiyyah"
+    },
+    "12": {
+      "a": "Hassan, Hussain (رضي الله عنهما)",
+      "b": "Ali bin Abi Talib (رضي الله عنه)",
+      "c": "Abdullah bin Abbas (رضي الله عنه)",
+      "d": "Albdullah bin Umar (رضي الله عنه)"
+    },
+    "13": {
+      "a": "Abu Bakr As-Siddiq(رضي الله عنه)",
+      "b": "Ali Al-Murtaza(رضي الله عنه)",
+      "c": "Uthman bin Affan (رضي الله عنه)",
+      "d": "Umar Al-Farooq(رضي الله عنه)"
+    },
+    "14": {
+      "a": "Abdullahi bin Abass, - Umar Al-Faruq, - Uthman, - Ali",
+      "b": "Abu-Bakr As-Siddiq, - Umar Al-Faruq bin Khattab, - Uthman bin Affan, - Ali bin Abi Talib",
+      "c": "Abu-Bakr As-Siddiq, - Umar Al-Faruq, - Amar bin Yaris, - Ali",
+      "d": "Abu-Bakr As-Siddiq, - Umar Al-Faruq, - Usman, - Ali"
+    },
+    "15": {
+      "a": "Abu-Bakr As-Siddiq and Ali bin Abi Talib (رضي الله عنهما)",
+      "b": "Uthman bin Affan and Umar al-Farooq (رضي الله عنهما)",
+      "c": "Abu-Bakr As-Siddiq and Umar al-Farooq (رضي الله عنهما)",
+      "d": "Uthman bin Affan and Ali bin Abi Talib (رضي الله عنهما)"
+    },
+    "16": {
+      "a": "Masabaq",
+      "b": "Isrā’ and Mi’raj",
+      "c": "Hijrah",
+      "d": "Mi’raj"
+    },
+    "17": {
+      "a": "Al-Qur’ān",
+      "b": "Goodies",
+      "c": "Hadith",
+      "d": "Five times daily salah"
+    },
+    "18": {
+      "a": "Makkah",
+      "b": "Taaif",
+      "c": "Jiddah",
+      "d": "Madina"
+    },
+    "19": {
+      "a": "Abu Bakr As-Siddiq(رضي الله عنه)",
+      "b": "Ali Al-Murtaza(رضي الله عنه)",
+      "c": "Khalid bin Waleed(رضي الله عنه)",
+      "d": "Umar Al-Farooq(رضي الله عنه)"
+    },
+    "20": {
+      "a": "Quraishi",
+      "b": "Makki",
+      "c": "Hashmi",
+      "d": "Madni"
+    }
+  },
+  {
+    "1": "The Year of the Elephant (Al-Fīl)",
+    "2": "Eid of Fitr and Adha",
+    "3": "Abu Talib",
+    "4": "Three",
+    "5": "Four",
+    "6": "Zainab",
+    "7": "Hasan and Husain, (رضي الله عنهما)",
+    "8": "Battle of Badr",
+    "9": "Battle of Yarmuk",
+    "10": "Sumayyah (رضي الله عنها)",
+    "11": "Battle of Uhad",
+    "12": "Ali bin Abi Talib (رضي الله عنه)",
+    "13": "Abu Bakr As-Siddiq(رضي الله عنه)",
+    "14": "Abu-Bakr As-Siddiq, - Umar Al-Faruq bin Khattab, - Uthman bin Affan, - Ali bin Abi Talib",
+    "15": "Abu-Bakr As-Siddiq and Umar al-Farooq (رضي الله عنهما)",
+    "16": "Isrā’ and Mi’raj",
+    "17": "Five times daily salah",
+    "18": "Madina",
+    "19": "Khalid bin Waleed(رضي الله عنه)",
+    "20": "Hashmi"
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "1": "The last bow (Sajdah) of the Holy Qur’ān is in which Sūrah? ",
+    "2": "How many Sūrah’s name is only one letter?",
+    "3": "How many Sūrah of the Qur’ān Start with Al-Hamdulillah (الحمد لله) ",
+    "4": "Do you know the names of the Books of Allah? ",
+    "5": "What is the name of Prophet to whom Taurat was revealed? ",
+    "6": "What is the name of Prophet to whom Zaboor was revealed? ",
+    "7": "What is the name of Prophet to whom Injeel was revealed? ",
+    "8": "In which Sūrah Bismillah Ar-Rahmaneen Ar-Raheem (بسم الله الرحمن الرحيم) came twice? ",
+    "9": "What is the name of cave where revelation of Holy Qur’an started? ",
+    "10": "Name the Sūrah which if recited three times merits the same reward as reciting the whole Qur’ān.? ",
+    "11": "According to Sūrah Al-'Asr, Most man is surely in loss, except those: ",
+    "12": " Which Sūrah is on the name of one metal? ",
+    "13": " In which Sūrah the name of Allah is repeated in every verse",
+    "14": " How many total Sūrahs of the Holy Qur’ān start with the word Ha-meem (حٰم)? ",
+    "15": " The story of the worship of cow of Bani Israeel mentioned in which Sūrah? ",
+    "16": "How many Sūrahs of the Holy Qur’ān start with the word Alif-laam-Raa (الر)? ",
+    "17": "Who has Allah mentioned in the Qur’ān as the best example to follow? ",
+    "18": "In which Sura the law of inheritance mentioned? ",
+    "19": "In which Sūrah of the Holly Qur’ān, Allah mentioned about Khidr? ",
+    "20": "In which Sūrah the story of ‘The Sleepers of the Cave’ is mentioned? "
+  },
+  {
+    "1": {
+      "a": "Sūrah an-Najm (The Star)",
+      "b": "Sūrah al-Inshiqāq (The Splitting)",
+      "c": "Sūrah al-‘Alaq (The Clinging Substance)",
+      "d": "Sūrah as-Sajdah (The Prostration)"
+    },
+    "2": {
+      "a": "Three",
+      "b": "Two",
+      "c": "Five",
+      "d": "Four"
+    },
+    "3": {
+      "a": "Three",
+      "b": "Six",
+      "c": "Seven",
+      "d": "Four"
+    },
+    "4": {
+      "a": "1.Taurat   2.Kutubu 3.Injeel   4.The Qur’an",
+      "b": "1.Taurat   2.Zaboor 3.Lah      4.The Qur’an",
+      "c": "1.Taurat   2.Zaboor 3.Injeel   4.The Qur’ān",
+      "d": "1.Taurat   2.Zaboor 3.Injeel   4.Kitab"
+    },
+    "5": {
+      "a": "Prophet Musa",
+      "b": "Prophet Isa",
+      "c": "Prophet Daud",
+      "d": "Prophet Ibrahim"
+    },
+    "6": {
+      "a": "Prophet Musa",
+      "b": "Prophet Isa",
+      "c": "Prophet Daud",
+      "d": "Prophet Ibrahim"
+    },
+    "7": {
+      "a": "Prophet Musa",
+      "b": "Prophet Isa",
+      "c": "Prophet Daud",
+      "d": "Prophet Ibrahim"
+    },
+    "8": {
+      "a": "Sūrah An-Nahl",
+      "b": "Sūrah Al-Baqarah",
+      "c": "Sūrah Al-Fātihah",
+      "d": "Sūrah  Tā Hā"
+    },
+    "9": {
+      "a": "The Cave of Burūj",
+      "b": "The Cave of Judah",
+      "c": "The Cave of Kahf",
+      "d": "The Cave of Hira"
+    },
+    "10": {
+      "a": "Sūrah Al-Fātihah",
+      "b": "Sūrah Yā Seen",
+      "c": "Sūrah Al-Ikhlās",
+      "d": "Sūrah Ar-Rahmān"
+    },
+    "11": {
+      "a": "They who are during their prayer humbly submissive",
+      "b": "Who pray five time a day",
+      "c": "They who carefully maintain their prayers",
+      "d": "Who have believed and done righteous deeds and advised each other to truth and advised each other to patience."
+    },
+    "12": {
+      "a": "Sūrah Al-Qamar",
+      "b": "Sūrah Al-Hadeed",
+      "c": "Sūrah Al-An’ām",
+      "d": "Sūrah Al-Ahqāf"
+    },
+    "13": {
+      "a": "Sūrah Al-Mujādilah",
+      "b": "Sūrah Ar-Rahmān",
+      "c": "Sūrah Al-Hajj",
+      "d": "Sūrah Al-Layl"
+    },
+    "14": {
+      "a": "Eight",
+      "b": "Six",
+      "c": "Seven",
+      "d": "Four"
+    },
+    "15": {
+      "a": "Sūrah An-Nahl",
+      "b": "Sūrah Al-Baqarah",
+      "c": "Sūrah An-Naml",
+      "d": "Sūrah Al-An’ām"
+    },
+    "16": {
+      "a": "2 Sūrahs",
+      "b": "4 Sūrahs",
+      "c": "5 Sūrahs",
+      "d": "3 Sūrahs"
+    },
+    "17": {
+      "a": "Prophet Muhammad (ﷺ)",
+      "b": "Prophet (Isa) Jesus (عليه السالم)",
+      "c": "Prophet (Musa) Moses (عليه السالم)",
+      "d": "Angels"
+    },
+    "18": {
+      "a": "Sūrah Al-Kahf (The Cave)",
+      "b": "Sūrah Al-Qalam (The Pen)",
+      "c": "Sūrah Al-Mu’minūn (The Believers)",
+      "d": "Sūrah Az-Zumar (The Groups)"
+    },
+    "19": {
+      "a": "Sūrah Al-Kahf (The Cave)",
+      "b": "Sūrah Al-Qalam (The Pen)",
+      "c": "Sūrah Al-Mu’minūn (The Believers)",
+      "d": "Sūrah Az-Zumar (The Groups)"
+    },
+    "20": {
+      "a": "Sūrah Al-Kahf (The Cave)",
+      "b": "Sūrah Al-Qalam (The Pen)",
+      "c": "Sūrah Al-Mu’minūn (The Believers)",
+      "d": "Sūrah Az-Zumar (The Groups)"
+    }
+  },
+  {
+    "1": "Sūrah al-‘Alaq (The Clinging Substance)",
+    "2": "Three",
+    "3": "Four",
+    "4": "1.Taurat   2.Zaboor 3.Injeel   4.The Qur’ān",
+    "5": "Prophet Musa",
+    "6": "Prophet Daud",
+    "7": "Prophet Isa",
+    "8": "Sūrah An-Nahl",
+    "9": "The Cave of Hira",
+    "10": "Sūrah Al-Ikhlās",
+    "11": "Who have believed and done righteous deeds and advised each other to truth and advised each other to patience.",
+    "12": "Sūrah Al-Hadeed",
+    "13": "Sūrah Al-Mujādilah",
+    "14": "Six",
+    "15": "Sūrah Al-Baqarah",
+    "16": "4 Sūrahs",
+    "17": "Prophet Muhammad (ﷺ)",
+    "19": "Sūrah Al-Kahf (The Cave)",
+    "20": "Sūrah Al-Kahf (The Cave)"
+  }
+]

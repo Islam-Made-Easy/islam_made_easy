@@ -1,7 +1,5 @@
 # Islam Made Easy
 
-//[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/islam-made-easy)
-
 Islamic Quiz application that let you understand your religion easier.
 
 ## Features
