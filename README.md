@@ -14,7 +14,7 @@ Islamic Quiz application that let you understand your religion easier.
 * Implement text Editing sp capabilities i.e Highlight, underline
 * Internal search
 
-| [Get the latest version](https://github.com/Islam-Made-Easy/Islam-Made-Easy/tree/v0.1-alpha)
+| [Get the latest version](https://github.com/Islam-Made-Easy/Islam-Made-Easy/releases)
 
 | IME
 # Islam-Made-Easy
