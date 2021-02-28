@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -28,38 +27,32 @@ double height =
     MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.height;
 double width =
     MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width;
-RoundedRectangleBorder kAppBarShape = RoundedRectangleBorder(
-  borderRadius: BorderRadius.only(
-    bottomLeft: Radius.circular(Platform.isLinux ? 2 : 32),
-    bottomRight: Radius.circular(Platform.isLinux ? 2 : 32),
-  ),
-);
 
 TextTheme buildTextTheme(TextTheme base, Color displayColor, Color bodyColor) {
   return base
       .copyWith(
-    headline5: base.headline5.copyWith(
-      fontWeight: FontWeight.w700,
-      letterSpacing: 0.5,
-      fontSize: 20,
-    ),
-    headline6: base.headline6.copyWith(
-      fontWeight: FontWeight.w500,
-      letterSpacing: 0.5,
-      fontSize: 20,
-    ),
-    bodyText1: base.bodyText1.copyWith(
-      fontWeight: FontWeight.w500,
-      fontSize: 16.0,
-    ),
-    subtitle1: base.bodyText1.copyWith(
-      fontWeight: FontWeight.w500,
-      fontSize: 16.0,
-    ),
-  )
+        headline5: base.headline5.copyWith(
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.5,
+          fontSize: 20,
+        ),
+        headline6: base.headline6.copyWith(
+          fontWeight: FontWeight.w500,
+          letterSpacing: 0.5,
+          fontSize: 20,
+        ),
+        bodyText1: base.bodyText1.copyWith(
+          fontWeight: FontWeight.w500,
+          fontSize: 16.0,
+        ),
+        subtitle1: base.bodyText1.copyWith(
+          fontWeight: FontWeight.w500,
+          fontSize: 16.0,
+        ),
+      )
       .apply(
-    fontFamily: 'Amiri',
-    displayColor: displayColor,
-    bodyColor: bodyColor,
-  );
+        fontFamily: 'Amiri',
+        displayColor: displayColor,
+        bodyColor: bodyColor,
+      );
 }
