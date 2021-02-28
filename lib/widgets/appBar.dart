@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:islam_made_easy/theme/theme.dart';
 
 class QnAppBar extends StatelessWidget with PreferredSizeWidget {
   final String title;
@@ -37,8 +36,7 @@ class QnAppBar extends StatelessWidget with PreferredSizeWidget {
               tooltip: MaterialLocalizations.of(context).backButtonTooltip,
             ),
       systemOverlayStyle: SystemUiOverlayStyle.dark,
-      shape: kAppBarShape,
-      elevation: isDesktop ? 0 : 4,
+      elevation: 0,
       automaticallyImplyLeading: isDesktop,
     );
   }
