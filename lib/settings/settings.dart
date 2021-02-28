@@ -59,7 +59,6 @@ class _SettingsState extends State<Settings> {
       appBar: AppBar(
         title: Text(isDesktop ? S.current.preferences : S.current.settings,
             style: bodyTextStyle),
-        shape: kAppBarShape,
         automaticallyImplyLeading: isDesktop ? false : true,
         centerTitle: true,
         backgroundColor:
@@ -72,6 +71,7 @@ class _SettingsState extends State<Settings> {
           vertical: isDesktop ? 30 : 8.0,
         ),
         children: [
+          _SettingsTitle(title: 'Customize Your experience'),
           _SettingsTitle(title: 'Interface'),
           Divider(endIndent: 30, indent: 30, height: 20),
           WidgetAnimator(

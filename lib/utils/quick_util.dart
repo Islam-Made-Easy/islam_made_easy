@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/views/home.dart';
 import 'package:islam_made_easy/settings/settings.dart';
+import 'package:islam_made_easy/views/home.dart';
 import 'package:quick_actions/quick_actions.dart';
 
 class QuickUtil extends StatefulWidget {
@@ -27,15 +27,15 @@ class _QuickUtilState extends State<QuickUtil> {
   void _setupQuickActions() {
     quickActions.setShortcutItems(<ShortcutItem>[
       ShortcutItem(
-          type: 'action_home', localizedTitle: S.current.home, icon: 'splash'),
+          type: 'action_home', localizedTitle: S.current.home, icon: 'logo'),
       ShortcutItem(
           type: 'action_quiz_start',
           localizedTitle: S.current.quiz,
-          icon: 'splash'),
+          icon: 'logo'),
       ShortcutItem(
           type: 'action_settings',
           localizedTitle: S.current.settings,
-          icon: 'splash'),
+          icon: 'logo'),
     ]);
   }
 

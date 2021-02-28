@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.islam_made_easy">
+    package="com.kherld.islam_made_easy">
    <application
         android:label="Islam Made Easy"
         android:icon="@mipmap/ic_launcher">
