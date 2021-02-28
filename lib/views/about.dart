@@ -30,7 +30,7 @@ class AboutApp extends StatefulWidget {
 }
 
 class _AboutAppState extends State<AboutApp> {
-  AppUpdateInfo _updateInfo;
+  // AppUpdateInfo _updateInfo;
 
   Future<String> getVersionNumber() async {
     final packageInfo = await PackageInfo.fromPlatform();
@@ -41,7 +41,7 @@ class _AboutAppState extends State<AboutApp> {
   Future<void> checkForUpdate() async {
     InAppUpdate.checkForUpdate().then((info) {
       setState(() {
-        _updateInfo = info;
+        // _updateInfo = info;
       });
     }).catchError((e) => _showError(e));
   }
@@ -60,8 +60,8 @@ class _AboutAppState extends State<AboutApp> {
     final name =
         'Islam Made Easy ${S.current.forPlatform} ${Platform.operatingSystem}';
     final legalese = '© ${DateTime.now().year} The IME team';
-    var now = new DateTime.now();
-    var nextUpdateTime = now.add(new Duration(days: 60)).month;
+    // var now = new DateTime.now();
+    // var nextUpdateTime = now.add(new Duration(days: 60)).month;
     return AlertDialog(
       title: ListHeader(
         text: MaterialLocalizations.of(context).aboutListTileTitle('IME'),
@@ -99,92 +99,100 @@ class _AboutAppState extends State<AboutApp> {
             Text(
                 !Platform.isAndroid || Platform.isIOS
                     ? "${Platform.operatingSystemVersion.replaceRange(23, 73, '')}"
-                    : 'Version: ${_updateInfo ?? '1.0.$nextUpdateTime'}',
+                    : '',
+                // 'Version: ${_updateInfo ?? '1.0.$nextUpdateTime'}',
                 style: bodyTextStyle),
             Text(legalese, style: bodyTextStyle),
-            isDesktop ? Semantics(
-                child: Text(
-                  '━═══◎Share◎═══━',
-                  style: TextStyle(color: Theme.of(context).primaryColorDark),
-                )):Container(),
-            isDesktop ?   Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xffF59E1B),
-                    borderRadius: BorderRadius.circular(isDesktop ? 50 : 20),
-                  ),
-                  child: IconButton(
-                    tooltip: 'Mail',
-                    splashRadius: isDesktop ? 10 : 20,
-                    icon: Icon(PixIcon.mail, color: Colors.white),
-                    onPressed: () => launchURL(
-                        'mailto:?subject=$name&body=${S.current.salam} $name ${S.current.shareText}. ${S.current.shareGetStoreText} https://snapcraft.io/islam-made-easy'),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xff294C8C),
-                    borderRadius: BorderRadius.circular(isDesktop ? 50 : 20),
-                  ),
-                  child: IconButton(
-                    tooltip: 'Facebook',
-                    splashRadius: isDesktop ? 10 : 20,
-                    icon: Icon(PixIcon.pix_facebook, color: Colors.white),
-                    onPressed: () => launchURL(
-                        'https://www.facebook.com/sharer/sharer.php?t=${S.current.salam} $name ${S.current.shareText}&quote=${S.current.shareGetStoreText}&ref=fbshare&u=https://snapcraft.io/islam-made-easy'),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xff67C15E),
-                    borderRadius: BorderRadius.circular(isDesktop ? 50 : 20),
-                  ),
-                  child: IconButton(
-                    tooltip: 'WhatsApp',
-                    splashRadius: isDesktop ? 10 : 20,
-                    icon: Icon(
-                      PixIcon.pix_whatsapp,
-                      color: Colors.white,
-                    ),
-                    onPressed: () => launchURL(
-                        'https://wa.me/?text=${S.current.salam}\n$name ${S.current.shareText}.\n${S.current.shareGetStoreText} https://snapcraft.io/islam-made-easy'),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xffA2A2A2),
-                    borderRadius: BorderRadius.circular(isDesktop ? 50 : 20),
-                  ),
-                  child: IconButton(
-                      tooltip:
-                          MaterialLocalizations.of(context).copyButtonLabel,
-                      splashRadius: isDesktop ? 10 : 20,
-                      icon: Icon(PixIcon.pix_link, color: Colors.white),
-                      onPressed: () {
-                        // Todo: implement flash
-                        HapticFeedback.heavyImpact();
-                        Clipboard.setData(
-                          ClipboardData(
-                              text:
-                                  '${S.current.salam}\n$name ${S.current.shareText}.\n${S.current.shareGetStoreText}: https://snapcraft.io/islam-made-easy'),
-                        ).then(
-                          (value) => Get.snackbar(
-                            S.current.copiedToClipboardTitle,
-                            'Link copied',
-                            messageText: Row(
-                              children: [
-                                FaIcon(Icons.verified_user),
-                                Text(S.current.linkCopied),
-                              ],
-                            ),
+            isDesktop
+                ? Semantics(
+                    child: Text(
+                    '━═══◎Share◎═══━',
+                    style: TextStyle(color: Theme.of(context).primaryColorDark),
+                  ))
+                : Container(),
+            isDesktop
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xffF59E1B),
+                          borderRadius:
+                              BorderRadius.circular(isDesktop ? 50 : 20),
+                        ),
+                        child: IconButton(
+                          tooltip: 'Mail',
+                          splashRadius: isDesktop ? 10 : 20,
+                          icon: Icon(PixIcon.mail, color: Colors.white),
+                          onPressed: () => launchURL(
+                              'mailto:?subject=$name&body=${S.current.salam} $name ${S.current.shareText}. ${S.current.shareGetStoreText} https://snapcraft.io/islam-made-easy'),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xff294C8C),
+                          borderRadius:
+                              BorderRadius.circular(isDesktop ? 50 : 20),
+                        ),
+                        child: IconButton(
+                          tooltip: 'Facebook',
+                          splashRadius: isDesktop ? 10 : 20,
+                          icon: Icon(PixIcon.pix_facebook, color: Colors.white),
+                          onPressed: () => launchURL(
+                              'https://www.facebook.com/sharer/sharer.php?t=${S.current.salam} $name ${S.current.shareText}&quote=${S.current.shareGetStoreText}&ref=fbshare&u=https://snapcraft.io/islam-made-easy'),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xff67C15E),
+                          borderRadius:
+                              BorderRadius.circular(isDesktop ? 50 : 20),
+                        ),
+                        child: IconButton(
+                          tooltip: 'WhatsApp',
+                          splashRadius: isDesktop ? 10 : 20,
+                          icon: Icon(
+                            PixIcon.pix_whatsapp,
+                            color: Colors.white,
                           ),
-                        );
-                      }),
-                ),
-              ],
-            ):Container()
+                          onPressed: () => launchURL(
+                              'https://wa.me/?text=${S.current.salam}\n$name ${S.current.shareText}.\n${S.current.shareGetStoreText} https://snapcraft.io/islam-made-easy'),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xffA2A2A2),
+                          borderRadius:
+                              BorderRadius.circular(isDesktop ? 50 : 20),
+                        ),
+                        child: IconButton(
+                            tooltip: MaterialLocalizations.of(context)
+                                .copyButtonLabel,
+                            splashRadius: isDesktop ? 10 : 20,
+                            icon: Icon(PixIcon.pix_link, color: Colors.white),
+                            onPressed: () {
+                              HapticFeedback.heavyImpact();
+                              Clipboard.setData(
+                                ClipboardData(
+                                    text:
+                                        '${S.current.salam}\n$name ${S.current.shareText}.\n${S.current.shareGetStoreText}: https://snapcraft.io/islam-made-easy'),
+                              ).then(
+                                (value) => Get.snackbar(
+                                  S.current.copiedToClipboardTitle,
+                                  'Link copied',
+                                  messageText: Row(
+                                    children: [
+                                      FaIcon(Icons.verified_user),
+                                      Text(S.current.linkCopied),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }),
+                      ),
+                    ],
+                  )
+                : Container()
           ],
         ),
       ),
