@@ -1,4 +1,4 @@
-name: Build Islam Made Easy App
+name: Build IME Apps
 on:
   push:
     branches:
@@ -7,6 +7,21 @@ on:
     branches:
       - master
 jobs:
+  flutter_test:
+    name: Run Flutter test and Analyze
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: subosito/flutter-action@v1
+        with:
+          java-version: "12.x"
+      - uses: subosito/flutter-action@v1
+          with:
+            channel: "dev"
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+
   build_web:
     name: Test and Build Flutter Web App
     runs-on: ubuntu-latest
@@ -18,6 +33,7 @@ jobs:
       - run: flutter pub get
       - run: flutter test
       - run: flutter config --enable-web
+      - run: flutter clean
       - run: flutter build web
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
@@ -27,7 +43,7 @@ jobs:
 
   build_ios:
     name: Build Flutter (iOs)
-    needs: [Flutter_test]
+    needs: [flutter_test]
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -43,7 +59,7 @@ jobs:
 
   build_apk:
     name: Build Flutter (android)
-    needs: [Flutter_test]
+    needs: [flutter_test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -55,7 +71,7 @@ jobs:
           channel: "dev"
       - run: flutter pub get
       - run: flutter clean
-      - run: flutter build apk
+      - run: flutter build apk --release --no-tree-shake-icons && flutter install apk
 
   build_desktop:
     name: Build Flutter (Desktop)
@@ -69,6 +85,7 @@ jobs:
       - run: flutter test
       - run: flutter config --enable-linux-desktop
       - run: flutter build linux
+      - run: snapcraft
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
