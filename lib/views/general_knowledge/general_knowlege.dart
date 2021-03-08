@@ -342,7 +342,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle2,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/hajj1.jpg',
                   ),
                   title: S.current.hajjSubTitle2,
                   data: [
@@ -353,7 +353,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     ViewText(data: S.current.hajjSub2Par3),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/hajj1.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 50),
                 OpenContainerWrapper(

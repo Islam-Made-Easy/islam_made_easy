@@ -71,13 +71,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.5.0-nullsafety.3"
-  auto_animated:
-    dependency: "direct main"
-    description:
-      name: auto_animated
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.0"
   auto_size_text:
     dependency: "direct main"
     description:
@@ -672,13 +665,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1"
-  notifier:
-    dependency: "direct main"
-    description:
-      name: notifier
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.2"
   package_config:
     dependency: transitive
     description:
@@ -693,13 +679,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.3+4"
-  palette_generator:
-    dependency: "direct main"
-    description:
-      name: palette_generator
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.3"
   path:
     dependency: "direct main"
     description:
@@ -1125,13 +1104,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0-nullsafety.5"
-  visibility_detector:
-    dependency: transitive
-    description:
-      name: visibility_detector
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.5"
   watcher:
     dependency: transitive
     description:

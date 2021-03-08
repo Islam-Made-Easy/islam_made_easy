@@ -23,6 +23,7 @@ import 'package:window_size/window_size.dart';
 import 'generated/l10n.dart';
 import 'locale/localePro.dart';
 
+/// todo: refactoring
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await DailyNotification().init();
@@ -85,7 +86,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
   }
 
 // todo: Implement first launch dialog > "وَإِنَّ الْمَلَائِكَةَ لَتَضَعُ أَجْنِحَتَهَا لِطَالِبِ الْعِلْمِ رِضًا بِمَا يَصْنَعُ"
-//  Random images
+
   /// sEARch   
   @override
   Widget build(BuildContext context) {

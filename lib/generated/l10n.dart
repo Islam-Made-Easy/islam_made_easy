@@ -545,6 +545,26 @@ class S {
     );
   }
 
+  /// ` \n~ Questions & Answers`
+  String get aboutFatawaAuthor2 {
+    return Intl.message(
+      ' \n~ Questions & Answers',
+      name: 'aboutFatawaAuthor2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sheikh Muhammad bin Hizam Al-Ba'dany`
+  String get fatawaAuthor2 {
+    return Intl.message(
+      'Sheikh Muhammad bin Hizam Al-Ba\'dany',
+      name: 'fatawaAuthor2',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Death & Hereafter`
   String get death {
     return Intl.message(

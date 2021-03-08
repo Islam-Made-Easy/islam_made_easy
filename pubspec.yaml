@@ -29,7 +29,6 @@ dependencies:
   flutter_animated_dialog: any
   provide: ^1.0.2
   flutter_statusbarcolor: null
-  notifier: null
   morpheus: null
   universal_html: null
   sqflite: null
@@ -56,10 +55,8 @@ dependencies:
   flutter_svg: ^0.19.2+1
   device_info: ^0.4.1+4
   native_pdf_view: ^2.1.1
-  palette_generator: ^0.2.0
   delayed_display: ^1.0.3
   double_back_to_close: ^1.0.2+mit
-  auto_animated: ^2.1.0
   native_updater: ^0.0.3
   quick_actions: ^0.4.0+10
   flutter_systray: ^0.4.0
@@ -97,15 +94,9 @@ flutter_intl:
       fonts:
         - asset: assets/fonts/Amiri-Regular.ttf
         - asset: assets/fonts/Amiri-Bold.ttf
-    - family: Quran
-      fonts:
-        - asset: assets/fonts/ar-Quran1.ttf
     - family: Scheherazade
       fonts:
         - asset: assets/fonts/scheherazade-webfont.ttf
-    - family: noorehidayat
-      fonts:
-        - asset: assets/fonts/noorehidayat.tff
     - family: KFGQPC Uthman Taha Naskh
       fonts:
         - asset: assets/fonts/uthman_tn09.otf

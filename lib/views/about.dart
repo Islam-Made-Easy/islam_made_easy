@@ -106,7 +106,7 @@ class _AboutAppState extends State<AboutApp> {
             isDesktop
                 ? Semantics(
                     child: Text(
-                    '━═══◎Share◎═══━',
+                    '━═══◎${S.current.share}◎═══━',
                     style: TextStyle(color: Theme.of(context).primaryColorDark),
                   ))
                 : Container(),
@@ -179,10 +179,11 @@ class _AboutAppState extends State<AboutApp> {
                               ).then(
                                 (value) => Get.snackbar(
                                   S.current.copiedToClipboardTitle,
-                                  'Link copied',
+                                  S.current.linkCopied,
                                   messageText: Row(
                                     children: [
-                                      FaIcon(Icons.verified_user),
+                                      FaIcon(Icons.verified_user,
+                                          color: Theme.of(context).accentColor),
                                       Text(S.current.linkCopied),
                                     ],
                                   ),

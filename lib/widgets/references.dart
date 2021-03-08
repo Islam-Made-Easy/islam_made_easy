@@ -111,7 +111,7 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
                 matchTextDirection: true,
                 image: AssetImage(isDesktop
                     ? 'assets/images/frame1.png'
-                    : 'assets/images/view_2.1.png'),
+                    : 'assets/images/blueV.png'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                   Theme.of(context).backgroundColor.withOpacity(0.4),
@@ -154,6 +154,12 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
                   front:
                       _buildCardF(S.current.hajjAuthor, () => _flip4(true), ''),
                   back: _buildCardB(() => _flip4(false), S.current.aboutJibril),
+                ),
+                FlipView(
+                  animationController: _curvedAnimation4,
+                  front:
+                      _buildCardF(S.current.fatawaAuthor2, () => _flip4(true), ''),
+                  back: _buildCardB(() => _flip4(false), S.current.aboutFatawaAuthor2),
                 ),
               ],
             ),

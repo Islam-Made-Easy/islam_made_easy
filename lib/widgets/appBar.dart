@@ -35,7 +35,6 @@ class QnAppBar extends StatelessWidget with PreferredSizeWidget {
               onPressed: Get.back,
               tooltip: MaterialLocalizations.of(context).backButtonTooltip,
             ),
-      systemOverlayStyle: SystemUiOverlayStyle.dark,
       elevation: 0,
       automaticallyImplyLeading: isDesktop,
     );

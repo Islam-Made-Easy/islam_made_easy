@@ -24,21 +24,10 @@ class _HomeState extends State<Home>
 
   @override
   void initState() {
-    // WidgetsBinding.instance.addObserver(this);
     controller = AnimationController(
         vsync: this, duration: Duration(milliseconds: 300), value: 1.0);
-    // DailyNotification().getQuoteString();
     super.initState();
   }
-
-  // @override
-  // void didChangeAppLifecycleState(AppLifecycleState state) {
-  //   super.didChangeAppLifecycleState(state);
-  //   if (state == AppLifecycleState.resumed) {
-  //     DailyNotification().init();
-  //   }
-  // }
-
   @override
   void setState(fn) {
     isPanelVisible;
@@ -70,8 +59,6 @@ class _HomeState extends State<Home>
   }
 
   Widget bothPanels(BuildContext context, BoxConstraints constraints) {
-    final double deviceHeight =
-        MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
     return Container(
       child: Stack(
         children: <Widget>[

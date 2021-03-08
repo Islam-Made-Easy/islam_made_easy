@@ -18,7 +18,6 @@ class _MainPanelState extends State<MainPanel> {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    final colorScheme = Theme.of(context).colorScheme;
     Locale locale = Localizations.localeOf(context);
     if (!isDesktop) {
       return Container(
@@ -74,38 +73,14 @@ class _MainPanelState extends State<MainPanel> {
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: ListView(
                   children: [
-                    buildCard(
-                        name: 'Tawheed',
-                        colorScheme: colorScheme,
-                        display: S.current.tawheed),
-                    buildCard(
-                        name: 'Prayer',
-                        colorScheme: colorScheme,
-                        display: S.current.prayer),
-                    buildCard(
-                        name: 'Fast',
-                        colorScheme: colorScheme,
-                        display: S.current.swaum),
-                    buildCard(
-                        name: 'Quran',
-                        colorScheme: colorScheme,
-                        display: S.current.quran),
-                    buildCard(
-                        name: 'Charity',
-                        colorScheme: colorScheme,
-                        display: S.current.zakkah),
-                    buildCard(
-                        name: 'Hajj',
-                        colorScheme: colorScheme,
-                        display: S.current.hajj),
-                    buildCard(
-                        name: 'Marriage',
-                        colorScheme: colorScheme,
-                        display: S.current.nikkah),
-                    buildCard(
-                        name: 'History',
-                        colorScheme: colorScheme,
-                        display: S.current.history),
+                    buildCard(name: 'Tawheed', display: S.current.tawheed),
+                    buildCard(name: 'Prayer', display: S.current.prayer),
+                    buildCard(name: 'Fast', display: S.current.swaum),
+                    buildCard(name: 'Quran', display: S.current.quran),
+                    buildCard(name: 'Charity', display: S.current.zakkah),
+                    buildCard(name: 'Hajj', display: S.current.hajj),
+                    buildCard(name: 'Marriage', display: S.current.nikkah),
+                    buildCard(name: 'History', display: S.current.history),
                   ],
                 ),
               ),
@@ -240,38 +215,14 @@ class _MainPanelState extends State<MainPanel> {
                       physics: ClampingScrollPhysics(),
                       scrollDirection: Axis.vertical,
                       children: [
-                        buildCard(
-                            name: 'Tawheed',
-                            colorScheme: colorScheme,
-                            display: S.current.tawheed),
-                        buildCard(
-                            name: 'Prayer',
-                            colorScheme: colorScheme,
-                            display: S.current.prayer),
-                        buildCard(
-                            name: 'Fast',
-                            colorScheme: colorScheme,
-                            display: S.current.swaum),
-                        buildCard(
-                            name: 'Quran',
-                            colorScheme: colorScheme,
-                            display: S.current.quran),
-                        buildCard(
-                            name: 'Charity',
-                            colorScheme: colorScheme,
-                            display: S.current.zakkah),
-                        buildCard(
-                            name: 'Hajj',
-                            colorScheme: colorScheme,
-                            display: S.current.hajj),
-                        buildCard(
-                            name: 'Marriage',
-                            colorScheme: colorScheme,
-                            display: S.current.nikkah),
-                        buildCard(
-                            name: 'History',
-                            colorScheme: colorScheme,
-                            display: S.current.history),
+                        buildCard(name: 'Tawheed', display: S.current.tawheed),
+                        buildCard(name: 'Prayer', display: S.current.prayer),
+                        buildCard(name: 'Fast', display: S.current.swaum),
+                        buildCard(name: 'Quran', display: S.current.quran),
+                        buildCard(name: 'Charity', display: S.current.zakkah),
+                        buildCard(name: 'Hajj', display: S.current.hajj),
+                        buildCard(name: 'Marriage', display: S.current.nikkah),
+                        buildCard(name: 'History', display: S.current.history),
                       ],
                     ),
                   ),
@@ -284,9 +235,10 @@ class _MainPanelState extends State<MainPanel> {
     }
   }
 
-  Widget buildCard({String name, colorScheme, String display}) {
+  Widget buildCard({String name, String display}) {
     final isDesktop = isDisplayDesktop(context);
     Locale locale = Localizations.localeOf(context);
+    final colorScheme = Theme.of(context).colorScheme;
     return WidgetAnimator(
       Card(
         clipBehavior: Clip.antiAlias,
