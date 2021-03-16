@@ -115,6 +115,16 @@ class S {
     );
   }
 
+  /// `An Introduction To Tawheed And Sunnah`
+  String get introductionTawheed {
+    return Intl.message(
+      'An Introduction To Tawheed And Sunnah',
+      name: 'introductionTawheed',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Advanced`
   String get advanced {
     return Intl.message(
@@ -490,6 +500,26 @@ class S {
     return Intl.message(
       'Failed to copy to clipboard',
       name: 'copyError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Customize Your Experience`
+  String get customizeExp {
+    return Intl.message(
+      'Customize Your Experience',
+      name: 'customizeExp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Interface`
+  String get interface {
+    return Intl.message(
+      'Interface',
+      name: 'interface',
       desc: '',
       args: [],
     );
@@ -5395,10 +5425,10 @@ class S {
     );
   }
 
-  /// `The well-known stages of seeking knowledge are three:\n1. For the beginners: it is to gain an understanding of the general notion of things; it is referred to as “the stage of the  mutun .  ” In\nit, the student becomes acquainted with the terminologies of the sciences, its matters, and its structure, and it is must for the student to put his effort at this stage in understanding the wordings and terminologies, he should not busy his mind with precisely determining and examining the matters.\n2. For the middle stage: it is for examining and comprehension; it is referred to as “the stage of the explanations of the  mutun .  ” In it, the student looks into the various matters, their proofs, and distinguishes what is most correct from it.\n3. For those who are firmly established: it is for expanding and ijtihad ;  it is referred to as “the state of great and detailed works.” In it, the student expands his knowledge in the branches of knowledge, and he looks at the finer matters and looks into the disagreements, etc.\n\nAs for the specific books for each stage, then this differs according to time, place,  madhhab ,  and  shaykh  . And what I am going to mention here does not have to necessarily imply to everyone.`
+  /// `The well-known stages of seeking knowledge are three:\n1. For the beginners: it is to gain an understanding of the general notion of things; it is referred to as “the stage of the  mutun. ”\nIn it, the student becomes acquainted with the terminologies of the sciences, its matters, and its structure, and it is must for the student to put his effort at this stage in understanding the wordings and terminologies, he should not busy his mind with precisely determining and examining the matters.\n2. For the middle stage: it is for examining and comprehension; it is referred to as “the stage of the explanations of the  mutun .  ” In it, the student looks into the various matters, their proofs, and distinguishes what is most correct from it.\n3. For those who are firmly established: it is for expanding and ijtihad ;  it is referred to as “the state of great and detailed works.” In it, the student expands his knowledge in the branches of knowledge, and he looks at the finer matters and looks into the disagreements, etc.\n\nAs for the specific books for each stage, then this differs according to time, place,  madhhab ,  and  shaykh  . And what I am going to mention here does not have to necessarily imply to everyone.`
   String get succinctSub11Par2 {
     return Intl.message(
-      'The well-known stages of seeking knowledge are three:\n1. For the beginners: it is to gain an understanding of the general notion of things; it is referred to as “the stage of the  mutun .  ” In\nit, the student becomes acquainted with the terminologies of the sciences, its matters, and its structure, and it is must for the student to put his effort at this stage in understanding the wordings and terminologies, he should not busy his mind with precisely determining and examining the matters.\n2. For the middle stage: it is for examining and comprehension; it is referred to as “the stage of the explanations of the  mutun .  ” In it, the student looks into the various matters, their proofs, and distinguishes what is most correct from it.\n3. For those who are firmly established: it is for expanding and ijtihad ;  it is referred to as “the state of great and detailed works.” In it, the student expands his knowledge in the branches of knowledge, and he looks at the finer matters and looks into the disagreements, etc.\n\nAs for the specific books for each stage, then this differs according to time, place,  madhhab ,  and  shaykh  . And what I am going to mention here does not have to necessarily imply to everyone.',
+      'The well-known stages of seeking knowledge are three:\n1. For the beginners: it is to gain an understanding of the general notion of things; it is referred to as “the stage of the  mutun. ”\nIn it, the student becomes acquainted with the terminologies of the sciences, its matters, and its structure, and it is must for the student to put his effort at this stage in understanding the wordings and terminologies, he should not busy his mind with precisely determining and examining the matters.\n2. For the middle stage: it is for examining and comprehension; it is referred to as “the stage of the explanations of the  mutun .  ” In it, the student looks into the various matters, their proofs, and distinguishes what is most correct from it.\n3. For those who are firmly established: it is for expanding and ijtihad ;  it is referred to as “the state of great and detailed works.” In it, the student expands his knowledge in the branches of knowledge, and he looks at the finer matters and looks into the disagreements, etc.\n\nAs for the specific books for each stage, then this differs according to time, place,  madhhab ,  and  shaykh  . And what I am going to mention here does not have to necessarily imply to everyone.',
       name: 'succinctSub11Par2',
       desc: '',
       args: [],
@@ -5615,10 +5645,10 @@ class S {
     );
   }
 
-  /// `1. All of the writings of Shaykhul-Islam ibn Taymiyyah and his student ibnul-Qayyim رحمه الله, as their works are based upon the understanding of the Book and Sunnah, and they are the mainstay of the  salafi  methodology. 5\n2. All of the writings of al-Hafidh adh-Dhahabi(رحمه الله)  , as he is, indeed, a investigative researcher.\n3. All of the writings of al-Hafith ibn Rajab(رحمه الله)  , in particular:  Fath al-Bari ,   Sharh al-‘Ilal  ,  Jami’ al- ‘Ulum  , and\nAl-Qawa‘id ,  due to the benefits found in them that can not be found elsewhere.\n4. Fath al-Bari by al-Hafidh ibn Hajr, as it is not just an elaboration of [ Sahih ]   al-Bukhari  , rather, it is an explanation of all the books of  sihah (  pl. of  sahih  ),  sunan  , and  masanid (pl. of musnad  ); and it is the mainstay for the commentators of  hadith after him`
+  /// `1. All of the writings of Shaykhul-Islam ibn Taymiyyah and his student ibnul-Qayyim رحمه الله, as their works are based upon the understanding of the Book and Sunnah, and they are the mainstay of the  salafi  methodology. 5\n2. All of the writings of al-Hafidh adh-Dhahabi(رحمه الله)  , as he is, indeed, a investigative researcher.\n3. All of the writings of al-Hafith ibn Rajab(رحمه الله)  , in particular:  Fath al-Bari ,   Sharh al-‘Ilal  ,  Jami’ al- ‘Ulum  , and Al-Qawa‘id, due to the benefits found in them that can not be found elsewhere.\n4. Fath al-Bari by al-Hafidh ibn Hajr, as it is not just an elaboration of [ Sahih ]   al-Bukhari  , rather, it is an explanation of all the books of  sihah (  pl. of  sahih  ),  sunan  , and  masanid (pl. of musnad  ); and it is the mainstay for the commentators of  hadith after him`
   String get succinctSub14aPar2 {
     return Intl.message(
-      '1. All of the writings of Shaykhul-Islam ibn Taymiyyah and his student ibnul-Qayyim رحمه الله, as their works are based upon the understanding of the Book and Sunnah, and they are the mainstay of the  salafi  methodology. 5\n2. All of the writings of al-Hafidh adh-Dhahabi(رحمه الله)  , as he is, indeed, a investigative researcher.\n3. All of the writings of al-Hafith ibn Rajab(رحمه الله)  , in particular:  Fath al-Bari ,   Sharh al-‘Ilal  ,  Jami’ al- ‘Ulum  , and\nAl-Qawa‘id ,  due to the benefits found in them that can not be found elsewhere.\n4. Fath al-Bari by al-Hafidh ibn Hajr, as it is not just an elaboration of [ Sahih ]   al-Bukhari  , rather, it is an explanation of all the books of  sihah (  pl. of  sahih  ),  sunan  , and  masanid (pl. of musnad  ); and it is the mainstay for the commentators of  hadith after him',
+      '1. All of the writings of Shaykhul-Islam ibn Taymiyyah and his student ibnul-Qayyim رحمه الله, as their works are based upon the understanding of the Book and Sunnah, and they are the mainstay of the  salafi  methodology. 5\n2. All of the writings of al-Hafidh adh-Dhahabi(رحمه الله)  , as he is, indeed, a investigative researcher.\n3. All of the writings of al-Hafith ibn Rajab(رحمه الله)  , in particular:  Fath al-Bari ,   Sharh al-‘Ilal  ,  Jami’ al- ‘Ulum  , and Al-Qawa‘id, due to the benefits found in them that can not be found elsewhere.\n4. Fath al-Bari by al-Hafidh ibn Hajr, as it is not just an elaboration of [ Sahih ]   al-Bukhari  , rather, it is an explanation of all the books of  sihah (  pl. of  sahih  ),  sunan  , and  masanid (pl. of musnad  ); and it is the mainstay for the commentators of  hadith after him',
       name: 'succinctSub14aPar2',
       desc: '',
       args: [],

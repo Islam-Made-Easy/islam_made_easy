@@ -38,7 +38,7 @@ class _MainPanelState extends State<MainPanel> {
                         icon: FaIcon(
                             FontAwesomeIcons.bookOpen..matchTextDirection),
                         splashRadius: 20,
-                        onPressed: () => Get.to(Succinct()),
+                        onPressed: () => Get.to(() => Succinct()),
                       ),
                       elevation: 0,
                       iconTheme: IconThemeData(color: Colors.black),
@@ -47,7 +47,7 @@ class _MainPanelState extends State<MainPanel> {
                         IconButton(
                           icon: FaIcon(FontAwesomeIcons.cog),
                           splashRadius: 20,
-                          onPressed: () => Get.to(Settings()),
+                          onPressed: () => Get.to(() => Settings()),
                         ),
                       ],
                     ),
@@ -73,14 +73,14 @@ class _MainPanelState extends State<MainPanel> {
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: ListView(
                   children: [
-                    buildCard(name: 'Tawheed', display: S.current.tawheed),
-                    buildCard(name: 'Prayer', display: S.current.prayer),
-                    buildCard(name: 'Fast', display: S.current.swaum),
-                    buildCard(name: 'Quran', display: S.current.quran),
-                    buildCard(name: 'Charity', display: S.current.zakkah),
-                    buildCard(name: 'Hajj', display: S.current.hajj),
-                    buildCard(name: 'Marriage', display: S.current.nikkah),
-                    buildCard(name: 'History', display: S.current.history),
+                    buildCard('Tawheed', S.current.tawheed),
+                    buildCard('Prayer', S.current.prayer),
+                    buildCard('Fast', S.current.swaum),
+                    buildCard('Qur\'an', S.current.quran),
+                    buildCard('Charity', S.current.zakkah),
+                    buildCard('Hajj', S.current.hajj),
+                    buildCard('Marriage', S.current.nikkah),
+                    buildCard('History', S.current.history),
                   ],
                 ),
               ),
@@ -95,10 +95,7 @@ class _MainPanelState extends State<MainPanel> {
           child: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [
-                  Theme.of(context).primaryColorDark,
-                  Theme.of(context).backgroundColor,
-                ],
+                colors: [Get.theme.primaryColorDark, Get.theme.backgroundColor],
                 tileMode: TileMode.repeated,
                 begin: locale.languageCode == 'ar'
                     ? Alignment.topRight
@@ -116,8 +113,8 @@ class _MainPanelState extends State<MainPanel> {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        Theme.of(context).primaryColorDark,
-                        Theme.of(context).backgroundColor,
+                        Get.theme.primaryColorDark,
+                        Get.theme.backgroundColor
                       ],
                       begin: locale.languageCode == 'ar'
                           ? Alignment.topRight
@@ -157,8 +154,8 @@ class _MainPanelState extends State<MainPanel> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          Theme.of(context).primaryColorDark,
-                          Theme.of(context).backgroundColor,
+                          Get.theme.primaryColorDark,
+                          Get.theme.backgroundColor
                         ],
                         begin: locale.languageCode == 'ar'
                             ? Alignment.topRight
@@ -190,8 +187,8 @@ class _MainPanelState extends State<MainPanel> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          Theme.of(context).primaryColorDark,
-                          Theme.of(context).backgroundColor,
+                          Get.theme.primaryColorDark,
+                          Get.theme.backgroundColor
                         ],
                         begin: locale.languageCode == 'ar'
                             ? Alignment.topRight
@@ -215,14 +212,14 @@ class _MainPanelState extends State<MainPanel> {
                       physics: ClampingScrollPhysics(),
                       scrollDirection: Axis.vertical,
                       children: [
-                        buildCard(name: 'Tawheed', display: S.current.tawheed),
-                        buildCard(name: 'Prayer', display: S.current.prayer),
-                        buildCard(name: 'Fast', display: S.current.swaum),
-                        buildCard(name: 'Quran', display: S.current.quran),
-                        buildCard(name: 'Charity', display: S.current.zakkah),
-                        buildCard(name: 'Hajj', display: S.current.hajj),
-                        buildCard(name: 'Marriage', display: S.current.nikkah),
-                        buildCard(name: 'History', display: S.current.history),
+                        buildCard('Tawheed', S.current.tawheed),
+                        buildCard('Prayer', S.current.prayer),
+                        buildCard('Fast', S.current.swaum),
+                        buildCard('Quran', S.current.quran),
+                        buildCard('Charity', S.current.zakkah),
+                        buildCard('Hajj', S.current.hajj),
+                        buildCard('Marriage', S.current.nikkah),
+                        buildCard('History', S.current.history),
                       ],
                     ),
                   ),
@@ -235,10 +232,10 @@ class _MainPanelState extends State<MainPanel> {
     }
   }
 
-  Widget buildCard({String name, String display}) {
+  Widget buildCard(String name, String display) {
     final isDesktop = isDisplayDesktop(context);
     Locale locale = Localizations.localeOf(context);
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Get.theme.colorScheme;
     return WidgetAnimator(
       Card(
         clipBehavior: Clip.antiAlias,
@@ -260,9 +257,7 @@ class _MainPanelState extends State<MainPanel> {
                 ),
                 splashRadius: isDesktop ? 20 : 30,
                 onPressed: () => isDesktop
-                    ? Get.dialog(FetchQuestions(
-                        name: name,
-                      ))
+                    ? Get.dialog(FetchQuestions(name: name))
                     : Get.to(FetchQuestions(name: name))),
           ),
           title: Text(

@@ -620,7 +620,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle13,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Jamarat.jpg',
                   ),
                   title: S.current.hajjSubTitle13,
                   data: [
@@ -641,14 +641,14 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     ViewText(data: S.current.hajjSub13Par8),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Jamarat.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 60),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle14,
-                    img: 'assets/images/Hajj.png',
+                    img:  'assets/images/thwaf.jpg',
                   ),
                   title: S.current.hajjSubTitle14,
                   data: [
@@ -689,10 +689,9 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     ViewText(data: S.current.hajjSub14Par11),
                     ViewText(data: S.current.hajjSub14Par12),
                     ViewText(data: S.current.hajjSub14Par13),
-                    // Image.asset('assets/images/uncover.png')
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image:  'assets/images/thwaf.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 60),
                 OpenContainerWrapper(
@@ -745,7 +744,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle16,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/thwaf.jpg',
                   ),
                   title: S.current.hajjSubTitle16,
                   data: [
@@ -756,7 +755,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     ViewText(data: S.current.hajjSub16Par3),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/thwaf.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 60),
                 OpenContainerWrapper(
@@ -913,4 +912,3 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
     );
   }
 }
-

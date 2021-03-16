@@ -40,28 +40,27 @@ class _NavigationPanelState extends State<NavigationPanel> {
         children: <Widget>[
           drawerTile(
               S.current.prerequisite,
-              () => Get.to(Succinct(), transition: Transition.size),
+              () => Get.to(() => Succinct(), transition: Transition.size),
               PixIcon.typcn_document_text),
           drawerTile(
               S.current.questionsAndAnswers,
-              () => Get.to(QnA(), transition: Transition.size),
+              () => Get.to(() => QnA(), transition: Transition.size),
               PixIcon.fab_quinscape),
           drawerTile(
               S.current.generalKnowledge,
-              () => Get.to(GeneralKnowledge(), transition: Transition.size),
+              () =>
+                  Get.to(() => GeneralKnowledge(), transition: Transition.size),
               PixIcon.pix_book),
           drawerTile(
               S.current.references,
-              () => Get.to(References(), transition: Transition.size),
+              () => Get.to(() => References(), transition: Transition.size),
               FontAwesomeIcons.scroll),
           drawerTile(
               S.current.shortPhrases,
-              () => Get.to(ShortPhrases(), transition: Transition.size),
+              () => Get.to(() => ShortPhrases(), transition: Transition.size),
               PixIcon.fab_ussunnah),
-          drawerTile(
-              S.current.about,
-              () => about.showAboutDialog(context: context),
-              PixIcon.pix_info)
+          drawerTile(S.current.about,
+              () => about.showAboutDialog(context: context), PixIcon.pix_info)
         ],
       ),
     );

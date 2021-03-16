@@ -27,19 +27,23 @@ class _SuccinctState extends State<Succinct> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: ListView(
-            padding:
-                EdgeInsets.symmetric(horizontal: isDesktop ? 30 : 1, vertical: 20),
+            padding: EdgeInsets.symmetric(
+                horizontal: isDesktop ? 30 : 1, vertical: 20),
             children: [
-              Center(
-                  child: SelectableText(
-                S.current.prerequisiteTitle,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    // color: Color(0xffC19C4D),
-                    fontFamily: 'Quattrocento'),
-              )),
+              AppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                title: Center(
+                    child: SelectableText(
+                  S.current.prerequisiteTitle,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      // fontWeight: FontWeight.bold,
+                      fontSize: isDesktop ? 30 : 20,
+                      // color: Color(0xffC19C4D),
+                      fontFamily: 'Quattrocento'),
+                )),
+              ),
               SizedBox(height: 10),
               Card(
                 margin: EdgeInsets.all(20),

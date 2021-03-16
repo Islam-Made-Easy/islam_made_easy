@@ -9,7 +9,6 @@ import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:islam_made_easy/locale/localePro.dart';
 import 'package:islam_made_easy/settings/settings_radio.dart';
-import 'package:islam_made_easy/theme/theme.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
@@ -63,7 +62,7 @@ class _SettingsState extends State<Settings> {
         centerTitle: true,
         backgroundColor:
             isDesktop ? Colors.transparent : Theme.of(context).primaryColorDark,
-        elevation: isDesktop ? 0 : 4,
+        elevation: 0,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
@@ -71,8 +70,8 @@ class _SettingsState extends State<Settings> {
           vertical: isDesktop ? 30 : 8.0,
         ),
         children: [
-          _SettingsTitle(title: 'Customize Your experience'),
-          _SettingsTitle(title: 'Interface'),
+          _SettingsTitle(title: S.current.customizeExp),
+          _SettingsTitle(title: S.current.interface),
           Divider(endIndent: 30, indent: 30, height: 20),
           WidgetAnimator(
               Card(child: _chooseTheme(), color: Theme.of(context).cardColor)),
@@ -240,42 +239,6 @@ class _SettingsState extends State<Settings> {
       // subtitle: Text('Choose to join the brighter side'),
       children: <Widget>[Wrap(children: themeChildren)],
     );
-  }
-
-  String getLanguageUiString(String languageCode) {
-    String uiString = S.current.systemDefault;
-    switch (languageCode.toLowerCase()) {
-      case 'en':
-        uiString = S.current.english;
-        break;
-      case 'ar':
-        uiString = S.current.arabic;
-        break;
-      case 'bs':
-        uiString = S.current.bosnian;
-        break;
-      case 'da':
-        uiString = S.current.danish;
-        break;
-      case 'de':
-        uiString = S.current.deutsch;
-        break;
-      case 'hi':
-        uiString = S.current.hindi;
-        break;
-      case 'hr':
-        uiString = S.current.croatian;
-        break;
-      case 'id':
-        uiString = S.current.indonesia;
-        break;
-      case 'sr':
-        uiString = S.current.serbia;
-        break;
-      case 'sw':
-        uiString = S.current.swahili;
-    }
-    return uiString;
   }
 }
 

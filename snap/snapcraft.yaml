@@ -1,21 +1,26 @@
 name: islam-made-easy
 version: 0.1.0
-summary: islam made easy
+summary: Islam Made Easy
 description: Islamic Quiz application that let you understand your religion easier.
 
 confinement: strict
 base: core18
 grade: stable
-icon: snap/gui/logo.png
+
+slots:
+  dbus-islam-made-easy: # adjust accordingly to your app name
+    interface: dbus
+    bus: session
+    name: islam-made-easy # adjust accordingly to your app name and
 
 apps:
   islam-made-easy:
-    command: ime
+    command: islam_made_easy
     extensions: [flutter-master] # Where "master" defines which Flutter channel to use for the build
     plugs:
       - network
-      - desktop
-
+    slots:
+      - dbus-islam-made-easy
 parts:
   islam-made-easy:
     source: .

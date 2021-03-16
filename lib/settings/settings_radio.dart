@@ -52,40 +52,40 @@ class _SettingsRadioState extends State<SettingsRadio> {
       ),
     );
   }
+}
 
-  String getLanguageUiString(String languageCode) {
-    String uiString = S.current.systemDefault;
-    switch (languageCode.toLowerCase()) {
-      case 'en':
-        uiString = S.current.english;
-        break;
-      case 'ar':
-        uiString = S.current.arabic;
-        break;
-      case 'bs':
-        uiString = S.current.bosnian;
-        break;
-      case 'da':
-        uiString = S.current.danish;
-        break;
-      case 'de':
-        uiString = S.current.deutsch;
-        break;
-      case 'hi':
-        uiString = S.current.hindi;
-        break;
-      case 'hr':
-        uiString = S.current.croatian;
-        break;
-      case 'id':
-        uiString = S.current.indonesia;
-        break;
-      case 'sr':
-        uiString = S.current.serbia;
-        break;
-      case 'sw':
-        uiString = S.current.swahili;
-    }
-    return uiString;
+String getLanguageUiString(String languageCode) {
+  String uiString = S.current.systemDefault;
+  switch (languageCode.toLowerCase()) {
+    case 'en':
+      uiString = S.current.english;
+      break;
+    case 'ar':
+      uiString = S.current.arabic;
+      break;
+    case 'bs':
+      uiString = S.current.bosnian;
+      break;
+    case 'da':
+      uiString = S.current.danish;
+      break;
+    case 'de':
+      uiString = S.current.deutsch;
+      break;
+    case 'hi':
+      uiString = S.current.hindi;
+      break;
+    case 'hr':
+      uiString = S.current.croatian;
+      break;
+    case 'id':
+      uiString = S.current.indonesia;
+      break;
+    case 'sr':
+      uiString = S.current.serbia;
+      break;
+    case 'sw':
+      uiString = S.current.swahili;
   }
+  return uiString;
 }
