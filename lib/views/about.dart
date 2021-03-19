@@ -9,6 +9,7 @@ import 'package:grafpix/icons.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
+import 'package:islam_made_easy/widgets/buttons/shareButton.dart';
 import 'package:islam_made_easy/widgets/listHeader.dart';
 import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -114,83 +115,52 @@ class _AboutAppState extends State<AboutApp> {
                 ? Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xffF59E1B),
-                          borderRadius:
-                              BorderRadius.circular(isDesktop ? 50 : 20),
-                        ),
-                        child: IconButton(
-                          tooltip: 'Mail',
-                          splashRadius: isDesktop ? 10 : 20,
-                          icon: Icon(PixIcon.mail, color: Colors.white),
-                          onPressed: () => launchURL(
-                              'mailto:?subject=$name&body=${S.current.salam} $name ${S.current.shareText}. ${S.current.shareGetStoreText} https://snapcraft.io/islam-made-easy'),
-                        ),
+                      ShareButtons(
+                        color: Color(0xffF59E1B),
+                        tip: 'Mail',
+                        icon: PixIcon.mail,
+                        onPressed: () => launchURL(
+                            'mailto:?subject=$name&body=${S.current.salam} $name ${S.current.shareText}. ${S.current.shareGetStoreText} https://snapcraft.io/islam-made-easy'),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xff294C8C),
-                          borderRadius:
-                              BorderRadius.circular(isDesktop ? 50 : 20),
-                        ),
-                        child: IconButton(
-                          tooltip: 'Facebook',
-                          splashRadius: isDesktop ? 10 : 20,
-                          icon: Icon(PixIcon.pix_facebook, color: Colors.white),
-                          onPressed: () => launchURL(
-                              'https://www.facebook.com/sharer/sharer.php?t=${S.current.salam} $name ${S.current.shareText}&quote=${S.current.shareGetStoreText}&ref=fbshare&u=https://snapcraft.io/islam-made-easy'),
-                        ),
+                      ShareButtons(
+                        color: Color(0xff294C8C),
+                        tip: 'Facebook',
+                        icon: PixIcon.pix_facebook,
+                        onPressed: () => launchURL(
+                            'https://www.facebook.com/sharer/sharer.php?t=${S.current.salam} $name ${S.current.shareText}&quote=${S.current.shareGetStoreText}&ref=fbshare&u=https://snapcraft.io/islam-made-easy'),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xff67C15E),
-                          borderRadius:
-                              BorderRadius.circular(isDesktop ? 50 : 20),
-                        ),
-                        child: IconButton(
-                          tooltip: 'WhatsApp',
-                          splashRadius: isDesktop ? 10 : 20,
-                          icon: Icon(
-                            PixIcon.pix_whatsapp,
-                            color: Colors.white,
-                          ),
-                          onPressed: () => launchURL(
-                              'https://wa.me/?text=${S.current.salam}\n$name ${S.current.shareText}.\n${S.current.shareGetStoreText} https://snapcraft.io/islam-made-easy'),
-                        ),
+                      ShareButtons(
+                        color: Color(0xff67C15E),
+                        tip: 'WhatsApp',
+                        icon: PixIcon.pix_whatsapp,
+                        onPressed: () => launchURL(
+                            'https://wa.me/?text=${S.current.salam}\n$name ${S.current.shareText}.\n${S.current.shareGetStoreText} https://snapcraft.io/islam-made-easy'),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
+                      ShareButtons(
                           color: Color(0xffA2A2A2),
-                          borderRadius:
-                              BorderRadius.circular(isDesktop ? 50 : 20),
-                        ),
-                        child: IconButton(
-                            tooltip: MaterialLocalizations.of(context)
-                                .copyButtonLabel,
-                            splashRadius: isDesktop ? 10 : 20,
-                            icon: Icon(PixIcon.pix_link, color: Colors.white),
-                            onPressed: () {
-                              HapticFeedback.heavyImpact();
-                              Clipboard.setData(
-                                ClipboardData(
-                                    text:
-                                        '${S.current.salam}\n$name ${S.current.shareText}.\n${S.current.shareGetStoreText}: https://snapcraft.io/islam-made-easy'),
-                              ).then(
-                                (value) => Get.snackbar(
-                                  S.current.copiedToClipboardTitle,
-                                  S.current.linkCopied,
-                                  messageText: Row(
-                                    children: [
-                                      FaIcon(Icons.verified_user,
-                                          color: Theme.of(context).accentColor),
-                                      Text(S.current.linkCopied),
-                                    ],
-                                  ),
+                          tip:
+                              MaterialLocalizations.of(context).copyButtonLabel,
+                          icon: PixIcon.pix_link,
+                          onPressed: () {
+                            HapticFeedback.heavyImpact();
+                            Clipboard.setData(
+                              ClipboardData(
+                                  text:
+                                      '${S.current.salam}\n$name ${S.current.shareText}.\n${S.current.shareGetStoreText}: https://snapcraft.io/islam-made-easy'),
+                            ).then(
+                              (value) => Get.snackbar(
+                                S.current.copiedToClipboardTitle,
+                                S.current.linkCopied,
+                                messageText: Row(
+                                  children: [
+                                    FaIcon(Icons.verified_user,
+                                        color: Theme.of(context).accentColor),
+                                    Text(S.current.linkCopied),
+                                  ],
                                 ),
-                              );
-                            }),
-                      ),
+                              ),
+                            );
+                          }),
                     ],
                   )
                 : Container()
