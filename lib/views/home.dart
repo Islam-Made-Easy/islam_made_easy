@@ -2,7 +2,6 @@ import 'package:double_back_to_close/double_back_to_close.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:islam_made_easy/services/daily.dart';
 import 'package:islam_made_easy/widgets/desktopNav.dart';
 import 'package:islam_made_easy/widgets/panels/mainPanel.dart';
 import 'package:islam_made_easy/widgets/panels/nav_panel.dart';
@@ -17,8 +16,7 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home>
-    with TickerProviderStateMixin {
+class _HomeState extends State<Home> with TickerProviderStateMixin {
   AnimationController controller;
   static const header_height = 100.0;
 
@@ -28,6 +26,7 @@ class _HomeState extends State<Home>
         vsync: this, duration: Duration(milliseconds: 300), value: 1.0);
     super.initState();
   }
+
   @override
   void setState(fn) {
     isPanelVisible;
@@ -85,16 +84,17 @@ class _HomeState extends State<Home>
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final isTablet = isDisplaySmallDesktop(context);
+    final theme = Theme.of(context).backgroundColor;
     if (isDesktop) {
       return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: theme,
         body: DesktopNav(extended: !isTablet),
       );
     } else {
       return DoubleBack(
         onFirstBackPress: (context) => Get.snackbar('😊️', "Smile It's Sunnah"),
         child: Scaffold(
-          backgroundColor: Theme.of(context).backgroundColor,
+          backgroundColor: theme,
           appBar: AppBar(
             title: LText(
               isPanelVisible
