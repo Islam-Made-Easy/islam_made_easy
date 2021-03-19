@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:islam_made_easy/routes/app_route.dart';
 import 'package:islam_made_easy/theme/theme.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
@@ -31,6 +30,7 @@ void main() async {
   // await DailyNotification().init();
   // await DailyNotification().getQuoteString();
   StatusbarUtil.setTranslucent();
+  // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
   // Portrait only
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -44,8 +44,8 @@ void main() async {
     // setWindowMaxSize(Size.infinite);
   }
   final providers = Providers()
-    ..provide(Provider.value(LocaleProvide()))..provide(
-        Provider.value(ThemeProvide()));
+    ..provide(Provider.value(LocaleProvide()))
+    ..provide(Provider.value(ThemeProvide()));
   runApp(Phoenix(child: ProviderNode(providers: providers, child: IMEApp())));
 }
 
@@ -67,6 +67,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     await appSP.init();
     int statusCode = 412;
     int themeIndex = SpUtil.getThemeIndex();
+    var currentDay = DateTime.now().weekday;
     if (themeIndex != null) {
       Provide.value<ThemeProvide>(context).changeTheme(themeIndex);
     }
@@ -78,10 +79,17 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       if (statusCode == 412)
         NativeUpdater.displayUpdateAlert(context, forceUpdate: true);
     });
-    if (DateTime.now() == DateTime.now()) {
-      isCelebration = false;
+
+    /// Checks Eid Day to display reminders:
+    /// The Messenger of Allāh ﷺ said:
+    /// “Verily, Allah has made this day (of Friday) a celebration for the Muslims.
+    /// So whoever comes to Friday (prayer), then let him bathe himself,
+    /// and if he has any perfume let him put some on, and use the toothstick.”
+    if (currentDay == DateTime.thursday || currentDay == DateTime.friday) {
+      setState(() {
+        isCelebration = true;
+      });
     }
-    print("Today: ${DateTime.now()}");
   }
 
   Locale localeCallback(locale, supportedLocales) {
@@ -101,38 +109,37 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     final base = ThemeData.light();
     return Provide<LocaleProvide>(
         builder: (BuildContext context, Widget child, localeProvide) {
-          return Provide<ThemeProvide>(
-              builder: (BuildContext context, Widget child, themeProvide) {
-                return GetMaterialApp(
-                  title: 'Islam Made Easy',
-                  locale: localeProvide.locale,
-                  localeResolutionCallback: localeCallback,
-                  theme: themeProvide.themeData.copyWith(
-                      textTheme: buildTextTheme(
-                          base.textTheme, Color(0xFF333333),
-                          Color(0xFF17262A))),
-                  localizationsDelegates: [
-                    S.delegate,
-                    GlobalMaterialLocalizations.delegate,
-                    GlobalWidgetsLocalizations.delegate,
-                    GlobalCupertinoLocalizations.delegate,
-                  ],
-                  builder: (BuildContext context, Widget widget) {
-                    ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
-                      return getErrorWidget(context, errorDetails);
-                    };
-                    return widget;
-                  },
-                  navigatorObservers: [appRoute],
-                  routes: appRoute.routes,
-                  onGenerateRoute: appRoute.generateRoute,
-                  onGenerateTitle: (context) => S.current.appTitle,
-                  supportedLocales: S.delegate.supportedLocales,
-                  home: QuickUtil(child: Home()),
-                  debugShowCheckedModeBanner: false,
-                );
-              });
-        });
+      return Provide<ThemeProvide>(
+          builder: (BuildContext context, Widget child, themeProvide) {
+        return GetMaterialApp(
+          title: 'Islam Made Easy',
+          locale: localeProvide.locale,
+          localeResolutionCallback: localeCallback,
+          theme: themeProvide.themeData.copyWith(
+              textTheme: buildTextTheme(
+                  base.textTheme, Color(0xFF333333), Color(0xFF17262A))),
+          localizationsDelegates: [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          builder: (BuildContext context, Widget widget) {
+            ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
+              return getErrorWidget(context, errorDetails);
+            };
+            return widget;
+          },
+          navigatorObservers: [appRoute],
+          routes: appRoute.routes,
+          onGenerateRoute: appRoute.generateRoute,
+          onGenerateTitle: (context) => S.current.appTitle,
+          supportedLocales: S.delegate.supportedLocales,
+          home: QuickUtil(child: isCelebration ? SplashView() : Home()),
+          debugShowCheckedModeBanner: false,
+        );
+      });
+    });
   }
 
   Widget getErrorWidget(BuildContext context, FlutterErrorDetails error) {
