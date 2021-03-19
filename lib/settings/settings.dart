@@ -61,7 +61,7 @@ class _SettingsState extends State<Settings> {
         automaticallyImplyLeading: isDesktop ? false : true,
         centerTitle: true,
         backgroundColor:
-            isDesktop ? Colors.transparent : Theme.of(context).primaryColorDark,
+            isDesktop ? Colors.transparent : Theme.of(context).appBarTheme.color,
         elevation: 0,
       ),
       body: ListView(
