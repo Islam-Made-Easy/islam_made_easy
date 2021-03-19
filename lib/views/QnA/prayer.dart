@@ -4,7 +4,7 @@ import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/widgets/appBar.dart';
 import 'package:islam_made_easy/widgets/chipWidget.dart';
 import 'package:islam_made_easy/widgets/infoCard.dart';
-import 'package:islam_made_easy/widgets/tileButton.dart';
+import 'package:islam_made_easy/widgets/buttons/tileButton.dart';
 import 'package:islam_made_easy/widgets/viewText.dart';
 
 import '../../layout/adaptive.dart';
