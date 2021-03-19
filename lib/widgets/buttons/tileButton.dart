@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 
-import 'anim/anim.dart';
+import '../anim/anim.dart';
 
 class SettingsLinkButton extends StatelessWidget {
   final String title;
