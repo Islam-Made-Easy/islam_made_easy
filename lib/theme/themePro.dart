@@ -9,7 +9,9 @@ class ThemeProvide with ChangeNotifier {
 
   ThemeData _themeData = ThemeData(
     primarySwatch: Colors.primaries[DEFAULT_THEME_INDEX],
-    cursorColor: Colors.primaries[DEFAULT_THEME_INDEX],
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: Colors.primaries[DEFAULT_THEME_INDEX],
+    ),
     fontFamily: 'Amiri',
     textTheme: TextTheme(
       bodyText1: TextStyle(
@@ -62,7 +64,9 @@ class ThemeProvide with ChangeNotifier {
       this._themeIndex = themeIndex;
       this._themeData = ThemeData(
         primarySwatch: Colors.primaries[themeIndex],
-        cursorColor: Colors.primaries[themeIndex],
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: Colors.primaries[themeIndex],
+        ),
       );
       _overlayStyle = SystemUiOverlayStyle.light.copyWith(
         statusBarColor: Colors.primaries[themeIndex],
