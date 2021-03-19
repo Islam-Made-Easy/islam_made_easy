@@ -1,39 +1,42 @@
 import 'dart:math';
 
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart'
+    as notifier;
 
 class DailyNotification {
-  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
+  notifier.FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
   String author = "";
   String quote = "";
 
   init() async {
     var initializationSettingsAndroid =
-        AndroidInitializationSettings("@drawable/log");
-    var initializationSettingsIOS = IOSInitializationSettings();
-    var initSetttings = InitializationSettings(
+        notifier.AndroidInitializationSettings("@drawable/log");
+    var initializationSettingsIOS = notifier.IOSInitializationSettings(
+      requestAlertPermission: false,
+      requestBadgePermission: false,
+      requestSoundPermission: false,
+    );
+    var initSettings = notifier.InitializationSettings(
         initializationSettingsAndroid, initializationSettingsIOS);
-    var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+    var androidPlatformChannelSpecifics = notifier.AndroidNotificationDetails(
       'repeating channel id',
       'repeating channel name',
       'repeating description',
-      playSound: true,
       enableVibration: true,
-      styleInformation: BigTextStyleInformation(''),
+      styleInformation: notifier.BigTextStyleInformation(''),
     );
-    var iOSPlatformChannelSpecifics = IOSNotificationDetails();
-    var platformChannelSpecifics = NotificationDetails(
+    var iOSPlatformChannelSpecifics = notifier.IOSNotificationDetails();
+    var platformChannelSpecifics = notifier.NotificationDetails(
         androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
 
-    flutterLocalNotificationsPlugin.initialize(initSetttings,
+    flutterLocalNotificationsPlugin.initialize(initSettings,
         onSelectNotification: onSelectNotification);
     flutterLocalNotificationsPlugin.periodicallyShow(
       0,
       "Reminder",
       getQuoteString(),
-      RepeatInterval.Hourly,
+      notifier.RepeatInterval.Hourly,
       platformChannelSpecifics,
     );
   }
