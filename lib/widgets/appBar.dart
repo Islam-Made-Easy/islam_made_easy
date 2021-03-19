@@ -24,7 +24,7 @@ class QnAppBar extends StatelessWidget with PreferredSizeWidget {
       centerTitle: true,
       backwardsCompatibility: false,
       backgroundColor:
-          isDesktop ? Colors.transparent : Theme.of(context).primaryColorDark,
+          isDesktop ? Colors.transparent : Theme.of(context).appBarTheme.color,
       leading: isDesktop
           ? null
           : IconButton(
