@@ -95,40 +95,40 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
+    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor:
-          isDesktop ? Theme.of(context).backgroundColor : Color(0xffEEF1FA),
+      backgroundColor: isDesktop ? theme.backgroundColor : Color(0xffEEF1FA),
+      appBar: AppBar(
+        title: Text(S.current.references),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor:
+            isDesktop ? Colors.transparent : theme.appBarTheme.color,
+      ),
       body: ListView(
         padding: EdgeInsets.symmetric(
             horizontal: isDesktop ? 10 : 0, vertical: isDesktop ? 50 : 0),
         children: [
           Container(
-            decoration: BoxDecoration(
-              color: Color(0xFFFAFAFC).withOpacity(0.2),
-              border: Border.all(color: Theme.of(context).backgroundColor),
-              borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(
-                matchTextDirection: true,
-                image: AssetImage(isDesktop
-                    ? 'assets/images/frame1.png'
-                    : 'assets/images/blueV.png'),
-                fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(
-                  Theme.of(context).backgroundColor.withOpacity(0.4),
-                  BlendMode.colorBurn,
-                ),
-              ),
-            ),
+            decoration: isDesktop
+                ? BoxDecoration(
+                    color: Color(0xFFFAFAFC).withOpacity(0.2),
+                    border: Border.all(color: theme.backgroundColor),
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      matchTextDirection: true,
+                      image: AssetImage('assets/images/frame1.png'),
+                      fit: BoxFit.cover,
+                      colorFilter: ColorFilter.mode(
+                        theme.backgroundColor.withOpacity(0.4),
+                        BlendMode.colorBurn,
+                      ),
+                    ),
+                  )
+                : BoxDecoration(color: theme.backgroundColor),
             padding: EdgeInsets.all(isDesktop ? 42 : 10),
             child: Column(
               children: [
-                AppBar(
-                  title: Text(S.current.references),
-                  centerTitle: true,
-                  elevation: 0,
-                  backgroundColor: Colors.transparent,
-                ),
-                SizedBox(height: 40),
                 FlipView(
                   animationController: _curvedAnimation1,
                   front: _buildCardF(
@@ -157,9 +157,10 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
                 ),
                 FlipView(
                   animationController: _curvedAnimation4,
-                  front:
-                      _buildCardF(S.current.fatawaAuthor2, () => _flip4(true), ''),
-                  back: _buildCardB(() => _flip4(false), S.current.aboutFatawaAuthor2),
+                  front: _buildCardF(
+                      S.current.fatawaAuthor2, () => _flip4(true), ''),
+                  back: _buildCardB(
+                      () => _flip4(false), S.current.aboutFatawaAuthor2),
                 ),
               ],
             ),
