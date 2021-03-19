@@ -150,6 +150,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "fastQ6" : MessageLookupByLibrary.simpleMessage("Is the Hadīth authentic: “Do not fast on Saturday, except that with is obligated upon you” ?"),
     "fastQ7" : MessageLookupByLibrary.simpleMessage("Hadith \"O Allâh bless us in Rajab and Sha\'bān & allow us to reach Ramadān\""),
     "forPlatform" : MessageLookupByLibrary.simpleMessage("For"),
+    "fridayFirst" : MessageLookupByLibrary.simpleMessage("من بين أول من يتدخل من أجله من قبل (بروفيت) و من أرسل معظم الصلاة إليه و أفضل يوم لإرسال صلاة له"),
+    "fridayRemind" : MessageLookupByLibrary.simpleMessage("الجمعة تذكير"),
     "generalKnowledge" : MessageLookupByLibrary.simpleMessage("معرفة عامة"),
     "german" : MessageLookupByLibrary.simpleMessage("German"),
     "hajj" : MessageLookupByLibrary.simpleMessage("الحج"),

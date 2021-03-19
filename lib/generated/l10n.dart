@@ -145,6 +145,26 @@ class S {
     );
   }
 
+  /// `Among the first to be interceded for by the Prophet ﷺ are those who sent most salah upon him, and the best day to send salah upon him ﷺ is Friday`
+  String get fridayFirst {
+    return Intl.message(
+      'Among the first to be interceded for by the Prophet ﷺ are those who sent most salah upon him, and the best day to send salah upon him ﷺ is Friday',
+      name: 'fridayFirst',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Friday Reminders`
+  String get fridayRemind {
+    return Intl.message(
+      'Friday Reminders',
+      name: 'fridayRemind',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `is Now Live on any Linux distribution`
   String get shareText {
     return Intl.message(
@@ -5645,10 +5665,10 @@ class S {
     );
   }
 
-  /// `1. All of the writings of Shaykhul-Islam ibn Taymiyyah and his student ibnul-Qayyim رحمه الله, as their works are based upon the understanding of the Book and Sunnah, and they are the mainstay of the  salafi  methodology. 5\n2. All of the writings of al-Hafidh adh-Dhahabi(رحمه الله)  , as he is, indeed, a investigative researcher.\n3. All of the writings of al-Hafith ibn Rajab(رحمه الله)  , in particular:  Fath al-Bari ,   Sharh al-‘Ilal  ,  Jami’ al- ‘Ulum  , and Al-Qawa‘id, due to the benefits found in them that can not be found elsewhere.\n4. Fath al-Bari by al-Hafidh ibn Hajr, as it is not just an elaboration of [ Sahih ]   al-Bukhari  , rather, it is an explanation of all the books of  sihah (  pl. of  sahih  ),  sunan  , and  masanid (pl. of musnad  ); and it is the mainstay for the commentators of  hadith after him`
+  /// `1. All of the writings of Shaykhul-Islam ibn Taymiyyah and his student ibnul-Qayyim رحمه الله, as their works are based upon the understanding of the Book and Sunnah, and they are the mainstay of the  salafi  methodology. 5\n2. All of the writings of al-Hafidh adh-Dhahabi(رحمه الله)  , as he is, indeed, a investigative researcher.\n3. All of the writings of al-Hafith ibn Rajab(رحمه الله)  , in particular:  Fath al-Bari ,   Sharh al-‘Ilal  ,  Jami’ al- ‘Ulum  , and Al-Qawa‘id, due to the benefits found in them that can not be found elsewhere.\n4. Fath al-Bari by al-Hafidh ibn Hajr, as it is not just an elaboration of [ Sahih ]   al-Bukhari  , rather, it is an explanation of all the books of  sihah (pl. of sahih ),  sunan , and  masanid (pl. of musnad  ); and it is the mainstay for the commentators of  hadith after him`
   String get succinctSub14aPar2 {
     return Intl.message(
-      '1. All of the writings of Shaykhul-Islam ibn Taymiyyah and his student ibnul-Qayyim رحمه الله, as their works are based upon the understanding of the Book and Sunnah, and they are the mainstay of the  salafi  methodology. 5\n2. All of the writings of al-Hafidh adh-Dhahabi(رحمه الله)  , as he is, indeed, a investigative researcher.\n3. All of the writings of al-Hafith ibn Rajab(رحمه الله)  , in particular:  Fath al-Bari ,   Sharh al-‘Ilal  ,  Jami’ al- ‘Ulum  , and Al-Qawa‘id, due to the benefits found in them that can not be found elsewhere.\n4. Fath al-Bari by al-Hafidh ibn Hajr, as it is not just an elaboration of [ Sahih ]   al-Bukhari  , rather, it is an explanation of all the books of  sihah (  pl. of  sahih  ),  sunan  , and  masanid (pl. of musnad  ); and it is the mainstay for the commentators of  hadith after him',
+      '1. All of the writings of Shaykhul-Islam ibn Taymiyyah and his student ibnul-Qayyim رحمه الله, as their works are based upon the understanding of the Book and Sunnah, and they are the mainstay of the  salafi  methodology. 5\n2. All of the writings of al-Hafidh adh-Dhahabi(رحمه الله)  , as he is, indeed, a investigative researcher.\n3. All of the writings of al-Hafith ibn Rajab(رحمه الله)  , in particular:  Fath al-Bari ,   Sharh al-‘Ilal  ,  Jami’ al- ‘Ulum  , and Al-Qawa‘id, due to the benefits found in them that can not be found elsewhere.\n4. Fath al-Bari by al-Hafidh ibn Hajr, as it is not just an elaboration of [ Sahih ]   al-Bukhari  , rather, it is an explanation of all the books of  sihah (pl. of sahih ),  sunan , and  masanid (pl. of musnad  ); and it is the mainstay for the commentators of  hadith after him',
       name: 'succinctSub14aPar2',
       desc: '',
       args: [],
