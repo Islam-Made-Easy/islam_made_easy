@@ -178,10 +178,7 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
         contentPadding: EdgeInsets.all(10),
         title: Text(
           title,
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.w400,
-          ),
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
         ),
         onTap: onTap,
       ),
@@ -196,17 +193,11 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
         contentPadding: EdgeInsets.all(10),
         title: Text(
           S.current.about,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w400,
-          ),
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
         ),
         subtitle: Text(
           about,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w400,
-          ),
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
         ),
         onTap: onTap,
       ),
