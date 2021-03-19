@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 
@@ -13,7 +15,7 @@ class Succinct extends StatefulWidget {
 class _SuccinctState extends State<Succinct> {
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    Locale locale = Localizations.localeOf(context);
     final isDesktop = isDisplayDesktop(context);
     final textTheme = Theme.of(context).textTheme;
     final bodyTextStyle =
@@ -43,6 +45,15 @@ class _SuccinctState extends State<Succinct> {
                       // color: Color(0xffC19C4D),
                       fontFamily: 'Quattrocento'),
                 )),
+                leading: isDesktop
+                    ? null
+                    : IconButton(
+                  icon: FaIcon(locale.languageCode == 'ar'
+                      ? FontAwesomeIcons.angleRight
+                      : FontAwesomeIcons.angleLeft),
+                  onPressed: Get.back,
+                  tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+                ),
               ),
               SizedBox(height: 10),
               Card(
