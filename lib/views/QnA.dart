@@ -11,7 +11,7 @@ import 'package:islam_made_easy/views/QnA/prayer.dart';
 import 'package:islam_made_easy/views/QnA/tawheed.dart';
 import 'package:islam_made_easy/views/QnA/zakkah.dart';
 import 'package:islam_made_easy/widgets/appBar.dart';
-import 'package:islam_made_easy/widgets/tileButton.dart';
+import 'package:islam_made_easy/widgets/buttons/tileButton.dart';
 import 'package:morpheus/page_routes/morpheus_page_route.dart';
 
 import 'QnA/death_hereafter.dart';
