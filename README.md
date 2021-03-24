@@ -5,7 +5,7 @@ Islamic Quiz application that let you understand your religion easier.
 | [Get the latest version](https://github.com/Islam-Made-Easy/Islam-Made-Easy/releases)
 <br>
 
-> <a href="https://galaxy.store/IMEasy"><img src="https://img.samsungapps.com/seller/images/badges/galaxyStore/png_big/GalaxyStore_English.png?ver=1615301700000" alt="Available on Samsung Galaxy Store" style="max-width: 100%; height: auto;"></a>
+> <a href="http://galaxystore.samsung.com/detail/com.imeteam.islam_made_easy"><img src="https://img.samsungapps.com/seller/images/badges/galaxyStore/png_big/GalaxyStore_English.png?ver=1615301700000" alt="Available on Samsung Galaxy Store" style="max-width: 100%; height: auto;"></a>
 
 ## Features
 * `Quiz`
