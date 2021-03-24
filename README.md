@@ -25,14 +25,14 @@ visit [Release Notes](./release_notes.txt)
 
 ## Contributing
  - Issues and PullRequests welcome
- > We welcome and encourage all pull requests. But first:<br>
+ > We welcome and encourage all pull requests. But first: <br><details><summary>View steps</summary>
     1. Match coding style (braces, spacing, etc.) This is best achieved using `Reformat Code` feature of Android Studio `CMD`+`Option`+`L` on Mac and `CTRL` + `ALT` + `L` on Linux + Windows .<br>
     2. If its a feature, bugfix, or anything please only change code to what you specify.<br>
     3. Please keep PR titles easy to read and descriptive of changes, this will make them easier to merge :)<br>
     4. Pull requests _must_ be made against `develop` branch. Any other branch (unless specified by the maintainers) will get rejected.<br>
     5. Check for existing issues first, before filing an issue.<br>
     6. Make sure you follow the set standard as all other projects in this repo do<br>
-    7. Keep calm and make it easy.<br>
+    7. Keep calm and make it easy.<br></details>
 
  - Please help with documentation
  - Fork and clone this repository
