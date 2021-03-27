@@ -6,7 +6,7 @@ import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/views/QnA.dart';
 import 'package:islam_made_easy/views/about.dart' as about;
 import 'package:islam_made_easy/views/general_knowledge/general_knowlege.dart';
-import 'package:islam_made_easy/views/succinct.dart';
+import 'package:islam_made_easy/views/prerequisite.dart';
 import 'package:islam_made_easy/widgets/references.dart';
 import 'package:islam_made_easy/widgets/short_phrases.dart';
 
@@ -40,7 +40,7 @@ class _NavigationPanelState extends State<NavigationPanel> {
         children: <Widget>[
           drawerTile(
               S.current.prerequisite,
-              () => Get.to(() => Succinct(), transition: Transition.size),
+              () => Get.to(() => Prerequisite(), transition: Transition.size),
               PixIcon.typcn_document_text),
           drawerTile(
               S.current.questionsAndAnswers,
