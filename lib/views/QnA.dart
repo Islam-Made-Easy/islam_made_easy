@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:get/get.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:islam_made_easy/views/QnA/Fast.dart';
@@ -12,7 +13,6 @@ import 'package:islam_made_easy/views/QnA/tawheed.dart';
 import 'package:islam_made_easy/views/QnA/zakkah.dart';
 import 'package:islam_made_easy/widgets/appBar.dart';
 import 'package:islam_made_easy/widgets/buttons/tileButton.dart';
-import 'package:morpheus/page_routes/morpheus_page_route.dart';
 
 import 'QnA/death_hereafter.dart';
 
@@ -50,87 +50,55 @@ class _QnAState extends State<QnA> {
               SettingsLinkButton(
                 title: 'assets/images/drk.jpg',
                 subtitle: S.current.tawheed,
-                onTap: () => Navigator.push(
-                  context,
-                  MorpheusPageRoute(builder: (context) => Tawheed()),
-                ),
+                onTap: () =>
+                    Get.to(() => Tawheed(), transition: Transition.fadeIn),
               ),
               SettingsLinkButton(
                 title: 'assets/images/msd.jpg',
-                onTap: () => Navigator.push(
-                  context,
-                  MorpheusPageRoute(builder: (context) => Prayer()),
-                ),
+                onTap: () =>
+                    Get.to(() => Prayer(), transition: Transition.fadeIn),
                 subtitle: S.current.swalah,
               ),
               SettingsLinkButton(
                 title: 'assets/images/eat.jpg',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MorpheusPageRoute(builder: (context) => Zakkah()),
-                  );
-                },
+                onTap: () =>
+                    Get.to(() => Zakkah(), transition: Transition.fadeIn),
                 subtitle: S.current.zakkah,
               ),
               SettingsLinkButton(
                 title: 'assets/images/exq.jpg',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MorpheusPageRoute(builder: (context) => Fast()),
-                  );
-                },
+                onTap: () =>
+                    Get.to(() => Fast(), transition: Transition.fadeIn),
                 subtitle: S.current.swaum,
               ),
               SettingsLinkButton(
                 title: 'assets/images/marhm.jpg',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MorpheusPageRoute(builder: (context) => Marriage()),
-                  );
-                },
+                onTap: () =>
+                    Get.to(() => Marriage(), transition: Transition.fadeIn),
                 subtitle: S.current.nikkah,
               ),
               SettingsLinkButton(
                 title: 'assets/images/img1.jpg',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MorpheusPageRoute(builder: (context) => Jinn()),
-                  );
-                },
+                onTap: () =>
+                    Get.to(() => Jinn(), transition: Transition.fadeIn),
                 subtitle: S.current.jinn,
               ),
               SettingsLinkButton(
                 title: 'assets/images/img2.jpg',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MorpheusPageRoute(builder: (context) => DeathHereafter()),
-                  );
-                },
+                onTap: () => Get.to(() => DeathHereafter(),
+                    transition: Transition.fadeIn),
                 subtitle: S.current.death,
               ),
               SettingsLinkButton(
                 title: 'assets/images/rose2.jpg',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MorpheusPageRoute(builder: (context) => Lifestyle()),
-                  );
-                },
+                onTap: () =>
+                    Get.to(() => Lifestyle(), transition: Transition.fadeIn),
                 subtitle: S.current.lifestyle,
               ),
               SettingsLinkButton(
                 title: 'assets/images/ka.jpeg',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MorpheusPageRoute(builder: (context) => Hajj()),
-                  );
-                },
+                onTap: () =>
+                    Get.to(() => Hajj(), transition: Transition.fadeIn),
                 subtitle: S.current.hajj,
               ),
             ]),
