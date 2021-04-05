@@ -21,16 +21,16 @@ class _SplashViewState extends State<SplashView>
       text: 'Read Sūrat Al-Kahf',
     ),
     OnBoardPageItem(
-      lottieAsset: 'assets/lottie/bookI.json',
+      lottieAsset: 'assets/lottie/bath.json',
       text: 'Ghusl Before Jum\'ah Prayer',
       animationDuration: const Duration(milliseconds: 1100),
     ),
     OnBoardPageItem(
-      lottieAsset: 'assets/lottie/book.json',
+      lottieAsset: 'assets/lottie/hand.json',
       text: '‎Trim Nails',
     ),
     OnBoardPageItem(
-      lottieAsset: 'assets/lottie/book.json',
+      lottieAsset: 'assets/lottie/brush.json',
       text: 'Miswāk Before  Ablution',
     ),
     OnBoardPageItem(
@@ -38,23 +38,23 @@ class _SplashViewState extends State<SplashView>
       text: 'Musk for men only',
     ),
     OnBoardPageItem(
-      lottieAsset: 'assets/lottie/book.json',
+      lottieAsset: 'assets/lottie/cloth.json',
       text: 'Clean New Clothes',
     ),
     OnBoardPageItem(
-      lottieAsset: 'assets/lottie/book.json',
+      lottieAsset: 'assets/lottie/audio.json',
       text: 'Convey peace & blessings to Prophet ﷺ ',
     ),
     OnBoardPageItem(
-      lottieAsset: 'assets/lottie/book.json',
+      lottieAsset: 'assets/lottie/time.json',
       text: 'Go Early To The Mosque',
     ),
     OnBoardPageItem(
-      lottieAsset: 'assets/lottie/book.json',
+      lottieAsset: 'assets/lottie/converse.json',
       text: 'Listen To The Khutbah',
     ),
     OnBoardPageItem(
-      lottieAsset: 'assets/lottie/book.json',
+      lottieAsset: 'assets/lottie/clock.json',
       text: 'Catch The Best Hour for dua',
     ),
   ];
@@ -192,7 +192,8 @@ class _SplashViewState extends State<SplashView>
           child: FadingSlidingWidget(
             animationController: _animationController,
             child: FloatingActionButton(
-              onPressed: () => Get.to(() => Home()),backgroundColor: theme.primaryColorDark,
+              onPressed: () => Get.to(() => Home()),
+              backgroundColor: theme.primaryColorDark,
               child: glow
                   ? AvatarGlow(
                       endRadius: 30,
@@ -503,7 +504,7 @@ class _OnboardState extends State<OnBoardPage>
                   }
                 });
             },
-            width: isDesktop ? 100 : width * 0.9,
+            width: isDesktop ? 200 : width * 0.9,
           ),
           SizedBox(height: isDesktop ? 20 : height * 0.1),
           Flexible(

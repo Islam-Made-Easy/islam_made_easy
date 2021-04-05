@@ -307,7 +307,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
               closedBuilder: (context, openContainer) => DetailsCard(
                 openContainer: openContainer,
                 title: S.current.hajjTitle,
-                img: 'assets/images/hajj.png',
+                img: 'assets/images/hajj.jpg',
               ),
               title: S.current.hajjTitle,
               data: [
@@ -360,7 +360,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle3,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle3,
                   data: [
@@ -368,14 +368,14 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     SizedBox(height: 10),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 50),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle4,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle4,
                   data: [
@@ -387,28 +387,28 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     SizedBox(height: 10),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 50),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle5,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle5,
                   data: [
                     ViewText(data: S.current.hajjSub5Par1),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 50),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle6,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle6,
                   data: [
@@ -432,14 +432,14 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     )
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 60),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle7,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle7,
                   data: [
@@ -472,14 +472,14 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     )
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 60),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle8,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle8,
                   data: [
@@ -510,14 +510,14 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     )
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 50),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle9,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle9,
                   data: [
@@ -533,14 +533,14 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     ViewText(data: S.current.hajjSub9Par6),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 60),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle10,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle10,
                   data: [
@@ -553,14 +553,14 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     ViewText(data: S.current.hajjSub10Par4),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 60),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle11,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle11,
                   data: [
@@ -595,14 +595,14 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     ViewText(data: S.current.hajjSub11Par5),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 60),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle12,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle12,
                   data: [
@@ -613,7 +613,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     ViewText(data: S.current.hajjSub12Par3),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 60),
                 OpenContainerWrapper(
@@ -698,7 +698,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle15,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle15,
                   data: [
@@ -737,7 +737,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     ViewText(data: S.current.hajjSub15Par5),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 60),
                 OpenContainerWrapper(
@@ -762,7 +762,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle17,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle17,
                   data: [
@@ -777,14 +777,14 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     ViewText(data: S.current.hajjSub17Par5),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 60),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle18,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle18,
                   data: [
@@ -795,14 +795,14 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     ViewText(data: S.current.hajjSub18Par3),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 60),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle19,
-                    img: 'assets/images/Hajj.png',
+                    img: 'assets/images/Hajj.jpg',
                   ),
                   title: S.current.hajjSubTitle19,
                   data: [
@@ -830,12 +830,12 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     ),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.png',
+                  image: 'assets/images/Hajj.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 60),
               ],
               barTitle: S.current.hajj,
-              image: 'assets/images/hajj.png',
+              image: 'assets/images/hajj.jpg',
             ),
             Divider(endIndent: 40, indent: 40, height: 50),
             //--------------------------------------------------------------------------------------//

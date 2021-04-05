@@ -42,11 +42,11 @@ class _QuickUtilState extends State<QuickUtil> {
   void _handleQuickActions() {
     quickActions.initialize((String shortcutType) {
       if (shortcutType == 'action_quiz_start') {
-        Get.to(Home());
+        Get.to(() => Home());
       } else if (shortcutType == 'action_home') {
-        Get.to(Home());
+        Get.to(() => Home());
       } else if (shortcutType == 'action_settings') {
-        Get.to(Settings());
+        Get.to(() => Settings());
       }
     });
   }

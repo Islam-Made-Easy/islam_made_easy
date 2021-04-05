@@ -92,7 +92,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       );
     } else {
       return DoubleBack(
-        onFirstBackPress: (context) => Get.snackbar('😊️', "Smile It's Sunnah"),
+        onFirstBackPress: (context) => Get.snackbar('', "Smile It's Sunnah"),
         child: Scaffold(
           backgroundColor: theme,
           appBar: AppBar(

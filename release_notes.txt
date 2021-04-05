@@ -1,4 +1,0 @@
-v0.3-alpha
-- Correct minor typo error on arabic language
-
-* Add developer guide documentation

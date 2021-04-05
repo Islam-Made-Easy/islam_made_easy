@@ -6,7 +6,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get/get.dart';
+import 'package:hijri/hijri_calendar.dart';
 import 'package:islam_made_easy/routes/app_route.dart';
+import 'package:islam_made_easy/services/daily.dart';
 import 'package:islam_made_easy/theme/theme.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/quick_util.dart';
@@ -27,8 +29,8 @@ import 'locale/localePro.dart';
 /// todo: refactoring
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await DailyNotification().init();
-  // await DailyNotification().getQuoteString();
+  await DailyNotification().init();
+  await DailyNotification().getQuoteString();
   StatusbarUtil.setTranslucent();
   // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
   // Portrait only
@@ -64,6 +66,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
   bool isCelebration = false;
 
   Future _initSp() async {
+    var _today = HijriCalendar.now().wkDay;
     await appSP.init();
     int statusCode = 412;
     int themeIndex = SpUtil.getThemeIndex();
@@ -85,7 +88,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     /// “Verily, Allah has made this day (of Friday) a celebration for the Muslims.
     /// So whoever comes to Friday (prayer), then let him bathe himself,
     /// and if he has any perfume let him put some on, and use the toothstick.”
-    if (currentDay == DateTime.thursday || currentDay == DateTime.friday) {
+    if (_today == DateTime.thursday || _today == DateTime.friday) {
       setState(() {
         isCelebration = true;
       });

@@ -281,6 +281,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2+mit"
+  effective_dart:
+    dependency: transitive
+    description:
+      name: effective_dart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.3.0"
   extended_image:
     dependency: transitive
     description:
@@ -389,6 +396,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_markdown:
+    dependency: "direct main"
+    description:
+      name: flutter_markdown
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.2"
   flutter_phoenix:
     dependency: "direct main"
     description:
@@ -476,6 +490,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.0"
+  hijri:
+    dependency: "direct main"
+    description:
+      name: hijri
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.3"
   html:
     dependency: transitive
     description:
@@ -595,6 +616,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.7.0+1"
+  markdown:
+    dependency: "direct main"
+    description:
+      name: markdown
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
+  markdown_editable_textinput:
+    dependency: "direct main"
+    description:
+      name: markdown_editable_textinput
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   matcher:
     dependency: transitive
     description:
@@ -735,6 +770,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.4+3"
+  pdf_flutter:
+    dependency: "direct main"
+    description:
+      name: pdf_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   pedantic:
     dependency: transitive
     description:
