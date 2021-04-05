@@ -1,22 +1,13 @@
-import 'dart:async';
-import 'dart:convert';
-import 'dart:math';
-import 'package:animated_background/animated_background.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
 import 'package:grafpix/icons.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:islam_made_easy/views/QnA.dart';
 import 'package:islam_made_easy/views/general_knowledge/general_knowlege.dart';
-import 'package:islam_made_easy/views/home.dart';
-import 'package:islam_made_easy/views/quiz/quiz_home.dart';
-import 'package:islam_made_easy/views/succinct.dart';
+import 'package:islam_made_easy/views/prerequisite.dart';
 import 'package:islam_made_easy/widgets/panels/mainPanel.dart';
 import 'package:islam_made_easy/widgets/references.dart';
 import 'package:islam_made_easy/widgets/short_phrases.dart';
-import 'package:lottie/lottie.dart';
 
 import 'anim/ime_nav.dart';
 import 'anim/shared_switcher.dart';
@@ -44,7 +35,7 @@ class _DesktopNavState extends State<DesktopNav>
   int _selectedIndex = 0;
   List<Widget> screens = [
     MainPanel(),
-    Succinct(),
+    Prerequisite(),
     QnA(),
     GeneralKnowledge(),
     References(),
@@ -70,7 +61,8 @@ class _DesktopNavState extends State<DesktopNav>
                           destinations: [
                             NavigationRailDestination(
                               icon: Material(
-                                  color: Colors.transparent,borderRadius: BorderRadius.zero,
+                                  color: Colors.transparent,
+                                  borderRadius: BorderRadius.zero,
                                   child: FaIcon(PixIcon.fab_quora)),
                               label: Text(S.current.quiz),
                             ),
@@ -123,7 +115,11 @@ class _DesktopNavState extends State<DesktopNav>
             ),
           );
         }),
-        const VerticalDivider(thickness: 1, width: 1,color: Color(0xFFF2F2F2),),
+        const VerticalDivider(
+          thickness: 1,
+          width: 1,
+          color: Color(0xFFF2F2F2),
+        ),
         Expanded(
           child: SharedAxisTransitionSwitcher(
             child: IMENav(child: screens[_selectedIndex]),
@@ -133,5 +129,3 @@ class _DesktopNavState extends State<DesktopNav>
     );
   }
 }
-
-
