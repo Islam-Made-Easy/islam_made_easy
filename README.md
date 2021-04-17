@@ -8,7 +8,7 @@ Islamic application that let you understand your religion easier.
 
 ## Getting help
 
-[![Gitter](https://badges.gitter.im/Islam-Made-Easy/community.svg)](https://gitter.im/Islam-Made-Easy/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Gitter](https://badges.gitter.im/Islam-Made-Easy/community.svg)](https://gitter.im/Islam-Made-Easy/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Join the chat at https://gitter.im/Islam-Made-Easy/ime](https://badges.gitter.im/Islam-Made-Easy/ime.svg)](https://gitter.im/Islam-Made-Easy/ime?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Getting involved
 
