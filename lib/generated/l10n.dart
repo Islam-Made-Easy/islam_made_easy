@@ -1285,10 +1285,10 @@ class S {
     );
   }
 
-  /// `Note: The definition of "travelling" goes back to the 'Urf(customs) of the time - It's not permissible to use the hadīths "Travel for 3 days without Mahram" in today's sense where a person can basically travel the whole world in that specified time period. Rather, whatever is considered "Travelling in our times" even if it was 1 hour on a plane etc... is considered harām if it was without a Mahram اعلم والله `
+  /// `Note: The definition of "travelling" goes back to the 'Urf(customs) of the time - It's not permissible to use the hadīths "Travel for 3 days without Mahram" in today's sense where a person can basically travel the whole world in that specified time period. Rather, whatever is considered "Travelling in our times" even if it was 1 hour on a plane etc... is considered harām if it was without a Mahram  والله اعلم `
   String get hajjA1par11 {
     return Intl.message(
-      'Note: The definition of "travelling" goes back to the \'Urf(customs) of the time - It\'s not permissible to use the hadīths "Travel for 3 days without Mahram" in today\'s sense where a person can basically travel the whole world in that specified time period. Rather, whatever is considered "Travelling in our times" even if it was 1 hour on a plane etc... is considered harām if it was without a Mahram اعلم والله ',
+      'Note: The definition of "travelling" goes back to the \'Urf(customs) of the time - It\'s not permissible to use the hadīths "Travel for 3 days without Mahram" in today\'s sense where a person can basically travel the whole world in that specified time period. Rather, whatever is considered "Travelling in our times" even if it was 1 hour on a plane etc... is considered harām if it was without a Mahram  والله اعلم ',
       name: 'hajjA1par11',
       desc: '',
       args: [],
@@ -1425,10 +1425,10 @@ class S {
     );
   }
 
-  /// `Side Note [not from the Shaykh]: The reason why people scratch in Hajj is because of the hot weather & also possibly because of the presence of some insects which could make you itchy, which is why you see some people scratching really hard اعلم والله `
+  /// `Side Note [not from the Shaykh]: The reason why people scratch in Hajj is because of the hot weather & also possibly because of the presence of some insects which could make you itchy, which is why you see some people scratching really hard  والله اعلم `
   String get hajjA2par6 {
     return Intl.message(
-      'Side Note [not from the Shaykh]: The reason why people scratch in Hajj is because of the hot weather & also possibly because of the presence of some insects which could make you itchy, which is why you see some people scratching really hard اعلم والله ',
+      'Side Note [not from the Shaykh]: The reason why people scratch in Hajj is because of the hot weather & also possibly because of the presence of some insects which could make you itchy, which is why you see some people scratching really hard  والله اعلم ',
       name: 'hajjA2par6',
       desc: '',
       args: [],

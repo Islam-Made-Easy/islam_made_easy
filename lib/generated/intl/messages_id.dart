@@ -47,7 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "aboutAlwan" : MessageLookupByLibrary.simpleMessage("A senior Saudi Arabian scholar. He has been described as being one of the most knowledgable contemporary scholars of islam, particularly in the field of Hadith.\n\n~ Question & Answers"),
     "aboutApp" : MessageLookupByLibrary.simpleMessage("Aplikasi Kuis Islami yang membuat Anda lebih mudah memahami agama Anda"),
     "aboutJibril" : MessageLookupByLibrary.simpleMessage(" \n~ Questions & Answers \n~ HAJJ: LEARN FROM ME YOUR DEVOTIONAL ACT"),
-    "appTitle" : MessageLookupByLibrary.simpleMessage("Islam Menjadi Mudah"),
+    "appTitle" : MessageLookupByLibrary.simpleMessage("Islam Made Easy"),
     "arabi" : MessageLookupByLibrary.simpleMessage("Arabic"),
     "arabic" : MessageLookupByLibrary.simpleMessage("عربى"),
     "assistPar1" : MessageLookupByLibrary.simpleMessage("\"Likewise, why do the Kuffār go to war & fight the Muslims, isn\'t it to substitute Shirk in place of Tawhīd? And to substitute Kufr in place of Ēmān? And to substitute man made laws in place of the Sharī\'ah from Allāh? This is what they do without a doubt. And the one who assists them, regardless of whether he intended these objectives [of the Kuffār] or not, he has fulfilled their needs, and whoever fulfils the needs of the Mushrikeen by Shirk for their Shirk [to prevail], and has fulfilled the demands of the Imāms of Kufr for their Kufr [to prevail], and assisted the people of Kufr to succeed in substituting man-made laws in the place of the Sharī\'ah from Allāh, then the one who does this is from the greatest of Mushrikeen, and from the greatest Imāms of Kufr."),

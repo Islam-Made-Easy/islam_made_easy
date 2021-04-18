@@ -48,7 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "aboutApp" : MessageLookupByLibrary.simpleMessage("تطبيق المسابقة الإسلامية التي تتيح لك فهم دينك بسهولة"),
     "aboutJibril" : MessageLookupByLibrary.simpleMessage("\n ~ أسئلة وأجوبة \n ~ الحج: تعلم مني عملك التنموي"),
     "advanced" : MessageLookupByLibrary.simpleMessage("متقدم"),
-    "appTitle" : MessageLookupByLibrary.simpleMessage("جعل الإسلام سهل"),
+    "appTitle" : MessageLookupByLibrary.simpleMessage("Islam Made Easy"),
     "arabi" : MessageLookupByLibrary.simpleMessage("Arabic"),
     "arabic" : MessageLookupByLibrary.simpleMessage("عربى"),
     "assistPar1" : MessageLookupByLibrary.simpleMessage("\"Likewise, why do the Kuffār go to war & fight the Muslims, isn\'t it to substitute Shirk in place of Tawhīd? And to substitute Kufr in place of Ēmān? And to substitute man made laws in place of the Sharī\'ah from Allāh? This is what they do without a doubt. And the one who assists them, regardless of whether he intended these objectives [of the Kuffār] or not, he has fulfilled their needs, and whoever fulfils the needs of the Mushrikeen by Shirk for their Shirk [to prevail], and has fulfilled the demands of the Imāms of Kufr for their Kufr [to prevail], and assisted the people of Kufr to succeed in substituting man-made laws in the place of the Sharī\'ah from Allāh, then the one who does this is from the greatest of Mushrikeen, and from the greatest Imāms of Kufr."),
