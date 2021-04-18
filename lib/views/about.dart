@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
@@ -59,7 +60,7 @@ class _AboutAppState extends State<AboutApp> {
     final bodyTextStyle =
         textTheme.bodyText1.apply(color: colorScheme.onPrimary);
     final name =
-        'Islam Made Easy ${S.current.forPlatform} ${Platform.operatingSystem}';
+        'Islam Made Easy ${S.current.forPlatform} ${kIsWeb?'Web: [PWA]':Platform.operatingSystem}';
     final legalese = '© ${DateTime.now().year} The IME team';
     // var now = new DateTime.now();
     // var nextUpdateTime = now.add(new Duration(days: 60)).month;
@@ -98,9 +99,11 @@ class _AboutAppState extends State<AboutApp> {
               ),
             ),
             Text(
-                !Platform.isAndroid || Platform.isIOS
-                    ? "${Platform.operatingSystemVersion.replaceRange(23, 73, '')}"
-                    : '',
+                !kIsWeb
+                    ? !Platform.isAndroid || !Platform.isIOS
+                        ? "${Platform.operatingSystemVersion.replaceRange(23, 73, '')}"
+                        : ''
+                    : "",
                 // 'Version: ${_updateInfo ?? '1.0.$nextUpdateTime'}',
                 style: bodyTextStyle),
             Text(legalese, style: bodyTextStyle),
@@ -120,21 +123,21 @@ class _AboutAppState extends State<AboutApp> {
                         tip: 'Mail',
                         icon: PixIcon.mail,
                         onPressed: () => launchURL(
-                            'mailto:?subject=$name&body=${S.current.salam} $name ${S.current.shareText}. ${S.current.shareGetStoreText} https://snapcraft.io/islam-made-easy'),
+                            'mailto:?subject=$name&body=${S.current.salam} $name ${S.current.shareText}. ${S.current.shareGetStoreText} https://islam-made-easy.web.app'),
                       ),
                       ShareButtons(
                         color: Color(0xff294C8C),
                         tip: 'Facebook',
                         icon: PixIcon.pix_facebook,
                         onPressed: () => launchURL(
-                            'https://www.facebook.com/sharer/sharer.php?t=${S.current.salam} $name ${S.current.shareText}&quote=${S.current.shareGetStoreText}&ref=fbshare&u=https://snapcraft.io/islam-made-easy'),
+                            'https://www.facebook.com/sharer/sharer.php?t=${S.current.salam} $name ${S.current.shareText}&quote=${S.current.shareGetStoreText}&ref=fbshare&u=https://islam-made-easy.web.app'),
                       ),
                       ShareButtons(
                         color: Color(0xff67C15E),
                         tip: 'WhatsApp',
                         icon: PixIcon.pix_whatsapp,
                         onPressed: () => launchURL(
-                            'https://wa.me/?text=${S.current.salam}\n$name ${S.current.shareText}.\n${S.current.shareGetStoreText} https://snapcraft.io/islam-made-easy'),
+                            'https://wa.me/?text=${S.current.salam}\n$name ${S.current.shareText}.\n${S.current.shareGetStoreText} https://islam-made-easy.web.app'),
                       ),
                       ShareButtons(
                           color: Color(0xffA2A2A2),
@@ -146,7 +149,7 @@ class _AboutAppState extends State<AboutApp> {
                             Clipboard.setData(
                               ClipboardData(
                                   text:
-                                      '${S.current.salam}\n$name ${S.current.shareText}.\n${S.current.shareGetStoreText}: https://snapcraft.io/islam-made-easy'),
+                                      '${S.current.salam}\n$name ${S.current.shareText}.\n${S.current.shareGetStoreText}: https://islam-made-easy.web.app'),
                             ).then(
                               (value) => Get.snackbar(
                                 S.current.copiedToClipboardTitle,
