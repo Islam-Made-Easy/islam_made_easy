@@ -10,6 +10,12 @@ class ShortPhrases extends StatelessWidget {
     final isDesktop = isDisplayDesktop(context);
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
+      appBar: AppBar(
+        title: Text(S.current.shortPhrasesT),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
       body: ListView(
         padding: EdgeInsets.symmetric(
             horizontal: isDesktop ? 20 : 0, vertical: isDesktop ? 50 : 0),
@@ -23,12 +29,6 @@ class ShortPhrases extends StatelessWidget {
             padding: EdgeInsets.all(isDesktop ? 42 : 10),
             child: Column(
               children: [
-                AppBar(
-                  title: Text(S.current.shortPhrasesT),
-                  centerTitle: true,
-                  elevation: 0,
-                  backgroundColor: Colors.transparent,
-                ),
                 _ShortW(
                     title: ' بســـم اللــه الرحــمــن الـرحـــيــم',
                     subtitle: S.current.basmallah,
