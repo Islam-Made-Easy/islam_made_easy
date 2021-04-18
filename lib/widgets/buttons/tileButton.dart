@@ -30,6 +30,7 @@ class SettingsLinkButton extends StatelessWidget {
               title,
               fit: BoxFit.fitHeight,
               width: size.width,
+              matchTextDirection: true,
               height: size.height,
             ),
             Container(
