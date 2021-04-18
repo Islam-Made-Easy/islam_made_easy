@@ -92,6 +92,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0-nullsafety.3"
+  bubble_overlay:
+    dependency: "direct main"
+    description:
+      name: bubble_overlay
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.4"
   build:
     dependency: transitive
     description:
@@ -1034,6 +1041,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.3+2"
+  system_alert_window:
+    dependency: "direct main"
+    description:
+      name: system_alert_window
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.2+2"
   term_glyph:
     dependency: transitive
     description:

@@ -1,6 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.imeteam.islam_made_easy">
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE " />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
    <application
+       android:name=".Application"
         android:label="Islam Made Easy"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -41,5 +45,13 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+       <service
+           android:name="com.adriankohls.bubble_overlay.BubbleOverlayService"
+           android:enabled="true"
+           android:exported="false" />
+       <service
+           android:name="com.adriankohls.bubble_overlay.BubbleVideoOverlayService"
+           android:enabled="true"
+           android:exported="false" />
     </application>
 </manifest>
