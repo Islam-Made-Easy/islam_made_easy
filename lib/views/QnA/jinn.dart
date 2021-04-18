@@ -23,7 +23,9 @@ class _JinnState extends State<Jinn> {
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           children: [
             Card(
+              elevation: 0,color: Theme.of(context).buttonColor,
               child: ExpansionTile(
+                backgroundColor: Theme.of(context).splashColor,
                 childrenPadding: EdgeInsets.symmetric(
                     horizontal: Platform.isLinux ? 20 : 8,
                     vertical: Platform.isLinux ? 22 : 8),

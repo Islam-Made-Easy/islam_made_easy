@@ -4,7 +4,6 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:grafpix/icons.dart';
-import 'package:grafpix/pixbuttons/medal.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:islam_made_easy/locale/localePro.dart';
@@ -14,6 +13,7 @@ import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:provide/provide.dart';
+import 'package:system_alert_window/system_alert_window.dart' as sys;
 
 class Settings extends StatefulWidget {
   static const ROUTE_NAME = "/settings";
@@ -30,7 +30,19 @@ class _SettingsState extends State<Settings> {
   @override
   void initState() {
     super.initState();
+    // getPermission();
+    // sys.SystemAlertWindow.registerOnClickListener(exitWindow);
     selectedLanguage = SpUtil.getLanguage() ?? '';
+  }
+
+  // getPermission() async {
+  //   await sys.SystemAlertWindow.checkPermissions;
+  // }
+
+  void exitWindow(tag) {
+    if (tag == 'Exit') {
+      sys.SystemAlertWindow.closeSystemWindow();
+    }
   }
 
   void _changeLanguage(String languageCode) {
@@ -60,8 +72,9 @@ class _SettingsState extends State<Settings> {
             style: bodyTextStyle),
         automaticallyImplyLeading: isDesktop ? false : true,
         centerTitle: true,
-        backgroundColor:
-            isDesktop ? Colors.transparent : Theme.of(context).appBarTheme.color,
+        backgroundColor: isDesktop
+            ? Colors.transparent
+            : Theme.of(context).appBarTheme.color,
         elevation: 0,
       ),
       body: ListView(
@@ -159,6 +172,12 @@ class _SettingsState extends State<Settings> {
                                 color: Colors.brown,
                               ),
                               _SettingsShort(
+                                title: "What's New in IME ",
+                                subtitle: 'Ctrl+N',
+                                icon: PixIcon.fab_neos,
+                                color: Colors.amberAccent,
+                              ),
+                              _SettingsShort(
                                 title: S.current.qDocs,
                                 subtitle: 'Ctrl+Q',
                                 icon: PixIcon.typcn_document,
@@ -182,14 +201,50 @@ class _SettingsState extends State<Settings> {
                     EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 title: Text(S.current.advanced),
                 children: [
-                  PixMedal(
-                    icon: Icons.build,
-                    medalType: MedalType.Bronze,
-                    radius: 70.0,
-                    iconColor: Colors.transparent,
-                    iconSize: 60.0,
-                  ),
-                  Text(S.current.advancedInfo)
+                  // RaisedButton(
+                  //   onPressed: () {
+                  //     sys.SystemAlertWindow.showSystemWindow(
+                  //       gravity: sys.SystemWindowGravity.TOP,
+                  //       margin: sys.SystemWindowMargin(left: 50),
+                  //       header: sys.SystemWindowHeader(
+                  //           padding: sys.SystemWindowPadding(left: 20),
+                  //           decoration: sys.SystemWindowDecoration(
+                  //               startColor: Theme.of(context).primaryColorDark,
+                  //               endColor: Theme.of(context).backgroundColor),
+                  //           title:
+                  //               sys.SystemWindowText(text: 'Islam Made Easy')),
+                  //       body: sys.SystemWindowBody(
+                  //           padding: sys.SystemWindowPadding(left: 20),
+                  //           decoration: sys.SystemWindowDecoration(
+                  //             endColor: Theme.of(context).backgroundColor,
+                  //           ),
+                  //           rows: [
+                  //             sys.EachRow(columns: [
+                  //               sys.EachColumn(
+                  //                   padding: sys.SystemWindowPadding(left: 20),
+                  //                   decoration: sys.SystemWindowDecoration(
+                  //                     startColor:
+                  //                         Theme.of(context).primaryColorDark,
+                  //                     endColor:
+                  //                         Theme.of(context).backgroundColor,
+                  //                   ),
+                  //                   text: sys.SystemWindowText(text: 'IMEasy'))
+                  //             ]),
+                  //           ]),
+                  //       height: 500,
+                  //       footer: sys.SystemWindowFooter(buttons: [
+                  //         sys.SystemWindowButton(
+                  //           text: sys.SystemWindowText(text: 'Islam Made Easy'),
+                  //           tag: 'tag',
+                  //           decoration: sys.SystemWindowDecoration(
+                  //             endColor: Theme.of(context).backgroundColor,
+                  //           ),
+                  //         )
+                  //       ]),
+                  //     );
+                  //   },
+                  //   child: Text('Minimize Window'),
+                  // )
                 ],
               ),
             ),

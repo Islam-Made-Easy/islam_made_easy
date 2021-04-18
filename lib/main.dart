@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:animated_background/animated_background.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -8,7 +9,6 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get/get.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:islam_made_easy/routes/app_route.dart';
-import 'package:islam_made_easy/services/daily.dart';
 import 'package:islam_made_easy/theme/theme.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/quick_util.dart';
@@ -26,11 +26,10 @@ import 'package:window_size/window_size.dart';
 import 'generated/l10n.dart';
 import 'locale/localePro.dart';
 
-/// todo: refactoring
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await DailyNotification().init();
-  await DailyNotification().getQuoteString();
+  // await DailyNotification().init();
+  // await DailyNotification().getQuoteString();
   StatusbarUtil.setTranslucent();
   // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
   // Portrait only
@@ -38,12 +37,14 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-    setWindowTitle('Islam Made Easy');
-    // setWindowFrame(
-    //     Rect.fromCenter(center: Offset.infinite, width: 300, height: 600));
-    // setWindowMinSize(Size(1124, 768));
-    // setWindowMaxSize(Size.infinite);
+  if (!kIsWeb) {
+    if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+      setWindowTitle('Islam Made Easy');
+      setWindowFrame(
+          Rect.fromCenter(center: Offset.infinite, width: 300, height: 600));
+      setWindowMinSize(Size(1124, 768));
+      setWindowMaxSize(Size.infinite);
+    }
   }
   final providers = Providers()
     ..provide(Provider.value(LocaleProvide()))
@@ -70,7 +71,6 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     await appSP.init();
     int statusCode = 412;
     int themeIndex = SpUtil.getThemeIndex();
-    var currentDay = DateTime.now().weekday;
     if (themeIndex != null) {
       Provide.value<ThemeProvide>(context).changeTheme(themeIndex);
     }

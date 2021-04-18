@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:animations/animations.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -35,7 +36,9 @@ class DetailsPage extends StatefulWidget {
 class _DetailsPageState extends State<DetailsPage> {
   @override
   void initState() {
-    getPackageInfo();
+    if (!kIsWeb) {
+      getPackageInfo();
+    }
     super.initState();
   }
 
@@ -59,7 +62,7 @@ class _DetailsPageState extends State<DetailsPage> {
         title: Text(widget.barTitle),
         elevation: 0,
         leading: isDesktop
-            ? null
+            ? Container()
             : IconButton(
                 icon: FaIcon(locale.languageCode == 'ar'
                     ? FontAwesomeIcons.angleRight
@@ -83,7 +86,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 )
                 .catchError(_showSnackBarOnCopyFailure),
           ),
-          !Platform.isAndroid
+          kIsWeb?Container():!Platform.isAndroid
               ? Container()
               : IconButton(
                   icon: FaIcon(FontAwesomeIcons.shareAlt),

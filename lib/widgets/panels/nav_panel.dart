@@ -16,7 +16,6 @@ class NavigationPanel extends StatefulWidget {
 }
 
 class _NavigationPanelState extends State<NavigationPanel> {
-  String prerequisite;
   Widget drawerTile(String title, VoidCallback onTap, [IconData icon]) {
     final colorScheme = Theme.of(context).colorScheme;
     return Padding(

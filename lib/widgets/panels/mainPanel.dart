@@ -1,70 +1,33 @@
-import 'dart:io';
-import 'dart:math';
-
-import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:grafpix/icons.dart';
-import 'package:hijri/hijri_calendar.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
-import 'package:islam_made_easy/services/daily.dart';
 import 'package:islam_made_easy/settings/settings.dart';
 import 'package:islam_made_easy/views/succinct.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
-import 'package:lottie/lottie.dart';
-import 'package:pdf_flutter/pdf_flutter.dart';
 
 class MainPanel extends StatefulWidget {
   @override
   _MainPanelState createState() => _MainPanelState();
 }
 
-class _MainPanelState extends State<MainPanel>
-    with WidgetsBindingObserver, TickerProviderStateMixin {
+class _MainPanelState extends State<MainPanel> with TickerProviderStateMixin {
   PageController _controller;
   List data;
   var _index;
   int _actualPageNumber = 1;
 
-  // PDFDocument _document;
   var quote;
 
   @override
   void initState() {
-    WidgetsBinding.instance.addObserver(this);
     super.initState();
-    random();
-    DailyNotification().getQuoteString();
   }
 
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed) {
-      DailyNotification().init();
-    }
-    super.didChangeAppLifecycleState(state);
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
-  }
-
-  void random() {
-    setState(
-      () {
-        _index = Random(_index).nextInt(4000);
-      },
-    );
-  }
-
-  File localFile;
-  int _today = HijriCalendar().hMonth;
-  int _day = HijriCalendar().hDay;
+  // int _today = HijriCalendar().hMonth;
+  // int _day = HijriCalendar().hDay;
 
   // if (_today == 9 && _day == 1) {
   //   _day++;
@@ -72,6 +35,7 @@ class _MainPanelState extends State<MainPanel>
 
   @override
   Widget build(BuildContext context) {
+    final isTablet = isDisplaySmallDesktop(context);
     final isDesktop = isDisplayDesktop(context);
     Locale locale = Localizations.localeOf(context);
     final size = MediaQuery.of(context).size;
@@ -145,19 +109,20 @@ class _MainPanelState extends State<MainPanel>
             ],
           ),
         ),
-        Scaffold(
-          backgroundColor: Theme.of(context).backgroundColor,
-          body: Container(
-            child: PDF.assets(
-              "assets/daily/daily.pdf",
-              height: size.height,
-              width: size.width,
-              placeHolder: Lottie.asset('assets/lottie/loader.json'),
-            ),
-          ),
-        ),
+        // Scaffold(
+        //   backgroundColor: Theme.of(context).backgroundColor,
+        //   body: Platform.isAndroid
+        //       ? Container(
+        //           child: PDF.assets(
+        //             "assets/daily/ramadhan.pdf",
+        //             height: size.height,
+        //             width: size.width,
+        //             placeHolder: Lottie.asset('assets/lottie/loader.json'),
+        //           ),
+        //         )
+        //       : Container(),
+        // ),
         // AnnotatedRegion(
-        //   value: SystemUiOverlayStyle(statusBarColor: Colors.transparent),
         //   child: Container(
         //     child: Stack(
         //       children: [
@@ -387,18 +352,18 @@ class _MainPanelState extends State<MainPanel>
                   padding: const EdgeInsets.only(top: 260.0, left: 30),
                   child: Container(
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Get.theme.primaryColorDark,
-                          Get.theme.backgroundColor
-                        ],
-                        begin: locale.languageCode == 'ar'
-                            ? Alignment.topRight
-                            : Alignment.topLeft,
-                        end: locale.languageCode == 'ar'
-                            ? Alignment.bottomRight
-                            : Alignment.bottomLeft,
-                      ),
+                      // gradient: LinearGradient(
+                      //   colors: [
+                      //     Get.theme.primaryColorDark,
+                      //     Get.theme.backgroundColor
+                      //   ],
+                      //   begin: locale.languageCode == 'ar'
+                      //       ? Alignment.topRight
+                      //       : Alignment.topLeft,
+                      //   end: locale.languageCode == 'ar'
+                      //       ? Alignment.bottomRight
+                      //       : Alignment.bottomLeft,
+                      // ),
                       color: Colors.transparent,
                       // border: Border.all(color: Color(0xFFFAFAFC)),
                       // borderRadius: BorderRadius.circular(5),
@@ -434,178 +399,118 @@ class _MainPanelState extends State<MainPanel>
     }
   }
 
-  Future<bool> hasSupport() async {
-    final deviceInfo = DeviceInfoPlugin();
-    bool hasSupport = false;
-    if (Platform.isIOS) {
-      final iosInfo = await deviceInfo.iosInfo;
-      hasSupport = int.parse(iosInfo.systemVersion.split('.').first) >= 11;
-    } else if (Platform.isAndroid) {
-      final androidInfo = await deviceInfo.androidInfo;
-      hasSupport = androidInfo.version.sdkInt >= 21;
-    }
-    return hasSupport;
-  }
-
-  Stack circle() {
-    return new Stack(
-      children: <Widget>[
-        Container(),
-        new Positioned(
-          top: -75.0,
-          right: 85.0,
-          child: new Container(
-            height: 120.0,
-            width: 140.0,
-            decoration: BoxDecoration(
-                gradient: yellowOrangeGradient, shape: BoxShape.circle),
-          ),
-        ),
-        new Positioned(
-          right: -7.0,
-          top: 620.0,
-          child: new Container(
-            height: 50.0,
-            width: 50.0,
-            decoration: BoxDecoration(
-                gradient: yellowOrangeGradient, shape: BoxShape.circle),
-          ),
-        ),
-        new Positioned(
-          right: -75.0,
-          top: 245.0,
-          child: new Container(
-            height: 150.0,
-            width: 150.0,
-            decoration: BoxDecoration(
-                gradient: blackSexyGradient, shape: BoxShape.circle),
-          ),
-        ),
-        new Positioned(
-          left: -75.0,
-          top: 775.0,
-          child: new Container(
-            height: 150.0,
-            width: 150.0,
-            decoration: BoxDecoration(
-                gradient: blackBlueGradient, shape: BoxShape.circle),
-          ),
-        ),
-        new Positioned(
-          left: 65.0,
-          top: 200.0,
-          child: new Container(
-            height: 50.0,
-            width: 50.0,
-            decoration: BoxDecoration(
-                gradient: skyBlueGradient, shape: BoxShape.circle),
-          ),
-        ),
-        new Positioned(
-          left: 65.0,
-          top: 575.0,
-          child: new Container(
-            height: 25.0,
-            width: 25.0,
-            decoration: BoxDecoration(
-                gradient: thodaSexyGradient, shape: BoxShape.circle),
-          ),
-        ),
-        new Positioned(
-          left: 325.0,
-          top: 845.0,
-          child: new Container(
-            height: 25.0,
-            width: 25.0,
-            decoration: BoxDecoration(
-                gradient: violetSexyGradient, shape: BoxShape.circle),
-          ),
-        ),
-      ],
-    );
-  }
-
-  var blackSexyGradient = new LinearGradient(
-      colors: [const Color(0xFF90203F), const Color(0xFF537895)],
-      tileMode: TileMode.clamp,
-      begin: Alignment.bottomLeft,
-      end: Alignment.topRight,
-      stops: [0.0, 1.0]);
-  var violetSexyGradient = new LinearGradient(
-      colors: [const Color(0xFF52A7EA), const Color(0xFF712E98)],
-      tileMode: TileMode.clamp,
-      begin: Alignment.bottomLeft,
-      end: Alignment.topRight,
-      stops: [0.0, 1.0]);
-  var thodaSexyGradient = new LinearGradient(
-      colors: [const Color(0xFFF58573), const Color(0xFF5F79F4)],
-      tileMode: TileMode.clamp,
-      begin: Alignment.bottomLeft,
-      end: Alignment.topRight,
-      stops: [0.0, 1.0]);
-  var skyBlueGradient = new LinearGradient(
-      colors: [const Color(0xFF15EDED), const Color(0xFF029CF5)],
-      tileMode: TileMode.clamp,
-      begin: Alignment.bottomLeft,
-      end: Alignment.topRight,
-      stops: [0.0, 1.0]);
-  var blackBlueGradient = new LinearGradient(
-      colors: [Colors.blueGrey.shade800, Colors.black87],
-      tileMode: TileMode.clamp,
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      stops: [0.0, 1.0]);
-  var yellowOrangeGradient = new LinearGradient(
-    colors: [const Color(0xFFFFFF00), const Color(0xFFFF6600)],
-    tileMode: TileMode.clamp,
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    stops: [0.0, 1.0],
-  );
-
   Widget buildCard(String name, String display) {
     final isDesktop = isDisplayDesktop(context);
     Locale locale = Localizations.localeOf(context);
     final colorScheme = Get.theme.colorScheme;
+    final ar = locale.languageCode == 'ar';
+    final size = MediaQuery.of(context).size;
     return WidgetAnimator(
-      Card(
-        clipBehavior: Clip.antiAlias,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(isDesktop ? 4 : 8)),
-        child: ListTile(
-          contentPadding: EdgeInsets.all(20),
-          enableFeedback: true,
-          trailing: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: colorScheme.secondary),
-            child: IconButton(
-              icon: FaIcon(
-                locale.languageCode == 'ar'
-                    ? PixIcon.typcn_chevron_left
-                    : PixIcon.typcn_chevron_right,
-                color: colorScheme.surface,
-              ),
-              splashRadius: isDesktop ? 20 : 30, onPressed: () {},
-              // onPressed: () => isDesktop
-              //     ? Get.dialog(FetchQuestions(name: name))
-              //     : Get.to(FetchQuestions(name: name)),
+      Stack(
+        children: [
+          Card(
+            clipBehavior: Clip.antiAlias,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(isDesktop ? 4 : 8)),
+            child: Stack(
+              children: [
+                Positioned(
+                  top: -50.0,
+                  left: ar ? 200 : 0,
+                  child: Container(
+                    height: 120.0,
+                    width: 140.0,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).splashColor,
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(50),
+                          bottomLeft:
+                              ar ? Radius.elliptical(50, 120) : Radius.zero,
+                          bottomRight: Radius.elliptical(50, 120)),
+                      gradient: LinearGradient(
+                        colors: [
+                          Theme.of(context).accentColor,
+                          Theme.of(context).backgroundColor
+                        ],
+                        tileMode: TileMode.mirror,
+                        begin: !ar ? Alignment.topLeft : Alignment.topRight,
+                        end: !ar ? Alignment.bottomRight : Alignment.bottomLeft,
+                        stops: [0.0, 1.0],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: -40.0,
+                  left: ar ? 250 : 0,
+                  child: Container(
+                    height: 120.0,
+                    width: 170.0,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).splashColor.withOpacity(0.05),
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(50),
+                          bottomLeft:
+                              ar ? Radius.elliptical(50, 120) : Radius.zero,
+                          bottomRight: Radius.elliptical(50, 120)),
+                    ),
+                  ),
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.all(20),
+                  enableFeedback: true,
+                  trailing: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: colorScheme.secondary),
+                    child: IconButton(
+                      icon: FaIcon(
+                        ar
+                            ? PixIcon.typcn_chevron_left
+                            : PixIcon.typcn_chevron_right,
+                        color: colorScheme.surface,
+                      ),
+                      splashRadius: isDesktop ? 20 : 30, onPressed: () {},
+                      // onPressed: () => isDesktop
+                      //     ? Get.dialog(FetchQuestions(name: name))
+                      //     : Get.to(FetchQuestions(name: name)),
+                    ),
+                  ),
+                  title: Text(
+                    display,
+                    style: TextStyle(fontWeight: FontWeight.w300, fontSize: 20),
+                  ),
+                ),
+                Positioned(
+                  top: 75.0,
+                  left: ar ? 0 : 200,
+                  child: Container(
+                    height: 120.0,
+                    width: 140.0,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topLeft:
+                                ar ? Radius.zero : Radius.elliptical(50, 20),
+                            topRight:
+                                ar ? Radius.elliptical(50, 20) : Radius.zero),
+                        gradient: LinearGradient(
+                          colors: [
+                            Theme.of(context).accentColor,
+                            Theme.of(context).backgroundColor
+                          ],
+                          tileMode: TileMode.mirror,
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          stops: [0.0, 1.0],
+                        ),
+                        shape: BoxShape.rectangle),
+                  ),
+                ),
+              ],
             ),
           ),
-          title: Text(
-            display,
-            style: TextStyle(fontWeight: FontWeight.w300, fontSize: 20),
-          ),
-        ),
+        ],
       ),
     );
-  }
-}
-
-class NoGlow extends ScrollBehavior {
-  @override
-  Widget buildViewportChrome(
-      BuildContext context, Widget child, AxisDirection axisDirection) {
-    return child;
   }
 }

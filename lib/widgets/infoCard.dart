@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -35,7 +36,9 @@ class _InfoCardState extends State<InfoCard> {
   }
 
   void getPackageInfo() async {
-    _packageInfo = await PackageInfo.fromPlatform();
+    if (!kIsWeb) {
+      _packageInfo = await PackageInfo.fromPlatform();
+    }
   }
 
   @override
@@ -43,18 +46,20 @@ class _InfoCardState extends State<InfoCard> {
     final isDesktop = isDisplayDesktop(context);
     return WidgetAnimator(
       Card(
-        elevation: 8,
+        elevation: 0,
+        // color: Theme.of(context).splashColor,
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         shadowColor: Colors.grey,
         shape: isDesktop
             ? Border(
-                left: BorderSide(color: Colors.grey[100], width: 5),
+                left: BorderSide(color: Colors.grey[300], width: 5),
                 bottom: BorderSide(color: Colors.grey[400], width: 5),
                 top: BorderSide(color: Colors.grey[400], width: 2),
                 right: BorderSide(color: Colors.grey[500], width: 3),
               )
-            : null,
+            : Border(),
         child: ExpansionTile(
+          // backgroundColor: Theme.of(context).splashColor,
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -74,21 +79,27 @@ class _InfoCardState extends State<InfoCard> {
                     )
                     .catchError(_showSnackBarOnCopyFailure),
               ),
-              !Platform.isAndroid
+              kIsWeb
                   ? Container()
-                  : IconButton(
-                      icon: FaIcon(FontAwesomeIcons.shareAlt, size: 20),
-                      splashRadius: 10,
-                      onPressed: () => share(context, "𝗤. ${widget.quest}"),
-                    ),
+                  : !Platform.isAndroid
+                      ? Container()
+                      : IconButton(
+                          icon: FaIcon(FontAwesomeIcons.shareAlt, size: 20),
+                          splashRadius: 10,
+                          onPressed: () =>
+                              share(context, "𝗤. ${widget.quest}"),
+                        ),
             ],
           ),
+          expandedAlignment: Alignment.topCenter,
           tilePadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          childrenPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          childrenPadding: EdgeInsets.symmetric(
+              vertical: isDesktop ? 20 : 10, horizontal: isDesktop ? 30 : 10),
           title: Text(
             "𝗤. ${widget.quest}",
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 17, fontFamily: 'Amiri'),
+            style: const TextStyle(
+                fontSize: 17, fontFamily: 'Amiri', letterSpacing: 0.1),
           ),
           children: widget.answers,
         ),

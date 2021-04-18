@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
@@ -320,8 +321,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                 Card(
                   child: ExpansionTile(
                     tilePadding: EdgeInsets.symmetric(
-                        horizontal: Platform.isLinux ? 10 : 8,
-                        vertical: Platform.isLinux ? 22 : 8),
+                        horizontal: isDesktop? 10 : 8,
+                        vertical: isDesktop ? 22 : 8),
                     title: Text(
                       S.current.hajjSubTitle1,
                       textAlign: TextAlign.center,

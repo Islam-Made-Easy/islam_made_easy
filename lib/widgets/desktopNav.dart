@@ -5,6 +5,7 @@ import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/views/QnA.dart';
 import 'package:islam_made_easy/views/general_knowledge/general_knowlege.dart';
 import 'package:islam_made_easy/views/prerequisite.dart';
+import 'package:islam_made_easy/views/succinct.dart';
 import 'package:islam_made_easy/widgets/panels/mainPanel.dart';
 import 'package:islam_made_easy/widgets/references.dart';
 import 'package:islam_made_easy/widgets/short_phrases.dart';
@@ -36,6 +37,7 @@ class _DesktopNavState extends State<DesktopNav>
   List<Widget> screens = [
     MainPanel(),
     Prerequisite(),
+    Succinct(),
     QnA(),
     GeneralKnowledge(),
     References(),
@@ -71,6 +73,12 @@ class _DesktopNavState extends State<DesktopNav>
                                   color: Colors.transparent,
                                   child: FaIcon(PixIcon.typcn_document_text)),
                               label: Text(S.current.prerequisite),
+                            ),
+                            NavigationRailDestination(
+                              icon: Material(
+                                  color: Colors.transparent,
+                                  child: FaIcon(PixIcon.fa_book_open)),
+                              label: Text('Methodology'),
                             ),
                             NavigationRailDestination(
                               icon: Material(
