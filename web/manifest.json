@@ -1,11 +1,11 @@
 {
-    "name": "islam_made_easy",
-    "short_name": "islam_made_easy",
+    "name": "Islam Made Easy",
+    "short_name": "IME",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Islamic application that let you understand your religion easier.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
