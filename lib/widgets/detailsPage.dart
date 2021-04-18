@@ -62,7 +62,7 @@ class _DetailsPageState extends State<DetailsPage> {
         title: Text(widget.barTitle),
         elevation: 0,
         leading: isDesktop
-            ? Container()
+            ? null
             : IconButton(
                 icon: FaIcon(locale.languageCode == 'ar'
                     ? FontAwesomeIcons.angleRight
@@ -86,12 +86,14 @@ class _DetailsPageState extends State<DetailsPage> {
                 )
                 .catchError(_showSnackBarOnCopyFailure),
           ),
-          kIsWeb?Container():!Platform.isAndroid
+          kIsWeb
               ? Container()
-              : IconButton(
-                  icon: FaIcon(FontAwesomeIcons.shareAlt),
-                  onPressed: () => share(context, widget.title),
-                ),
+              : !Platform.isAndroid
+                  ? Container()
+                  : IconButton(
+                      icon: FaIcon(FontAwesomeIcons.shareAlt),
+                      onPressed: () => share(context, widget.title),
+                    ),
         ],
       ),
       body: Scrollbar(
@@ -105,7 +107,11 @@ class _DetailsPageState extends State<DetailsPage> {
               height: 250,
               child: Padding(
                 padding: const EdgeInsets.all(1),
-                child: Image.asset(widget.image, fit: BoxFit.cover),
+                child: Image.asset(
+                  widget.image,
+                  fit: BoxFit.cover,
+                  matchTextDirection: true,
+                ),
               ),
             ),
             SizedBox(height: 15),
@@ -207,6 +213,7 @@ class DetailsCard extends StatelessWidget {
                             child: Image.asset(
                               img,
                               fit: BoxFit.cover,
+                              matchTextDirection: true,
                               width: MediaQuery.of(context).size.width,
                               height: MediaQuery.of(context).size.height,
                             ),
