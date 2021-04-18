@@ -150,7 +150,10 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       child: AnimatedBackground(
         behaviour: RectanglesBehaviour(),
         vsync: this,
-        child: Center(child: Lottie.asset("assets/lottie/loader.json")),
+        child: Center(
+          child: Lottie.asset(
+              kIsWeb ? 'assets/lottie/404.json' : "assets/lottie/loader.json"),
+        ),
       ),
     );
   }
