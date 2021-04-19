@@ -17,8 +17,6 @@ class MainPanel extends StatefulWidget {
 class _MainPanelState extends State<MainPanel> with TickerProviderStateMixin {
   PageController _controller;
   List data;
-  var _index;
-  int _actualPageNumber = 1;
   AnimationController _animController;
   var quote;
 
@@ -41,10 +39,8 @@ class _MainPanelState extends State<MainPanel> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final isTablet = isDisplaySmallDesktop(context);
     final isDesktop = isDisplayDesktop(context);
     Locale locale = Localizations.localeOf(context);
-    final size = MediaQuery.of(context).size;
     if (!isDesktop) {
       return PageView(controller: _controller, children: [
         Container(
@@ -115,151 +111,6 @@ class _MainPanelState extends State<MainPanel> with TickerProviderStateMixin {
             ],
           ),
         ),
-        // Scaffold(
-        //   backgroundColor: Theme.of(context).backgroundColor,
-        //   body: Platform.isAndroid
-        //       ? Container(
-        //           child: PDF.assets(
-        //             "assets/daily/ramadhan.pdf",
-        //             height: size.height,
-        //             width: size.width,
-        //             placeHolder: Lottie.asset('assets/lottie/loader.json'),
-        //           ),
-        //         )
-        //       : Container(),
-        // ),
-        // AnnotatedRegion(
-        //   child: Container(
-        //     child: Stack(
-        //       children: [
-        //         circle(),
-        //         ListView(
-        //           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //           children: [
-        //             Padding(
-        //               padding: const EdgeInsets.only(left: 20.0, top: 20),
-        //               child: Row(
-        //                 children: <Widget>[
-        //                   new Container(
-        //                     child: Text("quote.",
-        //                         style: Theme.of(context)
-        //                             .textTheme
-        //                             .headline3
-        //                             .copyWith(color: Colors.white)),
-        //                   ),
-        //                 ],
-        //               ),
-        //             ),
-        //             Container(
-        //               width: 355,
-        //               height: 475,
-        //               child: new FutureBuilder(
-        //                 future: DefaultAssetBundle.of(context)
-        //                     .loadString('assets/daily/daily.json'),
-        //                 builder: (context, snapshot) {
-        //                   quote = json.decode(snapshot.data.toString());
-        //                   return new PageView.builder(
-        //                     itemBuilder: (BuildContext context, int index) {
-        //                       return new PageView(
-        //                         children: <Widget>[
-        //                           ScrollConfiguration(
-        //                             behavior: NoGlow(),
-        //                             child: Center(
-        //                               child: SingleChildScrollView(
-        //                                 child: new Container(
-        //                                   child: new Column(
-        //                                     mainAxisAlignment:
-        //                                         MainAxisAlignment.center,
-        //                                     children: <Widget>[
-        //                                       new Padding(
-        //                                         padding: const EdgeInsets.only(
-        //                                             left: 19),
-        //                                         child: Text(
-        //                                           quote[index]['Quote'],
-        //                                           style: Theme.of(context)
-        //                                               .textTheme
-        //                                               .headline6
-        //                                               .copyWith(
-        //                                                   fontWeight:
-        //                                                       FontWeight.bold,
-        //                                                   letterSpacing: 2,
-        //                                                   color: Colors.white),
-        //                                         ),
-        //                                       ),
-        //                                       Padding(
-        //                                         padding: const EdgeInsets.only(
-        //                                             left: 195.0, top: 25),
-        //                                         child: Text(
-        //                                             "- " +
-        //                                                 quote[index]['Author'],
-        //                                             style: Theme.of(context)
-        //                                                 .textTheme
-        //                                                 .subtitle1
-        //                                                 .copyWith(
-        //                                                     fontWeight:
-        //                                                         FontWeight.bold,
-        //                                                     color: Colors.white,
-        //                                                     fontFamily:
-        //                                                         "fontaa")),
-        //                                       )
-        //                                     ],
-        //                                   ),
-        //                                 ),
-        //                               ),
-        //                             ),
-        //                           )
-        //                         ],
-        //                       );
-        //                     },
-        //                     physics: NeverScrollableScrollPhysics(),
-        //                   );
-        //                 },
-        //               ),
-        //             ),
-        //             Row(
-        //               mainAxisAlignment: MainAxisAlignment.spaceAround,
-        //               children: <Widget>[
-        //                 Container(
-        //                   width: 90,
-        //                   height: 50,
-        //                   child: new RaisedButton(
-        //                     shape: RoundedRectangleBorder(
-        //                         borderRadius: BorderRadius.circular(30)),
-        //                     elevation: 10,
-        //                     color: Colors.yellow.shade700,
-        //                     child: new Icon(Icons.panorama_fish_eye,
-        //                         color: Colors.black),
-        //                     onPressed: () {
-        //                       random();
-        //                     },
-        //                   ),
-        //                 ),
-        //                 Container(
-        //                   width: 90,
-        //                   height: 50,
-        //                   child: RaisedButton(
-        //                     shape: RoundedRectangleBorder(
-        //                         borderRadius: BorderRadius.circular(30)),
-        //                     elevation: 10,
-        //                     color: Colors.pink.shade200,
-        //                     child: Icon(
-        //                       Icons.share,
-        //                       color: Colors.black,
-        //                     ),
-        //                     onPressed: () {
-        //                       Share.share(
-        //                           "${this.quote[_index]['Quote']}\n\n - ${this.quote[_index]['Author']}");
-        //                     },
-        //                   ),
-        //                 ),
-        //               ],
-        //             ),
-        //           ],
-        //         )
-        //       ],
-        //     ),
-        //   ),
-        // ),
       ]);
     } else {
       return Scaffold(
@@ -410,7 +261,6 @@ class _MainPanelState extends State<MainPanel> with TickerProviderStateMixin {
     Locale locale = Localizations.localeOf(context);
     final colorScheme = Get.theme.colorScheme;
     final ar = locale.languageCode == 'ar';
-    final size = MediaQuery.of(context).size;
     return WidgetAnimator(
       FadingSlidingWidget(
         animationController: _animController,
