@@ -13,46 +13,48 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
   Animation<double> _curvedAnimation;
   AnimationController _animationController1;
   Animation<double> _curvedAnimation1;
+  AnimationController _animationController2;
+  Animation<double> _curvedAnimation2;
+  AnimationController _animationController5;
+  Animation<double> _curvedAnimation5;
   AnimationController _animationController3;
   Animation<double> _curvedAnimation3;
   AnimationController _animationController4;
   Animation<double> _curvedAnimation4;
+  var time = Duration(milliseconds: 1000);
+  var anim = Curves.easeInOut;
 
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 1000),
-    );
+    _animationController = AnimationController(vsync: this, duration: time);
     _curvedAnimation =
-        CurvedAnimation(parent: _animationController, curve: Curves.easeInOut);
-    _animationController1 = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 1000),
-    );
+        CurvedAnimation(parent: _animationController, curve: anim);
+    _animationController1 = AnimationController(vsync: this, duration: time);
     _curvedAnimation1 =
-        CurvedAnimation(parent: _animationController1, curve: Curves.easeInOut);
-    _animationController3 = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 1000),
-    );
+        CurvedAnimation(parent: _animationController1, curve: anim);
+    _animationController2 = AnimationController(vsync: this, duration: time);
+    _curvedAnimation2 =
+        CurvedAnimation(parent: _animationController2, curve: anim);
+    _animationController3 = AnimationController(vsync: this, duration: time);
     _curvedAnimation3 =
-        CurvedAnimation(parent: _animationController3, curve: Curves.easeInOut);
-    _animationController4 = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 1000),
-    );
+        CurvedAnimation(parent: _animationController3, curve: anim);
+    _animationController4 = AnimationController(vsync: this, duration: time);
     _curvedAnimation4 =
-        CurvedAnimation(parent: _animationController4, curve: Curves.easeInOut);
+        CurvedAnimation(parent: _animationController4, curve: anim);
+    _animationController5 = AnimationController(vsync: this, duration: time);
+    _curvedAnimation5 =
+        CurvedAnimation(parent: _animationController5, curve: anim);
   }
 
   @override
   void dispose() {
     _animationController.dispose();
     _animationController1.dispose();
+    _animationController2.dispose();
     _animationController3.dispose();
     _animationController4.dispose();
+    _animationController5.dispose();
     super.dispose();
   }
 
@@ -74,6 +76,15 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
     }
   }
 
+  void _flip2(bool reverse) {
+    if (_animationController2.isAnimating) return;
+    if (reverse) {
+      _animationController2.forward();
+    } else {
+      _animationController2.reverse();
+    }
+  }
+
   void _flip3(bool reverse) {
     if (_animationController3.isAnimating) return;
     if (reverse) {
@@ -89,6 +100,15 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
       _animationController4.forward();
     } else {
       _animationController4.reverse();
+    }
+  }
+
+  void _flip5(bool reverse) {
+    if (_animationController5.isAnimating) return;
+    if (reverse) {
+      _animationController5.forward();
+    } else {
+      _animationController5.reverse();
     }
   }
 
@@ -156,11 +176,18 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
                   back: _buildCardB(() => _flip4(false), S.current.aboutJibril),
                 ),
                 FlipView(
-                  animationController: _curvedAnimation4,
+                  animationController: _curvedAnimation2,
                   front: _buildCardF(
-                      S.current.fatawaAuthor2, () => _flip4(true), ''),
+                      S.current.fatawaAuthor2, () => _flip2(true), ''),
                   back: _buildCardB(
-                      () => _flip4(false), S.current.aboutFatawaAuthor2),
+                      () => _flip2(false), S.current.aboutFatawaAuthor2),
+                ),
+                FlipView(
+                  animationController: _curvedAnimation5,
+                  front: _buildCardF(
+                      'Sheikh Abū Hājar', () => _flip5(true), ''),
+                  back: _buildCardB(
+                      () => _flip5(false), '~ Al-Aqeedah'),
                 ),
               ],
             ),
