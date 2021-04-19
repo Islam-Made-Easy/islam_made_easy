@@ -24,13 +24,18 @@ class ShortPhrases extends StatelessWidget {
             decoration: BoxDecoration(
               color: Color(0xFFFAFAFC).withOpacity(0.2),
               border: Border.all(color: Theme.of(context).backgroundColor),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(0),
+                bottomRight: Radius.elliptical(12, 200),
+                bottomLeft: Radius.elliptical(90, 10),
+              ),
             ),
             padding: EdgeInsets.all(isDesktop ? 42 : 10),
             child: Column(
               children: [
                 _ShortW(
-                    title: ' بســـم اللــه الرحــمــن الـرحـــيــم',
+                    title: 'بسم الله الرحمان الرحيم',
                     subtitle: S.current.basmallah,
                     trailing: '(​ Bismilahi Rahmani Raheem )'),
                 _ShortW(
@@ -100,16 +105,56 @@ class _ShortW extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     return WidgetAnimator(
-      Card(
-        color: Colors.transparent,
-        elevation: 0,
-        child: ListTile(
-          title: Text(title),
-          trailing: Text(trailing),
-          subtitle: Text(subtitle),
-          tileColor: Theme.of(context).hoverColor,
-        ),
+      Stack(
+        children: [
+          Card(
+            color: Colors.transparent,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              side: BorderSide(width: 0.5, color: Theme.of(context).hoverColor),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(ar ? 0 : 10),
+                topRight: Radius.circular(ar ? 10 : 0),
+                bottomRight:
+                    ar ? Radius.elliptical(90, 10) : Radius.elliptical(12, 200),
+                bottomLeft:
+                    ar ? Radius.elliptical(12, 200) : Radius.elliptical(90, 10),
+              ),
+            ),
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            child: ListTile(
+              title: Text(title),
+              trailing: Text(trailing),
+              subtitle: Text(subtitle),
+              tileColor: Theme.of(context).hoverColor,
+            ),
+          ),
+          Positioned(
+            top: 15.0,
+            left: ar ? 0 : null,
+            right: ar ? null : 0,
+            child: Container(
+              height: 10.0,
+              width: 40.0,
+              decoration: BoxDecoration(
+                  color: Theme.of(context).highlightColor,
+                  gradient: LinearGradient(
+                    colors: [
+                      Theme.of(context).accentColor,
+                      Theme.of(context).backgroundColor
+                    ],
+                    tileMode: TileMode.mirror,
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    stops: [0.1, 1.0],
+                  ),
+                  shape: BoxShape.circle),
+            ),
+          ),
+        ],
       ),
     );
   }

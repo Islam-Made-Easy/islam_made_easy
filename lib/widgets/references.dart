@@ -116,14 +116,15 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final theme = Theme.of(context);
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     return Scaffold(
-      backgroundColor: isDesktop ? theme.backgroundColor : Color(0xffEEF1FA),
+      backgroundColor: theme.backgroundColor,
       appBar: AppBar(
         title: Text(S.current.references),
         centerTitle: true,
         elevation: 0,
-        backgroundColor:
-            isDesktop ? Colors.transparent : theme.appBarTheme.color,
+        backgroundColor: isDesktop ? Colors.transparent : null,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
@@ -152,42 +153,40 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
                 FlipView(
                   animationController: _curvedAnimation1,
                   front: _buildCardF(
-                      S.current.tawheedBookAuthor, () => _flip1(true), ''),
+                      S.current.tawheedBookAuthor, () => _flip1(true)),
                   back: _buildCardB(
                       () => _flip1(false), S.current.tawheedAboutAuthor),
                 ),
                 FlipView(
                   animationController: _curvedAnimation,
                   front: _buildCardF(
-                      S.current.prerequisiteAuthor, () => _flip(true), ''),
+                      S.current.prerequisiteAuthor, () => _flip(true)),
                   back: _buildCardB(
                       () => _flip(false), S.current.prerequisiteAboutAuthor),
                 ),
                 FlipView(
                   animationController: _curvedAnimation3,
-                  front:
-                      _buildCardF(S.current.qnaAnswer1, () => _flip3(true), ''),
+                  front: _buildCardF(S.current.qnaAnswer1, () => _flip3(true)),
                   back: _buildCardB(() => _flip3(false), S.current.aboutAlwan),
                 ),
                 FlipView(
                   animationController: _curvedAnimation4,
-                  front:
-                      _buildCardF(S.current.hajjAuthor, () => _flip4(true), ''),
+                  front: _buildCardF(S.current.hajjAuthor, () => _flip4(true)),
                   back: _buildCardB(() => _flip4(false), S.current.aboutJibril),
                 ),
                 FlipView(
                   animationController: _curvedAnimation2,
-                  front: _buildCardF(
-                      S.current.fatawaAuthor2, () => _flip2(true), ''),
+                  front:
+                      _buildCardF(S.current.fatawaAuthor2, () => _flip2(true)),
                   back: _buildCardB(
                       () => _flip2(false), S.current.aboutFatawaAuthor2),
                 ),
                 FlipView(
                   animationController: _curvedAnimation5,
                   front: _buildCardF(
-                      'Sheikh Abū Hājar', () => _flip5(true), ''),
+                      S.current.tawheedIntroAuthor, () => _flip5(true)),
                   back: _buildCardB(
-                      () => _flip5(false), '~ Al-Aqeedah'),
+                      () => _flip5(false), S.current.tawheedIntroTitle),
                 ),
               ],
             ),
@@ -197,8 +196,21 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildCardF(String title, GestureTapCallback onTap, String about) {
+  Widget _buildCardF(String title, GestureTapCallback onTap) {
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     return Card(
+      shape: RoundedRectangleBorder(
+        side: BorderSide(width: 0.5, color: Theme.of(context).hoverColor),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(ar ? 0 : 10),
+          topRight: Radius.circular(ar ? 10 : 0),
+          bottomRight:
+              ar ? Radius.elliptical(90, 10) : Radius.elliptical(12, 200),
+          bottomLeft:
+              ar ? Radius.elliptical(12, 200) : Radius.elliptical(90, 10),
+        ),
+      ),
       elevation: 4,
       clipBehavior: Clip.hardEdge,
       child: ListTile(
@@ -213,7 +225,20 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
   }
 
   Widget _buildCardB(GestureTapCallback onTap, String about) {
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     return Card(
+      shape: RoundedRectangleBorder(
+        side: BorderSide(width: 0.5, color: Theme.of(context).hoverColor),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(ar ? 0 : 10),
+          topRight: Radius.circular(ar ? 10 : 0),
+          bottomLeft:
+              ar ? Radius.elliptical(90, 10) : Radius.elliptical(12, 200),
+          bottomRight:
+              ar ? Radius.elliptical(12, 200) : Radius.elliptical(90, 10),
+        ),
+      ),
       elevation: 4,
       clipBehavior: Clip.hardEdge,
       child: ListTile(

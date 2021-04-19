@@ -13,6 +13,7 @@ import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:islam_made_easy/widgets/buttons/shareButton.dart';
 import 'package:islam_made_easy/widgets/listHeader.dart';
 import 'package:package_info/package_info.dart';
+import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void showAboutDialog({@required BuildContext context}) {
@@ -60,21 +61,35 @@ class _AboutAppState extends State<AboutApp> {
     final bodyTextStyle =
         textTheme.bodyText1.apply(color: colorScheme.onPrimary);
     final name =
-        'Islam Made Easy ${S.current.forPlatform} ${kIsWeb?'Web: [PWA]':Platform.operatingSystem}';
+        'Islam Made Easy ${S.current.forPlatform} ${kIsWeb ? 'Web' : Platform.operatingSystem}';
     final legalese = '© ${DateTime.now().year} The IME team';
-    // var now = new DateTime.now();
-    // var nextUpdateTime = now.add(new Duration(days: 60)).month;
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     return AlertDialog(
       title: ListHeader(
         text: MaterialLocalizations.of(context).aboutListTileTitle('IME'),
         trailing: IconButton(
-          icon: FaIcon(
-              isDesktop ? FontAwesomeIcons.timesCircle : PixIcon.typcn_times),
-          onPressed: Get.back,
+          icon: FaIcon(isDesktop
+              ? FontAwesomeIcons.timesCircle
+              : FontAwesomeIcons.share),
+          onPressed: () {
+            isDesktop ? Get.back() : share(context);
+          },
           splashRadius: isDesktop ? 10 : 20,
           tooltip: isDesktop
               ? MaterialLocalizations.of(context).closeButtonTooltip
               : null,
+        ),
+      ),
+      shape: RoundedRectangleBorder(
+        side: BorderSide(width: 0.5, color: Theme.of(context).hoverColor),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(ar ? 0 : 10),
+          topRight: Radius.circular(ar ? 10 : 0),
+          bottomRight:
+              ar ? Radius.elliptical(90, 10) : Radius.elliptical(12, 200),
+          bottomLeft:
+              ar ? Radius.elliptical(12, 200) : Radius.elliptical(90, 10),
         ),
       ),
       backgroundColor: Color(0xfff2f2f2),
@@ -85,7 +100,7 @@ class _AboutAppState extends State<AboutApp> {
             Divider(),
             Image.asset(
               'assets/images/logo.png',
-              height: isDesktop ? 322 : 200,
+              height: isDesktop ? 300 : 200,
             ),
             Text(S.current.aboutApp),
             FutureBuilder(
@@ -171,6 +186,14 @@ class _AboutAppState extends State<AboutApp> {
         ),
       ),
     );
+  }
+
+  share(BuildContext context) {
+    final RenderBox box = context.findRenderObject();
+    final shareText = "Islam Made Easy\n${S.current.aboutApp}";
+    Share.share(shareText,
+        subject: 'https://islam-made-easy.web.app',
+        sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
   }
 }
 
