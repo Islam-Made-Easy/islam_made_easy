@@ -7,6 +7,7 @@ import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:islam_made_easy/settings/settings.dart';
 import 'package:islam_made_easy/views/succinct.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
+import 'package:islam_made_easy/widgets/anim/fade_slide.dart';
 
 class MainPanel extends StatefulWidget {
   @override
@@ -18,12 +19,17 @@ class _MainPanelState extends State<MainPanel> with TickerProviderStateMixin {
   List data;
   var _index;
   int _actualPageNumber = 1;
-
+  AnimationController _animController;
   var quote;
 
   @override
   void initState() {
     super.initState();
+    _controller = PageController();
+    _animController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    )..forward();
   }
 
   // int _today = HijriCalendar().hMonth;
@@ -406,110 +412,177 @@ class _MainPanelState extends State<MainPanel> with TickerProviderStateMixin {
     final ar = locale.languageCode == 'ar';
     final size = MediaQuery.of(context).size;
     return WidgetAnimator(
-      Stack(
-        children: [
-          Card(
-            clipBehavior: Clip.antiAlias,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(isDesktop ? 4 : 8)),
-            child: Stack(
-              children: [
-                Positioned(
-                  top: -50.0,
-                  left: ar ? 200 : 0,
-                  child: Container(
-                    height: 120.0,
-                    width: 140.0,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).splashColor,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(50),
-                          bottomLeft:
-                              ar ? Radius.elliptical(50, 120) : Radius.zero,
-                          bottomRight: Radius.elliptical(50, 120)),
-                      gradient: LinearGradient(
-                        colors: [
-                          Theme.of(context).accentColor,
-                          Theme.of(context).backgroundColor
-                        ],
-                        tileMode: TileMode.mirror,
-                        begin: !ar ? Alignment.topLeft : Alignment.topRight,
-                        end: !ar ? Alignment.bottomRight : Alignment.bottomLeft,
-                        stops: [0.0, 1.0],
-                      ),
+      FadingSlidingWidget(
+        animationController: _animController,
+        child: AnimatedContainer(
+          duration: const Duration(seconds: 1),
+          alignment: Alignment.center,
+          child: Stack(
+            children: [
+              Positioned(
+                top: -50.0,
+                left: ar ? 160 : 0,
+                right: ar ? 0 : 160,
+                child: Container(
+                  height: 125.0,
+                  width: 140.0,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).splashColor.withOpacity(0.04),
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(50),
+                        topLeft: Radius.circular(50),
+                        bottomLeft:
+                            ar ? Radius.zero : Radius.elliptical(10, 10)),
+                    gradient: LinearGradient(
+                      colors: [
+                        Theme.of(context).accentColor,
+                        Theme.of(context).backgroundColor
+                      ],
+                      tileMode: TileMode.mirror,
+                      begin: !ar ? Alignment.topLeft : Alignment.topRight,
+                      end: !ar ? Alignment.bottomRight : Alignment.bottomLeft,
+                      stops: [0.0, 1.0],
                     ),
                   ),
                 ),
-                Positioned(
-                  top: -40.0,
-                  left: ar ? 250 : 0,
-                  child: Container(
-                    height: 120.0,
-                    width: 170.0,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).splashColor.withOpacity(0.05),
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(50),
-                          bottomLeft:
-                              ar ? Radius.elliptical(50, 120) : Radius.zero,
-                          bottomRight: Radius.elliptical(50, 120)),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  contentPadding: EdgeInsets.all(20),
-                  enableFeedback: true,
-                  trailing: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: colorScheme.secondary),
-                    child: IconButton(
-                      icon: FaIcon(
-                        ar
-                            ? PixIcon.typcn_chevron_left
-                            : PixIcon.typcn_chevron_right,
-                        color: colorScheme.surface,
-                      ),
-                      splashRadius: isDesktop ? 20 : 30, onPressed: () {},
-                      // onPressed: () => isDesktop
-                      //     ? Get.dialog(FetchQuestions(name: name))
-                      //     : Get.to(FetchQuestions(name: name)),
-                    ),
-                  ),
-                  title: Text(
-                    display,
-                    style: TextStyle(fontWeight: FontWeight.w300, fontSize: 20),
-                  ),
-                ),
-                Positioned(
-                  top: 75.0,
-                  left: ar ? 0 : 200,
-                  child: Container(
-                    height: 120.0,
-                    width: 140.0,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topLeft:
-                                ar ? Radius.zero : Radius.elliptical(50, 20),
-                            topRight:
-                                ar ? Radius.elliptical(50, 20) : Radius.zero),
-                        gradient: LinearGradient(
-                          colors: [
-                            Theme.of(context).accentColor,
-                            Theme.of(context).backgroundColor
-                          ],
-                          tileMode: TileMode.mirror,
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          stops: [0.0, 1.0],
+              ),
+              Card(
+                clipBehavior: Clip.antiAlias,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(isDesktop ? 4 : 8)),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      bottom: 70.0,
+                      right: ar ? 200 : 0,
+                      left: ar ? 0 : 200,
+                      child: Container(
+                        height: 120.0,
+                        width: 140.0,
+                        decoration: BoxDecoration(
+                          color:
+                              Theme.of(context).splashColor.withOpacity(0.03),
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(50),
+                              bottomRight:
+                                  ar ? Radius.elliptical(50, 110) : Radius.zero,
+                              bottomLeft: ar
+                                  ? Radius.zero
+                                  : Radius.elliptical(50, 110)),
                         ),
-                        shape: BoxShape.rectangle),
-                  ),
+                      ),
+                    ),
+                    Positioned(
+                      top: -50.0,
+                      left: ar ? 160 : 0,
+                      right: ar ? 0 : 160,
+                      child: Container(
+                        height: 120.0,
+                        width: 140.0,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColorDark,
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(50),
+                              bottomLeft:
+                                  ar ? Radius.elliptical(50, 120) : Radius.zero,
+                              bottomRight: ar
+                                  ? Radius.zero
+                                  : Radius.elliptical(50, 120)),
+                          gradient: LinearGradient(
+                            colors: [
+                              Theme.of(context).accentColor,
+                              Theme.of(context).backgroundColor
+                            ],
+                            tileMode: TileMode.mirror,
+                            begin: !ar ? Alignment.topLeft : Alignment.topRight,
+                            end: !ar
+                                ? Alignment.bottomRight
+                                : Alignment.bottomLeft,
+                            stops: [0.0, 1.0],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: -40.0,
+                      left: ar ? 120 : 0,
+                      right: ar ? 0 : 120,
+                      child: Container(
+                        height: 120.0,
+                        width: 170.0,
+                        decoration: BoxDecoration(
+                          color:
+                              Theme.of(context).splashColor.withOpacity(0.04),
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(50),
+                              bottomLeft:
+                                  ar ? Radius.elliptical(50, 110) : Radius.zero,
+                              bottomRight: ar
+                                  ? Radius.zero
+                                  : Radius.elliptical(50, 121)),
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.all(20),
+                      enableFeedback: true,
+                      trailing: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: colorScheme.secondary),
+                        child: IconButton(
+                          icon: FaIcon(
+                            ar
+                                ? PixIcon.typcn_chevron_left
+                                : PixIcon.typcn_chevron_right,
+                            color: colorScheme.surface,
+                          ),
+                          splashRadius: isDesktop ? 20 : 30, onPressed: () {},
+                          // onPressed: () => isDesktop
+                          //     ? Get.dialog(FetchQuestions(name: name))
+                          //     : Get.to(FetchQuestions(name: name)),
+                        ),
+                      ),
+                      title: Text(
+                        display,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w300, fontSize: 20),
+                      ),
+                    ),
+                    Positioned(
+                      top: 75.0,
+                      left: ar ? 0 : 200,
+                      right: ar ? 200 : 0,
+                      child: Container(
+                        height: 120.0,
+                        width: 140.0,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topLeft: ar
+                                    ? Radius.zero
+                                    : Radius.elliptical(50, 20),
+                                topRight: ar
+                                    ? Radius.elliptical(50, 20)
+                                    : Radius.zero),
+                            gradient: LinearGradient(
+                              colors: [
+                                Theme.of(context).accentColor,
+                                Theme.of(context).backgroundColor
+                              ],
+                              tileMode: TileMode.mirror,
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              stops: [0.0, 1.0],
+                            ),
+                            shape: BoxShape.rectangle),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
