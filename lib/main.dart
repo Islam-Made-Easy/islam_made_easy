@@ -40,10 +40,10 @@ void main() async {
   if (!kIsWeb) {
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
       setWindowTitle('Islam Made Easy');
-      setWindowFrame(
-          Rect.fromCenter(center: Offset.infinite, width: 300, height: 600));
-      setWindowMinSize(Size(1124, 768));
-      setWindowMaxSize(Size.infinite);
+      // setWindowFrame(
+      //     Rect.fromCenter(center: Offset.infinite, width: 300, height: 600));
+      // setWindowMinSize(Size(1124, 768));
+      // setWindowMaxSize(Size.infinite);
     }
   }
   final providers = Providers()
