@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
@@ -148,6 +149,15 @@ class _SettingsState extends State<Settings> {
                           icon: PixIcon.pix_paste,
                           color: Colors.orangeAccent,
                         ),
+                        kIsWeb
+                            ? _SettingsShort(
+                                title: MaterialLocalizations.of(context)
+                                    .backButtonTooltip,
+                                subtitle: 'Alt+Left',
+                                icon: PixIcon.pix_arrow_left2,
+                                color: Colors.brown,
+                              )
+                            : Container(),
                         Container(
                           decoration: BoxDecoration(
                             color: Color(0xFFFAFAFC).withOpacity(0.5),
@@ -164,17 +174,19 @@ class _SettingsState extends State<Settings> {
                                 icon: PixIcon.pix_search,
                                 color: Colors.blueAccent,
                               ),
-                              _SettingsShort(
-                                title: MaterialLocalizations.of(context)
-                                    .backButtonTooltip,
-                                subtitle: 'Alt+Left',
-                                icon: PixIcon.pix_arrow_left2,
-                                color: Colors.brown,
-                              ),
+                              kIsWeb
+                                  ? Container()
+                                  : _SettingsShort(
+                                      title: MaterialLocalizations.of(context)
+                                          .backButtonTooltip,
+                                      subtitle: 'Alt+Left',
+                                      icon: PixIcon.pix_arrow_left2,
+                                      color: Colors.brown,
+                                    ),
                               _SettingsShort(
                                 title: "What's New in IME ",
                                 subtitle: 'Ctrl+N',
-                                icon: PixIcon.fab_neos,
+                                icon: PixIcon.open_box,
                                 color: Colors.amberAccent,
                               ),
                               _SettingsShort(
