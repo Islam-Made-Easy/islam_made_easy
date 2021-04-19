@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:islam_made_easy/views/home.dart';
+import 'package:islam_made_easy/widgets/anim/fade_slide.dart';
 import 'package:lottie/lottie.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -73,7 +74,7 @@ class _SplashViewState extends State<SplashView>
     _pageController = PageController();
     _pageController.addListener(() {
       _activeIndex = _pageController.page;
-      print("Active Index: $_activeIndex");
+      // print("Active Index: $_activeIndex");
       if (_activeIndex >= 0.5 && onBoardPage == false) {
         setState(() {
           onBoardPage = true;
@@ -419,37 +420,6 @@ class _WelcomeState extends State<WelcomePage>
           ),
         ),
       ],
-    );
-  }
-}
-
-class FadingSlidingWidget extends StatelessWidget {
-  const FadingSlidingWidget({
-    @required AnimationController animationController,
-    @required this.child,
-    this.interval = const Interval(0.5, 1.0),
-  }) : _animationController = animationController;
-
-  final AnimationController _animationController;
-  final Widget child;
-  final Interval interval;
-
-  @override
-  Widget build(BuildContext context) {
-    return SlideTransition(
-      position: _animationController.drive(
-        Tween<Offset>(begin: Offset(0, 0.5), end: Offset.zero).chain(
-          CurveTween(curve: interval),
-        ),
-      ),
-      child: FadeTransition(
-        opacity: _animationController.drive(
-          Tween<double>(begin: 0.0, end: 1.0).chain(
-            CurveTween(curve: interval),
-          ),
-        ),
-        child: child,
-      ),
     );
   }
 }
