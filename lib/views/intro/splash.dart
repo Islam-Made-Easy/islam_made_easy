@@ -24,7 +24,6 @@ class _SplashViewState extends State<SplashView>
     OnBoardPageItem(
       lottieAsset: 'assets/lottie/bath.json',
       text: 'Ghusl Before Jum\'ah Prayer',
-      animationDuration: const Duration(milliseconds: 1100),
     ),
     OnBoardPageItem(
       lottieAsset: 'assets/lottie/hand.json',
