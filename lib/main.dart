@@ -28,8 +28,6 @@ import 'locale/localePro.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await DailyNotification().init();
-  // await DailyNotification().getQuoteString();
   StatusbarUtil.setTranslucent();
   // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
   // Portrait only
