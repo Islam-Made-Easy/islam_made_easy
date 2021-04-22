@@ -1,4 +1,5 @@
 import 'package:double_back_to_close/double_back_to_close.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -100,11 +101,17 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               isPanelVisible
                   ? "Islam Made Easy"
                   : "\l.lead.bold{I} \l.lead.bold{M} \l.lead.bold{E}",
-              baseStyle: TextStyle(
-                fontSize: 25.0,
-                fontFamily: 'Quattrocento',
-                fontWeight: FontWeight.normal,
-              ),
+              baseStyle: kIsWeb
+                  ? Theme.of(context).textTheme.caption.copyWith(
+                        fontSize: 25.0,
+                        fontFamily: 'Quattrocento',
+                        fontWeight: FontWeight.normal,
+                      )
+                  : TextStyle(
+                      fontSize: 25.0,
+                      fontFamily: 'Quattrocento',
+                      fontWeight: FontWeight.normal,
+                    ),
             ),
             elevation: 0.0,
             leading: IconButton(
