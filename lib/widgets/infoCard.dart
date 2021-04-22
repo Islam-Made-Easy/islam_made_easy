@@ -44,21 +44,16 @@ class _InfoCardState extends State<InfoCard> {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    Locale locale = Localizations.localeOf(context);
-    final ar = locale.languageCode == 'ar';
     return WidgetAnimator(
       Card(
-        shape: RoundedRectangleBorder(
-          side: BorderSide(width: 0.5, color: Theme.of(context).hoverColor),
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(ar ? 0 : 10),
-            topRight: Radius.circular(ar ? 10 : 0),
-            bottomRight:
-            ar ? Radius.elliptical(90, 10) : Radius.elliptical(12, 200),
-            bottomLeft:
-            ar ? Radius.elliptical(12, 200) : Radius.elliptical(90, 10),
-          ),
-        ),
+        shape: isDesktop
+            ? Border(
+                left: BorderSide(color: Colors.grey[300], width: 5),
+                bottom: BorderSide(color: Colors.grey[400], width: 5),
+                top: BorderSide(color: Colors.grey[400], width: 2),
+                right: BorderSide(color: Colors.grey[500], width: 3),
+              )
+            : Border(),
         elevation: 0,
         // color: Theme.of(context).splashColor,
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
