@@ -99,7 +99,7 @@ class _AboutAppState extends State<AboutApp> {
               ? FontAwesomeIcons.timesCircle
               : FontAwesomeIcons.share),
           onPressed: () {
-            isDesktop ? Get.back() : share(context);
+            isDesktop|| isWeb ? Get.back() : share(context);
           },
           splashRadius: isDesktop ? 10 : 20,
           tooltip: isDesktop
