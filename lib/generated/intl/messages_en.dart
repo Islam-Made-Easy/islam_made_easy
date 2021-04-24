@@ -44,7 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "about" : MessageLookupByLibrary.simpleMessage("About"),
-    "aboutAlwan" : MessageLookupByLibrary.simpleMessage("A senior Saudi Arabian scholar. He has been described as being one of the most knowledgable contemporary scholars of islam, particularly in the field of Hadith.\n\n~ Question & Answers"),
+    "aboutAlwan" : MessageLookupByLibrary.simpleMessage("A senior Saudi Arabian scholar. He has been described as being one of the most knowledgeable contemporary scholars of islam, particularly in the field of Hadith.\n\n~ Question & Answers\n~General Knowledge"),
     "aboutApp" : MessageLookupByLibrary.simpleMessage("Islamic Quiz application that let you understand your religion easier"),
     "aboutFatawaAuthor2" : MessageLookupByLibrary.simpleMessage(" \n~ Questions & Answers"),
     "aboutJibril" : MessageLookupByLibrary.simpleMessage(" \n~ Questions & Answers \n~ HAJJ: LEARN FROM ME YOUR DEVOTIONAL ACT"),
@@ -651,6 +651,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "tawheedAboutAuthor" : MessageLookupByLibrary.simpleMessage("Sheikh-ul-Islam, Muhammad bin Abdul-Wahhab, was a renowned religious scholar and a great reformer of his times. He held a unique and unparalleled position as an exponent of Qur\'an, Hadith and different branches of knowledge. With his intellect and a deep grasp over the religious learning, he impressed the high ranking contemporary scholars and brought them around his own viewpoints. In his works, Sheikh-ul-Islam has not only elaborated the Qur\'an and Sunnah, but has also uprooted the polytheistic views and has made a hard struggle to eradicate the heresies and accretions.\n\n~ Nawaqid al-Islam \n~ The Conditions, Pillars and Requirements of the Prayer"),
     "tawheedBook" : MessageLookupByLibrary.simpleMessage("K i t a b A t - T a u h i d"),
     "tawheedBookAuthor" : MessageLookupByLibrary.simpleMessage("Shaikhul-Islam, al-Mujaddid (the reviver), Muhammad bin Abdul-Wahhab (رحمه الله)"),
+    "tawheedIntroAuthor" : MessageLookupByLibrary.simpleMessage("Sheikh Abū Hājar"),
+    "tawheedIntroTitle" : MessageLookupByLibrary.simpleMessage("~ An Introduction To Tawheed and Sunnah according to the understanding of The Salaf of the Ummah"),
     "tawheedQ1" : MessageLookupByLibrary.simpleMessage("What is the correct view with regards to the ruling on the Sāhir? "),
     "tawheedQ1Par1" : MessageLookupByLibrary.simpleMessage("The Shaykh(حفظه الله) responded by saying: Al-Sihr in all of its forms is Harām in every Sharī\'ah, and is agreed upon regarding its prohibition and the prohibition of learning it. And it goes against what the Messengers() came with, and contradicts the purpose of what the books[revelations from Allâh] were sent for."),
     "tawheedQ1Par2" : MessageLookupByLibrary.simpleMessage("And the majority of the scholars adopted the view that the Sāhir is a Kāfir, and it\'s compulsory upon the leader of the muslims to kill him. Allâh(سبحانه وتعالى) said \"It was not Sulaymān who disbelieved, but the devils disbelieved, teaching people Sihr(magic)\" and Allâh(سبحانه وتعالى) said \"But [the two angels] do not teach anyone unless they say, \"We are a trial, so do not disbelieve\", i.e. [do not disbelieve] by doing Sihr, so it\'s evident that this is Kufr."),

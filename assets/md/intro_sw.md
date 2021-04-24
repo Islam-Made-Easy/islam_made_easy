@@ -1,32 +1,208 @@
-# Utangulizi Kwa Tawheed na Sunnah 
-# kulingana na ufahamu 
-# Wa Salaf wa Ummah
+# Utangulizi Wa Tawheed na Sunnah 
+# kulingana na ufahamu wa
+# Salaf wa Ummah
 
 **Kwa jina la Allah Mwingi wa Rehma Mwenyekurehemu**
 
-**Na sala na salamu zimshukie Mtume Muhammad, ahli yake na maswahaba wake na wanaowafuata kwa uzuri mpaka siku ya kiyama na baadaye**
+**Na sala na salamu zimshukie Mtume Muhammad, ahli yake na maswahaba wake na wanaowafuata kwa uzuri mpaka siku ya kiyama Amma baada:**
 
-## Nia Nzuri
+## Nia sahihi
 
 Mtume (ﷺ) amesema:
 
-***Kila jambo hutegemea na nia yake, na kila mtu hulipwa na alichonuia. Na atakaye hama kwaajili ya Allah na Mtume wake basi kuhamakwake ni kwaajili ya Allah na Mtume wake.
-Na atakaye hama kwaajili ya dunia au kwaajili ya mwanamke ili kumuoa, basi kuhama kwake ni kwa kile alichokihamia.*** (Sahīh Al-Bukhārī na Sahīh Muslim)
+***Hakika kuswihi kwa amali huzingatiwa nia. Na ni hakika kila mtu atalipwa kwa alilonuwia. Ambaye Hijra yake itakuwa ni kumwendea Allāh na Mtume Wake, basi Hijra yake itakuwa ni kwa Allāh na Mtume Wake. 
+Na ambaye Hijra yake ni kuiyendea dunia ili aihodhi, au kumwendea mwanamke ili amuowe; basi Hijra yake itakuwa ni kwa aliloliendea*** (Sahīh Al-Bukhārī na Sahīh Muslim)
 
-Kwa hakika nia ya mtu yaeza badilisha matendo yake iwe yakunufaisha au yakumgarakisha. Kama vile Mtume (ﷺ) alijulisha kuhusu haya kutotka kwa *hadith* ya matukio ya kiyama:
+Kwa Hakika, nia ya mtu inaweza kubadilisha matendo yake kutoka kuwa kitu kinachomnufaisha, na kuwa kitu kinachompeleka kwenye uharibifu. Kama vile Mtume (ﷺ) alifahamisha juu ya hii katika *hadith* juu ya matukio ya Siku ya Kiyama:
 
-***"Na Mwanamme, aliyepata elimu, akaifunza (kwa wengine), na akakariri Qurān. Kisha ataletwa mbele na Akamjulisha kwa baraka yake, na anayakinisha hayo. Atasema(Allah): ‘Uliyafanyia nini?’ Atajibu: ‘Nilipata elimu, na
-nikaifunza, na kwaajili yako niliikariri Qurān.’ Atamwabia ‘Umesema uwongo, ila ulitafuta elimu isemekane: Yeye ni mwana chuoni. na uliisona Qurān ili isemekane: Yeye ni Qari. Na kwa hakika ilisha semwa.’ Kisha maagizo yanapeyanwa 
+***"Na Mwanamme, alijifunza elimu, na akaifunza, na akakariri Qurān. Kisha ataletwa mbele na Akamjulisha neema yake, na akayakinisha hayo. Atasema: ‘Uliyafanyia nini?’ Atajibu: ‘Nilijifunza elimu, na
+nikaifunza, na kwaajili yako niliikariri Qurān.’ Atamwabia ‘Umesema uwongo, ila ulijifunza elimu isemekane: Yeye ni mwana chuoni. na uliisoma Qurān ili isemekane: Yeye ni Qari. Na kwa hakika ilisha semwa.’ Kisha maagizo yanapeyanwa 
 kumhusu, na anavurutwa kwa uso wake hadi kutupwa Motoni."*** (Sahīh Muslim)
 
-Kwa hivyo msonaji anashauriwa kutaja Jina la Allah na kusafisha nia yake kabla ya kuanza kusoma kitabu hiki, na kwa kila jambo anacho kifanya. Aliye faulu ni yule 
-ambaye hubadilisha nia yake iwe tu Kwa ajili ya Allah. Kwa hiyo chochote anacho anakifanya nikuilenga maridhio ya Allah  na kuilinda nafsi yake kutokana na Makasiriko ya Allah. Na kwa yule 
-ambaye hutafuta elimu kujadili, ilikutafuta makosa, au kujipandisha cheo kwa kushusha wengine na kuweka wazi makosa yao, basi nia yake itaifanya matendo yake iende patupu, na hakutakuwa na faida kwao.
+Kwa hivyo msomaji anashauriwa kutaja Jina la Allah na kusafisha nia yake kabla ya kuanza kusoma kitabu hiki, na kabla ya kila tendo analofanya. Aliyefanikiwa ndiye yule
+ambaye hubadilisha nia yake kuwa kwa ajili ya Allah tu. Kwa hivyo chochote anachofanya ni kufikia tu Kuridhika kwa Allah na kujikinga na Hasira ya Allah. Na kwa yule
+ambaye hutafuta elimu kujadili tu, kupata tu makosa au kujiinua kwa kiwango cha juu kwa kuwashusha wengine na kuashiria makosa yao, basi nia yake hakika itafanya matendo yake kuwa batili, na hakutakuwa na faida yoyote kwao.
 
 ## Utangulizi
-Haya ni maneno mafupi yanayo eleza misingi ambayo dini ya kiislāmu imejengwa. Allah Aliyetukuka ameichagua Uislāmu iwe dini ya waja wake na Hakubali[dini] yoyote 
-ila hiyo. Kwa hivyo yeyote anayetaka kukutana na Allah kwa hali ambayo inamwezesha kuingia Janna, basi lazima ahishi maisha yake kwa yale ambayo Ameiteremsha Allah kwa Mtume wake (ﷺ), na asife illa kwa hayo.
+Haya ni maneno sahali yanayo eleza misingi ambayo dini ya Uislamu imejengwa. Allah - Aliyetukuka - amechagua Uislāmu iwe dini ya waja wake na Hakubali[dini] yoyote 
+ila hiyo. Kwa hivyo yeyote anayetaka kukutana na Allah katika hali ambayo itamhakikishia kuingia Jannah(Peponi), basi lazima ahishi maisha yake kwa yale ambayo Ameiteremsha Allah kwa Mtume wake (ﷺ), na lazima asife isipokuwa juu ya hilo.
 
-Mtume wa Allah (ﷺ) ni Muhammad ibn ‘Abdullāh Al-Qurashī (ﷺ) aliyezaliwa Makkah. Alipata utume kutoka kwa Allāh – Aliyetukuka – kupitia kwa malaika Jibrīl (عليه السلام) akiwa miaka arubanne. Miaka Kumi 
-baada ya wahyi ya kwanza Mtume wa Allah (ﷺ) alipelekwa kwa safari ya usiku ambayo alipewa swala tano za kila siku. Baada ya haya hayo aliishi Makkah kwa miaka mitatu zaidi na punde tu alihamia Madīnah. Hapa [Madīnah] aliendelea kukaribisha watu kwa Mola wake mpaka Allāh 
-aliyetukuka Aliichukua Roho yake akiwa miaka sitini na tatu, ambapo yeye (ﷺ) alitekeleza mishoni yaka. Alizikwa Madīnah ambapo kaburi yake ipo leo. Sala na Baraka za Allāh ziwe juu Nabii wa mwisho na Mtume kutoka kwa Allah. Āmīn.
+Mtume wa Allah (ﷺ) ni Muhammad ibn ‘Abdullāh Al-Qurashī (ﷺ) aliyezaliwa Makkah. Alipata utume kutoka kwa Allāh – Aliyetukuka – kupitia kwa malaika Jibrīl (عليه السلام) akiwa na umri wa miaka arobaini. Miaka Kumi 
+baada ya wahyi ya kwanza Mtume wa Allah (ﷺ) alichukuliwa katika safari ya usiku ambamo alipewa swala tano za kila siku. Baada ya hayo yeye (ﷺ) alibaki ndani ya Makkah kwa miaka mingine mitatu na baada ya hapo alihamia Madīnah. Hapa [Madīnah] aliendelea kuwaalika watu kwa Mola wake mpaka Allāh 
+aliyetukuka Aliichukua Roho yake akiwa na umri wa miaka sitini na tatu, ambapo yeye (ﷺ) alikuwa ametimiza utume wake. Alizikwa Madīnah ambapo kaburi lake bado lipo. Sala na baraka tele za Allāh ziwe juu ya Nabii wa mwisho na Mtume kutoka kwa Allah. Āmīn.
+
+Allāh – Aliyetukuka – Ameifanya dini ambayo Ameridhia nayo kuwa rahisi sana, na Yeye – Aliyetukuka – hataki uzito kwa wanadamu. Allāh – Aliyetukuka – anasema:
+
+**“Yeye amekuchagueni** (muwe umma ulio bora)**. Wala Hakuweka juu yenu mambo mazito katika Dini.** (Nayo Dini hii) **ni mila ya baba yenu Ibrāhīm”** (Al-Hajj 22:78)
+
+Basi mtu yeyote asifikirie kwa sekunde, kwamba Allāh Amefanya njia sahihi kuwa ngumu kutambua kati ya aina tofauti za upotofu, ama kwamba Allāh Amekubali mtu afuata namna au njia, na kisha "atarajie" kuwa hiyo ndiyo njia ya haki ambayo Allāh Ameridhia nayo.
+Bali Allāh Aliteremsha Kitabu (Qur'an) kwa ufafanuzi na Akamtuma Mtume kuwa bishara kwa wale wanaofuata wahyi na mwonyaji kwa wale wanaopotoka kutoka kwake.
+Alifanya hivyo ili mja awe na *yaqīn* (uhakika kamili) katika dini yake na kwa hivyo moyo wake unaweza kuhisi utulivu wa kuwa kwenye ukweli na kutamani kukutana na Mola wake Mlezi. Allāh – Aliyetukuka – amesema:
+
+**”Hakuna kulazimishwa** (mtu kuingia) **katika dini. Uongofu umekwisha pambanuka na upotofu”** (Al-Baqarah 2:256)
+
+Na Yeye – Aliyetukuka – Amesema: 
+
+**”Mitume walitoa khabari nzuri** (kwa watu wema)**, wakawaonya** (wabaya)**, ili watu wasiwe na hoja juu ya Allāh baada ya** (kuletwa hawa) **Mitume. Na Allāh ni Mwenye nguvu** (na) **Mwenye hikima”** (An-Nisā 4:165)
+
+Na Yeye – Aliyetukuka – Amesema:
+
+**”Yeye ndiye Anayeliendesha** (kila) **jambo. Anazipambanua aya hivi ili mupate yakini ya kukutana na Mola wenu.”** (Ar-Ra’d 13:2)
+
+Na Yeye – Aliyetukuka – Amesema:
+
+**“Wenye kuamini kweli kweli ni wale waliomuamini Allāh na Mtume Wake; kisha wakawa si wenye shaka”** (Al-Hujurāt 49:15)
+
+Na Mtume wa Allāh (ﷺ) amesema: 
+
+***"Kwa hakika nimewaacha kwenye njia iliyo wazi. Usiku wake ni kama Mchana wake. Hakuna atakayepotoka baada yangu, isipokuwa ataangamizwa"*** (Sunan Ibn Mājah – *sahīh*)
+
+Na yale ambayo Mtume (ﷺ) ametuachia ni Qurān Neno la Allāh, ambalo liliteremshwa na Allāh kupitia Jibrīl (عليه السلام) kwa Muhammad (ﷺ), na *Sunnah* ambayo ni kila kitu ambacho Mtume (ﷺ) amesema, alifanya, alituonyesha na kututhibitishia.
+
+Kwa hivyo yaliyokusudiwa na maandishi haya ni kubainisha kanuni za msingi ambazo dini hii imejengwa kwa njia rahisi, sahali na iliyoainishwa, ili Muislamu ajue jinsi ya kutafuta (elimu ya) dini yake, kutoka kwa nani na 
+kutoka wapi anapaswa kukubali na kutoka kwa nani na kutoka wapi anapaswa kukataa, na kwa yeye kuwa na kiolezo ambacho anaweza kuthibitisha ikiwa au kile anachokiamini ni sahihi na kwa hivyo kufikia uhakika kamili katika dini yake. Na kwa kila jambo lililotajwa, basi maandishi haya yanatosha tu kama utangulizi mfupi.
+
+Mafanikio yote yametoka kwa Allāh, na makosa yote yametoka mwandishi.
+
+## Vyanzo vya dini
+
+Uislamu umejengwa juu ya vyanzo viwili vya kimsingi ***[Miongoni mwa vyanzo vya kisheria vya Uislam pia ni ijmā’ (makubaliano ya Waislamu) na qiyās (mlinganisho unaotegemea ushahidi mwingine kutoka kwa Qur'an na Sunnah). Kauli na imani za Sahābah (رضي الله عنهم) zinachukuliwa kuwa sehemu ya Sunnah yenyewe, kwani haidaiwi kwamba wangezungumza juu ya dini kutoka kwao, badala yake wangezungumza tu. sema kulingana na waliyojua kutoka kwa Mtume wa Mwenyezi Mungu (ﷺ)]*** 
+na hiyo ni Qurān na *Sunnah*. Kila kitu ambacho hakina msingi katika yoyote ya haya mawili, basi ni upotovu na kukataliwa kwa yule anayeiamini.
+
+   **Lakini je! yeyote anaweza kuielewa Qurān na *Sunnah* atakavyo au anavyo stahili? Jawabu ni hapana.**
+   
+Allāh – Aliyetukuka – Alichagua kufunua dini Yake juu ya watu ambao – kwa idhini ya Allāh – waliweza kuifahamu, kuifuata na kuilinda. Allāh – Aliyetukuka – alishuhudia kwa wema wa karne hizo katika Kitabu Chake. 
+Kutoka kwa ushuhuda huu ni Maneno Yake – Aliyetukuka – :
+
+**“Na atakayemwasi Mtume baada ya kumdhihirikia uwongofu na akafuata njia isiyokuwa ya Waislamu, Tutamgeuza alikogeukia mwenyewe na Tutamwingiza katika Jahanamu; napo ni pahali pabaya kabisa pa mtu kurudia.”** (An-Nisā 4:115)
+
+Na Maneno Yake – Aliyetukuka – :
+
+**“Na wale waliotangulia wakawa wakwanza katika** (Uislamu) **–Muhajiri na Ansari, na wale waliowafuata kwa mwendo mzuri– Allah atawapa radhi, nao wamridhie(Allah kwa hayo mazuri Atakavyowapa) na Amewaandalia Mabustani yapitayo mito mbele yake, wakakae huko milele. Huku ndiko kufuzu kukubwa.”** (At-Tawbah 9:100)
+
+Na Mtume wa Allāh (ﷺ) amesema:
+
+***"Watu bora zaidi ni wale wa kizazi changu, kisha wale wanaokuja baada yao, kisha wale wanaokuja baada yao"*** (Sahīh Al-Bukhārī na Sahīh Muslim)
+
+Kizazi cha Mtume wa Allāh (ﷺ) ni ***Sahābah*** (رضي الله عنهم) ambao waliishi na kumuona Mtume wa Allah (ﷺ). Waliielewa Qur'ani na *Sunnah* vizuri zaidi, kwa sababu waliishi wakati wa Ufunuo wake, walipata matukio ambayo inazungumza juu yao na ni wale ambao walikuwa karibu zaidi na Mtume wa Allāh (ﷺ),  wakimuuliza maswali, wakisikia 
+hotuba yake na kuona matendo yake.
+
+Kizazi baada yao ni ***tābi’ūn*** (wafuasi) ambao ni wale ambao walijifunza kutoka kwa *Sahābah* (رضي الله عنهم). Kwa hivyo hadhi yao katika dini inategemea wao kujifunza kutoka kwa *Sahābah* ambao walijifunza kutoka kwa Mtume wa Allāh (ﷺ).
+
+Vizazi baada yao ni ***tābi ’at-tābi’īn*** (wafuasi wa wafuasi) ambao ni wale ambao walijifunza kutoka kwa wafuasi wa *Sahābah* (رضي الله عنهم). Kwa hivyo hadhi yao katika dini inategemea wao kujifunza kutoka kwa tābi’ūn, ambao walijifunza kutoka kwa *Sahābah* ambao walijifunza kutoka kwa Mjumbe wa Allāh (ﷺ).
+
+Hivi ni vizazi vitatu ambavyo Mtume wa Allah (ﷺ) amevitaja kama vizazi bora zaidi kutoka Ummah huu na wao ndio ***Salaf*** (watangulizi wetu). Kwa hivyo yeyote anayetaka kufuata yale ambayo Allah Anapendezwa nayo na anayapenda, lazima afuate vizazi hivi vitatu katika dini yake, ambayo vyanzo vyake ni moja kwa moja kutoka kwa Qur'ani na 
+*Sunnah*. Kwa sababu hakutakuwa na watu wowote baada yao ambao ni bora.
+
+Anas Ibn Mālik (رضي‬ الله عنه‬) alisema:
+
+*"Vumilia. Kwa sababu hakika haitakukujia wakati wowote, isipokuwa kwamba (wakati) baada yake ni mbaya kuliko hiyoMpaka utakapokutana na Mola wako. Nimesikia hayo kutoka kwa Nabii wako (ﷺ)"* (Sahīh Al-Bukhārī)
+
+Na ‘Abdullāh ibn Mas’ūd (رضي‬ الله عنه‬) alisema:
+
+*"Hakuna mwaka isipokuwa kwamba mwaka unaofuata ni mbaya zaidi kuliko huo. Sizungumzii juu ya mwaka mmoja ambao una mvua nyingi kuliko nyingine, wala mwaka ambao ni mzuri kuliko mwingine, au kiongozi ambaye ni bora kuliko kiongozi mwingine.
+Badala yake (nazungumza juu ya) kutoweka kwa watu bora kati yenu na wanachuoni wenu, na kisha watu watatokea ambao hupima mambo kulingana na maoni yao wenyewe (na sio Qur-aan na Sunnah), halafu Uislamu utaharibiwa na kuvunjika. (Al-Bida’ na Ibn Al-Waddāh)
+
+Kwa hivyo watu wa ukweli ni wale wanaosema:
+
+   ***"Tunafuata na tunaamini Qur'ani na Sunnah, kulingana na uelewa wa Salaf."***
+   
+Na hii sio tu taarifa walionao. Badala yake hakuna aya katika Kitabu cha Allah, au *hadīth* kutoka kwa Mtume wa Allāh (ﷺ), au imani yoyote inayoshikiliwa katika dini, isipokuwa kwamba wanachunguza na kuuliza:
+
+Je! Hii ndio njia ambayo *Salaf* wameelewa na kufanyia kazi aya hii?
+
+Je! Hii ndio njia ambayo *Salaf* wameelewa na kufanyia kazi *hadīth* hii?
+
+Je! Hivi ndivyo *Salaf* walivyoamini katika suala hili?
+
+Kwa hili wanasimamia mipaka ya Uislamu kwa kutoruhusu aina yoyote ya upotofu au uvumbuzi uingie juu yao katika dini yao. Na kwa hili wao ni wakweli katika madai yao ya kufuata Qur'ani na *Sunnah* kulingana na uelewa wa *Salaf*.
+Na kwa hii wanaweza kukiri kuwa wafuasi na waumini wa Tawhīd na *Sunnah* kwa kweli, na sio tu kama madai tupu bila chochote.
+
+Abū Bakr Al-Ājurrī (d. 320h) alikusanya maana ya kile kilichotajwa katika hii sehemu alipotaja:
+
+*"Na Ibn ‘Abdul-Hamīd pia alituhadithia na akasema: Zuhayr ibn Muhammad alituhadithia na akasema: Sulaymān ibn Harb alituhadithia na akasema: Hammād ibn Zayd alituhadithia, kutoka kwa ‘Āsim Al-Ahwal ambaye alisema: Abū Al-‘Āliyah alisema: 
+‘Jifunzeni Uislāmu, kisha mkishajifunza basi msiiache. Na iko juu yenu kufuata Njia Iliyo Nyooka, nayo hakika ni Uislamu. Wala msipotoke kutoka kulia au kushoto. Na ni juu yenu kufuata Sunnah za Mtume wenu (ﷺ) na yale ambayo Maswahaba wake wako juu yake. 
+Kwa sababu hakika tulisoma Qurāni miaka kumi na tano kabla hawajafanya walichokifanya. Na tambueni matakwa haya (yaani uvumbuzi) ambayo husababisha uadui na chuki kati ya watu. ’Akasema:‘ Kwa hivyo niliisimulia (yaani hizi maneno) kwa Al-Hasan, 
+kwa hivyo akasema: "Amesema kweli na ametoa ushauri mzuri." Na nikamsimulia Hafsah binti Sīrīn, kwa hivyo akasema: "Ewe mwanangu, umemhadithia haya Muhammad (ibn) Sīrīn)?" Kwa hivyo nikasema: "Hapana. Kwa hivyo akasema:" Basi msimulie yeye." Na Muhammad ibn Al-Hasan akasema: "Ishara ya yule ambaye 
+Allāh anamtakia mema ni: Kupitia Njia hii: Kitabu cha Mwenyezi Mungu , Sunan ya Mtume wa Allāh (ﷺ) Sunan (yaani masimulizi) kutoka kwa Maswahabah wake (رضي الله عنم) na wale waliowafuata kwa wema, na yale ambayo aimmah (viongozi) wa Waislamu katika nchi zote walikuwa juu, 
+hadi mwisho wa kile kulikuwa na wasomi. Kama vile Al-Awzā’ī, Sufyān Ath-Thawrī, Mālik ibn Anas, Ash-Shāfi’ī, Ahmad ibn Hanbal, Al-Qāsim ibn Salām na wale wote waliokuwa kwenye njia sawa na wao. Na kuepuka kila madhhab (njia, maoni) ambayo wasomi hawa wamekosoa."* (Ash-Sharī’ah na Al-Ājurrī 1/301)
+
+Na Abū ‘Amr Al-Awzā’ī (d. 157h) alisema:
+
+*"Ninakushauri jambo moja, ambalo kwa hakika litaondoa shaka kwako, na kwa kuishikilia utafikia Njia Iliyo Nyooka, ikiwa Allah - Aliyetukuka - anataka: Uangalie kile Maswahaba wa Mtume wa Allah (ﷺ) walikuwa juu ya suala hili. Basi ikiwa wamekhitalifiana katika hayo, basi chukua yoyote 
+yanayokubaliana na wewe kutokana na maneno yao. Katika kesi hiyo utakuwa kwa urahisi katika suala hilo. Na ikiwa wamekubaliana katika suala hilo kwa maoni moja, na hakuna hata mmoja kati yao aliyejitenga nalo, basi madhhab inayowapinga iko wapi? Kwa sababu hakika uharibifu upo kutokubaliani nao. 
+Kwa sababu hawajawahi kukubaliana juu ya suala moja, na kisha mwongozo (yaani ukweli) umekuwa katika kitu kingine zaidi yake. Na hakika Allah - ‘azza wa jalla - Aliwasifu wale waliofuata mfano wao, Aliposema:* **"na wale waliowafuata kwa mwendo mzuri."** (At-Tawbah 9: 100). *Na jihadhari kwa yeyote anayefasiri Qur'ani kwa kitu kingine zaidi ya kile walichokuwa juu."* (Al-Ibānah Al-Kubrā cha Ibn Battah 2/254)
+
+Na Al-Awzā’ī (d. 157h) pia alisema:
+
+*"Ni wajibu kwako (kufuata) āthār (masimulizi) ya wale waliotangulia, hata kama watu watakukataa. Na jihadhari na maoni ya watu, hata wakipamba maneno yao kwako."* (Ash-Sharī’ah na Al-Ājurrī)
+
+Na Abū Sa’īd Ad-Dārimī (d. 280h) alisema:
+
+*"Allāh - Aliyetukuka - Aliwasifu tābi'ūn katika Kitabu Chake, Aliposema: **"Na wale waliotangulia wakawa wakwanza katika** (Uislamu) **–Muhajiri na Ansari, na wale waliowafuata kwa mwendo mzuri– Allah atawapa radhi."**...*
+
+## Ushuhuda wa kwanza: *Lā ilāha illa Allāh*
+
+Kila aina ya ibada katika Uislam ina nguzo zake na masharti yake ambayo lazima yatimizwe ili ikubalike. Ili swala ikubalike lazima masharti yake yatimizwe 
+kama vile kuwa na akili timamu, kuwa na umri, kuwa katika hali ya usafi wa kiibada, kufunika *'awrah* nk. Na masharti zitakapotimizwa itakubaliwa kutoka kwa mja akitekeleza nguzo za swala, kama vile 
+*takbīrah* ya kwanza (kusema *'Allāhu akbar'* mwanzoni mwa swala), Fātihah (*sūrah* ya kwanza ya Qur'ani, ambayo inapaswa kusomwa katika kila raka' ya swala), *rukū'* (kuinama), *sujūd* (kusujudu) nk.
+
+Vivyo hivyo ni kwa ibada kubwa na bora kabisa; ushuhuda wa ***Lā ilāha illa Allāh.*** Masharti ya *Lā ilāha illa Allāh* ni saba:
+
+  1. ***Iklās;*** kwamba inasemwa kwa dhati kwa Allāh peke yake. Hii inakanusha ***shirk*** (kuhusisha washirika na Allāh katika ibada) na ***riyā*** (kuonyesha au kufanya matendo ili kupata sifa).
+  2. ***Sidq;*** kwamba inasemwa kweli ukiinamaanisha. Hii inakanusha ***nifāq*** (kuonyesha au kusema kitu kwa nje wakati unaficha upande wa ndani).
+  3. ***Qabūl;*** Ambayo mtu anakubali maana yake na kile kinachohitaji kwa matendo na imani. Hii inakanusha **kukataliwa.**
+  4. ***‘Ilm;*** kwamba inasemekana ukiwa na elimu juu ya maana yake, inayolazimisha na kile kinaikanusha. Hii inakanusha **ujinga.**
+  5. ***Inqiyād;*** kwamba inasemwa ukijikusalimu na kukifanyia kazi kwa maana na mahitaji yake. Hii inakanusha * kuondoka.**
+  6. ***Mahabbah;*** kwamba mtu anapenda maana yake. Hii inakanusha **chuki.**
+  7. ***Yaqīn;*** kwamba inasemwa kwa uhakika wa imani katika maana yake. Hii inakanusha **shaka.**
+  
+Aliambiwa Wahb ibn Munabbih (d. 114h):
+
+*"Je! Lā ilāha illa Allahh sio ufunguo wa Jannah? Kwa hivyo yeye (yaani Wahb) akasema:" Ndio hakika. Lakini hakuna ufunguo isipokuwa kwamba una meno. Kwa hivyo ukija na ufunguo na una meno basi (mlango) utafunguka 
+Na ikiwa sivyo, basi hautafunguka"* (Al-Bukhārī)
+
+Ikiwa masharti hizi zinatimizwa na mja basi utendaji wake na imani yake kwenye nguzo za *Lā ilāha illa Allāh* zitakubaliwa. Lakini yule anayesema *Lā ilāha illa Allahh*,
+lakini hafanyi hivyo kwa dhati kwa Allāh, badala yake anafanya kwa sababu zingine, au anaisema kwa kutoimaanisha, au hakubali au asalimu maana kwa yake, ama nimwenye kupuuza juu ya kile inamaanisha na inalazimisha,
+au anaichukia au ana shaka ikiwa ni kweli au la, basi ushuhuda wa mtu huyu hautamnufaisha Siku ya Kiyama, hata ingawa alichukuliwa kama Mwislamu katika *dunyā* na kutibiwa ipasavyo kwa sababu ya kuonyesha waziwazi yoyote ya mabatilisho ya Uislamu au kwamba alipuuza yoyote ya masharti haya.
+
+Ama nguzo za *Lā ilāha illa Allāh*, basi ushuhuda wa *Lā ilāha illa Allāh* umeundwa na nguzo mbili:
+
+  Ya kwanza ni: ***Lā ilāha.*** Ikitafsiriwa hii inamaanisha: 'Hakuna *ilāh* (anayeabudiwa)', na kinachokusudiwa ni: 'Hakuna anaye anaabudiwa kwa haki'. Na hii ndio sehemu ya ushuhuda ambao unajanusha uungu (au kustahili kuabudiwa) kwa kila kitu. 
+Na pia inaitwa *al-kufr bit-tāghūt*, ambayo inamaanisha kukataliwa kwa *tāghūt* (kitu ambacho kinaabudiwa kisichokuwa Allāh).
+
+  Ya pili ni: ***Illa Allāh.*** Ikitafsiriwa hii inamaanisha: "Isipokuwa Allāh." Na hii ndio sehemu ya ushuhuda ambao unathibitisha uungu (au kustahili kuabudiwa) kwa Allāh peke yake. Na pia inaitwa *al-imānu billāh* (Imani kwa Allāh)
+
+Na miongoni mwa ushahidi wa nguzo hizi mbili ni maneno ya Allāh Aliyetukuka.
+
+**“Yeyote asiyeamini** [au anayekataa] ***tāghūt*** **na akamwamini Allāh, bila shaka yeye ameshika kishiko chenye nguve kisichokuwa na kuvunjika kamwe. Na Allāh ni Mwenye kusikia** (na) **Mwenye kujua.”** [Al-Baqarah 2:256]
+
+Na maneno Yake – Aliyotukuka:
+
+**“Na bila shaka tulimpeleka mtume katika kila Ummah ya kwamba: "Muabuduni Allāh** (Peke yake)**, na Mwepukeni** (au jiepusheni kutoka) ***tāghūt*** (Kila kitu kinachoabudiwa badala ya Allāh)"” (An-Nahl 16:36)
+
+Na maneno Yake – Aliyotukuka:
+
+**“Na wale wanaoepuka *tāghūt* kwa kutokuiabudu na wakanyenyekea kwa Allah kwa toba, habari njema** (bishara njema) **ni zao. Basi wabashirie waja Wangu hawa.”** (Az-Zumar 39:17)
+
+Kinachoweza kueleweka kwa urahisi kutoka kwa aya hizi – na ile ambayo tayari inajulikana na wanadamu kupitia *fitrah* (tabia ya asili) – ni kuwa Allāh anadai kutoka kwa viumbe vyake kwamba wamuabudu Yeye peke yake, na wasimshirikishe mshirika yeyote pamoja Naye Aliyetukuka.
+
+Mu’ādh ibn Jabal (رضي الله عنه) alisema:
+
+***"Nilisema: 'Ewe Mtume wa Allāh, niambie kitendo ambacho kitanipeleka Jannah na kitaniweka mbali na Moto wa Jehanamu' Alisema: ‘Umeniuliza juu ya jambo kuu, lakini ni ni rahisi kwake ambaye Allāh Mtukufu humrahisishia. Unapaswa kumuabudu Allāh, na wala usimshirikishe na chochote (katika ibada), 
+na usimamishe swala, na utoe zaka, unapaswa kufunga Ramadani, na unapaswa kuhiji Nyumba.’"*** (Sunan At-Tirmidhī – *sahīh*)
+
+Na ’Abdullāh ibn ‘Amr (رضي‬ الله عنه‬) alisimulia kwamba Mtume (ﷺ) alisema:
+
+***"Yeyote anayekutana na Allāh bila kushirikiana na chochote (katika ibada), basi kwa hiyo (kutimizwa) hakuna kosa (au dhambi) itakayomdhuru. Na atakayekufa akiwa bado amemshirikisha na chochote (katika ibada), 
+basi hakuna tendo jema litakalomfaidisha pamoja na hilo."*** (Imesimuliwa na Imām Ahmad – *isnād* yake ni sahihi kulingana na masharti ya Al-Bukhārī na Muslim) 
+
+Na Ibn Jarīr At-Tabarī (d. 310h) alisema katika *tafsr* yake ya aya ifuatayo:
+
+**“Na *ilāh* wenu ni *Ilāh* Mmoja tu, *Lā ilāha illa Huwa*** (hakuna anayestahiki kuabudiwa ila Yeye)**. Mwingi wa rehema Mwenyekurehemu”** (Al-Baqarah 2:163)
+
+*"Kuhusu maneno Yake: Hakuna anayestahiki kuabudiwa ila Yeye, basi hii ni habari kutoka Kwake – iliyoinuliwa kwa utajo wake – kwamba hapana Mola Mlezi wa walimwengu wote isipokuwa Yeye. chochote isipokuwa Yeye hakistahili kuabudiwa na waja. Na kwamba kila kitu kilichopo ila Yeye, basi Amekiumba. 
+Na ambayo ni wajibu kwa wote ni kumtii Yeye na kujisalimisha kwa amri Yake, na kuacha ibada ya yaliyo kando Yake ya wapinzani na miungu ya uwongo, na kuacha sanamu na sanamu. Hii ni kwa sababu Ameumba haya yote. Na (lazima) juu ya yote wamsahilishie ibadah  kwa njia ya wahdāniyyah (umoja) na ulūhiyyah (ibada), 
+na ibada hiyo haifai kwa mtu yeyote ila Yeye tu."* (Tafsīr At-Tabarī)
+
+

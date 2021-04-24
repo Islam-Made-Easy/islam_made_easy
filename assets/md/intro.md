@@ -60,7 +60,7 @@ And He – the Exalted – said:
 
 And the Messenger of Allāh (ﷺ) said:
 
-**"I have verily left you upon a clear path. Its night is like its day. No-one deviates from it after me, except that he will be destroyed."** (Sunan Ibn Mājah – sahīh)
+***"I have verily left you upon a clear path. Its night is like its day. No-one deviates from it after me, except that he will be destroyed."*** (Sunan Ibn Mājah – *sahīh*)
 
 And that which the Messenger (ﷺ) has left for us, is the Qurān the
 Word of Allāh, which was sent by Allāh through Jibrīl (عليه السلام) to Muhammad (ﷺ), and the *Sunnah* which is everything which the Prophet (ﷺ) has said, done, showed to us and confirmed
@@ -90,7 +90,7 @@ and He has prepared for them gardens beneath which rivers flow, wherein they wil
     
 And the Messenger of Allāh (ﷺ) said:
 
-***"The best people are those of my generation, then those who come after them, then those who come after them.*** (Sahīh Al-Bukhārī and Sahīh Muslim)
+***"The best people are those of my generation, then those who come after them, then those who come after them."*** (Sahīh Al-Bukhārī and Sahīh Muslim)
      
 The generation of the Messenger of Allāh (ﷺ) is the ***Sahābah*** (رضي‬ الله عنهم‬) who lived with and saw the Messenger of Allāh (ﷺ). They understood the Qurān and the *Sunnah* best, because they lived during its
 revelation, they experienced the scenarios which it spoke of and they are those who were closest to the Messenger of Allāh (ﷺ), asking him questions, hearing his speech and seeing his deeds.
@@ -129,8 +129,7 @@ With this they uphold the boundaries of Islām by not letting any form of misgui
 of following the Qurān and *Sunnah* in accordance with the understanding of the *Salaf*. And with this they can profess to be followers of and believers in Tawhīd and *Sunnah* in reality,
 and not just as an empty claim with no substance to it.
 
-Abū Bakr Al-Ājurrī (d. 320h) gathered the meaning of what have been mentioned in this
-section when he mentioned:
+Abū Bakr Al-Ājurrī (d. 320h) gathered the meaning of what have been mentioned in this section when he mentioned:
 
    *"And Ibn ‘Abdul-Hamīd also narrated to us and said: Zuhayr ibn Muhammad narrated to us and said: Sulaymān ibn Harb narrated to us and said: Hammād ibn Zayd narrated to us, from ‘Āsim
      Al-Ahwal who said: Abū Al-‘Āliyah said: ‘Learn Al-Islām, and then when you have learned it then don’t turn away from it. And it is upon you to follow the Straight Path, and verily is it Al-Islām.
@@ -138,7 +137,7 @@ section when he mentioned:
      the Qurān fifteen years before they did what they did. And be aware of these desires (i.e. innovations) which cause enmity and hatred among the people.’ He said: ‘So I narrated it (i.e. these
      words) to Al-Hasan, so he said: ‘He has spoken the truth and given a good advice.’ And I narrated it to Hafsah bint Sīrīn, so she said: ‘O my son, have you narrated this to Muhammad (ibn Sīrīn)?’
      So I said: ‘No.’ So she said: ‘Then narrate it to him.’’ And Muhammad ibn Al-Hasan said: ‘The sign of the one whom Allāh wants good for is: Traversing this Path: The Book of Allāh, the Sunan
-     of the Messenger of Allāh (ﷺ), the Sunan (i.e. narrations) from his Companions (رضي‬ الله عنه‬) and those who followed them in goodness, and that which the
+     of the Messenger of Allāh (ﷺ), the Sunan (i.e. narrations) from his Companions (رضي‬ الله عنم‬) and those who followed them in goodness, and that which the
      aimmah (leaders) of the Muslims in all countries were upon, until the end of what there was of scholars. Such as Al-Awzā’ī, Sufyān Ath-Thawrī, Mālik ibn Anas, Ash-Shāfi’ī, Ahmad ibn Hanbal,
      Al-Qāsim ibn Salām, and whoever were upon the same path as them. And avoiding every madhhab (way, path, opinion) which these scholars have criticized."* (Ash-Sharī’ah by Al-Ājurrī 1/301)
      
@@ -148,7 +147,7 @@ section when he mentioned:
      Companions of the Messenger of Allāh (ﷺ) were upon in this issue. Then if they differed in it, then take whatever agrees with you from their sayings. In that case you will be
      at ease in the issue. And if they agreed in the issue upon one opinion, and no-one among them deviated from it, then to where is the madhhab that opposes them? Because verily the destruction
      lies is disagreeing with them. Because they have verily never agreed upon one issue, and then the guidance (i.e. truth) has been in something else than it. And verily did Allāh – ‘azza wa jalla –
-     praise those who followed their example, when He said: **"And those who followed them in goodness."** (At-Tawbah 9:100). And be aware of everyone who interprets the Qurān to
+     praise those who followed their example, when He said:* **"And those who followed them in goodness."** (At-Tawbah 9:100). *And be aware of everyone who interprets the Qurān to
      something else than what they were upon."* (Al-Ibānah Al-Kubrā by Ibn Battah 2/254)
      
  And Al-Awzā’ī (d. 157h) also said:
@@ -219,7 +218,7 @@ Likewise it is with the biggest and most noble of worships; the testimony of ***
 
 It was said to Wahb ibn Munabbih (d. 114h):
 
-*"Is Lā ilāha illa Allāh not the key to Paradise? So he (i.e. Wahb) said: ‘Yes certainly. But there is no key except that it has teeth. So if you come with the key and it has teeth then (the door) will be opened for you. And if not, then it will not be opened for you." **(Al-Bukhārī)***
+*"Is Lā ilāha illa Allāh not the key to Paradise? So he (i.e. Wahb) said: ‘Yes certainly. But there is no key except that it has teeth. So if you come with the key and it has teeth then (the door) will be opened for you. And if not, then it will not be opened for you."* (Al-Bukhārī)
  
 When these conditions are fulfilled by the slave then his performance of and belief in the pillars of *Lā ilāha illa Allāh* will be accepted. But as for the one who says *Lā ilāha illa Allāh,*
 but he does not do this sincerely for Allāh, rather he does it for other reasons, or he says it while not meaning it, or he does not accept or submit to its meaning, or he is ignorant  
@@ -251,16 +250,16 @@ Mu’ādh ibn Jabal (رضي‬ الله عنه‬) said:
 
 ***"I said: ‘O Messenger of Allāh, tell me of an act which will take me into Paradise and will keep me away from Hell fire.’ He said: ‘You have asked me about a major matter, yet it is
 easy for him for whom Allāh Almighty makes it easy. You should worship Allāh, and not associate anything with Him (in worship), you should perform the prayers, you should
-pay the zakāt, you should fast in Ramadān, and you should make the pilgrimage to the House.’"*** (Sunan At-Tirmidhī – sahīh)
+pay the zakāt, you should fast in Ramadān, and you should make the pilgrimage to the House.’"*** (Sunan At-Tirmidhī – *sahīh*)
 
 And ’Abdullāh ibn ‘Amr (رضي‬ الله عنه‬) narrated that the Prophet (ﷺ) said:
 
 ***"Whoever meets Allāh without having associated partners with Him (in worship), then with that (being fulfilled) no mistake (or sin) will harm him. And whoever dies while he
-has associating something with Him (in worship), then no good deed will benefit along with that."*** (Narrated by Imām Ahmad – Its isnād is correct according to the conditions of Al-Bukhārī and Muslim)
+has associating something with Him (in worship), then no good deed will benefit along with that."*** (Narrated by Imām Ahmad – Its *isnād* is correct according to the conditions of Al-Bukhārī and Muslim)
 
 And Ibn Jarīr At-Tabarī (d. 310h) said in his *tafsīr* of the following verse:
 
-**“And your ilāh is One Ilāh. Lā ilāha illa Huwa (there is no-one worthy of worship besides Him). The Most Merciful, the Most Beneficent.”** (Al-Baqarah 2:163)
+**“And your *ilāh* is One *Ilāh*. *Lā ilāha illa Huwa* (there is no-one worthy of worship besides Him). The Most Merciful, the Most Beneficent.”** (Al-Baqarah 2:163)
   
 *"Regarding His words: There is no-one worthy of worship besides Him, then this is an information from Him – uplifted is His mention – that there is no Lord of the Worlds besides Him. Nor does
 anything besides Him deserve the worship of the slaves. And that everything which exists besides Him, then He has created it. And that which is obligatory for all of them is obeying Him and

@@ -35,6 +35,26 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Sheikh Abū Hājar`
+  String get tawheedIntroAuthor {
+    return Intl.message(
+      'Sheikh Abū Hājar',
+      name: 'tawheedIntroAuthor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `~ An Introduction To Tawheed and Sunnah according to the understanding of The Salaf of the Ummah`
+  String get tawheedIntroTitle {
+    return Intl.message(
+      '~ An Introduction To Tawheed and Sunnah according to the understanding of The Salaf of the Ummah',
+      name: 'tawheedIntroTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `About`
   String get about {
     return Intl.message(
@@ -45,10 +65,10 @@ class S {
     );
   }
 
-  /// `A senior Saudi Arabian scholar. He has been described as being one of the most knowledgable contemporary scholars of islam, particularly in the field of Hadith.\n\n~ Question & Answers`
+  /// `A senior Saudi Arabian scholar. He has been described as being one of the most knowledgeable contemporary scholars of islam, particularly in the field of Hadith.\n\n~ Question & Answers\n~General Knowledge`
   String get aboutAlwan {
     return Intl.message(
-      'A senior Saudi Arabian scholar. He has been described as being one of the most knowledgable contemporary scholars of islam, particularly in the field of Hadith.\n\n~ Question & Answers',
+      'A senior Saudi Arabian scholar. He has been described as being one of the most knowledgeable contemporary scholars of islam, particularly in the field of Hadith.\n\n~ Question & Answers\n~General Knowledge',
       name: 'aboutAlwan',
       desc: '',
       args: [],
