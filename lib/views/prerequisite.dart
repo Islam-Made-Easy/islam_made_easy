@@ -33,6 +33,8 @@ class _PrerequisiteState extends State<Prerequisite> {
         data = 'assets/md/intro_ar.md';
       } else if (locale.languageCode == 'sw') {
         data = 'assets/md/intro_sw.md';
+      } else if (locale.languageCode == 'id') {
+        data = 'assets/md/intro_id.md';
       } else {
         data = 'assets/md/intro.md';
       }
