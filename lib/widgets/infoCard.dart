@@ -53,7 +53,7 @@ class _InfoCardState extends State<InfoCard> {
                 top: BorderSide(color: Colors.grey[400], width: 2),
                 right: BorderSide(color: Colors.grey[500], width: 3),
               )
-            : Border(),
+            : RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         elevation: 0,
         // color: Theme.of(context).splashColor,
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
