@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 
@@ -12,7 +13,7 @@ class SettingsLinkButton extends StatelessWidget {
     Key key,
     @required this.title,
     this.subtitle,
-    @required this.onTap,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -95,6 +96,36 @@ class SettingsLinkButton extends StatelessWidget {
         ),
       ),
     ));
+  }
+}
+
+class DesktopButton extends StatelessWidget {
+  final Widget openC;
+  final String title;
+  final String subtitle;
+
+  const DesktopButton(
+      {Key key,
+      @required this.openC,
+      @required this.title,
+      @required this.subtitle})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context).backgroundColor;
+    return WidgetAnimator(
+      OpenContainer<bool>(
+        closedColor: theme,
+        closedElevation: 0.0,
+        openElevation: 0.0,
+        openColor: theme,
+        transitionType: ContainerTransitionType.fade,
+        openBuilder: (context, openContainer) => openC,
+        closedBuilder: (context, openContainer) =>
+            SettingsLinkButton(title: title, subtitle: subtitle),
+      ),
+    );
   }
 }
 

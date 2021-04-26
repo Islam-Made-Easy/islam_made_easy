@@ -10,6 +10,7 @@ import 'package:grafpix/icons.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
+import 'package:islam_made_easy/widgets/page_decoration.dart';
 import 'package:package_info/package_info.dart';
 import 'package:share/share.dart';
 
@@ -56,6 +57,7 @@ class _DetailsPageState extends State<DetailsPage> {
     final isDesktop = isDisplayDesktop(context);
     final colorScheme = Theme.of(context).colorScheme;
     Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
@@ -64,7 +66,7 @@ class _DetailsPageState extends State<DetailsPage> {
         leading: isDesktop
             ? null
             : IconButton(
-                icon: FaIcon(locale.languageCode == 'ar'
+                icon: FaIcon(ar
                     ? FontAwesomeIcons.angleRight
                     : FontAwesomeIcons.angleLeft),
                 onPressed: Get.back,
@@ -96,42 +98,142 @@ class _DetailsPageState extends State<DetailsPage> {
                     ),
         ],
       ),
-      body: Scrollbar(
-        child: ListView(
-          padding: EdgeInsets.symmetric(
-              horizontal: isDesktop ? 30 : 10, vertical: isDesktop ? 20 : 10),
-          children: [
-            Container(
-              // color: Color(0xFFF2F2F2),
-              color: colorScheme.secondaryVariant,
-              height: 250,
-              child: Padding(
-                padding: const EdgeInsets.all(1),
-                child: Image.asset(
-                  widget.image,
-                  fit: BoxFit.cover,
-                  matchTextDirection: true,
+      body: Stack(
+        children: [
+          GradientCircles(),
+          Scrollbar(
+            child: ListView(
+              padding: EdgeInsets.symmetric(
+                  horizontal: isDesktop ? 30 : 10, vertical: isDesktop ? 20 : 10),
+              children: [
+                Stack(
+                  children: [
+                    Positioned(
+                      top: 40.0,
+                      left: ar ? 120 : 0,
+                      right: ar ? 0 : 120,
+                      child: Container(
+                        height: 30.0,
+                        width: 170.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topRight:
+                                  ar ? Radius.zero : Radius.elliptical(10, 50),
+                              topLeft:
+                                  ar ? Radius.elliptical(50, 20) : Radius.zero),
+                          gradient: LinearGradient(
+                            colors: [
+                              Theme.of(context).accentColor,
+                              Theme.of(context).backgroundColor,
+                            ],
+                            tileMode: TileMode.mirror,
+                            end: ar?Alignment.topLeft:Alignment.topRight,
+                            begin: ar?Alignment.bottomRight:Alignment.bottomLeft,
+                            stops: [0.0, 1.0],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 10.0,
+                      child: Container(
+                        height: 100.0,
+                        width: 100.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(50)),
+                          gradient: LinearGradient(
+                            colors: [
+                              Theme.of(context).accentColor,
+                              Theme.of(context).backgroundColor
+                            ],
+                            tileMode: TileMode.mirror,
+                            end: ar?Alignment.topLeft:Alignment.topRight,
+                            begin: ar?Alignment.bottomRight:Alignment.bottomLeft,
+                            stops: [0.0, 1.0],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 75.0,
+                      left: ar ? 0 : 200,
+                      right: ar ? 200 : 0,
+                      child: Container(
+                        height: 120.0,
+                        width: 140.0,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft:
+                                ar ? Radius.zero : Radius.circular(10),
+                                topLeft:
+                                ar ? Radius.zero : Radius.circular(10),
+                                topRight:
+                                ar ? Radius.elliptical(50, 20) : Radius.zero),
+                            gradient: LinearGradient(
+                              colors: [
+                                Theme.of(context).accentColor,
+                                Theme.of(context).backgroundColor
+                              ],
+                              tileMode: TileMode.mirror,
+                              begin: ar?Alignment.topRight:Alignment.topLeft,
+                              end: ar?Alignment.bottomLeft:Alignment.bottomRight,
+                              stops: [0.0, 1.0],
+                            ),
+                            shape: BoxShape.rectangle),
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(4)),
+                        gradient: LinearGradient(
+                          colors: [
+                            Theme.of(context).primaryColorDark,
+                            Theme.of(context).backgroundColor,
+                          ],
+                          tileMode: TileMode.mirror,
+                          end: ar?Alignment.topLeft:Alignment.topRight,
+                          begin: ar?Alignment.bottomRight:Alignment.bottomLeft,
+                          stops: [0.0, 1.0],
+                        ),
+                        color: colorScheme.secondaryVariant.withOpacity(0.5),
+                      ),
+                      // color: Color(0xFFF2F2F2),
+
+                      height: 250,
+                      width: !isDesktop
+                          ? null
+                          : MediaQuery.of(context).size.width - 100,
+                      child: Padding(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset(
+                          widget.image,
+                          fit: BoxFit.cover,
+                          matchTextDirection: true,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
+                SizedBox(height: 15),
+                SelectableText(
+                  widget.title,
+                  textAlign: TextAlign.center,
+                  style: textTheme.headline5.copyWith(
+                    color: Colors.black54,
+                    fontSize: 30,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: widget.data,
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 15),
-            SelectableText(
-              widget.title,
-              textAlign: TextAlign.center,
-              style: textTheme.headline5.copyWith(
-                color: Colors.black54,
-                fontSize: 30,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: widget.data,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -170,7 +272,7 @@ class OpenContainerWrapper extends StatelessWidget {
         transitionType: _transitionType,
         openBuilder: (context, openContainer) => DetailsPage(
             title: title, data: data, barTitle: barTitle, image: image),
-        tappable: false,
+        tappable: false,openColor: Theme.of(context).backgroundColor,
         closedBuilder: closedBuilder,
       ),
     );
@@ -194,6 +296,8 @@ class DetailsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     final isDesktop = isDisplayDesktop(context);
     return InkWellOverlay(
       openContainer: openContainer,
@@ -207,17 +311,95 @@ class DetailsCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
-                        child: Container(
-                          color: Color(0xFFA6A6A6),
-                          child: Center(
-                            child: Image.asset(
-                              img,
-                              fit: BoxFit.cover,
-                              matchTextDirection: true,
-                              width: MediaQuery.of(context).size.width,
-                              height: MediaQuery.of(context).size.height,
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              top: 40.0,
+                              left: ar ? 120 : 0,
+                              right: ar ? 0 : 120,
+                              child: Container(
+                                height: 30.0,
+                                width: 170.0,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topRight:
+                                      ar ? Radius.zero : Radius.elliptical(10, 50),
+                                      topLeft:
+                                      ar ? Radius.elliptical(50, 20) : Radius.zero),
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Theme.of(context).accentColor,
+                                      Theme.of(context).backgroundColor,
+                                    ],
+                                    tileMode: TileMode.mirror,
+                                    end: ar?Alignment.topLeft:Alignment.topRight,
+                                    begin: ar?Alignment.bottomRight:Alignment.bottomLeft,
+                                    stops: [0.0, 1.0],
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                            Positioned(
+                              bottom: 10.0,
+                              child: Container(
+                                height: 100.0,
+                                width: 100.0,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(Radius.circular(50)),
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Theme.of(context).accentColor,
+                                      Theme.of(context).backgroundColor
+                                    ],
+                                    tileMode: TileMode.mirror,
+                                    end: ar?Alignment.topLeft:Alignment.topRight,
+                                    begin: ar?Alignment.bottomRight:Alignment.bottomLeft,
+                                    stops: [0.0, 1.0],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              top: 75.0,
+                              left: ar ? 0 : 200,
+                              right: ar ? 200 : 0,
+                              child: Container(
+                                height: 120.0,
+                                width: 140.0,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        bottomLeft:
+                                        ar ? Radius.zero : Radius.circular(10),
+                                        topLeft:
+                                        ar ? Radius.zero : Radius.circular(10),
+                                        topRight:
+                                        ar ? Radius.elliptical(50, 20) : Radius.zero),
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Theme.of(context).accentColor,
+                                        Theme.of(context).backgroundColor
+                                      ],
+                                      tileMode: TileMode.mirror,
+                                      begin: ar?Alignment.topRight:Alignment.topLeft,
+                                      end: ar?Alignment.bottomLeft:Alignment.bottomRight,
+                                      stops: [0.0, 1.0],
+                                    ),
+                                    shape: BoxShape.rectangle),
+                              ),
+                            ),
+                            Container(
+                              color: Theme.of(context).hoverColor,
+                              child: Center(
+                                child: Image.asset(
+                                  img,
+                                  fit: BoxFit.cover,
+                                  matchTextDirection: true,
+                                  width: MediaQuery.of(context).size.width,
+                                  height: MediaQuery.of(context).size.height,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       ListTile(
