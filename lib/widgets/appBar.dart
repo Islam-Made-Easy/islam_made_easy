@@ -5,8 +5,9 @@ import 'package:get/get.dart';
 class QnAppBar extends StatelessWidget with PreferredSizeWidget {
   final String title;
   final bool isDesktop;
+  final Color color;
 
-  const QnAppBar({Key key, this.title, this.isDesktop = false})
+  const QnAppBar({Key key, this.title, this.isDesktop = false, this.color})
       : super(key: key);
 
   double get myAppBarHeight => 50;
@@ -23,8 +24,7 @@ class QnAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
       centerTitle: true,
       backwardsCompatibility: false,
-      backgroundColor:
-          isDesktop ? Colors.transparent : Theme.of(context).appBarTheme.color,
+      backgroundColor: color,
       leading: isDesktop
           ? null
           : IconButton(

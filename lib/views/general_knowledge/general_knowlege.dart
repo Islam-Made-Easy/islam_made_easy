@@ -22,7 +22,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
     final isDesktop = isDisplayDesktop(context);
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: QnAppBar(title: S.current.generalKnowledge, isDesktop: isDesktop),
+      appBar: QnAppBar(title: S.current.generalKnowledge, isDesktop: isDesktop,color: isDesktop?Colors.transparent:null,),
       backgroundColor: theme.backgroundColor,
       body: Stack(
         children: [
