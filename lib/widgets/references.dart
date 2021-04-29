@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_flip_view/flutter_flip_view.dart';
+import 'package:get/get.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 
@@ -116,8 +117,6 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final theme = Theme.of(context);
-    Locale locale = Localizations.localeOf(context);
-    final ar = locale.languageCode == 'ar';
     return Scaffold(
       backgroundColor: theme.backgroundColor,
       appBar: AppBar(
@@ -200,18 +199,21 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
     return Card(
-      shape: RoundedRectangleBorder(
-        side: BorderSide(width: 0.5, color: Theme.of(context).hoverColor),
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(ar ? 0 : 10),
-          topRight: Radius.circular(ar ? 10 : 0),
-          bottomRight:
-              ar ? Radius.elliptical(90, 10) : Radius.elliptical(12, 200),
-          bottomLeft:
-              ar ? Radius.elliptical(12, 200) : Radius.elliptical(90, 10),
-        ),
-      ),
-      elevation: 4,
+      shape: GetPlatform.isWeb
+          ? null
+          : RoundedRectangleBorder(
+              side: BorderSide(width: 0.5, color: Theme.of(context).hoverColor),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(ar ? 0 : 10),
+                topRight: Radius.circular(ar ? 10 : 0),
+                bottomRight:
+                    ar ? Radius.elliptical(90, 10) : Radius.elliptical(90, 10),
+                bottomLeft: ar
+                    ? Radius.elliptical(12, 200)
+                    : Radius.elliptical(12, 200),
+              ),
+            ),
+      elevation: GetPlatform.isWeb?10:30,
       clipBehavior: Clip.hardEdge,
       child: ListTile(
         contentPadding: EdgeInsets.all(10),
@@ -228,7 +230,9 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
     return Card(
-      shape: RoundedRectangleBorder(
+      shape: GetPlatform.isWeb
+          ? null
+          : RoundedRectangleBorder(
         side: BorderSide(width: 0.5, color: Theme.of(context).hoverColor),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(ar ? 0 : 10),
