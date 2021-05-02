@@ -11,6 +11,8 @@ Islamic application that let you understand your religion easier.
 
 ## Getting help
 
+Note: This app may contain few bugs, which will be fixed shortly.
+
 Any usage issues can ask for help via
 
 * [Gitter](https://gitter.im/orgs/Islam-Made-Easy/rooms)
