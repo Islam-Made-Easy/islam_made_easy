@@ -125,10 +125,10 @@ class S {
     );
   }
 
-  /// `Link copied`
+  /// `Share Link copied!`
   String get linkCopied {
     return Intl.message(
-      'Link copied',
+      'Share Link copied!',
       name: 'linkCopied',
       desc: '',
       args: [],

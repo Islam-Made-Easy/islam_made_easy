@@ -164,32 +164,31 @@ Abū Bakr Al-Ājurrī (d. 320h) gathered the meaning of what have been mentioned
      
  And Abū Al-Qāsim Al-Lālakāī (d. 418h) said:
  
-   *"I use as evidence for the madhāhib (pl. madhhab) of Ahlus-Sunnah that which is mentioned in the Book of Allāh – the Exalted – regarding it, and that which is narrated from the Messenger of Allāh
-     (ﷺ). So if I find something in both of them, then I mention it all. And if I find something in only one of them without the other, then I mention that. And if I don’t find
+   *"I use as evidence for the madhāhib (pl. madhhab) of Ahlus-Sunnah that which is mentioned in the Book of Allāh – the Exalted – regarding it, and that which is narrated from the Messenger of Allāh (ﷺ) . So if I find something in both of them, then I mention it all. And if I find something in only one of them without the other, then I mention that. And if I don’t find
      anything regarding it except from the Sahābah (رضي‬ الله عنهم‬); those whom Allāh and His Messenger has ordered to take as an example, and to follow their words, and to seek light from their
      lights, due to them testifying the revelation and their knowledge regarding the meaning of the interpretations, then I use that as evidence. But if there is no narration regarding it from a
      companion, then from those who followed them in goodness; those in whose words there is a cure and guidance. And worshipping Allāh with their opinion is nearness to Allāh and closeness (to
      Him). So if we see that they agreed upon something then we rely on it. And whoever’s opinion they criticized, or they refuted his bid’ah (innovation) or they declared takfīr upon him, then we will
      judge with that and believe in it. And there continue to be, from the Messenger of Allāh (ﷺ) until this day of ours, a people who protect this way and take it as their religion.
-     And verily is the person destroyed who turns away from this path, due to his ignorance regarding the path of following (the narratins)."* (Usūl I’tiqād Ahlus-Sunnah by Al-Lālakāī 1/27)
+     And verily is the person destroyed who turns away from this path, due to his ignorance regarding the path of following (the narrations)."* (Usūl I’tiqād Ahlus-Sunnah by Al-Lālakāī 1/27)
      
 So these are the words from Allāh the Exalted, His Messenger (ﷺ), the *Sahābah* (رضي‬ الله عنهم‬) and the scholars of Islām which all points to, that the
 religion is what has come in the Qurān and the *Sunnah*, according to the understanding of the *Salaf*. And that is a path of submitting to and following the evidences and narrations.
 
 May Allāh make us from them. *Āmīn*.
 
-## The testimonies of Islām (At-Tawhīd and Ar-Risālah)
+## The testimonies of Islām (At-Tawhīd and *Ar-Risālah*)
 
 The Muslim enters into the religion with the two testimonies. If he meets Allāh based upon their true meanings and having fulfilled their requirements, then Allāh has
-promised to enter him into Paradise. These two testimonies are: **Lā ilāha illa Allāh** (there is no-one worthy of worship besides Allāh), **Muhammadun RasulAllāh** (Muhammad is the Messenger of Allāh).
+promised to enter him into Paradise. These two testimonies are: ***Lā ilāha illa Allāh*** (there is no-one worthy of worship besides Allāh), ***Muhammadun RasulAllāh*** (Muhammad is the Messenger of Allāh).
 
 *Lā ilāha illa Allāh* being the Tawhīd (Oneness) of Allāh which every prophet and messenger – from Nūh (عليه السلام) to Muhammad (ﷺ) – has been sent
-inviting towards, while *Muhammadun RasūlAllāh* is the Risālah (Message) which is the legislation and knowledge which is specific to Muhammad (ﷺ).
+inviting towards, while *Muhammadun RasūlAllāh* is the *Risālah* (Message) which is the legislation and knowledge which is specific to Muhammad (ﷺ).
 
 There is nothing that the Muslim does in his religion except that it has a relation to these two testimonies. And this is due to the fact that every act of worship – both in deeds and
 beliefs – **has two conditions for it to accepted by Allāh**:
 
-  1. That it is performed with ***ikhlās*** which is sincerity in intention, meaning that it is solely performed for Allāh without including any form of major or minor shirk, which is associating partners with Allāh in worship or in intention.
+  1. That it is performed with ***ikhlās*** which is sincerity in intention, meaning that it is solely performed for Allāh without including any form of major or minor *shirk*, which is associating partners with Allāh in worship or in intention.
   2. That it is performed according to the ***Sunnah*** of the Messenger of Allāh (ﷺ), meaning that it is performed without any form of innovation.
 
 Thus, whoever bears witness to **Lā ilāha illa Allāh, Muhammadun RasūlAllāh**, has born witness to the fact, that he only worships one *ilāh* (deity, god) – both in beliefs and in
