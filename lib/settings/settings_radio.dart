@@ -5,7 +5,7 @@ import 'package:islam_made_easy/locale/localePro.dart';
 import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
-import 'package:provide/provide.dart';
+import 'package:provider/provider.dart';
 
 class SettingsRadio extends StatefulWidget {
   final String subtitle;
@@ -32,9 +32,8 @@ class _SettingsRadioState extends State<SettingsRadio> {
       selectedLanguage = languageCode;
       SpUtil.setLanguage(selectedLanguage);
       Locale locale = StringUtil.isNullOrEmpty(selectedLanguage)
-          ? null
-          : Locale(languageCode);
-      Provide.value<LocaleProvide>(context).changeLocale(locale);
+          ? null : Locale(languageCode);
+      Provider.of<LocaleProvide>(context,listen: false).changeLocale(locale);
       Phoenix.rebirth(context);
     });
   }

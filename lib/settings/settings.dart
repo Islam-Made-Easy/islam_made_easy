@@ -5,6 +5,7 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:grafpix/icons.dart';
+import 'package:grafpix/pixbuttons/medal.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:islam_made_easy/locale/localePro.dart';
@@ -13,9 +14,9 @@ import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
-import 'package:provide/provide.dart';
+import 'package:provider/provider.dart';
 import 'package:system_alert_window/system_alert_window.dart' as sys;
-
+import 'package:get/get.dart';
 class Settings extends StatefulWidget {
   static const ROUTE_NAME = "/settings";
 
@@ -53,7 +54,7 @@ class _SettingsState extends State<Settings> {
       Locale locale = StringUtil.isNullOrEmpty(selectedLanguage)
           ? null
           : Locale(languageCode);
-      Provide.value<LocaleProvide>(context).changeLocale(locale);
+      Provider.of<LocaleProvide>(context,listen: false).changeLocale(locale);
       Phoenix.rebirth(context);
     });
   }
@@ -80,8 +81,8 @@ class _SettingsState extends State<Settings> {
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
-          horizontal: isDesktop ? 20 : 8.0,
-          vertical: isDesktop ? 30 : 8.0,
+          horizontal: isDesktop||context.isTablet ? 20 :8.0,
+          vertical: isDesktop||context.isTablet ? 30 : 8.0,
         ),
         children: [
           _SettingsTitle(title: S.current.customizeExp),
@@ -96,9 +97,9 @@ class _SettingsState extends State<Settings> {
                 title: Text(S.current.language),
                 leading: FaIcon(FontAwesomeIcons.language),
                 subtitle: Text(getLanguageUiString(selectedLanguage)),
-                tilePadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                tilePadding:  EdgeInsets.symmetric(vertical: context.isTablet?15:10, horizontal: context.isTablet?15:10),
                 childrenPadding:
-                    EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    EdgeInsets.symmetric(vertical: context.isTablet?15:10, horizontal: context.isTablet?15:10),
                 children: [
                   RadioListTile(
                       title: Text(getLanguageUiString('')),
@@ -213,6 +214,14 @@ class _SettingsState extends State<Settings> {
                     EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 title: Text(S.current.advanced),
                 children: [
+                  PixMedal(
+                    icon: Icons.build,
+                    medalType: MedalType.Silver,
+                    radius: 70.0,
+                    iconColor: Colors.transparent,
+                    iconSize: 60.0,
+                  ),
+                  Text(S.current.advancedInfo)
                   // RaisedButton(
                   //   onPressed: () {
                   //     sys.SystemAlertWindow.showSystemWindow(
@@ -272,9 +281,9 @@ class _SettingsState extends State<Settings> {
       themeChildren.add(InkWell(
         onTap: () {
           setState(() {
-            Provide.value<ThemeProvide>(context).changeTheme(i);
+            Provider.of<ThemeProvide>(context,listen: false).changeTheme(i);
             SystemChrome.setSystemUIOverlayStyle(
-                Provide.value<ThemeProvide>(context).overlayStyle);
+                Provider.of<ThemeProvide>(context,listen: false).overlayStyle);
             FlutterStatusbarcolor.setStatusBarColor(Colors.primaries[i][700]);
             SpUtil.setThemeIndex(i);
           });
@@ -282,11 +291,11 @@ class _SettingsState extends State<Settings> {
         child: WidgetAnimator(
           Card(
             child: Container(
-              width: 55,
-              height: 55,
+              width: context.isTablet?60:55,
+              height: context.isTablet?60:55,
               decoration: BoxDecoration(
                 color: Colors.primaries[i][700],
-                border: Provide.value<ThemeProvide>(context).themeIndex == i
+                border: Provider.of<ThemeProvide>(context,listen: false).themeIndex == i
                     ? _currentThemeBorder
                     : null,
               ),
@@ -296,8 +305,8 @@ class _SettingsState extends State<Settings> {
       ));
     }
     return ExpansionTile(
-      tilePadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-      childrenPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      tilePadding:  EdgeInsets.symmetric(vertical: context.isTablet?15:10, horizontal: context.isTablet?15:10),
+      childrenPadding:  EdgeInsets.symmetric(vertical: context.isTablet?15:10, horizontal: context.isTablet?15:10),
       leading: FaIcon(FontAwesomeIcons.palette),
       title: Text(
         S.current.chooseTheme,
