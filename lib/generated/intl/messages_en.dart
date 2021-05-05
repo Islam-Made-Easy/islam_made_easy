@@ -154,7 +154,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "fastQ7" : MessageLookupByLibrary.simpleMessage("Hadith \"O Allâh bless us in Rajab and Sha\'bān & allow us to reach Ramadān\""),
     "fatawaAuthor2" : MessageLookupByLibrary.simpleMessage("Sheikh Muhammad bin Hizam Al-Ba\'dany"),
     "forPlatform" : MessageLookupByLibrary.simpleMessage("For"),
-    "fridayFirst" : MessageLookupByLibrary.simpleMessage("Among the first to be interceded for by the Prophet ﷺ are those who sent most salah upon him, and the best day to send salah upon him ﷺ is Friday"),
+    "fridayFirst" : MessageLookupByLibrary.simpleMessage("The Messenger of Allāh ﷺ said: “Verily, Allah has made this day (of Friday) a celebration for the Muslims. So whoever comes to Friday (prayer), then let him bathe himself and if he has any perfume let him put some on, and use the toothstick."),
     "fridayRemind" : MessageLookupByLibrary.simpleMessage("Friday Reminders"),
     "generalKnowledge" : MessageLookupByLibrary.simpleMessage("General Knowledge"),
     "german" : MessageLookupByLibrary.simpleMessage("German"),

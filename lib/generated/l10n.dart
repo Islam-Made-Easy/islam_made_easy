@@ -165,10 +165,10 @@ class S {
     );
   }
 
-  /// `Among the first to be interceded for by the Prophet ﷺ are those who sent most salah upon him, and the best day to send salah upon him ﷺ is Friday`
+  /// `The Messenger of Allāh ﷺ said: “Verily, Allah has made this day (of Friday) a celebration for the Muslims. So whoever comes to Friday (prayer), then let him bathe himself and if he has any perfume let him put some on, and use the toothstick.`
   String get fridayFirst {
     return Intl.message(
-      'Among the first to be interceded for by the Prophet ﷺ are those who sent most salah upon him, and the best day to send salah upon him ﷺ is Friday',
+      'The Messenger of Allāh ﷺ said: “Verily, Allah has made this day (of Friday) a celebration for the Muslims. So whoever comes to Friday (prayer), then let him bathe himself and if he has any perfume let him put some on, and use the toothstick.',
       name: 'fridayFirst',
       desc: '',
       args: [],

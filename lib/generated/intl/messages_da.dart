@@ -84,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "copyError" : MessageLookupByLibrary.simpleMessage("Failed to copy to clipboard"),
     "croatian" : MessageLookupByLibrary.simpleMessage("Croatian"),
     "croatianHR" : MessageLookupByLibrary.simpleMessage("Croatian (Croatia)"),
+    "customizeExp" : MessageLookupByLibrary.simpleMessage("Tilpas din oplevelse"),
     "danish" : MessageLookupByLibrary.simpleMessage("Danish"),
     "danishDK" : MessageLookupByLibrary.simpleMessage("Danish (Danmark)"),
     "dansk" : MessageLookupByLibrary.simpleMessage("dansk"),
