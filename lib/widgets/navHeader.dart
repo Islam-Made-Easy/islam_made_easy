@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:grafpix/icons.dart';
 import 'package:islam_made_easy/settings/settings.dart';
 import 'package:islam_made_easy/views/about.dart' as about;
-import 'package:liquid_ui/liquid_ui.dart';
 
 class NavigationRailHeader extends StatelessWidget {
   const NavigationRailHeader({@required this.extended})
@@ -49,9 +48,9 @@ class NavigationRailHeader extends StatelessWidget {
                             widthFactor: animation.value,
                             child: Opacity(
                               opacity: animation.value,
-                              child: LText(
-                                '\l.lead.bold{I} \l.lead.bold{M} \l.lead.bold{E}',
-                                baseStyle: textTheme.bodyText1
+                              child: Text(
+                                'IME',
+                                style: textTheme.bodyText1
                                     .copyWith(fontFamily: 'Amiri'),
                               ),
                             ),
