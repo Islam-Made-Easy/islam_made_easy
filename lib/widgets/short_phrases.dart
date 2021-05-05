@@ -14,7 +14,7 @@ class ShortPhrases extends StatelessWidget {
         title: Text(S.current.shortPhrasesT),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: isDesktop ? Colors.transparent : Theme.of(context).appBarTheme.color,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(

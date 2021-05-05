@@ -123,7 +123,7 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
         title: Text(S.current.references),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: isDesktop ? Colors.transparent : null,
+        backgroundColor: isDesktop ? Colors.transparent : Theme.of(context).appBarTheme.color,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
