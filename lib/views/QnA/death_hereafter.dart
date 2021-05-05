@@ -1,12 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/layout/adaptive.dart';
-import 'package:islam_made_easy/widgets/appBar.dart';
-import 'package:islam_made_easy/widgets/chipWidget.dart';
-import 'package:islam_made_easy/widgets/infoCard.dart';
-import 'package:islam_made_easy/widgets/buttons/tileButton.dart';
-import 'package:islam_made_easy/widgets/viewText.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class DeathHereafter extends StatefulWidget {
   @override
@@ -28,15 +20,15 @@ class _DeathHereafterState extends State<DeathHereafter> {
                 FaIcon(FontAwesomeIcons.dotCircle), SettingsTitle(title: '')),
             SizedBox(height: 5),
             InfoCard(quest: S.current.deathQ1, answers: [
-               ViewText(data:S.current.deathA1Par1),
-               ViewText(data:S.current.deathA1Par2),
+              ViewText(data: S.current.deathA1Par1),
+              ViewText(data: S.current.deathA1Par2),
             ]),
             SizedBox(height: 10),
             SizedBox(height: 5),
             InfoCard(quest: S.current.deathQ2, answers: [
-               ViewText(data:S.current.deathA2Par1),
-               ViewText(data:S.current.deathA2Par2),
-               ViewText(data:S.current.deathA2Par3),
+              ViewText(data: S.current.deathA2Par1),
+              ViewText(data: S.current.deathA2Par2),
+              ViewText(data: S.current.deathA2Par3),
             ]),
             SizedBox(height: 10),
           ],

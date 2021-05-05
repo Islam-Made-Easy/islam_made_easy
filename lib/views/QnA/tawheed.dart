@@ -1,12 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/layout/adaptive.dart';
-import 'package:islam_made_easy/widgets/appBar.dart';
-import 'package:islam_made_easy/widgets/chipWidget.dart';
-import 'package:islam_made_easy/widgets/infoCard.dart';
-import 'package:islam_made_easy/widgets/buttons/tileButton.dart';
-import 'package:islam_made_easy/widgets/viewText.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class Tawheed extends StatefulWidget {
   @override

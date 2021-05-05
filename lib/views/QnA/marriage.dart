@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/layout/adaptive.dart';
-import 'package:islam_made_easy/widgets/appBar.dart';
-import 'package:islam_made_easy/widgets/infoCard.dart';
-import 'package:islam_made_easy/widgets/viewText.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class Marriage extends StatefulWidget {
   @override
