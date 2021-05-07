@@ -1,10 +1,4 @@
-import 'dart:math';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:get/get.dart';
-import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/views/home.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class NotificationServices extends ChangeNotifier {
   final FlutterLocalNotificationsPlugin _localNotifier =
@@ -13,6 +7,7 @@ class NotificationServices extends ChangeNotifier {
   navHome() => Get.to(() => Home());
 
   Future initialize() async {
+    if (DeviceOS.isWeb) {}
     final FlutterLocalNotificationsPlugin localNotifier =
         FlutterLocalNotificationsPlugin();
     var initializationSettingsAndroid = AndroidInitializationSettings('log');
@@ -98,8 +93,6 @@ class NotificationServices extends ChangeNotifier {
     return quoteJson[randomNumber];
     // this.author = authorJson[randomNumber];
   }
-
-  Future onSelectNotification(String payload) {}
 
   Future unsubscribeNotification() async {
     await _localNotifier.cancelAll();
