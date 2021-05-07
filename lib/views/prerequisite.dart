@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:get/get.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
@@ -8,20 +7,15 @@ import 'package:lottie/lottie.dart';
 import 'package:markdown/markdown.dart' as md;
 
 class Prerequisite extends StatefulWidget {
+  static const ROUTE_NAME = "/prerequisite";
+
   @override
   _PrerequisiteState createState() => _PrerequisiteState();
 }
 
 class _PrerequisiteState extends State<Prerequisite> {
   var _extensionSet = MarkdownExtensionSet.githubFlavored;
-  ScrollController controller = ScrollController();
   String data;
-
-  @override
-  void initState() {
-    controller = ScrollController();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:islam_made_easy/settings/settings.dart';
 import 'package:islam_made_easy/views/QnA.dart';
 import 'package:islam_made_easy/views/errorR.dart';
-import 'package:islam_made_easy/views/general_knowledge/general_knowlege.dart';
 import 'package:islam_made_easy/views/home.dart';
-import 'package:islam_made_easy/settings/settings.dart';
+import 'package:islam_made_easy/views/prerequisite.dart';
 import 'package:islam_made_easy/views/succinct.dart';
 
 class AppRoute extends NavigatorObserver {
@@ -18,6 +17,7 @@ class AppRoute extends NavigatorObserver {
     QnA.ROUTE_NAME: (_) => QnA(),
     Settings.ROUTE_NAME: (_) => Settings(),
     Succinct.ROUTE_NAME: (_) => Succinct(),
+    Prerequisite.ROUTE_NAME: (_) => Prerequisite(),
   };
 
   Map<String, WidgetBuilder> get routes => _routes;
@@ -32,7 +32,7 @@ class AppRoute extends NavigatorObserver {
         },
       );
     } else if (settings.name == QnA.ROUTE_NAME) {
-      final String args = settings.arguments;
+      // final String args = settings.arguments;
       targetPage = MaterialPageRoute(
         settings: settings,
         builder: (context) {
@@ -51,6 +51,13 @@ class AppRoute extends NavigatorObserver {
         settings: settings,
         builder: (context) {
           return Succinct();
+        },
+      );
+    } else if (settings.name == Prerequisite.ROUTE_NAME) {
+      targetPage = MaterialPageRoute(
+        settings: settings,
+        builder: (context) {
+          return Prerequisite();
         },
       );
     }
@@ -87,30 +94,7 @@ class AppRoute extends NavigatorObserver {
   }
 
   void setPreferredOrientations(RouteSettings settings) {
-    /*
-    if(targetPage == "/") {
-      SystemChrome.setPreferredOrientations([
-        DeviceOrientation.portraitUp,
-        DeviceOrientation.portraitDown,
-      ]);
-      // 恢复系统默认UI：显示状态栏、虚拟按键导航栏
-      SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
-    } else if(GeneralKnowledge.ROUTE_NAME == targetName) {
-      SystemChrome.setPreferredOrientations([
-        DeviceOrientation.landscapeLeft,
-        DeviceOrientation.landscapeRight,
-      ]);
-      // 隐藏状态栏、虚拟按键导航栏
-      SystemChrome.setEnabledSystemUIOverlays([]);
-    } else if(DetailPage.routeName == targetName) {
-      SystemChrome.setPreferredOrientations([
-        DeviceOrientation.landscapeLeft,
-        DeviceOrientation.landscapeRight,
-      ]);
-      // 隐藏状态栏、虚拟按键导航栏
-      SystemChrome.setEnabledSystemUIOverlays([]);
-    }
-     */
+    // Set Orientation here if necessary
   }
 }
 
