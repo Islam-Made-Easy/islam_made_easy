@@ -102,10 +102,9 @@ class SearchToolbarState extends State<SearchToolbar> {
         Material(
           color: Colors.transparent,
           child: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
+            icon: FaIcon(
+              FontAwesomeIcons.times,
               color: Color(0x000000).withOpacity(0.54),
-              size: 24,
             ),
             onPressed: () {
               widget.onTap?.call('Cancel Search');
