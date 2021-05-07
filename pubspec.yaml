@@ -19,18 +19,14 @@ dependencies:
   provider: ^4.3.2+2
   flutter_screenutil: ^3.2.0
   font_awesome_flutter: ^8.10.0
-  statusbar_util: ^1.0.1
   share: ^0.6.5+4
-  liquid_ui: ^1.0.0+9
   lottie: null
   flutter_easyrefresh: null
   in_app_review: any
   dio: null
   intl: ^0.17.0-nullsafety.2
   flutter_animated_dialog: any
-  provide: ^1.0.2
   flutter_statusbarcolor: null
-  morpheus: null
   universal_html: null
   sqflite: null
   sp_util: ^1.0.1
@@ -62,9 +58,7 @@ dependencies:
   quick_actions: ^0.4.0+10
   flutter_systray: ^0.4.0
   avatar_glow: ^1.2.0
-  scroll_to_index: any
   animator: null
-  flip_card: null
   clippy_flutter: null
   grafpix: null
   animated_text_kit: null
@@ -74,10 +68,31 @@ dependencies:
   flutter_local_notifications: ^1.4.4+4
   markdown: null
   flutter_markdown: null
-  markdown_editable_textinput: null
   bubble_overlay:
   system_alert_window:
   pdf_flutter:
+  url_strategy:
+  animate_do:
+  desktop_window:
+  bitsdojo_window:
+  syncfusion_flutter_pdfviewer:
+  chewie:
+  ext_storage:
+  flutter_ffmpeg:
+  flutter_vlc_player:
+#  flutter_youtube_dl:
+  fuzzy:
+  lazy_load_scrollview:
+  permission_handler:
+  subtitle_wrapper_package:
+  transparent_image:
+  youtube_player_flutter:
+  wakelock:
+  firebase_storage:
+  firebase_core:
+#  firebase_analytics:
+  firebase:
+  better_player: ^0.0.13
 dev_dependencies:
   flutter_launcher_icons: 0.7.5
   flutter_native_splash: 0.1.9
@@ -106,6 +121,7 @@ flutter:
   - assets/md/
   - assets/icons/
   - assets/daily/
+  - assets/videos/
 flutter_intl:
   enabled: true
   fonts:
