@@ -1,21 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_easyrefresh/easy_refresh.dart';
-import 'package:get/get.dart';
-import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/layout/adaptive.dart';
-import 'package:islam_made_easy/views/QnA/Fast.dart';
-import 'package:islam_made_easy/views/QnA/hajj.dart';
-import 'package:islam_made_easy/views/QnA/jinn.dart';
-import 'package:islam_made_easy/views/QnA/lifestyle.dart';
-import 'package:islam_made_easy/views/QnA/marriage.dart';
-import 'package:islam_made_easy/views/QnA/prayer.dart';
-import 'package:islam_made_easy/views/QnA/tawheed.dart';
-import 'package:islam_made_easy/views/QnA/zakkah.dart';
-import 'package:islam_made_easy/widgets/appBar.dart';
-import 'package:islam_made_easy/widgets/buttons/tileButton.dart';
-import 'package:islam_made_easy/widgets/page_decoration.dart';
-
-import 'QnA/death_hereafter.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class QnA extends StatefulWidget {
   static const ROUTE_NAME = "/qna";
@@ -29,6 +12,7 @@ class _QnAState extends State<QnA> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
@@ -43,14 +27,14 @@ class _QnAState extends State<QnA> {
             controller: _controller,
             child: GridView(
                 padding: EdgeInsets.symmetric(
-                  horizontal: isDesktop ? 30 : 16.0,
+                  horizontal: isDesktop ? 30 : context.isTablet?20:16.0,
                   vertical: 30.0,
                 ),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: isDesktop ? 30 : 12,
-                    crossAxisCount: isDesktop ? 4 : 2,
-                    crossAxisSpacing: isDesktop ? 30 : 12),
-                children:isDesktop
+                    mainAxisSpacing: size.height*0.04 ,
+                    crossAxisCount: isDesktop ? 4 : context.isTablet?3:2,
+                    crossAxisSpacing: isDesktop ? 30 : context.isTablet?25:12),
+                children:DeviceOS.isDesktop||(isDesktop&&DeviceOS.isWeb)
                     ? [
                   DesktopButton(openC: Tawheed(), title: 'assets/images/drk.jpg', subtitle: S.current.tawheed),
                   DesktopButton(openC: Prayer(), title: 'assets/images/msd.jpg', subtitle: S.current.swalah),
@@ -64,18 +48,8 @@ class _QnAState extends State<QnA> {
                 ]
                     : [
                         SettingsLinkButton(title: 'assets/images/drk.jpg', subtitle: S.current.tawheed, onTap: () => Get.to(() => Tawheed(), transition: Transition.fadeIn),),
-                        SettingsLinkButton(
-                          title: 'assets/images/msd.jpg',
-                          onTap: () => Get.to(() => Prayer(),
-                              transition: Transition.fadeIn),
-                          subtitle: S.current.swalah,
-                        ),
-                        SettingsLinkButton(
-                          title: 'assets/images/eat.jpg',
-                          onTap: () => Get.to(() => Zakkah(),
-                              transition: Transition.fadeIn),
-                          subtitle: S.current.zakkah,
-                        ),
+                        SettingsLinkButton(title: 'assets/images/msd.jpg', onTap: () => Get.to(() => Prayer(), transition: Transition.fadeIn), subtitle: S.current.swalah,),
+                        SettingsLinkButton(title: 'assets/images/eat.jpg', onTap: () => Get.to(() => Zakkah(), transition: Transition.fadeIn), subtitle: S.current.zakkah,),
                         SettingsLinkButton(title: 'assets/images/exq.jpg', onTap: () => Get.to(() => Fast(), transition: Transition.fadeIn), subtitle: S.current.swaum,),
                         SettingsLinkButton(title: 'assets/images/marhm.jpg', onTap: () => Get.to(() => Marriage(), transition: Transition.fadeIn), subtitle: S.current.nikkah,),
                         SettingsLinkButton(title: 'assets/images/img1.jpg', onTap: () => Get.to(() => Jinn(), transition: Transition.fadeIn), subtitle: S.current.jinn,),
