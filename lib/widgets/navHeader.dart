@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:grafpix/icons.dart';
 import 'package:islam_made_easy/settings/settings.dart';
+import 'package:islam_made_easy/utils/device_info.dart';
 import 'package:islam_made_easy/views/about.dart' as about;
 
 class NavigationRailHeader extends StatelessWidget {
@@ -90,7 +91,7 @@ class NavigationRailHeader extends StatelessWidget {
                                       ),
                                       child: Settings(),
                                     ),
-                                  ),
+                                  ),transitionDuration: DelayUI(Duration(milliseconds: 1000)).duration,
                                   transitionCurve: Curves.easeInOutSine,
                                 );
                               },
