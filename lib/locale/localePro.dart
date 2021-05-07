@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:islam_made_easy/theme/theme.dart';
-import 'package:statusbar_util/generated/i18n.dart';
 
 enum CustomTextDirection { localeBased, ltr, rtl }
 
