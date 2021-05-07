@@ -15,12 +15,27 @@ class ShareButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     return Container(
+      padding: EdgeInsets.all(isDesktop?10:0),
       decoration: BoxDecoration(
+        shape: BoxShape.circle,
         color: color,
-        borderRadius: BorderRadius.circular(isDesktop ? 50 : 20),
+        boxShadow: [
+          BoxShadow(
+              color: Colors.grey[300],
+              offset: Offset(4.0, 4.0),
+              blurRadius: isDesktop?10:2,
+              spreadRadius: 1.0),
+          BoxShadow(
+              color: color.withOpacity(0.09),
+              offset: Offset(-4.0, -4.0),
+              blurRadius:  isDesktop?10:2,
+              spreadRadius: 1.0),
+        ],
+        gradient: gradient,
+        // borderRadius: BorderRadius.circular(isDesktop ? 50 : 20),
       ),
       child: IconButton(
-        icon: FaIcon(icon, color: Colors.white),
+        icon: FaIcon(icon, color: color),
         onPressed: onPressed,
         tooltip: tip,
         splashRadius: isDesktop ? 10 : 20,
@@ -28,3 +43,14 @@ class ShareButtons extends StatelessWidget {
     );
   }
 }
+LinearGradient get gradient => LinearGradient(colors: [
+  Colors.grey[200],
+  Colors.grey[300],
+  Colors.grey[400],
+  Colors.grey[500],
+], stops: [
+  0.0,
+  0.3,
+  0.8,
+  1.0
+], begin: Alignment.bottomLeft, end: Alignment.topRight);
