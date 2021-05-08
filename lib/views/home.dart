@@ -1,14 +1,8 @@
-import 'package:double_back_to_close/double_back_to_close.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/desktopNav.dart';
-import 'package:islam_made_easy/widgets/panels/mainPanel.dart';
+import 'package:islam_made_easy/widgets/feedback.dart' as feed;
+import 'package:islam_made_easy/widgets/feedback.dart';
 import 'package:islam_made_easy/widgets/panels/nav_panel.dart';
-import 'package:liquid_ui/liquid_ui.dart';
-
-import '../layout/adaptive.dart';
 
 class Home extends StatefulWidget {
   static const ROUTE_NAME = "/home";
@@ -86,7 +80,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     final isDesktop = isDisplayDesktop(context);
     final isTablet = isDisplaySmallDesktop(context);
     final theme = Theme.of(context).backgroundColor;
-    if (isDesktop) {
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
+    if (DeviceOS.isDesktopOrWeb && isDesktop ||
+        (context.isLargeTablet && DeviceOS.isMobile)) {
       return Scaffold(
         backgroundColor: theme,
         body: DesktopNav(extended: !isTablet),
@@ -97,11 +94,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         child: Scaffold(
           backgroundColor: theme,
           appBar: AppBar(
-            title: LText(
-              isPanelVisible
-                  ? "Islam Made Easy"
-                  : "\l.lead.bold{I} \l.lead.bold{M} \l.lead.bold{E}",
-              baseStyle: kIsWeb
+            title: Text(
+              isPanelVisible ? "Islam Made Easy" : "I M E",
+              style: kIsWeb
                   ? Theme.of(context).textTheme.caption.copyWith(
                         fontSize: 25.0,
                         fontFamily: 'Quattrocento',
@@ -126,6 +121,39 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 progress: controller.view,
               ),
             ),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
+                      ? Get.dialog(
+                          Align(
+                            alignment: ar
+                                ? Alignment.centerLeft
+                                : Alignment.centerRight,
+                            child: Container(
+                              height: double.infinity,
+                              width: MediaQuery.of(context).size.width / 2,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFFAFAFC),
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(ar ? 0 : 20),
+                                  bottomRight: Radius.circular(ar ? 20 : 0),
+                                  bottomLeft: Radius.circular(ar ? 0 : 20),
+                                  topRight: Radius.circular(ar ? 20 : 0),
+                                ),
+                              ),
+                              child: AppFeedback(),
+                            ),
+                          ),transitionDuration: DelayUI(Duration(milliseconds: 1000)).duration,
+                          transitionCurve: Curves.easeIn)
+                      : feed.showFeedbackDialog(
+                          context: context, isPanelVisible: isPanelVisible);
+                },
+                icon: FaIcon(isPanelVisible
+                    ? FontAwesomeIcons.comment
+                    : FontAwesomeIcons.commentDots),
+              ),
+            ],
           ),
           body: LayoutBuilder(builder: bothPanels),
         ),

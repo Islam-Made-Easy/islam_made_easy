@@ -8,7 +8,6 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get/get.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:islam_made_easy/routes/app_route.dart';
-import 'package:islam_made_easy/services/notification_services.dart';
 import 'package:islam_made_easy/theme/theme.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/device_info.dart';
@@ -21,7 +20,6 @@ import 'package:islam_made_easy/views/intro/splash.dart';
 import 'package:lottie/lottie.dart';
 import 'package:native_updater/native_updater.dart';
 import 'package:provider/provider.dart';
-import 'package:statusbar_util/statusbar_util.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:window_size/window_size.dart';
 
@@ -31,7 +29,7 @@ import 'locale/localePro.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setPathUrlStrategy();
-  StatusbarUtil.setTranslucent();
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   // Portrait only
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -43,7 +41,7 @@ void main() async {
     await Future<void>.delayed(Duration.zero);
   } else {
     if (DeviceOS.isDesktop) {
-      await DesktopWindow.setMinWindowSize(const Size(1248.0, 681.0));
+      await DesktopWindow.setMinWindowSize(const Size(1051.0, 646.0));
       setWindowTitle('Islam Made Easy');
     }
   }
@@ -52,7 +50,7 @@ void main() async {
     Phoenix(
       child: MultiProvider(
         providers: [
-          ChangeNotifierProvider.value(value: NotificationServices()),
+          // ChangeNotifierProvider.value(value: NotificationServices()),
           ChangeNotifierProvider.value(value: ThemeProvide()),
           ChangeNotifierProvider.value(value: LocaleProvide()),
         ],
@@ -68,6 +66,8 @@ class IMEApp extends StatefulWidget {
 }
 
 class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
+  Future<LottieComposition> _composition;
+
   @override
   void initState() {
     super.initState();
@@ -78,10 +78,11 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
 
   Future _initSp() async {
     var _today = HijriCalendar.now().wkDay;
+    _composition = _loadComposition();
     await appSP.init();
     int statusCode = 412;
     int themeIndex = SpUtil.getThemeIndex();
-    Provider.of<NotificationServices>(context, listen: false).initialize();
+    // Provider.of<NotificationServices>(context, listen: false).initialize();
     if (themeIndex != null) {
       Provider.of<ThemeProvide>(context, listen: false).changeTheme(themeIndex);
     }
@@ -102,7 +103,10 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       });
     }
   }
-
+  Future<LottieComposition> _loadComposition() async {
+    var assetData = await rootBundle.load(kIsWeb ? 'assets/lottie/404.json' : "assets/lottie/loader.json");
+    return await LottieComposition.fromByteData(assetData);
+  }
   Locale localeCallback(locale, supportedLocales) {
     for (var supportedLocale in supportedLocales) {
       if (supportedLocale.languageCode == locale.languageCode &&
@@ -113,6 +117,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
   }
 
 // todo: Implement first launch dialog > "وَإِنَّ الْمَلَائِكَةَ لَتَضَعُ أَجْنِحَتَهَا لِطَالِبِ الْعِلْمِ رِضًا بِمَا يَصْنَعُ"
+// TODO: Add floating feedback requester for web
 
   /// sEARch   
   @override
@@ -154,9 +159,16 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       child: AnimatedBackground(
         behaviour: RectanglesBehaviour(),
         vsync: this,
-        child: Center(
-          child: Lottie.asset(
-              kIsWeb ? 'assets/lottie/404.json' : "assets/lottie/loader.json"),
+        child: FutureBuilder<LottieComposition>(
+          future: _composition,
+          builder: (context, snapshot) {
+            var composition = snapshot.data;
+            if (composition != null) {
+              return Lottie(composition: composition);
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
+          },
         ),
       ),
     );

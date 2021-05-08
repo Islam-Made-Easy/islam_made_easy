@@ -1,15 +1,8 @@
-import 'package:avatar_glow/avatar_glow.dart';
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/layout/adaptive.dart';
-import 'package:islam_made_easy/views/home.dart';
-import 'package:islam_made_easy/widgets/anim/fade_slide.dart';
-import 'package:lottie/lottie.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class SplashView extends StatefulWidget {
+  static const ROUTE_NAME = "/fridayReminder";
+
   @override
   _SplashViewState createState() => _SplashViewState();
 }
@@ -46,7 +39,7 @@ class _SplashViewState extends State<SplashView>
       text: 'Convey peace & blessings to Prophet ﷺ ',
     ),
     OnBoardPageItem(
-      lottieAsset: 'assets/lottie/time.json',
+      lottieAsset: 'assets/lottie/timeAnim.json',
       text: 'Go Early To The Mosque',
     ),
     OnBoardPageItem(
@@ -71,24 +64,12 @@ class _SplashViewState extends State<SplashView>
   void initState() {
     initializePages(); //initialize pages to be shown
     _pageController = PageController();
-    _pageController.addListener(() {
-      _activeIndex = _pageController.page;
+    _pageController.addListener(() { _activeIndex = _pageController.page;
       // print("Active Index: $_activeIndex");
-      if (_activeIndex >= 0.5 && onBoardPage == false) {
-        setState(() {
-          onBoardPage = true;
-        });
-      } else if (_activeIndex < 0.5) {
-        setState(() {
-          onBoardPage = false;
-        });
-      } else if (_activeIndex == 10.0) {
-        setState(() {
-          glow = true;
-        });
-      } else {
-        glow = false;
-      }
+      if (_activeIndex >= 0.5 && onBoardPage == false) { setState(() { onBoardPage = true; });
+      } else if (_activeIndex < 0.5) { setState(() { onBoardPage = false; });
+      } else if (_activeIndex == 10.0) { setState(() { glow = true; });
+      }  glow = false;
     });
     _animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1000))
@@ -106,12 +87,211 @@ class _SplashViewState extends State<SplashView>
   @override
   Widget build(BuildContext context) {
     Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     final theme = Theme.of(context);
-    final size = MediaQuery.of(context).size;
-    final isDesktop = isDisplayDesktop(context);
-    if (!isDesktop) {
+    // final isDesktop = isDisplayDesktop(context);
+    if (DeviceOS.isDesktopOrWeb && context.isTablet) {
+      return Scaffold(
+        backgroundColor: theme.primaryColorDark,
+        floatingActionButton: Visibility(
+          visible: onBoardPage,
+          child: FadingSlidingWidget(
+            animationController: _animationController,
+            child: FloatingActionButton(
+              onPressed: () => Get.off(() => Home()),
+              backgroundColor: theme.primaryColorDark,
+              child: glow
+                  ? AvatarGlow(
+                      endRadius: 30,
+                      glowColor: theme.accentColor,
+                      child: FaIcon(ar
+                          ? FontAwesomeIcons.angleLeft
+                          : FontAwesomeIcons.angleRight),
+                    )
+                  : FaIcon(ar
+                      ? FontAwesomeIcons.angleLeft
+                      : FontAwesomeIcons.angleRight),
+            ),
+          ),
+        ),
+        body: Stack(
+          children: [
+            Positioned(
+              top: height * 0.11,
+              left: ar ? width * 0.6 : width * 0.165,
+              right: ar ? width * 0.16 : width * 0.6,
+              child: FadingSlidingWidget(
+                animationController: _animationController,
+                child: AnimatedContainer(
+                  duration: const Duration(seconds: 1),
+                  height: height * 0.45,
+                  width: width * 0.25,
+                  decoration: BoxDecoration(
+                    color: theme.splashColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              right: ar ? width * 0.6 : width * 0.15,
+              left: ar ? width * 0.15 : width * 0.6,
+              child: FadingSlidingWidget(
+                animationController: _animationController,
+                child: AnimatedContainer(
+                  duration: const Duration(seconds: 1),
+                  height: height * 0.03,
+                  width: width * 0.25,
+                  decoration: BoxDecoration(
+                    color: theme.splashColor,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: height * 0.15,
+              left: ar ? width * 0.18 : width * 0.185,
+              right: ar ? width * 0.186 : width * 0.18,
+              child: Material(
+                color: theme.primaryColorDark,
+                borderRadius: BorderRadius.circular(20),
+                elevation: 50,
+                child: AnimatedContainer(
+                  duration: const Duration(seconds: 1),
+                  height: height * 0.75,
+                  width: width * 0.65,
+                  decoration: BoxDecoration(
+                    color: theme.primaryColorDark,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                        color: Theme.of(context).backgroundColor,
+                        style: BorderStyle.none),
+                  ),
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: PageView(
+                            controller: _pageController,
+                            children: onBoardItems),
+                      ),
+                      Positioned(
+                        bottom: height * 0.03,
+                        left: ar ? width * 0.1 : width * 0.3,
+                        right: ar ? width * 0.3 : width * 0.1,
+                        child: SmoothPageIndicator(
+                          controller: _pageController,
+                          count: onBoardItems.length,
+                          effect: WormEffect(
+                            dotWidth: width * 0.015,
+                            dotHeight: width * 0.015,
+                            dotColor: onBoardPage
+                                ? const Color(0x11000000)
+                                : const Color(0x566FFFFFF),
+                            activeDotColor: const Color(0xffeef2f5),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        right: ar ? null : 1,
+                        left: ar ? 1 : null,
+                        top: height * 0.35,
+                        child: _activeIndex == 10
+                            ? Container()
+                            : Visibility(
+                                visible: DeviceOS.isDesktopOrWeb,
+                                child: AnimContainer(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: theme.primaryColorDark,
+                                          offset: Offset(8.0, 8.0),
+                                          blurRadius: 20,
+                                          spreadRadius: 1.0),
+                                      BoxShadow(
+                                          color: theme.primaryColorDark,
+                                          offset: Offset(-8.0, -8.0),
+                                          blurRadius: 20,
+                                          spreadRadius: 1.0),
+                                    ],
+                                    gradient: gradient,
+                                    color: theme.primaryColorDark,
+                                    border: Border.all(
+                                        color:
+                                            Color(0xffeef2f5).withOpacity(0.5)),
+                                  ),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        _pageController.nextPage(
+                                            duration:
+                                                Duration(milliseconds: 300),
+                                            curve: Curves.easeOut);
+                                      });
+                                    },
+                                    icon: FaIcon(ar
+                                        ? FontAwesomeIcons.angleLeft
+                                        : FontAwesomeIcons.angleRight),
+                                  ),
+                                ),
+                              ),
+                      ),
+                      Visibility(
+                        visible: onBoardPage,
+                        child: Positioned(
+                          right: ar ? 1 : null,
+                          left: ar ? null : 1,
+                          top: height * 0.35,
+                          child: AnimContainer(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                    color: theme.primaryColorDark,
+                                    offset: Offset(8.0, 8.0),
+                                    blurRadius: 20,
+                                    spreadRadius: 1.0),
+                                BoxShadow(
+                                    color: theme.primaryColorDark,
+                                    offset: Offset(-8.0, -8.0),
+                                    blurRadius: 20,
+                                    spreadRadius: 1.0),
+                              ],
+                              gradient: gradient,
+                              color: theme.primaryColorDark,
+                              border: Border.all(
+                                  color: Color(0xffeef2f5).withOpacity(0.5)),
+                            ),
+                            child: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _pageController.previousPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.easeOut);
+                                });
+                              },
+                              icon: FaIcon(ar
+                                  ? FontAwesomeIcons.angleRight
+                                  : FontAwesomeIcons.angleLeft),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    } else {
       return Scaffold(
         body: Stack(
           alignment: Alignment.center,
@@ -184,108 +364,6 @@ class _SplashViewState extends State<SplashView>
           ],
         ),
       );
-    } else {
-      return Scaffold(
-        backgroundColor: theme.primaryColorDark,
-        floatingActionButton: Visibility(
-          visible: onBoardPage,
-          child: FadingSlidingWidget(
-            animationController: _animationController,
-            child: FloatingActionButton(
-              onPressed: () => Get.to(() => Home()),
-              backgroundColor: theme.primaryColorDark,
-              child: glow
-                  ? AvatarGlow(
-                      endRadius: 30,
-                      glowColor: theme.accentColor,
-                      child: FaIcon(locale.languageCode == 'ar'
-                          ? FontAwesomeIcons.angleLeft
-                          : FontAwesomeIcons.angleRight),
-                    )
-                  : FaIcon(locale.languageCode == 'ar'
-                      ? FontAwesomeIcons.angleLeft
-                      : FontAwesomeIcons.angleRight),
-            ),
-          ),
-        ),
-        body: Stack(
-          children: [
-            Positioned(
-              top: 100,
-              left: locale.languageCode == 'ar' ? 760 : 200,
-              child: Container(
-                height: 300,
-                width: 300,
-                decoration: BoxDecoration(
-                  color: theme.splashColor,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              right: locale.languageCode == 'ar' ? 800 : 150,
-              child: Container(
-                height: 17,
-                width: 300,
-                decoration: BoxDecoration(
-                  color: theme.splashColor,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20)),
-                ),
-              ),
-            ),
-            Positioned(
-              top: 120,
-              left: locale.languageCode == 'ar' ? 240 : 220,
-              child: Material(
-                color: theme.primaryColorDark,
-                borderRadius: BorderRadius.circular(20),
-                elevation: 50,
-                child: Container(
-                  height: 500,
-                  width: size.width / 2 * 1.2,
-                  decoration: BoxDecoration(
-                    color: theme.primaryColorDark,
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                        color: Theme.of(context).backgroundColor,
-                        style: BorderStyle.none),
-                  ),
-                  child: Stack(
-                    children: [
-                      Positioned.fill(
-                        child: PageView(
-                            controller: _pageController,
-                            children: onBoardItems),
-                      ),
-                      Positioned(
-                        bottom: height * 0.1,
-                        left: locale.languageCode == 'ar'
-                            ? width * 0.1
-                            : width * 0.3,
-                        child: SmoothPageIndicator(
-                          controller: _pageController,
-                          count: onBoardItems.length,
-                          effect: WormEffect(
-                            dotWidth: 20,
-                            dotHeight: 20,
-                            dotColor: onBoardPage
-                                ? const Color(0x11000000)
-                                : const Color(0x566FFFFFF),
-                            activeDotColor: const Color(0xFFFFFFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
     }
   }
 }
@@ -333,16 +411,16 @@ class _WelcomeState extends State<WelcomePage>
     return Stack(
       alignment: Alignment.topCenter,
       children: <Widget>[
-        isDesktop
+        DeviceOS.isDesktopOrWeb && context.isTablet
             ? Container()
             : Positioned.fill(
                 child: Container(color: Theme.of(context).primaryColorDark),
               ),
         Positioned(
-          top: isDesktop ? 0.0 : height * 0.2,
+          top: isDesktop ? 0.0 : height * 0.14,
           child: Column(
             children: <Widget>[
-              isDesktop
+                DeviceOS.isDesktopOrWeb && !context.isPhone
                   ? Container()
                   : ScaleTransition(
                       scale: _animationController.drive(
@@ -375,7 +453,7 @@ class _WelcomeState extends State<WelcomePage>
                             width: width * 0.3,
                             height: width * 0.3,
                             decoration: ShapeDecoration(
-                              color: const Color(0xFFFFFFFF),
+                              color: Theme.of(context).hoverColor,
                               shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.circular(width * 0.08),
@@ -399,19 +477,24 @@ class _WelcomeState extends State<WelcomePage>
                   ),
                 ),
               ),
-              SizedBox(height: isDesktop ? 0 : height * 0.1),
-              Container(
-                width: isDesktop ? width * 0.4 : width * 0.9,
-                child: FadingSlidingWidget(
-                  animationController: _animationController,
-                  interval: const Interval(0.7, 1.0),
-                  child: Text(
-                    S.current.fridayFirst,
-                    style: TextStyle(
-                      color: const Color(0xFFFFFFFF),
-                      fontSize: isDesktop ? 30 : width * 0.056,
+              FadingSlidingWidget(
+                animationController: _animationController,
+                child: AnimatedContainer(
+                  duration: const Duration(seconds: 1),
+                  width:  DeviceOS.isDesktopOrWeb && !context.isPhone
+                      ? width * 0.4 : width * 0.9,
+                  child: FadingSlidingWidget(
+                    animationController: _animationController,
+                    interval: const Interval(0.7, 1.0),
+                    child: Text(
+                      S.current.fridayFirst,
+                      style: TextStyle(
+                        color: const Color(0xFFFFFFFF),
+                        fontSize: DeviceOS.isDesktopOrWeb && context.isTablet
+                            ? width * 0.02 : width * 0.056,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
@@ -454,35 +537,32 @@ class _OnboardState extends State<OnBoardPage>
     double height = MediaQuery.of(context).size.height;
     final isDesktop = isDisplayDesktop(context);
     return Container(
-      padding: EdgeInsets.only(top: isDesktop ? 100 : height * 0.15),
+      padding: EdgeInsets.only(top: height * 0.1),
       child: Column(
         children: <Widget>[
-          Lottie.asset(
-            widget.onBoardPageItem.lottieAsset,
-            controller: _animationController,
-            onLoaded: (composition) {
-              _animationController
-                ..duration = composition.duration
-                ..forward()
-                ..addListener(() {
-                  if (widget.onBoardPageItem.animationDuration != null) {
-                    if (_animationController.lastElapsedDuration >
-                        widget.onBoardPageItem.animationDuration) {
-                      _animationController.stop();
-                    }
+         Lottie.asset(widget.onBoardPageItem.lottieAsset,
+              controller: _animationController, onLoaded: (composition) {
+            _animationController
+              ..duration = composition.duration
+              ..forward()
+              ..addListener(() {
+                if (widget.onBoardPageItem.animationDuration != null) {
+                  if (_animationController.lastElapsedDuration >
+                      widget.onBoardPageItem.animationDuration) {
+                    _animationController.stop();
                   }
-                });
-            },
-            width: isDesktop ? 200 : width * 0.9,
-          ),
-          SizedBox(height: isDesktop ? 20 : height * 0.1),
+                }
+              });
+          }, width: width * 0.15, height: height * 0.2),
+          SizedBox(height: context.isTablet ? height * 0.01 : height * 0.1),
           Flexible(
             child: FadingSlidingWidget(
               animationController: _animationController,
               interval: const Interval(0.2, 0.5),
               child: Text(
                 widget.onBoardPageItem.text,
-                style: TextStyle(fontSize: isDesktop ? 40 : width * 0.05),
+                style: TextStyle(
+                    fontSize: isDesktop ? width * 0.04 : width * 0.05),
                 textAlign: TextAlign.center,
               ),
             ),

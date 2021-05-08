@@ -1,21 +1,8 @@
 import 'dart:io';
 import 'dart:ui';
-
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'package:grafpix/icons.dart';
-import 'package:in_app_update/in_app_update.dart';
-import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/layout/adaptive.dart';
-import 'package:islam_made_easy/widgets/buttons/shareButton.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/listHeader.dart';
 import 'package:package_info/package_info.dart';
-import 'package:share/share.dart';
-import 'package:universal_platform/universal_platform.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void showAboutDialog({@required BuildContext context}) {
@@ -35,49 +22,11 @@ class AboutApp extends StatefulWidget {
 }
 
 class _AboutAppState extends State<AboutApp> {
-  // AppUpdateInfo _updateInfo;
-
   Future<String> getVersionNumber() async {
     final packageInfo = await PackageInfo.fromPlatform();
     return packageInfo.version;
   }
-
-// Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> checkForUpdate() async {
-    InAppUpdate.checkForUpdate().then((info) {
-      setState(() {
-        // _updateInfo = info;
-      });
-    }).catchError((e) => _showError(e));
-  }
-
-  void _showError(dynamic exception) {
-    Get.snackbar('Error!', exception.toString());
-  }
-
-  bool isIos = UniversalPlatform.isIOS;
-  bool isAndroid = UniversalPlatform.isAndroid;
-  bool isWeb = UniversalPlatform.isWeb;
-  bool isWindows = UniversalPlatform.isWindows;
-  bool isLinux = UniversalPlatform.isLinux;
-  String platformShare;
-
-  String getPlatformShare() {
-    if (isWeb) {
-      platformShare = 'https://islam-made-easy.web.app';
-    } else if (isLinux) {
-      platformShare = 'https://snapcraft.io/islam-made-easy';
-    } else if (isAndroid) {
-      // todo: launch on PlayStore
-      platformShare =
-          'https://github.com/Islam-Made-Easy/Islam-Made-Easy/releases\n'
-          'https://galaxy.store/islam-made-easy';
-    } else {
-      platformShare = 'Coming Soon an this platform store In Sha Allah';
-    }
-    return platformShare;
-  }
-
+  static DelayUI shareDelay = DelayUI(Duration(seconds: 1));
   @override
   Widget build(BuildContext context) {
     print(window.physicalSize);
@@ -87,28 +36,32 @@ class _AboutAppState extends State<AboutApp> {
     final bodyTextStyle =
         textTheme.bodyText1.apply(color: colorScheme.onPrimary);
     final name =
-        'Islam Made Easy ${S.current.forPlatform} ${isWeb ? 'Web' : Platform.operatingSystem}';
+        'Islam Made Easy ${S.current.forPlatform} ${DeviceOS.isWeb ? 'Web' : Platform.operatingSystem}';
     final legalese = '© ${DateTime.now().year} The IME team';
     Locale locale = Localizations.localeOf(context);
-    final ar = locale.languageCode == 'ar';
+    final ar = locale.languageCode == 'ar';final size=MediaQuery.of(context).size;
     return AlertDialog(
       title: ListHeader(
         text: MaterialLocalizations.of(context).aboutListTileTitle('IME'),
         trailing: IconButton(
-          icon: FaIcon(isDesktop || isWeb
-              ? FontAwesomeIcons.timesCircle
-              : FontAwesomeIcons.share),
+          icon: FaIcon(DeviceOS.isMobile
+              ? FontAwesomeIcons.shareAlt
+              : FontAwesomeIcons.timesCircle),
           onPressed: () {
-            isDesktop|| isWeb ? Get.back() : share(context);
+            DeviceOS.isDesktopOrWeb
+                ? Get.back()
+                : shareDelay.run(() => Share.share(
+                    "Islam Made Easy\n${S.current.aboutApp}",
+                    subject: ShareUtil().getPlatformShare()));
           },
-          splashRadius: isDesktop ? 10 : 20,
-          tooltip: isDesktop
+          splashRadius: DeviceOS.isDesktopOrWeb ? 10 : 20,
+          tooltip: DeviceOS.isDesktopOrWeb
               ? MaterialLocalizations.of(context).closeButtonTooltip
               : null,
         ),
       ),
-      shape: isWeb
-          ? null
+      shape: DeviceOS.isWeb
+          ? RoundedRectangleBorder()
           : RoundedRectangleBorder(
               side: BorderSide(width: 0.5, color: Theme.of(context).hoverColor),
               borderRadius: BorderRadius.only(
@@ -128,7 +81,7 @@ class _AboutAppState extends State<AboutApp> {
             Divider(),
             Image.asset(
               'assets/images/logo.png',
-              height: isDesktop ? 300 : 200,
+              height: isDesktop ? size.height*0.3 : 150,
             ),
             Text(S.current.aboutApp),
             FutureBuilder(
@@ -142,14 +95,14 @@ class _AboutAppState extends State<AboutApp> {
               ),
             ),
             Text(
-                !isWeb
-                    ? !Platform.isAndroid || !Platform.isIOS
-                        ? "${Platform.operatingSystemVersion.replaceRange(23, 73, '')}"
-                        : ''
-                    : "",
+                DeviceOS.isWeb
+                    ? ''
+                    : DeviceOS.isAndroid
+                        ? ""
+                        : "${Platform.operatingSystemVersion.replaceRange(23, 73, '')}",
                 style: bodyTextStyle),
             Text(legalese, style: bodyTextStyle),
-            if (isDesktop || isWeb)
+            if (isDesktop || DeviceOS.isDesktopOrWeb)
               Semantics(
                   child: Text(
                 '━═══◎${S.current.share}◎═══━',
@@ -157,7 +110,9 @@ class _AboutAppState extends State<AboutApp> {
               ))
             else
               Container(),
-            if (isDesktop || isWeb)
+            if (isDesktop ||
+                DeviceOS.isDesktopOrWeb ||
+                (context.isTablet && !context.isPhone))
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -166,21 +121,21 @@ class _AboutAppState extends State<AboutApp> {
                     tip: 'Mail',
                     icon: PixIcon.mail,
                     onPressed: () => launchURL(
-                        'mailto:?subject=$name&body=${S.current.salam} $name ${S.current.shareText}. ${S.current.shareGetStoreText} https://islam-made-easy.web.app'),
+                        'mailto:?subject=$name&body=$name ${S.current.shareText} ${ShareUtil().getPlatformShare}'),
                   ),
                   ShareButtons(
                     color: Color(0xff294C8C),
                     tip: 'Facebook',
                     icon: PixIcon.pix_facebook,
                     onPressed: () => launchURL(
-                        'https://www.facebook.com/sharer/sharer.php?t=${S.current.salam} $name is an ${S.current.aboutApp}&quote=Get it from Now:&ref=fbshare&u=${getPlatformShare()}'),
+                        'https://www.facebook.com/sharer/sharer.php?t=$name ${S.current.aboutApp}&quote=Get it from Now:&ref=fbshare&u=${ShareUtil().getPlatformShare}'),
                   ),
                   ShareButtons(
                     color: Color(0xff67C15E),
                     tip: 'WhatsApp',
                     icon: PixIcon.pix_whatsapp,
                     onPressed: () => launchURL(
-                        'https://wa.me/?text=${S.current.salam}\n$name is an ${S.current.aboutApp}.\nGet it from Now: ${getPlatformShare()}'),
+                        'https://wa.me/?text=$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare}'),
                   ),
                   ShareButtons(
                       color: Color(0xffA2A2A2),
@@ -191,11 +146,11 @@ class _AboutAppState extends State<AboutApp> {
                         Clipboard.setData(
                           ClipboardData(
                               text:
-                                  '${S.current.salam}\n$name is sn ${S.current.aboutApp}.\nGet it from Now: ${getPlatformShare()}'),
+                                  '$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare}'),
                         ).then(
                           (value) => Get.snackbar(
                             S.current.copiedToClipboardTitle,
-                            S.current.linkCopied,
+                            S.current.linkCopied,shouldIconPulse: true,
                             messageText: Row(
                               children: [
                                 FaIcon(Icons.verified_user,
@@ -214,14 +169,6 @@ class _AboutAppState extends State<AboutApp> {
         ),
       ),
     );
-  }
-
-  share(BuildContext context) {
-    final RenderBox box = context.findRenderObject();
-    final shareText = "Islam Made Easy\n${S.current.aboutApp}";
-    Share.share(shareText,
-        subject: getPlatformShare(),
-        sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
   }
 }
 

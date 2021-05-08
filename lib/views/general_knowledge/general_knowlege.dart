@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:get/get.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:islam_made_easy/widgets/appBar.dart';
@@ -22,7 +23,11 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
     final isDesktop = isDisplayDesktop(context);
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: QnAppBar(title: S.current.generalKnowledge, isDesktop: isDesktop,color: isDesktop?Colors.transparent:null,),
+      appBar: QnAppBar(
+        title: S.current.generalKnowledge,
+        isDesktop: isDesktop,
+        color: isDesktop ? Colors.transparent : null,
+      ),
       backgroundColor: theme.backgroundColor,
       body: Stack(
         children: [
@@ -31,8 +36,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
             controller: _controller,
             child: ListView(
               padding: EdgeInsets.symmetric(
-                horizontal: isDesktop ? 50 : 15,
-                vertical: isDesktop ? 20 : 10,
+                horizontal: isDesktop || context.isTablet ? 50 : 15,
+                vertical: isDesktop || context.isTablet ? 20 : 10,
               ),
               children: [
                 OpenContainerWrapper(
@@ -322,8 +327,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     Card(
                       child: ExpansionTile(
                         tilePadding: EdgeInsets.symmetric(
-                            horizontal: isDesktop ? 10 : 8,
-                            vertical: isDesktop ? 22 : 8),
+                            horizontal: isDesktop || context.isTablet ? 10 : 8,
+                            vertical: isDesktop || context.isTablet ? 22 : 8),
                         title: Text(
                           S.current.hajjSubTitle1,
                           textAlign: TextAlign.center,
@@ -451,7 +456,9 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                           S.current.hajjSub7Par2Dua,
                           textDirection: TextDirection.rtl,
                           textAlign: TextAlign.right,
-                          style: TextStyle(fontSize: isDesktop ? 40 : 26),
+                          style: TextStyle(
+                              fontSize:
+                                  isDesktop || context.isTablet ? 40 : 26),
                         ),
                         SizedBox(height: 10),
                         Container(
@@ -826,7 +833,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                         SelectableText(
                           S.current.hajjSub19Par9,
                           style: TextStyle(
-                              fontSize: 22, color: Theme.of(context).accentColor),
+                              fontSize: 22,
+                              color: Theme.of(context).accentColor),
                           textAlign: TextAlign.center,
                           textDirection: TextDirection.rtl,
                         ),

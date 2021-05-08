@@ -1,10 +1,8 @@
-import 'package:animations/animations.dart';
-import 'package:flutter/material.dart';
-import 'package:islam_made_easy/layout/adaptive.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 import '../anim/anim.dart';
 
-class SettingsLinkButton extends StatelessWidget {
+class SettingsLinkButton extends StatefulWidget {
   final String title;
   final String subtitle;
   final VoidCallback onTap;
@@ -17,82 +15,91 @@ class SettingsLinkButton extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _SettingsLinkButtonState createState() => _SettingsLinkButtonState();
+}
+
+class _SettingsLinkButtonState extends State<SettingsLinkButton>
+    with SingleTickerProviderStateMixin {
+  bool _isMouseOver = false;
+
+  set isOver(bool value) {
+    if (value == _isMouseOver) return;
+    setState(() => _isMouseOver = value);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
     return WidgetAnimator(GestureDetector(
-      onTap: onTap,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(8),
-        child: Stack(
-          children: [
-            Image.asset(
-              title,
-              fit: BoxFit.fitHeight,
-              width: size.width,
-              matchTextDirection: true,
-              height: size.height,
-            ),
-            Container(
-              color: Colors.black26,
-              child: Center(
-                child: isDesktop
-                    ? Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            subtitle,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: isDesktop ? 30 : 22,
-                                color: colorScheme.surface,
-                                fontFamily: 'Amiri',
-                                fontWeight: FontWeight.w500),
-                          ),
-                          // SizedBox(height: 4),
-                          Text(
-                            '',
-                            style: TextStyle(
-                                fontSize: 13,
-                                color: colorScheme.surface,
-                                fontWeight: FontWeight.w500),
-                          )
-                        ],
-                      )
-                    : ListView(
-                        padding: EdgeInsets.only(top: 30),
-                        children: [
-                          Text(
-                            subtitle,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: isDesktop ? 30 : 22,
-                                color: colorScheme.surface,
-                                fontFamily: 'Amiri',
-                                fontWeight: FontWeight.w500),
-                          ),
-                          // SizedBox(height: 4),
-                          Text(
-                            '',
-                            style: TextStyle(
-                                fontSize: 13,
-                                color: colorScheme.surface,
-                                fontWeight: FontWeight.w500),
-                          )
-                        ],
-                      ),
+      onTap: widget.onTap,
+      child: MouseRegion(
+        opaque: false,
+        cursor: MouseCursor.defer,
+        onEnter: (_) => isOver = true,
+        onHover: (_) => isOver = true,
+        onExit: (_) => isOver = false,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              AnimatedScale(
+                duration: Duration(milliseconds: 5000),
+                begin: 1,
+                end: 1.1,
+                curve: Curves.easeIn,
+                child: Image.asset(
+                  widget.title,
+                  fit: BoxFit.fitHeight,
+                  width: size.width,
+                  matchTextDirection: true,
+                  height: size.height,
+                ),
               ),
-            ),
-            Positioned(
-              child: Container(
-                height: 290.0,
-                width: 190.0,
-                decoration: BoxDecoration(
-                    color: Colors.transparent, shape: BoxShape.rectangle),
+              AnimatedContainer(
+                duration: Duration(milliseconds: 5000),
+                child: Center(
+                  child: isDesktop
+                      ? Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              widget.subtitle,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontSize: size.height * 0.04,
+                                  color: colorScheme.surface,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ],
+                        )
+                      : ListView(
+                          padding: EdgeInsets.only(top: size.height * 0.04),
+                          children: [
+                            Text(
+                              widget.subtitle,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontSize: size.height * 0.03,
+                                  color: colorScheme.surface,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ],
+                        ),
+                ),
               ),
-            ),
-          ],
+              Positioned(
+                child: Container(
+                  height: size.height * 0.4,
+                  width: size.width * 0.4,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent, shape: BoxShape.rectangle),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     ));

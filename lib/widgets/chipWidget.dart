@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
+import 'package:get/get.dart';
 
 const _kPaddingChip = EdgeInsets.symmetric(vertical: 4, horizontal: 16);
 
@@ -22,7 +23,7 @@ class ChipWidget extends StatelessWidget {
         ),
       ),
       padding: _kPaddingChip,
-      child: isDesktop
+      child: isDesktop||context.isTablet
           ? SingleChildScrollView(
         scrollDirection: Axis.horizontal,
             child: Row(

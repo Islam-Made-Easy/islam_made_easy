@@ -1,15 +1,4 @@
-import 'dart:io';
-
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'package:grafpix/icons.dart';
-import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/layout/adaptive.dart';
-import 'package:package_info/package_info.dart';
-import 'package:share/share.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 import 'anim/anim.dart';
 
@@ -29,24 +18,14 @@ class _InfoCardState extends State<InfoCard> {
     Get.snackbar(S.current.copyError, exception);
   }
 
-  @override
-  void initState() {
-    getPackageInfo();
-    super.initState();
-  }
-
-  void getPackageInfo() async {
-    if (!kIsWeb) {
-      _packageInfo = await PackageInfo.fromPlatform();
-    }
-  }
+  static DelayUI shareDelay = DelayUI(Duration(seconds: 1));
 
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     return WidgetAnimator(
       Card(
-        shape: isDesktop
+        shape: isDesktop || context.isTablet
             ? Border(
                 left: BorderSide(color: Colors.grey[300], width: 5),
                 bottom: BorderSide(color: Colors.grey[400], width: 5),
@@ -79,22 +58,22 @@ class _InfoCardState extends State<InfoCard> {
                     )
                     .catchError(_showSnackBarOnCopyFailure),
               ),
-              kIsWeb
-                  ? Container()
-                  : !Platform.isAndroid
-                      ? Container()
-                      : IconButton(
-                          icon: FaIcon(FontAwesomeIcons.shareAlt, size: 20),
-                          splashRadius: 10,
-                          onPressed: () =>
-                              share(context, "𝗤. ${widget.quest}"),
-                        ),
+              DeviceOS.isMobile
+                  ? IconButton(
+                      icon: FaIcon(FontAwesomeIcons.shareAlt, size: 20),
+                      splashRadius: 10,
+                      onPressed: () => shareDelay.run(() => Share.share(
+                          "Get Quizzes, Questions and more from: https://islamadeasy.page.link/share",
+                          subject: '𝗤. ${widget.quest}')),
+                    )
+                  : Container()
             ],
           ),
           expandedAlignment: Alignment.topCenter,
           tilePadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           childrenPadding: EdgeInsets.symmetric(
-              vertical: isDesktop ? 20 : 10, horizontal: isDesktop ? 30 : 10),
+              vertical: isDesktop || context.isTablet ? 20 : 10,
+              horizontal: isDesktop || context.isTablet ? 30 : 10),
           title: Text(
             "𝗤. ${widget.quest}",
             textAlign: TextAlign.center,
@@ -105,15 +84,5 @@ class _InfoCardState extends State<InfoCard> {
         ),
       ),
     );
-  }
-
-  PackageInfo _packageInfo;
-
-  share(BuildContext context, data) {
-    final RenderBox box = context.findRenderObject();
-    final shareText =
-        "$data \nGet Answers and More Questions from ${_packageInfo.appName ?? 'Islam Made Easy'}, Version: ${_packageInfo.version}";
-    Share.share(shareText,
-        sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
   }
 }

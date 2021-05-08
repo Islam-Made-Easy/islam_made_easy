@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class GradientCircles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // final size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
     return Stack(
@@ -14,7 +14,7 @@ class GradientCircles extends StatelessWidget {
           left: ar ? 140 : -195.0,
           child: Opacity(
             opacity: 0.05,
-            child: new Container(
+            child:  Container(
               height: 880.0,
               decoration: BoxDecoration(
                   color: Theme.of(context).primaryColorDark,
@@ -23,13 +23,13 @@ class GradientCircles extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 300,
-          right: -100,
-          left: 220,
+          top: size.height*0.05,
+          right: ar?size.width*0.3:-100,
+          left: ar?0:size.width*0.3,
           // right: ar ? -30 : 0,
           child: Opacity(
             opacity: 0.05,
-            child: new Container(
+            child:  Container(
               height: 110.0,
               // width: 230.0,
               decoration: BoxDecoration(
@@ -40,10 +40,11 @@ class GradientCircles extends StatelessWidget {
         ),
         Positioned(
           bottom: 0,
-          left: 0,
+          right: ar?null:0,
+          left: ar?0:null,
           child: Opacity(
             opacity: 0.06,
-            child: new Container(
+            child:  Container(
               height: 80.0,
               width: 300.0,
               decoration: BoxDecoration(
