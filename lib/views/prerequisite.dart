@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:get/get.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:lottie/lottie.dart';
 import 'package:markdown/markdown.dart' as md;
@@ -14,8 +15,22 @@ class Prerequisite extends StatefulWidget {
 }
 
 class _PrerequisiteState extends State<Prerequisite> {
+  ScrollController controller = ScrollController();
   var _extensionSet = MarkdownExtensionSet.githubFlavored;
   String data;
+  Future<LottieComposition> _composition;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = ScrollController();
+    _composition = _loadComposition();
+  }
+
+  Future<LottieComposition> _loadComposition() async {
+    var assetData = await rootBundle.load('assets/lottie/loader.json');
+    return await LottieComposition.fromByteData(assetData);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +52,9 @@ class _PrerequisiteState extends State<Prerequisite> {
     preLang();
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      body: Scrollbar(
-        showTrackOnHover: true,
+      body: CupertinoScrollbar(
+        isAlwaysShown: true,
+        controller: controller,
         child: Padding(
           padding: EdgeInsets.symmetric(
               horizontal: isDesktop ? 30 : 1, vertical: 20),
@@ -52,13 +68,13 @@ class _PrerequisiteState extends State<Prerequisite> {
                     SizedBox(height: 30),
                     Expanded(
                       child: Markdown(
+                        controller: controller,
                         key: Key(_extensionSet.name),
                         data: snapshot.data,
                         imageDirectory: 'https://raw.githubusercontent.com',
                         extensionSet: _extensionSet.value,
                         listItemCrossAxisAlignment:
                             MarkdownListItemCrossAxisAlignment.start,
-                        // styleSheetTheme: MarkdownStyleSheetBaseTheme.cupertino,
                         styleSheet: MarkdownStyleSheet(
                           h1Align: WrapAlignment.center,
                           h1: TextStyle(
@@ -78,14 +94,25 @@ class _PrerequisiteState extends State<Prerequisite> {
                               .apply(fontFamily: 'Amiri', heightDelta: 1.8),
                         ),
                         selectable: true,
-                        onTapLink: (text, href, title) =>
-                            linkOnTapHandler(context, text, href, title),
+                        shrinkWrap: true,
                       ),
                     ),
                   ],
                 );
               } else {
-                return Center(child: Lottie.asset("assets/lottie/loader.json"));
+                return Center(
+                  child: FutureBuilder<LottieComposition>(
+                    future: _composition,
+                    builder: (context, snapshot) {
+                      var composition = snapshot.data;
+                      if (composition != null) {
+                        return Lottie(composition: composition);
+                      } else {
+                        return Center(child: CircularProgressIndicator());
+                      }
+                    },
+                  ),
+                );
               }
             },
           ),
@@ -94,36 +121,11 @@ class _PrerequisiteState extends State<Prerequisite> {
     );
   }
 
-  void linkOnTapHandler(
-      BuildContext context, String text, String href, String title) async {
-    showDialog(
-      context: context,
-      builder: (context) => _createDialog(context, text, href, title),
-    );
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
-
-  Widget _createDialog(
-          BuildContext context, String text, String href, String title) =>
-      AlertDialog(
-        title: Text('Reference Link'),
-        content: SingleChildScrollView(
-          child: ListBody(
-            children: [
-              Text(
-                'See the following link for more information:',
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              SizedBox(height: 8),
-              Text('Link text: $text'),
-              SizedBox(height: 8),
-              Text('Link destination: $href'),
-              SizedBox(height: 8),
-              Text('Link title: $title'),
-            ],
-          ),
-        ),
-        actions: [FlatButton(onPressed: Get.back, child: Text('OK'))],
-      );
 }
 
 enum MarkdownExtensionSet { none, commonMark, githubFlavored, githubWeb }
@@ -154,27 +156,6 @@ extension MarkdownExtensionSetExtension on MarkdownExtensionSet {
             return md.ExtensionSet.gitHubFlavored;
           case MarkdownExtensionSet.githubWeb:
             return md.ExtensionSet.gitHubWeb;
-        }
-      }();
-}
-
-extension WrapAlignmentExtension on WrapAlignment {
-  String get name => describeEnum(this);
-
-  String get displayTitle => () {
-        switch (this) {
-          case WrapAlignment.center:
-            return 'Center';
-          case WrapAlignment.end:
-            return 'End';
-          case WrapAlignment.spaceAround:
-            return 'Space Around';
-          case WrapAlignment.spaceBetween:
-            return 'Space Between';
-          case WrapAlignment.spaceEvenly:
-            return 'Space Evenly';
-          case WrapAlignment.start:
-            return 'Start';
         }
       }();
 }
