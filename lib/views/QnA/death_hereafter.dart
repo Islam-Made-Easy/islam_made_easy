@@ -23,7 +23,6 @@ class _DeathHereafterState extends State<DeathHereafter> {
               ViewText(data: S.current.deathA1Par1),
               ViewText(data: S.current.deathA1Par2),
             ]),
-            SizedBox(height: 10),
             SizedBox(height: 5),
             InfoCard(quest: S.current.deathQ2, answers: [
               ViewText(data: S.current.deathA2Par1),
