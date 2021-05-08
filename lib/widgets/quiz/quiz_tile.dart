@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islam_made_easy/views/quiz/check_answer.dart';
-import 'package:morpheus/page_routes/morpheus_page_route.dart';
 
 class QuizTile extends StatelessWidget {
   final String imageUrl, title, id, description;
