@@ -13,11 +13,11 @@ class AppRoute extends NavigatorObserver {
 
   factory AppRoute() => _appRoute;
   static final Map<String, WidgetBuilder> _routes = {
-    Home.ROUTE_NAME: (_) => Home(),
-    QnA.ROUTE_NAME: (_) => QnA(),
-    Settings.ROUTE_NAME: (_) => Settings(),
-    Succinct.ROUTE_NAME: (_) => Succinct(),
-    Prerequisite.ROUTE_NAME: (_) => Prerequisite(),
+    Home.ROUTE_NAME: (context) => Home(),
+    QnA.ROUTE_NAME: (context) => QnA(),
+    Settings.ROUTE_NAME: (context) => Settings(),
+    Succinct.ROUTE_NAME: (context) => Succinct(),
+    Prerequisite.ROUTE_NAME: (context) => Prerequisite(),
   };
 
   Map<String, WidgetBuilder> get routes => _routes;
