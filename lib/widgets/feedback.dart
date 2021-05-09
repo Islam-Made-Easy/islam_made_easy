@@ -36,6 +36,7 @@ class _AppFeedbackState extends State<AppFeedback> {
         if (response == FeedbackServices.STATUS_SUCCESS) {
           Get.snackbar('Submitted',
               'Your Feedback is successfully submitted, Jazakumullahu Khayran!!');
+          name.clear();email.clear();feed.clear();
         } else {
           Get.snackbar('An Error Occurred!', 'Please try later');
         }
