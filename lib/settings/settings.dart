@@ -354,8 +354,10 @@ class _SettingsShort extends StatelessWidget {
   Widget build(BuildContext context) {
     return WidgetAnimator(
       ListTile(
-        title: Row(
-          children: [FaIcon(icon, color: color.withOpacity(0.4)), Text(title)],
+        title: SingleChildScrollView(scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [FaIcon(icon, color: color.withOpacity(0.4)), Text(title)],
+          ),
         ),
         trailing: Chip(
           label: Text(subtitle),
