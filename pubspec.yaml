@@ -22,7 +22,6 @@ dependencies:
   share: ^0.6.5+4
   lottie: null
   flutter_easyrefresh: null
-  in_app_review: any
   dio: null
   intl: ^0.17.0-nullsafety.2
   flutter_animated_dialog: any
@@ -38,7 +37,6 @@ dependencies:
   http: null
   path: null
   url_launcher: null
-  in_app_update: null
   animated_background: null
   flutter_phoenix: null
   smooth_page_indicator: null
@@ -50,11 +48,9 @@ dependencies:
   launch_review: null
   animations: ^1.1.2
   flutter_svg: ^0.19.2+1
-  device_info: ^0.4.1+4
   native_pdf_view: ^2.1.1
   delayed_display: ^1.0.3
   double_back_to_close: ^1.0.2+mit
-  native_updater: ^0.0.3
   quick_actions: ^0.4.0+10
   flutter_systray: ^0.4.0
   avatar_glow: ^1.2.0
@@ -70,7 +66,6 @@ dependencies:
   flutter_markdown: null
   bubble_overlay:
   system_alert_window:
-  pdf_flutter:
   url_strategy:
   animate_do:
   desktop_window:
@@ -80,7 +75,6 @@ dependencies:
   ext_storage:
   flutter_ffmpeg:
   flutter_vlc_player:
-#  flutter_youtube_dl:
   fuzzy:
   lazy_load_scrollview:
   permission_handler:

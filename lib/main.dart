@@ -18,7 +18,6 @@ import 'package:islam_made_easy/utils/string_util.dart';
 import 'package:islam_made_easy/views/home.dart';
 import 'package:islam_made_easy/views/intro/splash.dart';
 import 'package:lottie/lottie.dart';
-import 'package:native_updater/native_updater.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:window_size/window_size.dart';
@@ -80,7 +79,6 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     var _today = HijriCalendar.now().wkDay;
     _composition = _loadComposition();
     await appSP.init();
-    int statusCode = 412;
     int themeIndex = SpUtil.getThemeIndex();
     // Provider.of<NotificationServices>(context, listen: false).initialize();
     if (themeIndex != null) {
@@ -90,10 +88,6 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     if (StringUtil.isNotEmpty(lang)) {
       Provider.of<LocaleProvide>(context, listen: false).changeLocale(Locale(lang));
     }
-    Future.delayed(Duration.zero, () {
-      if (statusCode == 412)
-        NativeUpdater.displayUpdateAlert(context, forceUpdate: true);
-    });
     int timeNow = DateTime.now().hour;
 
     if ((_today == DateTime.thursday && timeNow > 18) ||
@@ -103,10 +97,13 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       });
     }
   }
+
   Future<LottieComposition> _loadComposition() async {
-    var assetData = await rootBundle.load(kIsWeb ? 'assets/lottie/404.json' : "assets/lottie/loader.json");
+    var assetData = await rootBundle
+        .load(kIsWeb ? 'assets/lottie/404.json' : "assets/lottie/loader.json");
     return await LottieComposition.fromByteData(assetData);
   }
+
   Locale localeCallback(locale, supportedLocales) {
     for (var supportedLocale in supportedLocales) {
       if (supportedLocale.languageCode == locale.languageCode &&
