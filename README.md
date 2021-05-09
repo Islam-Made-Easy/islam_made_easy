@@ -5,7 +5,7 @@ Islamic application that let you understand your religion easier.
 | [Get the latest version](https://github.com/Islam-Made-Easy/Islam-Made-Easy/releases)
 
 
-| Web App [https://islam-made-easy.web.app](https://islam-made-easy.web.app)
+| [Install PWA](https://islam-made-easy.web.app)
 
 > <a href="https://galaxy.store/IMEasy"><img src="https://img.samsungapps.com/seller/images/badges/galaxyStore/png_big/GalaxyStore_English.png?ver=1615301700000" alt="Available on Samsung Galaxy Store" style="max-width: 100%; height: auto;"></a>
 
