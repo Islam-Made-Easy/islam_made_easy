@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:islam_made_easy/settings/settings.dart';
 import 'package:islam_made_easy/theme/theme.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
@@ -211,10 +210,9 @@ class _MainPanelState extends State<MainPanel> with TickerProviderStateMixin {
       );
     } else {
       return PageView(controller: _controller, children: [
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(16), topRight: Radius.circular(16))),
+        Material(
+          color: Theme.of(context).backgroundColor,
+          elevation: 0.0,
           child: CustomScrollView(
             slivers: <Widget>[
               SliverToBoxAdapter(
@@ -225,25 +223,7 @@ class _MainPanelState extends State<MainPanel> with TickerProviderStateMixin {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AppBar(
-                        leading: IconButton(
-                          icon: FaIcon(
-                              FontAwesomeIcons.bookOpen..matchTextDirection),
-                          splashRadius: 20,
-                          onPressed: () => Get.to(() => Succinct()),
-                        ),
-                        elevation: 0,
-                        iconTheme: IconThemeData(color: Colors.black),
-                        backgroundColor: Colors.transparent,
-                        actions: [
-                          IconButton(
-                            icon: FaIcon(FontAwesomeIcons.cog),
-                            splashRadius: 20,
-                            onPressed: () => Get.to(() => Settings()),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 30),
+                      SizedBox(height: 5),
                       Text(
                         S.current.salam,
                         style: TextStyle(
@@ -264,20 +244,17 @@ class _MainPanelState extends State<MainPanel> with TickerProviderStateMixin {
                   padding: EdgeInsets.symmetric(
                       horizontal: context.isTablet ? 30 : 20,
                       vertical: context.isTablet ? 20 : 10),
-                  child: LazyLoadScrollView(
-                    onEndOfPage: () => loadMore(),
-                    child: ListView(
-                      children: [
-                        buildCard('Tawheed', S.current.tawheed),
-                        buildCard('Prayer', S.current.prayer),
-                        buildCard('Fast', S.current.swaum),
-                        buildCard('Qur\'an', S.current.quran),
-                        buildCard('Charity', S.current.zakkah),
-                        buildCard('Hajj', S.current.hajj),
-                        buildCard('Marriage', S.current.nikkah),
-                        buildCard('History', S.current.history),
-                      ],
-                    ),
+                  child: ListView(
+                    children: [
+                      buildCard('Tawheed', S.current.tawheed),
+                      buildCard('Prayer', S.current.prayer),
+                      buildCard('Fast', S.current.swaum),
+                      buildCard('Qur\'an', S.current.quran),
+                      buildCard('Charity', S.current.zakkah),
+                      buildCard('Hajj', S.current.hajj),
+                      buildCard('Marriage', S.current.nikkah),
+                      buildCard('History', S.current.history),
+                    ],
                   ),
                 ),
               ),
@@ -383,7 +360,7 @@ class _MainPanelState extends State<MainPanel> with TickerProviderStateMixin {
                   ],
                 ),
               )
-            : Offstage(child: Container(),offstage: true)
+            : Offstage(child: Container(), offstage: true)
       ]);
     }
   }
@@ -510,7 +487,10 @@ class _MainPanelState extends State<MainPanel> with TickerProviderStateMixin {
                 ),
                 title: Text(
                   display,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,  fontFamily: 'Quattrocento'),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      fontFamily: 'Amiri'),
                 ),
                 tileColor: Theme.of(context).hoverColor,
               ),

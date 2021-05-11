@@ -101,7 +101,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 double velocity = 2.0;
                 controller.fling(
                     velocity: isPanelVisible ? -velocity : velocity);
-              },
+              },splashRadius: 10,
               icon: AnimatedIcon(
                 icon: AnimatedIcons.close_menu,
                 size: 30,
@@ -109,8 +109,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               ),
             ),
             actions: [
-              PopupMenuButton<MenuItem>(
-                  onSelected: (item) => onSelected(context, item),
+              PopupMenuButton<MenuItem>(enableFeedback: true,
+                  onSelected: (item) => onSelected(context, item),color: isPanelVisible?Color(0xffffffff):Theme.of(context).hoverColor,elevation: 0,
                   itemBuilder: (context) => [
                         ...MenuItems.itemsFirst.map(buildItem).toList(),
                       ]),
