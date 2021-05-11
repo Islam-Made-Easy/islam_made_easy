@@ -77,8 +77,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     );
   }
 
-  static DelayUI shareDelay = DelayUI(Duration(seconds: 1));
-
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
@@ -128,7 +126,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         value: item,
         child: Row(
           children: [
-            FaIcon(item.icon,color: Theme.of(context).buttonColor),
+            FaIcon(item.icon, color: Theme.of(context).buttonColor),
             const SizedBox(width: 10),
             Text(item.text),
           ],
@@ -169,8 +167,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 transitionDuration:
                     DelayUI(Duration(milliseconds: 1000)).duration,
                 transitionCurve: Curves.easeIn)
-            : feed.showFeedbackDialog(
-                context: context, isPanelVisible: isPanelVisible);
+            : feed.showFeedbackDialog(context: context);
         break;
     }
   }
