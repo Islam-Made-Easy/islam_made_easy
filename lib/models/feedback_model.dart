@@ -1,7 +1,19 @@
+/// FeedbackModel is a data class which stores data fields of Feedback.
 class FeedbackModel {
-  String _name;
-  String _email;
-  String _feedback;
-  FeedbackModel(this._name, this._email, this._feedback);
-  String toParams() => "?name=$_name&email=$_email&feedback=$_feedback";
+  String name;
+  String email;
+  String feedback;
+
+  FeedbackModel(this.name, this.email, this.feedback);
+
+  factory FeedbackModel.fromJson(dynamic json) {
+    return FeedbackModel("${json['name']}", "${json['email']}","${json['feedback']}");
+  }
+
+  // Method to make GET parameters.
+  Map toJson() => {
+    'name': name,
+    'email': email,
+    'feedback': feedback
+  };
 }

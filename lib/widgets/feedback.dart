@@ -1,6 +1,6 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/page_decoration.dart';
-
+import 'package:email_validator/email_validator.dart';
 import 'anim/anim.dart';
 
 void showFeedbackDialog({@required BuildContext context, bool isPanelVisible}) {
@@ -23,7 +23,6 @@ class AppFeedback extends StatefulWidget {
 
 class _AppFeedbackState extends State<AppFeedback> {
   final _formKey = GlobalKey<FormState>();
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController name = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController feed = TextEditingController();
@@ -31,16 +30,7 @@ class _AppFeedbackState extends State<AppFeedback> {
   void _submitFeed() {
     if (_formKey.currentState.validate()) {
       FeedbackModel fdModel = FeedbackModel(name.text, email.text, feed.text);
-      FeedbackServices fdServices = FeedbackServices((String response) {
-        print("Debug Response: $response");
-        if (response == FeedbackServices.STATUS_SUCCESS) {
-          Get.snackbar('Submitted',
-              'Your Feedback is successfully submitted, Jazakumullahu Khayran!!');
-          name.clear();email.clear();feed.clear();
-        } else {
-          Get.snackbar('An Error Occurred!', 'Please try later');
-        }
-      });
+      FeedbackServices fdServices = FeedbackServices();
       Get.snackbar(
         'Submitting...',
         'Please wait while your feedback is being transmitted',
@@ -51,7 +41,17 @@ class _AppFeedbackState extends State<AppFeedback> {
         snackPosition: SnackPosition.BOTTOM,
         progressIndicatorBackgroundColor: Theme.of(context).primaryColorDark,
       );
-      fdServices.submitFeed(fdModel);
+      fdServices.submitForm(fdModel, (String response) {
+        print("Response: $response");
+        if (response == FeedbackServices.STATUS_SUCCESS) {
+          // Feedback is saved succesfully in Google Sheets.
+          Get.snackbar('Submitted',
+              'Your Feedback is successfully submitted, Jazakumullahu Khayran!!');
+          name.clear();email.clear();feed.clear();
+        } else {
+          Get.snackbar('An Error Occurred!', 'Please try later');
+        }
+      });
     }
   }
 
@@ -61,7 +61,6 @@ class _AppFeedbackState extends State<AppFeedback> {
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
     return Scaffold(
-      key: _scaffoldKey,
       backgroundColor:
           isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
               ? Colors.transparent
@@ -113,6 +112,13 @@ class _AppFeedbackState extends State<AppFeedback> {
                 ),
                 SizedBox(height: 10),
                 InputContainer(
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "Name can't be empty";
+                      } else {
+                        return null;
+                      }
+                    },
                     inputType: TextInputType.name,
                     controller: name,
                     decoration: InputDecoration(
@@ -121,6 +127,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                         hintText: 'Enter your name',
                         labelText: 'Name')),
                 InputContainer(
+		    validator: (value) => EmailValidator.validate(value) ? null : "Please enter a valid email",
                     inputType: TextInputType.emailAddress,
                     controller: email,
                     decoration: InputDecoration(
@@ -129,6 +136,13 @@ class _AppFeedbackState extends State<AppFeedback> {
                         hintText: 'Enter your email',
                         labelText: 'Email')),
                 InputContainer(
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "Feedback can't be empty";
+                      } else {
+                        return null;
+                      }
+                    },
                     inputType: TextInputType.multiline,
                     controller: feed,
                     decoration: InputDecoration(
@@ -157,11 +171,11 @@ class InputContainer extends StatelessWidget {
   final TextEditingController controller;
   final InputDecoration decoration;
   final TextInputType inputType;
-
+final String Function(String) validator;
   const InputContainer(
       {Key key,
       @required this.decoration,
-      @required this.controller,
+      @required this.controller,this.validator,
       @required this.inputType})
       : super(key: key);
 
@@ -187,13 +201,7 @@ class InputContainer extends StatelessWidget {
                     autocorrect: true,
                     keyboardType: inputType,
                     maxLines: null,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return "This can't be empty";
-                      } else {
-                        return null;
-                      }
-                    },
+                    validator: validator,
                   ),
                   Positioned(
                     left: ar ? null : 0,
