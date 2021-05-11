@@ -1,8 +1,10 @@
+import 'package:islam_made_easy/settings/settings.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/desktopNav.dart';
 import 'package:islam_made_easy/widgets/feedback.dart' as feed;
 import 'package:islam_made_easy/widgets/feedback.dart';
 import 'package:islam_made_easy/widgets/panels/nav_panel.dart';
+import 'about.dart' as about;
 
 class Home extends StatefulWidget {
   static const ROUTE_NAME = "/home";
@@ -60,11 +62,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           PositionedTransition(
             rect: getPanelAnimation(constraints),
             child: Material(
-              elevation: 12.0,
+              elevation: 0.0,
               color: Theme.of(context).backgroundColor,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(isPanelVisible ? 0.0 : 10),
-                  topRight: Radius.circular(isPanelVisible ? 0.0 : 10)),
+              // borderRadius: BorderRadius.only(
+              //     topLeft: Radius.circular(isPanelVisible ? 0.0 : 10),
+              //     topRight: Radius.circular(isPanelVisible ? 0.0 : 10)),
               child: Column(
                 children: <Widget>[Expanded(child: Center(child: MainPanel()))],
               ),
@@ -75,13 +77,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     );
   }
 
+  static DelayUI shareDelay = DelayUI(Duration(seconds: 1));
+
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final isTablet = isDisplaySmallDesktop(context);
     final theme = Theme.of(context).backgroundColor;
-    Locale locale = Localizations.localeOf(context);
-    final ar = locale.languageCode == 'ar';
     if (DeviceOS.isDesktopOrWeb && isDesktop ||
         (context.isLargeTablet && DeviceOS.isMobile)) {
       return Scaffold(
@@ -94,21 +96,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         child: Scaffold(
           backgroundColor: theme,
           appBar: AppBar(
-            title: Text(
-              isPanelVisible ? "Islam Made Easy" : "I M E",
-              style: kIsWeb
-                  ? Theme.of(context).textTheme.caption.copyWith(
-                        fontSize: 25.0,
-                        fontFamily: 'Quattrocento',
-                        fontWeight: FontWeight.normal,
-                      )
-                  : TextStyle(
-                      fontSize: 25.0,
-                      fontFamily: 'Quattrocento',
-                      fontWeight: FontWeight.normal,
-                    ),
-            ),
-            elevation: 0.0,
+            elevation: 0,
+            backgroundColor: Colors.transparent,
             leading: IconButton(
               onPressed: () {
                 double velocity = 2.0;
@@ -122,37 +111,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               ),
             ),
             actions: [
-              IconButton(
-                onPressed: () {
-                  isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
-                      ? Get.dialog(
-                          Align(
-                            alignment: ar
-                                ? Alignment.centerLeft
-                                : Alignment.centerRight,
-                            child: Container(
-                              height: double.infinity,
-                              width: MediaQuery.of(context).size.width / 2,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFFAFAFC),
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(ar ? 0 : 20),
-                                  bottomRight: Radius.circular(ar ? 20 : 0),
-                                  bottomLeft: Radius.circular(ar ? 0 : 20),
-                                  topRight: Radius.circular(ar ? 20 : 0),
-                                ),
-                              ),
-                              child: AppFeedback(),
-                            ),
-                          ),transitionDuration: DelayUI(Duration(milliseconds: 1000)).duration,
-                          transitionCurve: Curves.easeIn)
-                      : feed.showFeedbackDialog(
-                          context: context, isPanelVisible: isPanelVisible);
-                },
-                icon: FaIcon(isPanelVisible
-                    ? FontAwesomeIcons.comment
-                    : FontAwesomeIcons.commentDots),
-              ),
+              PopupMenuButton<MenuItem>(
+                  onSelected: (item) => onSelected(context, item),
+                  itemBuilder: (context) => [
+                        ...MenuItems.itemsFirst.map(buildItem).toList(),
+                      ]),
             ],
           ),
           body: LayoutBuilder(builder: bothPanels),
@@ -160,4 +123,83 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       );
     }
   }
+
+  PopupMenuItem<MenuItem> buildItem(MenuItem item) => PopupMenuItem<MenuItem>(
+        value: item,
+        child: Row(
+          children: [
+            FaIcon(item.icon,color: Theme.of(context).buttonColor),
+            const SizedBox(width: 10),
+            Text(item.text),
+          ],
+        ),
+      );
+
+  void onSelected(BuildContext context, MenuItem item) {
+    Locale locale = Localizations.localeOf(context);
+    final isDesktop = isDisplayDesktop(context);
+    final ar = locale.languageCode == 'ar';
+    switch (item) {
+      case MenuItems.itemSetting:
+        Get.to(() => Settings());
+        break;
+      case MenuItems.itemShare:
+        about.showAboutDialog(context: context);
+        break;
+      case MenuItems.itemFeedback:
+        isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
+            ? Get.dialog(
+                Align(
+                  alignment: ar ? Alignment.centerLeft : Alignment.centerRight,
+                  child: Container(
+                    height: double.infinity,
+                    width: MediaQuery.of(context).size.width / 2,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFFAFAFC),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(ar ? 0 : 20),
+                        bottomRight: Radius.circular(ar ? 20 : 0),
+                        bottomLeft: Radius.circular(ar ? 0 : 20),
+                        topRight: Radius.circular(ar ? 20 : 0),
+                      ),
+                    ),
+                    child: AppFeedback(),
+                  ),
+                ),
+                transitionDuration:
+                    DelayUI(Duration(milliseconds: 1000)).duration,
+                transitionCurve: Curves.easeIn)
+            : feed.showFeedbackDialog(
+                context: context, isPanelVisible: isPanelVisible);
+        break;
+    }
+  }
+}
+
+class MenuItem {
+  final String text;
+  final IconData icon;
+
+  const MenuItem({this.text, this.icon});
+}
+
+class MenuItems {
+  static const List<MenuItem> itemsFirst = [
+    itemSetting,
+    itemShare,
+    itemFeedback
+  ];
+  static const itemSetting = MenuItem(
+    text: 'Settings',
+    icon: FontAwesomeIcons.cog,
+  );
+  static const itemShare = MenuItem(
+    text: 'About',
+    icon: PixIcon.pix_info,
+  );
+
+  static const itemFeedback = MenuItem(
+    text: 'Feedback',
+    icon: FontAwesomeIcons.comment,
+  );
 }
