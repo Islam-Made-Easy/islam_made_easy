@@ -13,8 +13,7 @@ class NotificationServices extends ChangeNotifier {
     var initializationSettingsAndroid = AndroidInitializationSettings('log');
     var initializationSettingsIOS = IOSInitializationSettings();
     var initializationSettings = InitializationSettings(
-        initializationSettingsAndroid, initializationSettingsIOS);
-    // localNotifier.initialize(initializationSettings);
+        android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
     await localNotifier.initialize(initializationSettings,
         onSelectNotification: navHome());
   }
@@ -24,15 +23,16 @@ class NotificationServices extends ChangeNotifier {
         'id', 'name', 'description',
         enableLights: true,
         color: Colors.blue.shade50,
-        importance: Importance.Max,
+        importance: Importance.max,
         largeIcon: DrawableResourceAndroidBitmap('log'),
         styleInformation: MediaStyleInformation(
             htmlFormatTitle: true, htmlFormatContent: true),
-        priority: Priority.High,
+        priority: Priority.high,
         ticker: 'ticker');
     var iOSPlatformChannelSpecifics = IOSNotificationDetails();
     var platformChannelSpecifics = NotificationDetails(
-        androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
+        iOS: iOSPlatformChannelSpecifics,
+        android: androidPlatformChannelSpecifics);
     await _localNotifier.show(
         0,
         S.current.salam,
@@ -54,18 +54,19 @@ class NotificationServices extends ChangeNotifier {
             summaryText: 'May Allah Make It Easy for ya'),
         enableLights: true,
         color: Get.theme.primaryColor,
-        importance: Importance.Max,
+        importance: Importance.max,
         largeIcon: DrawableResourceAndroidBitmap('log'),
-        priority: Priority.High,
+        priority: Priority.high,
         ticker: 'ticker');
     var iOSPlatformChannelSpecifics = IOSNotificationDetails();
     var platformChannelSpecifics = NotificationDetails(
-        androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
+        android: androidPlatformChannelSpecifics,
+        iOS: iOSPlatformChannelSpecifics);
     _localNotifier.periodicallyShow(
       0,
       "IME Daily Reminder",
       getQuoteString(),
-      RepeatInterval.Daily,
+      RepeatInterval.daily,
       platformChannelSpecifics,
     );
   }
