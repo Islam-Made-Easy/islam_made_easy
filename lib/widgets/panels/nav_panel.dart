@@ -1,14 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'package:grafpix/icons.dart';
-import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/views/QnA.dart';
-import 'package:islam_made_easy/views/about.dart' as about;
-import 'package:islam_made_easy/views/general_knowledge/general_knowlege.dart';
-import 'package:islam_made_easy/views/prerequisite.dart';
-import 'package:islam_made_easy/widgets/references.dart';
-import 'package:islam_made_easy/widgets/short_phrases.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class NavigationPanel extends StatefulWidget {
   @override
@@ -47,6 +37,10 @@ class _NavigationPanelState extends State<NavigationPanel> {
               () => Get.to(() => QnA(), transition: Transition.size),
               PixIcon.fab_quinscape),
           drawerTile(
+              'Methodology',
+              () => Get.to(() => Succinct(), transition: Transition.size),
+              FontAwesomeIcons.bookOpen),
+          drawerTile(
               S.current.generalKnowledge,
               () =>
                   Get.to(() => GeneralKnowledge(), transition: Transition.size),
@@ -59,8 +53,6 @@ class _NavigationPanelState extends State<NavigationPanel> {
               S.current.shortPhrases,
               () => Get.to(() => ShortPhrases(), transition: Transition.size),
               PixIcon.fab_ussunnah),
-          drawerTile(S.current.about,
-              () => about.showAboutDialog(context: context), PixIcon.pix_info)
         ],
       ),
     );
