@@ -167,7 +167,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 transitionDuration:
                     DelayUI(Duration(milliseconds: 1000)).duration,
                 transitionCurve: Curves.easeIn)
-            : feed.showFeedbackDialog(context: context);
+            : feed.showFeedbackDialog(
+                context: context, isPanelVisible: isPanelVisible);
         break;
     }
   }
