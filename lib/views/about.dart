@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:ui';
-
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/listHeader.dart';
 import 'package:package_info/package_info.dart';
@@ -27,7 +26,7 @@ class _AboutAppState extends State<AboutApp> {
     final packageInfo = await PackageInfo.fromPlatform();
     return packageInfo.version;
   }
-
+  static DelayUI shareDelay = DelayUI(Duration(seconds: 1));
   @override
   Widget build(BuildContext context) {
     print(window.physicalSize);
@@ -40,14 +39,21 @@ class _AboutAppState extends State<AboutApp> {
         'Islam Made Easy ${S.current.forPlatform} ${DeviceOS.isWeb ? 'Web' : Platform.operatingSystem}';
     final legalese = '© ${DateTime.now().year} The IME team';
     Locale locale = Localizations.localeOf(context);
-    final ar = locale.languageCode == 'ar';
-    final size = MediaQuery.of(context).size;
+    final ar = locale.languageCode == 'ar';final size=MediaQuery.of(context).size;
     return AlertDialog(
       title: ListHeader(
         text: MaterialLocalizations.of(context).aboutListTileTitle('IME'),
         trailing: IconButton(
-          icon: FaIcon(FontAwesomeIcons.timesCircle),
-          onPressed: () => Get.back(),
+          icon: FaIcon(DeviceOS.isMobile
+              ? FontAwesomeIcons.shareAlt
+              : FontAwesomeIcons.timesCircle),
+          onPressed: () {
+            DeviceOS.isDesktopOrWeb
+                ? Get.back()
+                : shareDelay.run(() => Share.share(
+                    "Islam Made Easy\n${S.current.aboutApp}",
+                    subject: ShareUtil().getPlatformShare()));
+          },
           splashRadius: DeviceOS.isDesktopOrWeb ? 10 : 20,
           tooltip: DeviceOS.isDesktopOrWeb
               ? MaterialLocalizations.of(context).closeButtonTooltip
@@ -75,7 +81,7 @@ class _AboutAppState extends State<AboutApp> {
             Divider(),
             Image.asset(
               'assets/images/logo.png',
-              height: isDesktop ? size.height * 0.3 : 150,
+              height: isDesktop ? size.height*0.3 : 150,
             ),
             Text(S.current.aboutApp),
             FutureBuilder(
@@ -89,11 +95,7 @@ class _AboutAppState extends State<AboutApp> {
               ),
             ),
             Text(
-                DeviceOS.isWeb
-                    ? ''
-                    : DeviceOS.isAndroid
-                        ? ""
-                        : "${Platform.operatingSystemVersion.replaceRange(23, 73, '')}",
+                DeviceOS.isDesktop ? "${Platform.operatingSystemVersion.replaceRange(23, 73, '')}":'',
                 style: bodyTextStyle),
             Text(legalese, style: bodyTextStyle),
             if (isDesktop || DeviceOS.isDesktopOrWeb)
@@ -144,8 +146,7 @@ class _AboutAppState extends State<AboutApp> {
                         ).then(
                           (value) => Get.snackbar(
                             S.current.copiedToClipboardTitle,
-                            S.current.linkCopied,
-                            shouldIconPulse: true,
+                            S.current.linkCopied,shouldIconPulse: true,
                             messageText: Row(
                               children: [
                                 FaIcon(Icons.verified_user,

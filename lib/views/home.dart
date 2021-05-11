@@ -91,32 +91,37 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     } else {
       return DoubleBack(
         onFirstBackPress: (context) => Get.snackbar('', "Smile It's Sunnah"),
-        child: Scaffold(
-          backgroundColor: theme,
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            leading: IconButton(
-              onPressed: () {
-                double velocity = 2.0;
-                controller.fling(
-                    velocity: isPanelVisible ? -velocity : velocity);
-              },splashRadius: 10,
-              icon: AnimatedIcon(
-                icon: AnimatedIcons.close_menu,
-                size: 30,
-                progress: controller.view,
+        child: Stack(
+          children: [
+            Scaffold(
+              backgroundColor: theme,
+              appBar: AppBar(
+                elevation: 0,
+                backgroundColor: Colors.transparent,
+                leading: IconButton(
+                  onPressed: () {
+                    double velocity = 2.0;
+                    controller.fling(
+                        velocity: isPanelVisible ? -velocity : velocity);
+                  },splashRadius: 10,
+                  icon: AnimatedIcon(
+                    icon: AnimatedIcons.close_menu,
+                    size: 30,
+                    progress: controller.view,
+                  ),
+                ),
+                actions: [
+                  PopupMenuButton<MenuItem>(enableFeedback: true,
+                      onSelected: (item) => onSelected(context, item),color: isPanelVisible?Color(0xffffffff):Theme.of(context).hoverColor,elevation: 0,
+                      itemBuilder: (context) => [
+                            ...MenuItems.itemsFirst.map(buildItem).toList(),
+                          ]),
+                ],
               ),
+              body: LayoutBuilder(builder: bothPanels),
             ),
-            actions: [
-              PopupMenuButton<MenuItem>(enableFeedback: true,
-                  onSelected: (item) => onSelected(context, item),color: isPanelVisible?Color(0xffffffff):Theme.of(context).hoverColor,elevation: 0,
-                  itemBuilder: (context) => [
-                        ...MenuItems.itemsFirst.map(buildItem).toList(),
-                      ]),
-            ],
-          ),
-          body: LayoutBuilder(builder: bothPanels),
+            GradientCircles(),
+          ],
         ),
       );
     }
