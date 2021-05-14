@@ -72,7 +72,7 @@ dependencies:
   syncfusion_flutter_pdfviewer:
   chewie:
   ext_storage:
-  flutter_ffmpeg:
+          # flutter_ffmpeg:
   flutter_vlc_player:
   fuzzy:
   lazy_load_scrollview:
@@ -88,6 +88,8 @@ dependencies:
   better_player: ^0.0.13
   gsheets: ^0.3.0
   email_validator:
+  statsfl:
+  starflut:
 dev_dependencies:
   flutter_launcher_icons: ^0.9.0
   flutter_native_splash: ^1.1.8+4
