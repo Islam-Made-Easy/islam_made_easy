@@ -64,12 +64,23 @@ class _SplashViewState extends State<SplashView>
   void initState() {
     initializePages(); //initialize pages to be shown
     _pageController = PageController();
-    _pageController.addListener(() { _activeIndex = _pageController.page;
+    _pageController.addListener(() {
+      _activeIndex = _pageController.page;
       // print("Active Index: $_activeIndex");
-      if (_activeIndex >= 0.5 && onBoardPage == false) { setState(() { onBoardPage = true; });
-      } else if (_activeIndex < 0.5) { setState(() { onBoardPage = false; });
-      } else if (_activeIndex == 10.0) { setState(() { glow = true; });
-      }  glow = false;
+      if (_activeIndex >= 0.5 && onBoardPage == false) {
+        setState(() {
+          onBoardPage = true;
+        });
+      } else if (_activeIndex < 0.5) {
+        setState(() {
+          onBoardPage = false;
+        });
+      } else if (_activeIndex == 10.0) {
+        setState(() {
+          glow = true;
+        });
+      }
+      glow = false;
     });
     _animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1000))
@@ -346,8 +357,6 @@ class _SplashViewState extends State<SplashView>
                       gradient: LinearGradient(
                         colors: onBoardPage
                             ? [
-                                // theme.primaryColorDark,
-                                // theme.colorScheme.onBackground,
                                 const Color(0xFF8200FF),
                                 const Color(0xFFFF3264),
                               ]
@@ -465,33 +474,36 @@ class _WelcomeState extends State<WelcomePage>
                         ),
                       ),
                     ),
-              SizedBox(height: isDesktop ? 0.0 : height * 0.01),
+              SizedBox(height: isDesktop ? 0.0 : height * 0.015),
               FadingSlidingWidget(
                 animationController: _animationController,
                 interval: const Interval(0.5, 0.9),
                 child: Text(
                   S.current.fridayRemind,
-                  style: TextStyle(
+                  style: TextStyle(fontFamily: 'Amiri',
                     color: const Color(0xFFFFFFFF),
                     fontSize: width * 0.08,
                   ),
                 ),
               ),
+              SizedBox(height: isDesktop ? 0.0 : height * 0.015),
               FadingSlidingWidget(
                 animationController: _animationController,
                 child: AnimatedContainer(
                   duration: const Duration(seconds: 1),
-                  width:  DeviceOS.isDesktopOrWeb && !context.isPhone
-                      ? width * 0.4 : width * 0.9,
+                  width: DeviceOS.isDesktopOrWeb && !context.isPhone
+                      ? width * 0.4
+                      : width * 0.9,
                   child: FadingSlidingWidget(
                     animationController: _animationController,
                     interval: const Interval(0.7, 1.0),
                     child: Text(
                       S.current.fridayFirst,
                       style: TextStyle(
-                        color: const Color(0xFFFFFFFF),
+                        color: const Color(0xFFFFFFFF),fontFamily: 'Amiri',
                         fontSize: DeviceOS.isDesktopOrWeb && context.isTablet
-                            ? width * 0.02 : width * 0.056,
+                            ? width * 0.02
+                            : width * 0.056,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -540,7 +552,7 @@ class _OnboardState extends State<OnBoardPage>
       padding: EdgeInsets.only(top: height * 0.1),
       child: Column(
         children: <Widget>[
-         Lottie.asset(widget.onBoardPageItem.lottieAsset,
+          Lottie.asset(widget.onBoardPageItem.lottieAsset,
               controller: _animationController, onLoaded: (composition) {
             _animationController
               ..duration = composition.duration
@@ -553,7 +565,7 @@ class _OnboardState extends State<OnBoardPage>
                   }
                 }
               });
-          }, width: width * 0.15, height: height * 0.2),
+          }, width: isDesktop?width * 0.15:width * 0.9),
           SizedBox(height: context.isTablet ? height * 0.01 : height * 0.1),
           Flexible(
             child: FadingSlidingWidget(
