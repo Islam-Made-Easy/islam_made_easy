@@ -68,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "advancedInfo": MessageLookupByLibrary.simpleMessage(
             "Advancing Soon \n  In Sha Allāh"),
         "appTitle": MessageLookupByLibrary.simpleMessage("Islam Made Easy"),
+        "aqeedah": MessageLookupByLibrary.simpleMessage("Aqeedah"),
         "arabi": MessageLookupByLibrary.simpleMessage("Arabic"),
         "arabic": MessageLookupByLibrary.simpleMessage("عربى"),
         "assistPar1": MessageLookupByLibrary.simpleMessage(
@@ -124,6 +125,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "charityQ3": MessageLookupByLibrary.simpleMessage(
             "I want to give charity for myself but I want to include my parents in my intention, can intention be shared like this or do I make charity separately?"),
         "chooseTheme": MessageLookupByLibrary.simpleMessage("Choose Theme"),
+        "companions": MessageLookupByLibrary.simpleMessage("The Companions"),
         "copiedToClipboard":
             MessageLookupByLibrary.simpleMessage("Copied to clipboard"),
         "copiedToClipboardTitle":
@@ -545,6 +547,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "HAJJ\nLEARN FROM ME YOUR DEVOTIONAL ACT"),
         "hindi": MessageLookupByLibrary.simpleMessage("हिंदी"),
         "hindii": MessageLookupByLibrary.simpleMessage("Hindi"),
+        "hisLife":
+            MessageLookupByLibrary.simpleMessage("The life of Muhammad(ﷺ)"),
         "history": MessageLookupByLibrary.simpleMessage("History"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "indonesia": MessageLookupByLibrary.simpleMessage("Bahasa Indonesia"),
@@ -1070,6 +1074,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Short Phrases Translated"),
         "shortcuts": MessageLookupByLibrary.simpleMessage("Shortcuts"),
         "startQuiz": MessageLookupByLibrary.simpleMessage("Start Quiz"),
+        "stories": MessageLookupByLibrary.simpleMessage("Stories of prophets"),
         "succinctPar1": MessageLookupByLibrary.simpleMessage(
             "ALL PRAISE BELONGS to Allah. And may the  salah and  salam [of Allah] be upon the Messenger of Allah. As for what follows...\nSome virtuous brothers thought well of me - assuming the tumor was meat [Publisher’s note: When a lamb used to have a tumor on its body, some might assume that it is getting fatter and thus will have more meat. So the Arabs used to say this phrase. It might mean “overestimating,” and what’s similar to that, in English.] - so they sought from me that I outline a methodology for them in seeking knowledge. I had already compiled a rough draft of a book on this subject, except that I can not complete it at the moment due to circumstances that are not hidden. Therefore, I saw that I should write a summary of what was in it, according to what fits on this paper. I ask Allah to make it beneficial."),
         "succinctSub10Par1": MessageLookupByLibrary.simpleMessage(
@@ -1299,6 +1304,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Side Note: I\'m translating وسبعون بضع as \"70 odd\", but there\'s a difference of opinion regarding what \"\"بضع is, however if you refer back to Fath al-Bārī by Ibn Rajab(رحمه الله) on his explanation of Sahīh al-Bukhārī, chapter of Ēmān, he has mentioned several opinions, and what seems to be most correct according to most scholars is that \"\"بضع is any number\nbetween 3-9."),
         "usuryTitle": MessageLookupByLibrary.simpleMessage(
             "Fabricated Hadīth \"Ribā has 70 odd branches, the lowest is equivalent to a man committing adultery with his Mother\""),
+        "worship": MessageLookupByLibrary.simpleMessage("Worship"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "zakkah": MessageLookupByLibrary.simpleMessage("Charity")
       };
