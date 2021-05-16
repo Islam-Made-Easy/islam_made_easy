@@ -27,15 +27,15 @@ class _QuickUtilState extends State<QuickUtil> {
   void _setupQuickActions() {
     quickActions.setShortcutItems(<ShortcutItem>[
       ShortcutItem(
-          type: 'action_home', localizedTitle: S.current.home, icon: 'logo'),
+          type: 'action_home', localizedTitle: S.current.home, icon: 'ic_menu_home'),
       ShortcutItem(
           type: 'action_quiz_start',
           localizedTitle: S.current.quiz,
-          icon: 'logo'),
+          icon: 'ic_menu_quiz'),
       ShortcutItem(
           type: 'action_settings',
           localizedTitle: S.current.settings,
-          icon: 'logo'),
+          icon: 'ic_settings'),
     ]);
   }
 
