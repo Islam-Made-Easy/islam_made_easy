@@ -14,6 +14,7 @@ class _QnAState extends State<QnA> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
+    final transit = Transition.fadeIn;
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: QnAppBar(
@@ -36,7 +37,7 @@ class _QnAState extends State<QnA> {
                     crossAxisSpacing: isDesktop ? 30 : context.isTablet?25:12),
                 children:DeviceOS.isDesktop||(isDesktop&&DeviceOS.isWeb)
                     ? [
-                  DesktopButton(openC: Tawheed(), title: 'assets/images/drk.jpg', subtitle: S.current.tawheed),
+                  DesktopButton(openC: Tawheed(), title: 'assets/images/drk.jpg', subtitle: S.current.aqeedah),
                   DesktopButton(openC: Prayer(), title: 'assets/images/msd.jpg', subtitle: S.current.swalah),
                   DesktopButton(openC: Zakkah(), title: 'assets/images/eat.jpg', subtitle: S.current.zakkah),
                   DesktopButton(openC: Fast(), title: 'assets/images/exq.jpg', subtitle: S.current.swaum),
@@ -47,15 +48,15 @@ class _QnAState extends State<QnA> {
                   DesktopButton(openC: Hajj(), title: 'assets/images/ka.jpeg', subtitle: S.current.hajj),
                 ]
                     : [
-                        SettingsLinkButton(title: 'assets/images/drk.jpg', subtitle: S.current.tawheed, onTap: () => Get.to(() => Tawheed(), transition: Transition.fadeIn),),
-                        SettingsLinkButton(title: 'assets/images/msd.jpg', onTap: () => Get.to(() => Prayer(), transition: Transition.fadeIn), subtitle: S.current.swalah,),
-                        SettingsLinkButton(title: 'assets/images/eat.jpg', onTap: () => Get.to(() => Zakkah(), transition: Transition.fadeIn), subtitle: S.current.zakkah,),
-                        SettingsLinkButton(title: 'assets/images/exq.jpg', onTap: () => Get.to(() => Fast(), transition: Transition.fadeIn), subtitle: S.current.swaum,),
-                        SettingsLinkButton(title: 'assets/images/marhm.jpg', onTap: () => Get.to(() => Marriage(), transition: Transition.fadeIn), subtitle: S.current.nikkah,),
-                        SettingsLinkButton(title: 'assets/images/img1.jpg', onTap: () => Get.to(() => Jinn(), transition: Transition.fadeIn), subtitle: S.current.jinn,),
-                        SettingsLinkButton(title: 'assets/images/img2.jpg', onTap: () => Get.to(() => DeathHereafter(),transition: Transition.fadeIn), subtitle: S.current.death,),
-                        SettingsLinkButton(title: 'assets/images/rose2.jpg', onTap: () => Get.to(() => Lifestyle(), transition: Transition.fadeIn), subtitle: S.current.lifestyle,),
-                        SettingsLinkButton(title: 'assets/images/ka.jpeg', onTap: () => Get.to(() => Hajj(), transition: Transition.fadeIn), subtitle: S.current.hajj,),
+                        SettingsLinkButton(title: 'assets/images/drk.jpg', subtitle: S.current.aqeedah, onTap: () => Get.to(() => Tawheed(), transition: transit),),
+                        SettingsLinkButton(title: 'assets/images/msd.jpg', onTap: () => Get.to(() => Prayer(), transition: transit), subtitle: S.current.swalah,),
+                        SettingsLinkButton(title: 'assets/images/eat.jpg', onTap: () => Get.to(() => Zakkah(), transition: transit), subtitle: S.current.zakkah,),
+                        SettingsLinkButton(title: 'assets/images/exq.jpg', onTap: () => Get.to(() => Fast(), transition: transit), subtitle: S.current.swaum,),
+                        SettingsLinkButton(title: 'assets/images/marhm.jpg', onTap: () => Get.to(() => Marriage(), transition: transit), subtitle: S.current.nikkah,),
+                        SettingsLinkButton(title: 'assets/images/img1.jpg', onTap: () => Get.to(() => Jinn(), transition: transit), subtitle: S.current.jinn,),
+                        SettingsLinkButton(title: 'assets/images/img2.jpg', onTap: () => Get.to(() => DeathHereafter(),transition: transit), subtitle: S.current.death,),
+                        SettingsLinkButton(title: 'assets/images/rose2.jpg', onTap: () => Get.to(() => Lifestyle(), transition: transit), subtitle: S.current.lifestyle,),
+                        SettingsLinkButton(title: 'assets/images/ka.jpeg', onTap: () => Get.to(() => Hajj(), transition: transit), subtitle: S.current.hajj,),
                       ]),
           ),
         ],
