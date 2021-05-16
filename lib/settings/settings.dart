@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:grafpix/icons.dart';
 import 'package:grafpix/pixbuttons/medal.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
@@ -16,7 +17,7 @@ import 'package:islam_made_easy/utils/string_util.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:provider/provider.dart';
 import 'package:system_alert_window/system_alert_window.dart' as sys;
-import 'package:get/get.dart';
+
 class Settings extends StatefulWidget {
   static const ROUTE_NAME = "/settings";
 
@@ -54,7 +55,7 @@ class _SettingsState extends State<Settings> {
       Locale locale = StringUtil.isNullOrEmpty(selectedLanguage)
           ? null
           : Locale(languageCode);
-      Provider.of<LocaleProvide>(context,listen: false).changeLocale(locale);
+      Provider.of<LocaleProvide>(context, listen: false).changeLocale(locale);
       Phoenix.rebirth(context);
     });
   }
@@ -81,8 +82,8 @@ class _SettingsState extends State<Settings> {
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
-          horizontal: isDesktop||context.isTablet ? 20 :8.0,
-          vertical: isDesktop||context.isTablet ? 30 : 8.0,
+          horizontal: isDesktop || context.isTablet ? 20 : 8.0,
+          vertical: isDesktop || context.isTablet ? 30 : 8.0,
         ),
         children: [
           _SettingsTitle(title: S.current.customizeExp),
@@ -97,9 +98,12 @@ class _SettingsState extends State<Settings> {
                 title: Text(S.current.language),
                 leading: FaIcon(FontAwesomeIcons.language),
                 subtitle: Text(getLanguageUiString(selectedLanguage)),
-                tilePadding:  EdgeInsets.symmetric(vertical: context.isTablet?15:10, horizontal: context.isTablet?15:10),
-                childrenPadding:
-                    EdgeInsets.symmetric(vertical: context.isTablet?15:10, horizontal: context.isTablet?15:10),
+                tilePadding: EdgeInsets.symmetric(
+                    vertical: context.isTablet ? 15 : 10,
+                    horizontal: context.isTablet ? 15 : 10),
+                childrenPadding: EdgeInsets.symmetric(
+                    vertical: context.isTablet ? 15 : 10,
+                    horizontal: context.isTablet ? 15 : 10),
                 children: [
                   RadioListTile(
                       title: Text(getLanguageUiString('')),
@@ -150,15 +154,13 @@ class _SettingsState extends State<Settings> {
                           icon: PixIcon.pix_paste,
                           color: Colors.orangeAccent,
                         ),
-                        kIsWeb
-                            ? _SettingsShort(
-                                title: MaterialLocalizations.of(context)
-                                    .backButtonTooltip,
-                                subtitle: 'Alt+Left',
-                                icon: PixIcon.pix_arrow_left2,
-                                color: Colors.brown,
-                              )
-                            : Container(),
+                        _SettingsShort(
+                          title: MaterialLocalizations.of(context)
+                              .backButtonTooltip,
+                          subtitle: 'Alt+Left',
+                          icon: PixIcon.pix_arrow_left2,
+                          color: Colors.brown,
+                        ),
                         Container(
                           decoration: BoxDecoration(
                             color: Color(0xFFFAFAFC).withOpacity(0.5),
@@ -175,15 +177,6 @@ class _SettingsState extends State<Settings> {
                                 icon: PixIcon.pix_search,
                                 color: Colors.blueAccent,
                               ),
-                              kIsWeb
-                                  ? Container()
-                                  : _SettingsShort(
-                                      title: MaterialLocalizations.of(context)
-                                          .backButtonTooltip,
-                                      subtitle: 'Alt+Left',
-                                      icon: PixIcon.pix_arrow_left2,
-                                      color: Colors.brown,
-                                    ),
                               _SettingsShort(
                                 title: "What's New in IME ",
                                 subtitle: 'Ctrl+N',
@@ -281,9 +274,9 @@ class _SettingsState extends State<Settings> {
       themeChildren.add(InkWell(
         onTap: () {
           setState(() {
-            Provider.of<ThemeProvide>(context,listen: false).changeTheme(i);
+            Provider.of<ThemeProvide>(context, listen: false).changeTheme(i);
             SystemChrome.setSystemUIOverlayStyle(
-                Provider.of<ThemeProvide>(context,listen: false).overlayStyle);
+                Provider.of<ThemeProvide>(context, listen: false).overlayStyle);
             FlutterStatusbarcolor.setStatusBarColor(Colors.primaries[i][700]);
             SpUtil.setThemeIndex(i);
           });
@@ -291,11 +284,13 @@ class _SettingsState extends State<Settings> {
         child: WidgetAnimator(
           Card(
             child: Container(
-              width: context.isTablet?60:55,
-              height: context.isTablet?60:55,
+              width: context.isTablet ? 60 : 55,
+              height: context.isTablet ? 60 : 55,
               decoration: BoxDecoration(
                 color: Colors.primaries[i][700],
-                border: Provider.of<ThemeProvide>(context,listen: false).themeIndex == i
+                border: Provider.of<ThemeProvide>(context, listen: false)
+                            .themeIndex ==
+                        i
                     ? _currentThemeBorder
                     : null,
               ),
@@ -305,8 +300,12 @@ class _SettingsState extends State<Settings> {
       ));
     }
     return ExpansionTile(
-      tilePadding:  EdgeInsets.symmetric(vertical: context.isTablet?15:10, horizontal: context.isTablet?15:10),
-      childrenPadding:  EdgeInsets.symmetric(vertical: context.isTablet?15:10, horizontal: context.isTablet?15:10),
+      tilePadding: EdgeInsets.symmetric(
+          vertical: context.isTablet ? 15 : 10,
+          horizontal: context.isTablet ? 15 : 10),
+      childrenPadding: EdgeInsets.symmetric(
+          vertical: context.isTablet ? 15 : 10,
+          horizontal: context.isTablet ? 15 : 10),
       leading: FaIcon(FontAwesomeIcons.palette),
       title: Text(
         S.current.chooseTheme,
@@ -354,9 +353,13 @@ class _SettingsShort extends StatelessWidget {
   Widget build(BuildContext context) {
     return WidgetAnimator(
       ListTile(
-        title: SingleChildScrollView(scrollDirection: Axis.horizontal,
+        title: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
           child: Row(
-            children: [FaIcon(icon, color: color.withOpacity(0.4)), Text(title)],
+            children: [
+              FaIcon(icon, color: color.withOpacity(0.4)),
+              Text(title)
+            ],
           ),
         ),
         trailing: Chip(

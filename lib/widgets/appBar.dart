@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class QnAppBar extends StatelessWidget with PreferredSizeWidget {
   final String title;
@@ -25,17 +24,23 @@ class QnAppBar extends StatelessWidget with PreferredSizeWidget {
       centerTitle: true,
       backwardsCompatibility: false,
       backgroundColor: color,
-      leading: isDesktop
-          ? null
-          : IconButton(
-              icon: FaIcon(locale.languageCode == 'ar'
-                  ? FontAwesomeIcons.angleRight
-                  : FontAwesomeIcons.angleLeft),
-              onPressed: Get.back,
-              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-            ),
+      leading: Shortcuts(
+        shortcuts: <LogicalKeySet, Intent>{
+          LogicalKeySet(LogicalKeyboardKey.alt, LogicalKeyboardKey.arrowLeft):
+              const ButtonActivateIntent(),
+        },
+        child: isDesktop
+            ? BackButton()
+            : IconButton(
+                key: const ValueKey('Exit'),
+                icon: FaIcon(locale.languageCode == 'ar'
+                    ? FontAwesomeIcons.angleRight
+                    : FontAwesomeIcons.angleLeft),
+                onPressed: Get.back,
+                tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+              ),
+      ),
       elevation: 0,
-      // automaticallyImplyLeading: isDesktop,
     );
   }
 

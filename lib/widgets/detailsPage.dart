@@ -4,8 +4,6 @@ import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:islam_made_easy/widgets/page_decoration.dart';
 
-ContainerTransitionType _transitionType = ContainerTransitionType.fade;
-
 class DetailsPage extends StatefulWidget {
   final List<Widget> data;
   final String title;
@@ -58,15 +56,21 @@ class _DetailsPageState extends State<DetailsPage> {
       appBar: AppBar(
         title: Text(widget.barTitle),
         elevation: 0,
-        leading: isDesktop
-            ? null
-            : IconButton(
-                icon: FaIcon(ar
-                    ? FontAwesomeIcons.angleRight
-                    : FontAwesomeIcons.angleLeft),
-                onPressed: Get.back,
-                tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-              ),
+        leading: Shortcuts(
+          shortcuts: <LogicalKeySet, Intent>{
+            LogicalKeySet(LogicalKeyboardKey.alt, LogicalKeyboardKey.arrowLeft):
+            const ButtonActivateIntent(),
+          },
+          child: isDesktop
+              ? BackButton()
+              : IconButton(
+                  icon: FaIcon(ar
+                      ? FontAwesomeIcons.angleRight
+                      : FontAwesomeIcons.angleLeft),
+                  onPressed: Get.back,
+                  tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+                ),
+        ),
         actions: [
           IconButton(
               icon: FaIcon(
@@ -267,7 +271,10 @@ class OpenContainerWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return WidgetAnimator(
       OpenContainer<bool>(
-        transitionType: _transitionType,
+        transitionType: ContainerTransitionType.fade,closedElevation: 0,
+        closedShape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(0)),
+        ),
         openBuilder: (context, openContainer) => DetailsPage(
             title: title, data: data, barTitle: barTitle, image: image),
         tappable: false,openColor: Theme.of(context).backgroundColor,
