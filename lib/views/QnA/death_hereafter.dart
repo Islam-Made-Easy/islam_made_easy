@@ -16,14 +16,14 @@ class _DeathHereafterState extends State<DeathHereafter> {
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           children: [
-            ChipWidget(
-                FaIcon(FontAwesomeIcons.dotCircle), SettingsTitle(title: '')),
+            TitleHeader(text: 'Grave & Graveyard'),
             SizedBox(height: 5),
             InfoCard(quest: S.current.deathQ1, answers: [
               ViewText(data: S.current.deathA1Par1),
               ViewText(data: S.current.deathA1Par2),
             ]),
             SizedBox(height: 5),
+            TitleHeader(text: 'Dua & Adhkar'),
             InfoCard(quest: S.current.deathQ2, answers: [
               ViewText(data: S.current.deathA2Par1),
               ViewText(data: S.current.deathA2Par2),

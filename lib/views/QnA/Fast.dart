@@ -19,6 +19,7 @@ class _FastState extends State<Fast> {
             vertical: isDesktop ? 22 : 8,
           ),
           children: [
+            TitleHeader(text: 'Breaking Fast'),
             InfoCard(
               quest: S.current.fastQ1,
               answers: [
@@ -28,6 +29,7 @@ class _FastState extends State<Fast> {
                 ViewText(data: S.current.fastA1par4),
               ],
             ),
+            TitleHeader(text: 'Prohibitions'),
             SizedBox(height: 10),
             InfoCard(
               quest: S.current.fastQ2,
@@ -41,20 +43,22 @@ class _FastState extends State<Fast> {
                 ViewText(data: S.current.fastA2par7),
               ],
             ),
+            TitleHeader(text: 'Rewards'),
             SizedBox(height: 10),
             InfoCard(quest: S.current.fastQ3, answers: [
               ViewText(data: S.current.fastA3par1),
               ViewText(data: S.current.fastA3par2),
             ]),
             SizedBox(height: 10),
-            InfoCard(quest: S.current.fastQ4, answers: [
-              ViewText(data: S.current.fastA4par1),
-              ViewText(data: S.current.fastA4par2),
-            ]),
-            SizedBox(height: 10),
             InfoCard(quest: S.current.fastQ5, answers: [
               ViewText(data: S.current.fastA5par1),
               ViewText(data: S.current.fastA5par2),
+            ]),
+            TitleHeader(text: 'Fasting Period'),
+            SizedBox(height: 10),
+            InfoCard(quest: S.current.fastQ4, answers: [
+              ViewText(data: S.current.fastA4par1),
+              ViewText(data: S.current.fastA4par2),
             ]),
             SizedBox(height: 10),
             InfoCard(quest: S.current.fastQ6, answers: [

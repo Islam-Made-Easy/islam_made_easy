@@ -135,15 +135,37 @@ class DesktopButton extends StatelessWidget {
     );
   }
 }
+class TitleHeader extends StatelessWidget {
+  final String text;
 
-class SettingsTitle extends StatelessWidget {
-  final String title;
-
-  const SettingsTitle({Key key, @required this.title}) : super(key: key);
+  const TitleHeader({Key key, this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: EdgeInsets.fromLTRB(6, 8, 6, 8), child: Text(title));
+    final theme = Theme.of(context);
+    return Container(
+      child: Column(
+        children: [
+          Text(text,
+              style: Theme.of(context)
+                  .primaryTextTheme
+                  .subtitle1
+                  .copyWith(fontWeight: FontWeight.w500)),
+        ],
+      ),
+      padding: const EdgeInsets.all(12),
+      width: MediaQuery.of(context).size.width - 40,
+      decoration: BoxDecoration(
+        color: theme.primaryColorLight,
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: Color(0xFF3A5160).withOpacity(0.2),
+            offset: Offset(1.1, 1.1),
+            blurRadius: 10.0,
+          ),
+        ],
+      ),
+    );
   }
 }
