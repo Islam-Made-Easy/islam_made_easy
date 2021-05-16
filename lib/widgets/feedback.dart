@@ -1,6 +1,6 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/page_decoration.dart';
-import 'package:email_validator/email_validator.dart';
+
 import 'anim/anim.dart';
 
 void showFeedbackDialog({@required BuildContext context, bool isPanelVisible}) {
@@ -33,7 +33,7 @@ class _AppFeedbackState extends State<AppFeedback> {
       FeedbackServices fdServices = FeedbackServices();
       Get.snackbar(
         'Submitting...',
-        'Please wait while your feedback is being transmitted',
+        'Please wait while your feedback is being submitted',
         instantInit: true,
         maxWidth: 200,
         showProgressIndicator: true,
@@ -44,10 +44,9 @@ class _AppFeedbackState extends State<AppFeedback> {
       fdServices.submitForm(fdModel, (String response) {
         print("Response: $response");
         if (response == FeedbackServices.STATUS_SUCCESS) {
-          // Feedback is saved succesfully in Google Sheets.
           Get.snackbar('Submitted',
               'Your Feedback is successfully submitted, Jazakumullahu Khayran!!');
-          name.clear();email.clear();feed.clear();
+          name.clear(); email.clear(); feed.clear();
         } else {
           Get.snackbar('An Error Occurred!', 'Please try later');
         }
@@ -90,44 +89,59 @@ class _AppFeedbackState extends State<AppFeedback> {
               ),
               children: [
                 Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(color: Colors.transparent),
-                    child: SizedBox(
-                      child: TyperAnimatedTextKit(
-                        isRepeatingAnimation: false,
-                        text: [
+                  width: double.infinity,
+                  decoration: BoxDecoration(color: Colors.transparent),
+                  child: SizedBox(
+                    child: DefaultTextStyle(
+                      style: TextStyle(
+                          fontSize: isDesktop || context.isTablet ? 26.0 : 22),
+                      child: AnimatedTextKit(animatedTexts: [
+                        TyperAnimatedText(
                           isDesktop
                               ? "Assalam'alaikum warahmatullah Wabarakatuh,"
                               : "Assalam'alaikum warahmatullahو",
-                          "Welcome to IME Feedback Center",
-                        ],
-                        textStyle: TextStyle(
-                            fontSize:
-                                isDesktop || context.isTablet ? 26.0 : 22),
-                      ),
-                    )),
+                        ),
+                        TyperAnimatedText("Welcome to IME Feedback Center"),
+                      ]),
+                    ),
+                  ),
+                ),
                 Text(
                   "We can't wait to get your feedback on our application, tell ideas, request a feature or send an applause.",
                   style: theme.textTheme.headline6,
                 ),
                 SizedBox(height: 10),
                 InputContainer(
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return "Name can't be empty";
+                    } else if (value.length < 3) {
+                      return "Name is too short";
+                    } else if (value.length > 32) {
+                      return "Name is too long";
+                    } else {
+                      return null;
+                    }
+                  },
+                  inputType: TextInputType.name,
+                  controller: name,
+                  decoration: InputDecoration(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    hintText: 'Enter your name',
+                    labelText: 'Name',
+                  ),
+                ),
+                InputContainer(
                     validator: (value) {
                       if (value.isEmpty) {
-                        return "Name can't be empty";
+                        return "Email can't be empty";
+                      } else if (!value.isEmail) {
+                        return "Please enter a valid email";
                       } else {
                         return null;
                       }
                     },
-                    inputType: TextInputType.name,
-                    controller: name,
-                    decoration: InputDecoration(
-                        contentPadding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                        hintText: 'Enter your name',
-                        labelText: 'Name')),
-                InputContainer(
-		    validator: (value) => EmailValidator.validate(value) ? null : "Please enter a valid email",
                     inputType: TextInputType.emailAddress,
                     controller: email,
                     decoration: InputDecoration(
@@ -139,6 +153,8 @@ class _AppFeedbackState extends State<AppFeedback> {
                     validator: (value) {
                       if (value.isEmpty) {
                         return "Feedback can't be empty";
+                      } else if (value.length > 200) {
+                        return "Make it short and concise";
                       } else {
                         return null;
                       }
@@ -171,11 +187,13 @@ class InputContainer extends StatelessWidget {
   final TextEditingController controller;
   final InputDecoration decoration;
   final TextInputType inputType;
-final String Function(String) validator;
+  final String Function(String) validator;
+
   const InputContainer(
       {Key key,
       @required this.decoration,
-      @required this.controller,this.validator,
+      @required this.controller,
+      this.validator,
       @required this.inputType})
       : super(key: key);
 
