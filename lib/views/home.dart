@@ -1,10 +1,7 @@
-import 'package:islam_made_easy/settings/settings.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/desktopNav.dart';
-import 'package:islam_made_easy/widgets/feedback.dart' as feed;
-import 'package:islam_made_easy/widgets/feedback.dart';
 import 'package:islam_made_easy/widgets/panels/nav_panel.dart';
-import 'about.dart' as about;
+import 'package:islam_made_easy/widgets/popup_menu.dart';
 
 class Home extends StatefulWidget {
   static const ROUTE_NAME = "/home";
@@ -64,9 +61,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             child: Material(
               elevation: 0.0,
               color: Theme.of(context).backgroundColor,
-              // borderRadius: BorderRadius.only(
-              //     topLeft: Radius.circular(isPanelVisible ? 0.0 : 10),
-              //     topRight: Radius.circular(isPanelVisible ? 0.0 : 10)),
               child: Column(
                 children: <Widget>[Expanded(child: Center(child: MainPanel()))],
               ),
@@ -97,26 +91,22 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               backgroundColor: theme,
               appBar: AppBar(
                 elevation: 0,
+                toolbarHeight: 40,
                 backgroundColor: Colors.transparent,
                 leading: IconButton(
                   onPressed: () {
                     double velocity = 2.0;
                     controller.fling(
                         velocity: isPanelVisible ? -velocity : velocity);
-                  },splashRadius: 10,
+                  },
+                  splashRadius: 10,
                   icon: AnimatedIcon(
                     icon: AnimatedIcons.close_menu,
                     size: 30,
                     progress: controller.view,
                   ),
                 ),
-                actions: [
-                  PopupMenuButton<MenuItem>(enableFeedback: true,
-                      onSelected: (item) => onSelected(context, item),color: isPanelVisible?Color(0xffffffff):Theme.of(context).hoverColor,elevation: 0,
-                      itemBuilder: (context) => [
-                            ...MenuItems.itemsFirst.map(buildItem).toList(),
-                          ]),
-                ],
+                actions: [PopupOptionMenu(isVisible: isPanelVisible)],
               ),
               body: LayoutBuilder(builder: bothPanels),
             ),
@@ -126,83 +116,4 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       );
     }
   }
-
-  PopupMenuItem<MenuItem> buildItem(MenuItem item) => PopupMenuItem<MenuItem>(
-        value: item,
-        child: Row(
-          children: [
-            FaIcon(item.icon, color: Theme.of(context).buttonColor),
-            const SizedBox(width: 10),
-            Text(item.text),
-          ],
-        ),
-      );
-
-  void onSelected(BuildContext context, MenuItem item) {
-    Locale locale = Localizations.localeOf(context);
-    final isDesktop = isDisplayDesktop(context);
-    final ar = locale.languageCode == 'ar';
-    switch (item) {
-      case MenuItems.itemSetting:
-        Get.to(() => Settings());
-        break;
-      case MenuItems.itemShare:
-        about.showAboutDialog(context: context);
-        break;
-      case MenuItems.itemFeedback:
-        isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
-            ? Get.dialog(
-                Align(
-                  alignment: ar ? Alignment.centerLeft : Alignment.centerRight,
-                  child: Container(
-                    height: double.infinity,
-                    width: MediaQuery.of(context).size.width / 2,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFAFAFC),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(ar ? 0 : 20),
-                        bottomRight: Radius.circular(ar ? 20 : 0),
-                        bottomLeft: Radius.circular(ar ? 0 : 20),
-                        topRight: Radius.circular(ar ? 20 : 0),
-                      ),
-                    ),
-                    child: AppFeedback(),
-                  ),
-                ),
-                transitionDuration:
-                    DelayUI(Duration(milliseconds: 1000)).duration,
-                transitionCurve: Curves.easeIn)
-            : feed.showFeedbackDialog(
-                context: context, isPanelVisible: isPanelVisible);
-        break;
-    }
-  }
-}
-
-class MenuItem {
-  final String text;
-  final IconData icon;
-
-  const MenuItem({this.text, this.icon});
-}
-
-class MenuItems {
-  static const List<MenuItem> itemsFirst = [
-    itemSetting,
-    itemShare,
-    itemFeedback
-  ];
-  static const itemSetting = MenuItem(
-    text: 'Settings',
-    icon: FontAwesomeIcons.cog,
-  );
-  static const itemShare = MenuItem(
-    text: 'About',
-    icon: PixIcon.pix_info,
-  );
-
-  static const itemFeedback = MenuItem(
-    text: 'Feedback',
-    icon: FontAwesomeIcons.comment,
-  );
 }

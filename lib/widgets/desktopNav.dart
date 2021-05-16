@@ -1,8 +1,8 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
+import 'package:islam_made_easy/widgets/popup_menu.dart';
 
 import 'anim/ime_nav.dart';
 import 'anim/shared_switcher.dart';
-import 'feedback.dart';
 import 'navHeader.dart';
 
 class DesktopNav extends StatefulWidget {
@@ -177,34 +177,13 @@ class _DesktopNavState extends State<DesktopNav>
                                 child: GestureDetector(
                                   onTapDown: _tapDown,
                                   onTap: () {
-                                    Get.dialog(
-                                      Align(
-                                        alignment: ar
-                                            ? Alignment.centerLeft
-                                            : Alignment.centerRight,
-                                        child: Container(
-                                          height: double.infinity,
-                                          width: MediaQuery.of(context)
-                                                  .size.width / 2,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFAFAFC),
-                                            borderRadius: BorderRadius.only(
-                                              topLeft:
-                                                  Radius.circular(ar ? 0 : 20),
-                                              bottomRight:
-                                                  Radius.circular(ar ? 20 : 0),
-                                              bottomLeft:
-                                                  Radius.circular(ar ? 0 : 20),
-                                              topRight:
-                                                  Radius.circular(ar ? 20 : 0),
-                                            ),
-                                          ),
-                                          child: AppFeedback(),
-                                        ),
-                                      ),
-                                      transitionDuration: delay.duration,
-                                      transitionCurve: Curves.easeIn,
-                                    );
+                                    Get.dialog(FeedDialog(ar: ar),
+                                        transitionDuration: delay.duration,
+                                        transitionCurve: Curves.easeIn,
+                                        barrierColor: Theme.of(context)
+                                            .primaryColor
+                                            .withOpacity(0.05),
+                                        name: 'Feedback Dialog');
                                   },
                                   onTapUp: _tapUp,
                                   child: Transform.scale(
