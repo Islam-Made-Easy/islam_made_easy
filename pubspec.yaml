@@ -87,7 +87,6 @@ dependencies:
   firebase:
   better_player: ^0.0.13
   gsheets: ^0.3.0
-  email_validator:
   statsfl:
   starflut:
 dev_dependencies:
@@ -118,7 +117,6 @@ flutter:
   - assets/md/
   - assets/icons/
   - assets/daily/
-  - assets/videos/
 flutter_intl:
   enabled: true
   fonts:
@@ -136,3 +134,9 @@ flutter_intl:
     fonts:
     - asset: assets/fonts/Quattrocento-Regular.ttf
     - asset: assets/fonts/Quattrocento-Bold.ttf
+  - family: Roboto
+    fonts:
+      - asset: assets/fonts/Roboto-Regular.ttf
+      - asset: assets/fonts/Roboto-Light.ttf
+      - asset: assets/fonts/Roboto-Thin.ttf
+      - asset: assets/fonts/Roboto-Bold.ttf
