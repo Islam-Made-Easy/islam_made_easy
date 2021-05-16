@@ -23,48 +23,33 @@ class AppRoute extends NavigatorObserver {
   Map<String, WidgetBuilder> get routes => _routes;
 
   Route<dynamic> generateRoute(RouteSettings settings) {
-    MaterialPageRoute targetPage;
+    MaterialPageRoute page;
     if (settings.name == Home.ROUTE_NAME) {
-      targetPage = MaterialPageRoute(
-        settings: settings,
-        builder: (context) {
-          return Home();
-        },
-      );
+      page =
+          MaterialPageRoute(settings: settings, builder: (context) => Home());
     } else if (settings.name == QnA.ROUTE_NAME) {
       // final String args = settings.arguments;
-      targetPage = MaterialPageRoute(
-        settings: settings,
-        builder: (context) {
-          return QnA();
-        },
-      );
+      page = MaterialPageRoute(settings: settings, builder: (context) => QnA());
     } else if (settings.name == Settings.ROUTE_NAME) {
-      targetPage = MaterialPageRoute(
+      page = MaterialPageRoute(
         settings: settings,
-        builder: (context) {
-          return Settings();
-        },
+        builder: (context) => Settings(),
       );
     } else if (settings.name == Succinct.ROUTE_NAME) {
-      targetPage = MaterialPageRoute(
+      page = MaterialPageRoute(
         settings: settings,
-        builder: (context) {
-          return Succinct();
-        },
+        builder: (context) => Succinct(),
       );
     } else if (settings.name == Prerequisite.ROUTE_NAME) {
-      targetPage = MaterialPageRoute(
+      page = MaterialPageRoute(
         settings: settings,
-        builder: (context) {
-          return Prerequisite();
-        },
+        builder: (context) => Prerequisite(),
       );
     }
-    return targetPage ??
-        MaterialPageRoute(builder: (context) {
-          return RouteErrorPage(route: settings.name);
-        });
+    return page ??
+        MaterialPageRoute(
+          builder: (context) => RouteErrorPage(route: settings.name),
+        );
   }
 
   @override
