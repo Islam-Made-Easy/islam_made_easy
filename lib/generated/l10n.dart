@@ -15,12 +15,12 @@ import 'intl/messages_all.dart';
 class S {
   S();
 
-  static S? _current;
+  static S _current;
 
   static S get current {
     assert(_current != null,
         'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
-    return _current!;
+    return _current;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
@@ -43,10 +43,10 @@ class S {
     final instance = S.maybeOf(context);
     assert(instance != null,
         'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
-    return instance!;
+    return instance;
   }
 
-  static S? maybeOf(BuildContext context) {
+  static S maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
 
