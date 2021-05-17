@@ -72,7 +72,7 @@ All success is from Allāh, while all mistakes are from the author.
 
 ## The sources of the religion
 
-Al-Islām is built upon two primary sources [ Among the legislative sources of Islām are also the ijmā’ (agreement of the Muslims) and the *qiyās* (analogy based on other evidences from the Qurān and *Sunnah*). The statements and the beliefs of the *Sahābah* (رضي‬ الله عنهم‬) are furthermore considered to be a part of the *Sunnah* itself, since it is not claimed that they would speak about the religion from themselves, rather they would only speak based on what they knew from the Messenger of Allāh (ﷺ). ] , 
+Al-Islām is built upon two primary sources [ Among the legislative sources of Islām are also the ijmā’ (agreement of the Muslims) and the *qiyās* (analogy based on other evidences from the Qurān and *Sunnah*). The statements and the beliefs of the *Sahābah* (رضي الله عنهم) are furthermore considered to be a part of the *Sunnah* itself, since it is not claimed that they would speak about the religion from themselves, rather they would only speak based on what they knew from the Messenger of Allāh (ﷺ). ] , 
 and that is the Qurān and the *Sunnah*. Everything which does not have its foundation in any of these two, then it is misguidance and rejected for the one who believes in it.
 
    **But can anyone understand the Qurān and the *Sunnah* as he wishes or desires? The answer is no.**
@@ -92,22 +92,22 @@ And the Messenger of Allāh (ﷺ) said:
 
 ***"The best people are those of my generation, then those who come after them, then those who come after them."*** (Sahīh Al-Bukhārī and Sahīh Muslim)
      
-The generation of the Messenger of Allāh (ﷺ) is the ***Sahābah*** (رضي‬ الله عنهم‬) who lived with and saw the Messenger of Allāh (ﷺ). They understood the Qurān and the *Sunnah* best, because they lived during its
+The generation of the Messenger of Allāh (ﷺ) is the ***Sahābah*** (رضي الله عنهم) who lived with and saw the Messenger of Allāh (ﷺ). They understood the Qurān and the *Sunnah* best, because they lived during its
 revelation, they experienced the scenarios which it spoke of and they are those who were closest to the Messenger of Allāh (ﷺ), asking him questions, hearing his speech and seeing his deeds.
 
-The generation after them is the ***tābi’ūn*** (the followers) who are those who learned from the *Sahābah* (رضي‬ الله عنهم‬). Thus their status in the religion is based upon them learning from the *Sahābah* who learned from the Messenger of Allāh (ﷺ).
+The generation after them is the ***tābi’ūn*** (the followers) who are those who learned from the *Sahābah* (رضي الله عنهم). Thus their status in the religion is based upon them learning from the *Sahābah* who learned from the Messenger of Allāh (ﷺ).
 
 The generations after them is the ***tābi’ at-tābi’īn*** (the followers of the followers) who are
-those who learned from the followers of the *Sahābah* (رضي‬ الله عنهم‬). Thus their status in the religion is based upon them learning from the tābi’ūn, who learned from the *Sahābah* who learned from the Messenger of Allāh (ﷺ).
+those who learned from the followers of the *Sahābah* (رضي الله عنهم). Thus their status in the religion is based upon them learning from the tābi’ūn, who learned from the *Sahābah* who learned from the Messenger of Allāh (ﷺ).
 
 These are the three generations whom the Messenger of Allāh (ﷺ) has described as the best of generations from this Ummah, and they are our ***Salaf*** (predecessors). So whoever wants to follow that which Allāh is pleased with and love, he
 must follow these three generations in their religion, whose sources are directly from the Qurān and *Sunnah*. Because there will never be any people after them who are better.
 
-Anas Ibn Mālik (رضي‬ الله عنه‬) said:
+Anas Ibn Mālik (رضي الله عنه) said:
 
 *"Have patience. Because verily there will not come a time upon you, except that (the time) after it is worse than it. Until you meet you Lord. I heard that from your Prophet (ﷺ)."* (Sahīh Al-Bukhārī)
  
-And ‘Abdullāh ibn Mas’ūd (رضي‬ الله عنه‬) said: 
+And ‘Abdullāh ibn Mas’ūd (رضي الله عنه) said: 
 
 *"There is no year except that the year after it is worse than it. I am not speaking about one year which has more rain than another, nor a year which is more fertile than another, nor a leader which
 is better than another leader. Rather (I am speaking about) the disappearance of the best people among you and your scholars, and then a people will emerge who measure the affairs according to 
@@ -137,7 +137,7 @@ Abū Bakr Al-Ājurrī (d. 320h) gathered the meaning of what have been mentioned
      the Qurān fifteen years before they did what they did. And be aware of these desires (i.e. innovations) which cause enmity and hatred among the people.’ He said: ‘So I narrated it (i.e. these
      words) to Al-Hasan, so he said: ‘He has spoken the truth and given a good advice.’ And I narrated it to Hafsah bint Sīrīn, so she said: ‘O my son, have you narrated this to Muhammad (ibn Sīrīn)?’
      So I said: ‘No.’ So she said: ‘Then narrate it to him.’’ And Muhammad ibn Al-Hasan said: ‘The sign of the one whom Allāh wants good for is: Traversing this Path: The Book of Allāh, the Sunan
-     of the Messenger of Allāh (ﷺ), the Sunan (i.e. narrations) from his Companions (رضي‬ الله عنم‬) and those who followed them in goodness, and that which the
+     of the Messenger of Allāh (ﷺ), the Sunan (i.e. narrations) from his Companions (رضي الله عنم) and those who followed them in goodness, and that which the
      aimmah (leaders) of the Muslims in all countries were upon, until the end of what there was of scholars. Such as Al-Awzā’ī, Sufyān Ath-Thawrī, Mālik ibn Anas, Ash-Shāfi’ī, Ahmad ibn Hanbal,
      Al-Qāsim ibn Salām, and whoever were upon the same path as them. And avoiding every madhhab (way, path, opinion) which these scholars have criticized."* (Ash-Sharī’ah by Al-Ājurrī 1/301)
      
@@ -165,14 +165,14 @@ Abū Bakr Al-Ājurrī (d. 320h) gathered the meaning of what have been mentioned
  And Abū Al-Qāsim Al-Lālakāī (d. 418h) said:
  
    *"I use as evidence for the madhāhib (pl. madhhab) of Ahlus-Sunnah that which is mentioned in the Book of Allāh – the Exalted – regarding it, and that which is narrated from the Messenger of Allāh (ﷺ) . So if I find something in both of them, then I mention it all. And if I find something in only one of them without the other, then I mention that. And if I don’t find
-     anything regarding it except from the Sahābah (رضي‬ الله عنهم‬); those whom Allāh and His Messenger has ordered to take as an example, and to follow their words, and to seek light from their
+     anything regarding it except from the Sahābah (رضي الله عنهم); those whom Allāh and His Messenger has ordered to take as an example, and to follow their words, and to seek light from their
      lights, due to them testifying the revelation and their knowledge regarding the meaning of the interpretations, then I use that as evidence. But if there is no narration regarding it from a
      companion, then from those who followed them in goodness; those in whose words there is a cure and guidance. And worshipping Allāh with their opinion is nearness to Allāh and closeness (to
      Him). So if we see that they agreed upon something then we rely on it. And whoever’s opinion they criticized, or they refuted his bid’ah (innovation) or they declared takfīr upon him, then we will
      judge with that and believe in it. And there continue to be, from the Messenger of Allāh (ﷺ) until this day of ours, a people who protect this way and take it as their religion.
      And verily is the person destroyed who turns away from this path, due to his ignorance regarding the path of following (the narrations)."* (Usūl I’tiqād Ahlus-Sunnah by Al-Lālakāī 1/27)
      
-So these are the words from Allāh the Exalted, His Messenger (ﷺ), the *Sahābah* (رضي‬ الله عنهم‬) and the scholars of Islām which all points to, that the
+So these are the words from Allāh the Exalted, His Messenger (ﷺ), the *Sahābah* (رضي الله عنهم) and the scholars of Islām which all points to, that the
 religion is what has come in the Qurān and the *Sunnah*, according to the understanding of the *Salaf*. And that is a path of submitting to and following the evidences and narrations.
 
 May Allāh make us from them. *Āmīn*.
@@ -245,13 +245,13 @@ And His – the Exalted – words:
 
 What easily can be understood from these verses – and that which is already known by mankind through the *fitrah* (natural disposition) – is that Allāh demands from His creation that they worship Him alone, and do not associate any partners with Him the Exalted.
 
-Mu’ādh ibn Jabal (رضي‬ الله عنه‬) said:
+Mu’ādh ibn Jabal (رضي الله عنه) said:
 
 ***"I said: ‘O Messenger of Allāh, tell me of an act which will take me into Paradise and will keep me away from Hell fire.’ He said: ‘You have asked me about a major matter, yet it is
 easy for him for whom Allāh Almighty makes it easy. You should worship Allāh, and not associate anything with Him (in worship), you should perform the prayers, you should
 pay the zakāt, you should fast in Ramadān, and you should make the pilgrimage to the House.’"*** (Sunan At-Tirmidhī – *sahīh*)
 
-And ’Abdullāh ibn ‘Amr (رضي‬ الله عنه‬) narrated that the Prophet (ﷺ) said:
+And ’Abdullāh ibn ‘Amr (رضي الله عنه) narrated that the Prophet (ﷺ) said:
 
 ***"Whoever meets Allāh without having associated partners with Him (in worship), then with that (being fulfilled) no mistake (or sin) will harm him. And whoever dies while he
 has associating something with Him (in worship), then no good deed will benefit along with that."*** (Narrated by Imām Ahmad – Its *isnād* is correct according to the conditions of Al-Bukhārī and Muslim)
@@ -438,7 +438,7 @@ And He – the Exalted – said:
 
 **“And whoever invokes** (or worships), **besides Allāh, any other ilāh** (deity), **of whom he has no proof, then his reckoning is only with his Lord. Verily the *kāfirūn*** (the disbelievers) **will not be successful.”** (Al-Muminūn 23:117)
   
-And the Messenger of Allāh (ﷺ) also testified that whoever dies upon *shirk,* he will enter Hellfire. And no-one enters Hellfire forever except a *kāfir.* ‘Abdullāh ibn Mas’ūd (رضي‬ الله عنه‬) said:
+And the Messenger of Allāh (ﷺ) also testified that whoever dies upon *shirk,* he will enter Hellfire. And no-one enters Hellfire forever except a *kāfir.* ‘Abdullāh ibn Mas’ūd (رضي الله عنه) said:
 
 **"*The Prophet (ﷺ) said one thing, and I said another thing. The Prophet (ﷺ) said: ‘Wheoever dies, and he is invoking a rival besides Allāh, he will enter Hellfire.’ And I said: ‘Whoever dies, and he does not invoke a rival with Allāh, he will enter Paradise."*** (Sahīh Al-Bukhārī)
   
@@ -478,7 +478,7 @@ In both of these verses Allāh gives the name *mushrik* to those who ascribe par
 the Messenger (ﷺ). So if these people were not excused how can anyone claim that a person who claims to be a Muslim, recites the Qurān, mentions the
 ahādīth and lives among the Muslims, is entitled to being excused when Allāh did not excuse those whom the Book and Messenger did not reach yet?
 
-Furthermore the Prophet (ﷺ) said in a sahīh hadīth narrated by Abū Hurayrah (رضي‬ الله عنه‬):
+Furthermore the Prophet (ﷺ) said in a sahīh hadīth narrated by Abū Hurayrah (رضي الله عنه):
 
 ***"By the One whose Hand Muhammad’s soul is in, no-one from this Ummah, neither a Jew nor a Christian hears about me, and then do not believe in what I have been sent with, except that he is from the people of the fire."*** (Sahīh Muslim)
    
@@ -503,7 +503,7 @@ And He – the Exalted – said:
 
 **“Verily Allāh does not forgive that partners are associated with Him** (in worship), **and He forgives whatever is besides that for whoever He wills. And whoever commit *shirk* with Allāh, then he has verily gone far astray.”** (An-Nisa 4:116)
   
-And the Prophet (ﷺ) said in a sahīh hadīth narrated by Abū Hurayrah (رضي‬ الله عنه‬):
+And the Prophet (ﷺ) said in a sahīh hadīth narrated by Abū Hurayrah (رضي الله عنه):
 
 ***"(On Judgment Day) a caller will call: ‘Verily every Ummah must follow what it used to worship (in dunyā).’ So the shayātīn, the cross and their awliyā are followed to Hellfire.
   And we will remain, O you believers. Then our Lord will come to us and say: ‘Upon what are these?’ So we will say: ‘We are the slaves of Allāh the believers. We have believed in
@@ -581,7 +581,7 @@ language. This belief in Allāh is called At-Tawhīd (The Oneness of Allāh). Th
 
 **“Those who believe and do not mix their belief with injustice** (i.e. shirk)**, for those there is safety and they are the rightly guided.”** (Al-An’ām 6:82)
 
-‘Abdullāh ibn Mas’ūd (رضي‬ الله عنه‬) said:
+‘Abdullāh ibn Mas’ūd (رضي الله عنه) said:
 
 *"When the verse: **"Those who believe and do not mix their belief with injustice** (i.e. shirk)**, for those there is safety and they are the rightly guided."** was revealed this was hard
 (to hear) for the Muslims. So they said: ‘O Messenger of Allāh, who of us does not make injustice to himself (by sinning)?’ He said: ‘That is not what is meant. Verily it is shirk. Did you not hear what
@@ -761,19 +761,19 @@ So whoever ascribes anything which is classified as worship in the Islāmic legi
 ## Tawhid *Al-Asmā was-Sifāt* (Tawhīd of Names and Attributes)
 
 Tawhid *Al-Asmā was-Sifāt* is the belief in the descriptions of Allāh which has come in the Qurān and the *ahādīth* from the Messenger of Allāh (ﷺ) and the
-sayings of the *Sahābah* (رضي‬ الله عنهم‬) and those who narrated from them, without denying it, without distorting its meanings, without comparing Allāh with the creation
+sayings of the *Sahābah* (رضي الله عنهم) and those who narrated from them, without denying it, without distorting its meanings, without comparing Allāh with the creation
 and without describing how. Rather a person must believe in what has been described in the way it has been described, and accept the narrations as they have been narrated in
 order to avoid falling in *shirk* or *bida’* (innovation) in this type of Tawhīd. The basis for this, are the words of Allāh – the Exalted – who said:
 
 **“There is nothing like Him, and He is the All-Hearer, the All-Seer.”** (Ash-Shūrā 42:11)
 
-So whatever Allāh or His Messenger (ﷺ) and the *Sahābah* (رضي‬ الله عنهم‬) has informed us about, regarding the description of Allāh, then Allāh is alone in this description and He is not equal to His creation in any of it, even though
+So whatever Allāh or His Messenger (ﷺ) and the *Sahābah* (رضي الله عنهم) has informed us about, regarding the description of Allāh, then Allāh is alone in this description and He is not equal to His creation in any of it, even though
 some words might be used for both Allāh and the slave, such as a *Karīm* (Generous) Lord and a *karīm* (generous) man. Because the generosity of the man is limited to what Allāh
 has given him and dependent upon the decree of Allāh, while the Generosity of Allāh is unlimited, unrestrained and He spends out of His bounty on whom He wants however He wants.
 
 Allāh – the Exalted – said:
 
-**“And the Most Beautiful Names belong to Allāh, so call on Him by them, and leave those who deny** (or utter impious speech against) **His Names. They will be recompensed for what they used to do.” **(Al-A’rāf 7:180)
+**“And the Most Beautiful Names belong to Allāh, so call on Him by them, and leave those who deny** (or utter impious speech against) **His Names. They will be recompensed for what they used to do.”** (Al-A’rāf 7:180)
 
 And He – the Exalted – said:
 
@@ -794,7 +794,7 @@ from His creation) and similar to these things which describe Allāh with attrib
 Then there are other things about Allāh which only can be known through a text from either the Qurān or *Sunnah* or the sayings of the *Sahābah*. These are things such as Allāh
 descending to the lowest heaven every night, Allāh sits, Allāh laughs, Allāh has a flank and a chest, Allāh becomes amazed etc. These are things which can only be known
 through the texts and therefore whoever rejects or is ignorant about these does not become a *kāfir* until the evidence is established upon him. Many of these issues the scholars spoke
-of in their explanation and clarification of the *Sunnah*, which is mentioned in this book under the second testimony of ***Muhammadun Rasūl-Allāh***, due to them being mentioned in the *Sunnah* of the Prophet (ﷺ) or in the words of the* Sahābah* (رضي‬ الله عنهم‬).
+of in their explanation and clarification of the *Sunnah*, which is mentioned in this book under the second testimony of ***Muhammadun Rasūl-Allāh***, due to them being mentioned in the *Sunnah* of the Prophet (ﷺ) or in the words of the* Sahābah* (رضي الله عنهم).
 
 And regarding the Tawhīd of *Al-Asmā was-Sifāt* there are some points which must be understood in order for the slave to fulfill this type of Tawhīd in its desired form and which prove the correct understanding and implementation of this type of Tawhīd.
 
@@ -819,7 +819,7 @@ Ibn Battah (d. 387h) said:
   is upon His Throne separated from His creation and His knowledge encompasses everything, that Allāh is Eternal and has no beginning, no end and (His capabilities, Deeds and Attributes have) no
   boundaries. With His perfect Attributes He has always been knowledgable, speaking, hearing, seeing, alive and forbearing. He knows what will be before it is, and (they agreed) that He
   predestined the destinies before everything was created. And they are in agreement regarding the leadership (after the death of the Prophet (ﷺ)) of Abū Bakr, ‘Umar,
-  ‘Uthmān and ‘Alī (رضي‬ الله عنهم‬), and upon the preference of the two Shaykh (Abū Bakr and ‘Umar) and that the ten are in Paradise will full certainty and no doubt regarding it. And they are
+  ‘Uthmān and ‘Alī (رضي الله عنهم), and upon the preference of the two Shaykh (Abū Bakr and ‘Umar) and that the ten are in Paradise will full certainty and no doubt regarding it. And they are
   in agreement regarding the tarahhum (asking for mercy) upon all the Companions of the Messenger of Allāh (ﷺ) and asking for forgiveness for them, his wives, his children
   and the people of his household, and not mentioning any of these except with good while refraining from and not looking into the disputes between them. So this (i.e. what has been mentioned) and
   what is similar to it is from that which has a long explanation and the people since Allāh sent His Prophet (ﷺ) until this time of ours are in agreement regarding this, in
@@ -880,7 +880,7 @@ Ibn Mājah (d. 273h) narrated:
   
 Imām Ahmad (d. 781h) said:
 
-*"Abū Al-Muthannā Mu’ādh ibn Mu’ādh narrated to us, from Hammād ibn Salamah, from Thābit Al-Bunānī, from Anas ibn Mālik (رضي‬ الله عنه‬) from the Prophet (ﷺ) regarding His – ‘azza wa jalla – words: **"So when his Lord appeared to the mountain
+*"Abū Al-Muthannā Mu’ādh ibn Mu’ādh narrated to us, from Hammād ibn Salamah, from Thābit Al-Bunānī, from Anas ibn Mālik (رضي الله عنه) from the Prophet (ﷺ) regarding His – ‘azza wa jalla – words: **"So when his Lord appeared to the mountain
 He made it collapse to dust."** (Al-A’rāf 7:143) He said: He (ﷺ) said: ***"Like this (i.e. he exposed the tip of the little finger)."*** My father said: ‚Mu’ādh showed us
 how (with his little finger), so Humayd At-Tāwil said to him: ‘Why are you doing like that, O Abū Muhammad?’ He said: So he struck his chest with a hard strike and said: ‘Who are you O Humayd
 and what are you O Humayd? Anas ibn Mālik narrated it to me from the Prophet (ﷺ) and you are saying: Why are you doing that?"* (Musnad Imām Ahmad)
@@ -1132,10 +1132,10 @@ Qatādah (d. 118h) said:
 
 *"I said to the Mother of the believers (‘Āishah): ‘Inform me about the manners (or behaviour) of the Messenger of Allāh (ﷺ).’ She said: ‘Do you not read the Qurān?’ I said: ‘Yes.’ She said: ‘Verily the manners of the Prophet (ﷺ) were the Qurān."* (Sahīh Muslim)
 
-* **To adhere to what the Companions of the Messenger of Allāh (ﷺ) were upon (رضي‬ الله عنهم‬).**
+* **To adhere to what the Companions of the Messenger of Allāh (ﷺ) were upon (رضي الله عنهم).**
 
 This is because they are those who understood him (ﷺ) best. So whoever wants to know how a *hadīth* should be understood and applied, then he should
-go to the sayings of the *Sahābah* (رضي‬ الله عنهم‬) and their students from the *tābi’ūn,* as this previously have been explained in the opening of this book. The Prophet (ﷺ) said:
+go to the sayings of the *Sahābah* (رضي الله عنهم) and their students from the *tābi’ūn,* as this previously have been explained in the opening of this book. The Prophet (ﷺ) said:
 
 The Prophet (ﷺ) said:
 
@@ -1165,7 +1165,7 @@ this might be. That which the *hadīth* states according to how the *Salaf* unde
 
 The *Salaf* would consider it from the principles of the *Sunnah* itself that a person would leave discussion and arguing in the religion, even if the person himself is upon the right
 path. This is once again due to the fact that no-one from the people of *Sunnah* and *Jamā’ah* have ever debated, argued or discussed regarding the *Sunnah*. Rather all of them – from
-the *Sahābah* (رضي‬ الله عنهم‬) and until the end of what was of scholars of the *Salaf* – have submitted to the meaning of the *hadīth* without debating, arguing and discussing, all
+the *Sahābah* (رضي الله عنهم) and until the end of what was of scholars of the *Salaf* – have submitted to the meaning of the *hadīth* without debating, arguing and discussing, all
 while following the above mentioned principles. This religion is based upon submission – thus the name Al-Islām (Submission) – and therefore contradicting this by indulging in
 discussions and arguing is an innovation not performed by the *Salaf.* Furthermore opening the door to discussing and debating the meaning of the *ahādīth* only opens the door to
 misguidance and mistakes, while submitting and remaining quiet is the way of staying safe.
@@ -1178,7 +1178,7 @@ the religion."* (Usūl As-Sunnah by Imām Ahmad – the *riwāyah* of ‘Abdūs)
 
 ## That which opposes the *Sunnah*
 
-Everything which opposes the *Sunnah* is a bid’ah (innovation). The only disagreement in the religion which is allowed is that in which the *Sahābah* (رضي‬ الله عنهم‬) disagreed in.
+Everything which opposes the *Sunnah* is a bid’ah (innovation). The only disagreement in the religion which is allowed is that in which the *Sahābah* (رضي الله عنهم) disagreed in.
 It is not allowed for anyone to come with an opinion or a verdict in the religion which oppose that which has been narrated in the *hadīth* and oppose the opinion regarding it narrated from the *Salaf.*
 
 So everyone who falls in this mistake have fallen in innovation whether he likes it or not. The innovation in the religion is of two types:
@@ -1202,7 +1202,7 @@ And following are some of the tools which the innovators use to justify their in
 ## The methodologies of innovation
 
 The innovators have many methods by which they reach to their *bid’ah.* The names might differ but the result is the same; namely leaving the narrations from the Messenger of
-Allāh (ﷺ), the narrations from his Companions (رضي‬ الله عنهم‬) and the scholars who followed them in goodness. Below are some of these methods that all necessitate leaving the *Sunnah.*
+Allāh (ﷺ), the narrations from his Companions (رضي الله عنهم) and the scholars who followed them in goodness. Below are some of these methods that all necessitate leaving the *Sunnah.*
 
 * ***Raī* (opinion)**
 
@@ -1218,7 +1218,7 @@ And the Messenger of Allāh (ﷺ) said:
     their knowledge. Then ignorant people will remain, who will be asked to give fatwā and so they will give fatwā with their own opinions, so they misguide and they are misguided."*** (Sahīh Al-Bukhārī)
     
 
-And ‘Umar ibn Al-Khattāb (رضي‬ الله عنه‬) said:
+And ‘Umar ibn Al-Khattāb (رضي الله عنه) said:
 
 *"Verily the people of raī (opinion) are the enemies of the Sunan (pl. Sunnah). They were not able to memorize it, and understanding it also escaped them, and they were shy to say: ‘I don’t know’,
   when they were asked. So they opposed the Sunan with their opinions. So beware of them."* (Jāmi’Bayān Al-‘Ilm by Ibn ‘Abdul-Barr, and I’lām Al-Muwaqqi’īn by Ibn Al-Qaayim – the *isnād* is on the utmost level of correctness)
@@ -1261,7 +1261,7 @@ And Imām Ash-Shāfi’ī (d. 204h) said:
 
 * ***Tawīl bātil* (false interpreation)**
 
-Interpreting the evidences in a wrong way is also not accepted in Islām. The Qurān and the *Sunnah* must be understood as the *Sahābah* (رضي‬ الله عنهم‬) and their students
+Interpreting the evidences in a wrong way is also not accepted in Islām. The Qurān and the *Sunnah* must be understood as the *Sahābah* (رضي الله عنهم) and their students
 understood them. So whoever brings an interpretation of the evidences of Islām which is not in accordance with the understanding of the *Salaf*, then this is an innovation and misguidance.
 
 Ibn Mandah (d. 295h):
@@ -1339,7 +1339,7 @@ and following the correct *tafsīr* (interpretation) of the Qurān, which is the
 
 And whoever looks into the *Sunnah* with regards to the description of Allāh and His Names and Attributes will find that the key to correct understanding and belief is the
 submittance to the words of Allāh and the words of His Messenger (ﷺ) just as they have been narrated without changing even one letter for one reason or
-another. Thus it became a principle among the people of *Sunnah* that they believe in the description of Allāh – the Exalted – as this was narrated in the Qurān, from the Prophet (ﷺ), from the *Sahābah* (رضي‬ الله عنهم‬) and those who followed
+another. Thus it became a principle among the people of *Sunnah* that they believe in the description of Allāh – the Exalted – as this was narrated in the Qurān, from the Prophet (ﷺ), from the *Sahābah* (رضي الله عنهم) and those who followed
 them in goodness, without:
 
 - ***Tahrīf*** (distortion) – this means to change the meaning of the words to something else, such as the meaning of hand to meaning power.
@@ -1429,12 +1429,12 @@ And He – the Exalted – said:
 
 **“And Allāh spoke to Musa directly."** (An-Nisā 4:164)
 
-Jābir ibn ‘Abdullāh – (رضي‬ الله عنه‬) – said:
+Jābir ibn ‘Abdullāh – (رضي الله عنه) – said:
 
 ***"The Prophet (ﷺ) used to present himself at the stopping place (for the pilgrims) and then say: 'Is there a man who will carry me to his people. For verily
     Quraysh have forbidden me to declare the words of my Lord the Mighty and Majestic.’"*** (At-Tirmidhī, Ahmad, An-Nasāī – *sahīh* according to the conditions of Al-Bukhārī) 
     
-And 'Umar ibn Al-Khattāb (رضي‬ الله عنه‬) said:
+And 'Umar ibn Al-Khattāb (رضي الله عنه) said:
 
 *"Verily this Qurān is the Word of Allāh – the Mighty and Majestic – so put it in its right place."* (Ar-Rad ‘alā Al-Jahmiyyah by Ad-Dārimī)
 
@@ -1462,7 +1462,7 @@ And the Prophet (ﷺ) said:
 ***"Verily Allāh has delegated an angel in the womb who says: ‘O my Lord, a semen drop. O my Lord, a clot. O my Lord, a lump of flesh.’ Then when Allāh – ‘azza wa jalla – has
     finished its creation, he (i.e. the angel) says: ‘O my Lord, unhappy or happy, male or female, and what is the provisions and when is the death?’ Then this is written (when he  is still) in the stomach of the mother."*** (Sahīh Muslim)
     
-And Al-Walīd ibn ‘Ubādah ibn As-Sāmit (رضي‬ الله عنهما‬) said:
+And Al-Walīd ibn ‘Ubādah ibn As-Sāmit (رضي الله عنهما) said:
 
 *"My father – (رحمه الله)– advised me and said: ‘O my son. I advise you to believe in the Qadar, the good of it and the bad of it, because if you don’t believe in it, then Allāh will enter you into
   Hellfire.’ He said: And I heard the Prophet (ﷺ) say: ‘The first thing Allāh created was the pen, then He said to it: ‘Write.’ It said: ‘And what should I write.’ He said: ‘So
@@ -1494,15 +1494,15 @@ Rather the people of *Sunnah* are in between the two extremes. *Ahlus-Sunnah* do
 
 And verily has the correct understanding of this issue already been explained in the narrations from the *Salaf*.
 
-‘Abdullāh ibn ‘Umar (رضي‬ الله عنهما‬) said:
+‘Abdullāh ibn ‘Umar (رضي الله عنهما) said:
 
-***"’Umar (رضي‬ الله عنه‬) said: ‘O Messenger of Allāh. Do you see these deeds which we do, are they a matter which has been determined or are they a new matter or an invented
+***"’Umar (رضي الله عنه) said: ‘O Messenger of Allāh. Do you see these deeds which we do, are they a matter which has been determined or are they a new matter or an invented
     matter?’ So he said: ‘It is something which has already been determined. So make deeds O son of Al-Khattāb, because it has all been made easy (in accordance with what has
     already been decided). The one who is (decreed to be) from the people of happiness then he will make deeds for the happiness, and whoever is (decreed to be) from the people of unhappiness then he will make deeds for the unhappiness.’"*** (Sahīh At-Tirmidhī)
     
-Abū Yahyā Al-A’raj (d. around 80h) the *mawlā* of Ibn ‘Ifrā (رضي‬ الله عنه‬) said:
+Abū Yahyā Al-A’raj (d. around 80h) the *mawlā* of Ibn ‘Ifrā (رضي الله عنه) said:
 
-*"I came to Ibn ‘Abbās (رضي‬ الله عنهما‬) and with me was two men from those who mention the Qadar or reject it. So I said: ‘O Ibn ‘Abbās. What do you say about the Qadar, because these two
+*"I came to Ibn ‘Abbās (رضي الله عنهما) and with me was two men from those who mention the Qadar or reject it. So I said: ‘O Ibn ‘Abbās. What do you say about the Qadar, because these two
   have come to ask you.’‛ And Ismā’īl said one time: ‚(They have come) to ask you about the Qadar. If he fornicates, and if he steals or drinks alcohol (is it then with Qadar)?’ So he (i.e. Ibn
   ‘Abbās) pulled away his shirt until he brought out his shoulder, and he said: ‘O Abū Yahyā. Maybe you are from those who reject the Qadar and deny it. By Allāh, if I knew that you were from them
   or these two who are with you then I would have fought you. If he fornicates then it is with Qadar, and if he steals then it is with Qadar and if he drinks alcohol then it is with Qadar."* (Kitāb As-Sunnah by ‘Abdullāh)
@@ -1574,11 +1574,11 @@ Ibn Battah (d. 387h) narrated the agreement on not mentioning anything negative 
   listen to it from the one who narrates it. The leaders of the scholars of this Ummah agreed upon this, of prohibition of that which we have described. Among them are: Hammād ibn Zayd, Yūnus ibn
   ‘Ubayd, Sufyān Ath-Thawrī, Sufyān ibn ‘Uyaynah, ‘Abdullāh ibn Idrīs, Mālik ibn Anas, Ibn Abū Dhib, Ibn Al-Munkadir, Ibn Al-Mubārak, Shu’ayb ibn Harb, Abu Ishaq Al-Fazari, Yusuf ibn Asbat, Ahmad ibn Hanbal, Bishr ibn Al-Hārith and ‘Abdul-Wahhāb Al-Warrāq. All of these believed in: the prohibition of (narrating) it, and looking into it, and listening to it. And they warned against seeking it and dedicating (ones self) to gathering it."* (Al-Ibānah As-Sughrā by Ibn Battah)
 
-And as for who is the best among the Companions (رضي‬ الله عنهم‬) internally, then the best of them is Abū Bakr, then ‘Umar, then ‘Uthmān (رضي‬ الله عنهم‬) according to the *hadīth* of Ibn ‘Umar (رضي‬ الله عنهما‬) who said:
+And as for who is the best among the Companions (رضي الله عنهم) internally, then the best of them is Abū Bakr, then ‘Umar, then ‘Uthmān (رضي الله عنهم) according to the *hadīth* of Ibn ‘Umar (رضي الله عنهما) who said:
 
 *"We used to consider (as the best), when the Messenger of Allāh (ﷺ) was alive and his Companions were great in numbers, Abū Bakr, then ‘Umar, then ‘Uthmān, and then we would remain silent.*" (Takhrīj Al-Musnad – its isnād is sahīh according to the conditions of Muslim)
 
-And these three, along with ‘Alī (رضي‬ الله عنه‬), are *Al-Khulafā Ar-Rāshidīn* (the rightly guided caliphs).
+And these three, along with ‘Alī (رضي الله عنه), are *Al-Khulafā Ar-Rāshidīn* (the rightly guided caliphs).
 
 Then comes the ten who were given the glad tidings of Paradise by the Prophet (ﷺ) when he said:
 
@@ -1591,20 +1591,20 @@ inhabitants of Madinah who received and gave support to the Prophet (ﷺ) and Is
 Those who oppose these principles are the **Shī’ah** and the **Rāfidah**. Among their misguided beliefs of innovation are:
 
 * Believing that ‘Alī was better than ‘Uthmān. These people fell into an innovation.
-* Hating and cursing the Companions (رضي‬ الله عنهم‬) of the Messenger of Allāh (ﷺ). These people are kuffār, due to cursing the people whom Allāh chose to carry His message, those He gave the stamp of approval and those whom He is pleased with.
+* Hating and cursing the Companions (رضي الله عنهم) of the Messenger of Allāh (ﷺ). These people are kuffār, due to cursing the people whom Allāh chose to carry His message, those He gave the stamp of approval and those whom He is pleased with.
 * Ascribing divine Attributes to the household of the Prophet (ﷺ) and ascribing them as partners with Allāh in worship. Among these are:
-    * Those who invoke or ask for help from ‘Alī, Fātimah, Husayn (رضي‬ الله عنهم‬) and others.
+    * Those who invoke or ask for help from ‘Alī, Fātimah, Husayn (رضي الله عنهم) and others.
     * Those who claim that their 12 Imāms have knowledge about the unseen, or can arrange or have influence upon the affairs of the creation.
 * Those who claim that parts of the Qurān are missing, or it has been substituted or changed or similar to this. These people are *kuffār*.
 * Some claim that the latecomers have more knowledge and understanding in the religion that the *Sahābah* and the scholars of the *Salaf*.
 * Some claim that Jibrīl (عليه السلام) made a mistake when He brought the message and prophethood from Allāh to Muhammad (ﷺ). These are *kuffār*.
 
-Ibn ‘Abbās (رضي‬ الله عنه‬) said:
+Ibn ‘Abbās (رضي الله عنه) said:
 
 ***"I was with the Prophet (ﷺ) while ‘Alī was with him. Then the Prophet (ﷺ) said: ‘O ‘Alī. In my Ummah there will come a
     people who unrightfully will claim to love Ahlul-Bayt (the household of the Prophet). They have a nickname and are called the Rāfidah. Fight against them, for verily they are mushrikūn.’"*** (Majma’ Az-Zawāid by Al-Haythamī – its *isnād* is *hasan*) 
     
-And ‘Alī (رضي‬ الله عنه‬) said:
+And ‘Alī (رضي الله عنه) said:
 
 *"After us there will come a people who unrighfully claim to love us. They are lying against us (and there are) māriqah (i.e. people who have left the religion). The sign of this is, that they curse Abū Bakr and ‘Umar."* (Sharh Usūl I’tiqād Ahlus-Sunnah by Al-Lālakāī)
 
@@ -1625,11 +1625,11 @@ And the Prophet (ﷺ) also said:
 
 ***"The believers with the most complete īmān are those with the best manners. And the best of you are those who behave best towards their women."*** (Ahmad, At-Tirmidhī and Abū Dāwūd – hasan sahīh)
 
-And Jundub ibn ‘Abdullāh (رضي‬ الله عنه‬) said:
+And Jundub ibn ‘Abdullāh (رضي الله عنه) said:
 
 *"We were with the Messenger of Allāh (ﷺ) and we were young boys, so we would learn about īmān before we would learn the Qurān. And then we would learn the Qurān, and by that we would increase in īmān."* (Ibn Mājah - sahīh)
   
-And ’Abdullāh ibn Mas’ūd (رضي‬ الله عنه‬) use to make the du’ā (invocation):
+And ’Abdullāh ibn Mas’ūd (رضي الله عنه) use to make the du’ā (invocation):
 
 *"O Allāh, increase us in iman, in certainty and in understanding."* (As-Sharī’ah by Al-Ājurrī 7/262)
 
@@ -1682,9 +1682,9 @@ And he (ﷺ) said:
 
 And it is narrated with a *hasan* chain of narration:
 
-*"From Mujāhid Abū Al-Hajjāj, that he asked Jābir ibn ‘Abdullāh (رضي‬ الله عنه‬): ‘What used to differentiate between kufr and īmān for you (i.e. the Sahābah) in the time of the Messenger of Allāh (ﷺ)?’ He (i.e. Jābir) said: ‘The prayer.’"* (Sharh Usūl Al-I’tiqād Ahlus- Sunnah by Al-Lālakāī 4/829)
+*"From Mujāhid Abū Al-Hajjāj, that he asked Jābir ibn ‘Abdullāh (رضي الله عنه): ‘What used to differentiate between kufr and īmān for you (i.e. the Sahābah) in the time of the Messenger of Allāh (ﷺ)?’ He (i.e. Jābir) said: ‘The prayer.’"* (Sharh Usūl Al-I’tiqād Ahlus- Sunnah by Al-Lālakāī 4/829)
 
-And Abū Hurayrah (رضي‬ الله عنه‬) said:
+And Abū Hurayrah (رضي الله عنه) said:
 
 *"The Companions of the Messenger of Allāh (ﷺ) would not consider leaving any of the deeds as kufr, except the prayer."* (Al-Hākim – *sahīh* according to the conditions of Al-Bukhārī and Muslim)
 
@@ -1773,7 +1773,7 @@ So this *hadīth* with clarity proves that some believers will enter Hellfire du
 ## *Al-Istithnā* (the exception)
 
 *Ahlus-Sunnah* refrain from describing themselves or others as believers (*muminūn*) without adding: *‘In shā Allāh’* or ‘I hope’ or something similar to this. This is referred to as al- *istithnā* (the exception) in *īmān*. The reasons for this exception is that a Muslim should not purify himself, nor should he claim to be guaranteed the entrance into Paradise, nor does
- he know about his *īmān* whether it is complete or not, since this would mean that he has fulfilled all the obligatory acts of worship without the slightest flaw along with having avoided everything of the forbidden, and this all then have been accepted by Allāh. And they followed the Prophet (ﷺ) and the Sahābah (رضي‬ الله عنهم‬) in this belief and practice.
+ he know about his *īmān* whether it is complete or not, since this would mean that he has fulfilled all the obligatory acts of worship without the slightest flaw along with having avoided everything of the forbidden, and this all then have been accepted by Allāh. And they followed the Prophet (ﷺ) and the Sahābah (رضي الله عنهم) in this belief and practice.
 
 The Prophet (ﷺ) said to the people in the graves:
 
@@ -1790,7 +1790,7 @@ And ‘Alqamah (d. between 60h and 73h) said:
 
 And ‘Abdullāh ibn Ahmad (d. 290h) narrated:
 
-*"Abū Bakr ibn Abū Shaybah narrated to me, from Jarīr ibn ‘Abdul-Hamīd, from Mughīrah, from Simāk ibn Salamah Ad-Dabbī, from ‘Abdur-Rahmān ibn ‘Ismah who said: ‚I was with ‘Āishah (رضي‬ الله عنها‬) when the messenger of Mu’āwiyah (رضي‬ الله عنه‬) came to her with a gift.
+*"Abū Bakr ibn Abū Shaybah narrated to me, from Jarīr ibn ‘Abdul-Hamīd, from Mughīrah, from Simāk ibn Salamah Ad-Dabbī, from ‘Abdur-Rahmān ibn ‘Ismah who said: ‚I was with ‘Āishah (رضي الله عنها) when the messenger of Mu’āwiyah (رضي الله عنه) came to her with a gift.
   So he said: ‘Amīr Al-Muminīn has sent this for you.’ So she said: ‘You are the believers in shā Allāh ta’ālā, and he is your amīr, and I have verily accepted his gift.’"* (As-Sunnah by ‘Abdullāh)
   
 The **Murjiah** negated the *istithnā* and forbade it and called it doubting in ones *īmān*. This is because īmān for them is only in belief and speech, so whoever professes to *īmān* –
@@ -1824,7 +1824,7 @@ Ibn Zayd (d. 159h) said:
 
 **"We do not differentiate between any of His messengers.** *Just as the people did – i.e. Banū Isrāīl – (when) they said: ‘So-and-so is a prophet and so-and-so is not a prophet. And we believe in so-and-so, but we do not believe in so-and-so.’"* (Tafsīr At-Tabarī)
    
-And Jābir ibn ’Abdullāh (رضي‬ الله عنه‬) narrated:
+And Jābir ibn ’Abdullāh (رضي الله عنه) narrated:
 
 *"That ’Umar ibn Al-Khattāb came to the Prophet (ﷺ) with a writing which he came upon from some of the people of the books, and he read it for the Prophet (ﷺ). So he became angry and said: ‘Are you confused regarding it, O son of Al-
   Khattāb?! By the One in Whose Hand my soul is in, I have verily come to you with it (i.e. the Straight Path) white and pure. Do not ask them about anything, because they (might) inform you
@@ -1888,12 +1888,12 @@ The Prophet (ﷺ) said:
 
 *"When the believer is made to dwell in his grave then (the angels) come to him. Then he testifies to Lā ilāha illa Allāh and that Muhammad is Rasūl-Allāh. And that is (the meaning of) His words:* **"Allāh makes those who believe firm, with the firm word."** (Ibrāhīm 14:27)" (Sahīh Al- Bukhārī)
 
-And ‘Āishah (رضي‬ الله عنها‬) narrated:
+And ‘Āishah (رضي الله عنها) narrated:
 
 *"That a Jewish woman entered upon her and mentioned the punishment in the grave. She said to her: ‘May Allāh give you refuge from the punishment in the grave.’ So ‘Āishah asked the Messenger of Allāh (ﷺ) about the punishment in the grave (i.e. whether
-  or not people will be punished in their grave).’ So he said: ‘Yes, the punishmet of the grave’ ‘Āishah (رضي‬ الله عنها‬) said: ‘After that I never saw the Messenger of Allāh (ﷺ) pray any prayer, except that he sought refuge from the punishment of the grave (in it)."* (Sahīh Al-Bukhārī)
+  or not people will be punished in their grave).’ So he said: ‘Yes, the punishmet of the grave’ ‘Āishah (رضي الله عنها) said: ‘After that I never saw the Messenger of Allāh (ﷺ) pray any prayer, except that he sought refuge from the punishment of the grave (in it)."* (Sahīh Al-Bukhārī)
   
-And Asmā bint Abū Bakr (رضي‬ الله عنهما‬) said:
+And Asmā bint Abū Bakr (رضي الله عنهما) said:
 
 *"The Messenger of Allāh (ﷺ) got up and gave a speech. And he mentioned in it the fitnah of the grave which the person will be put through. So when he mentioned this the Muslims made a loud noise." (Sahīh Al-Bukhārī)
 
@@ -1919,7 +1919,7 @@ And the Prophet (ﷺ) also said:
 say: ‘Do you acknowledge (your sins)?’ So he will say: ‘My Lord, I acknowledge.’ So He will say: ‘I verily covered over them for you in dunyā and I verily forgive them for you
 today.’ Then he will be given the book of his good deeds. But as for the disbelievers and the hypocrites, then they will be called openly in front of the witnesses. These are the ones who lied against Allah."*** (Sahīh Muslim)
 
-And ‘Āishah (رضي‬ الله عنها‬) narrated that the Prophet (ﷺ) said:
+And ‘Āishah (رضي الله عنها) narrated that the Prophet (ﷺ) said:
 
 ***Whoever is called to reckoning on the Day of Resurrection will be punished. So I (‘Āishah) said: ‘Did Allāh – ‘azza wa jalla – not say:*** **"Then he will verily have an easy reckoning?"** (Al-Inshiqāq 84:8)***’ So he said: ‘That is not the reckoning. Verily that is the
    review (or presentation) [*footnote:* *This is the easy account which is described in the previous hadīth where Allāh will mention the sins of the slave and make him acknowledge them*] . Whoever is argued against in the reckoning on the Day of Resurrection will be punished."*** (Sahīh Muslim)
@@ -1959,7 +1959,7 @@ The *shafā’ah* (intercession) of the Prophet (ﷺ) has correctly been narrate
 And this is the belief that the Prophet (ﷺ) will intercede on the Day of Resurrection, by the permission of Allāh, for
 his *Ummah* to enter faster into Paradise, for some people from his (ﷺ) *Ummah* who were thrown in the fire due to their sins that they will be taken out of it, and that some sinners from his (ﷺ) *Ummah* will avoid entering into Hellfire even though they deserved it due to their sins.
 
-In a longer *hadīth* narrated by Anas ibn Mālik (رضي‬ الله عنه‬) the Prophet (ﷺ) said:
+In a longer *hadīth* narrated by Anas ibn Mālik (رضي الله عنه) the Prophet (ﷺ) said:
 
 ***"Then they will come to me (i.e. the people, after having asked the other prophets to intercede for them) and I will ask permission from My Lord. Then when I see Him I will fall down in sujūd. Then He will let me (stay there), as much as Allāh wills. So it will be  said: ‘O Muhammad, raise your head. Speak, and you will be listened to. Ask, and you 
 will be given, and intercede, and your intercession will be accepted.’ So I will raise my head and praise my Lord with praise which my Lord will teach me. Then He gives me a limit (of people) and I bring them out of Hellfire and enter them into Paradise."*** (Al- Bukhārī, Muslim, Ibn Hibbān and others – sahīh)
@@ -1994,11 +1994,11 @@ And the Prophet (ﷺ) said:
 with you.’ So they will say: ‘What is it? Did He not whiten our faces, make our scales heavy, enter us into Paradise and protect us from the fire?’ He said: Then He will remove
 the cover and they will look at Him. And He did not give them anything more beloved to them, than looking at Him. And this is the extra (mentioned in Sūrah Yūnus)."*** (Ahmad, Ibn Mājah and An-Nasāī with a slight difference - sahīh)
 
-And Suhayb ibn Sinān Ar-Rūmī (رضي‬ الله عنه‬) narrated:
+And Suhayb ibn Sinān Ar-Rūmī (رضي الله عنه) narrated:
 
 ***"From the Prophet (ﷺ) regarding the words of Allāh – jalla dhikruhu (in the translation): **"For those who do good is the best** (reward) a**nd extra."** (Yūnus 18:76) He said: ‘The best (reward) is Paradise, and the extra is looking at the Face of Allāh. No darkness will cover their faces, nor humiliation after they have looked at Him."*** (Al-Kāmil fī Ad-Du’afā by Ibn ‘Adī – *hasan* or *sahīh*)
     
-And Jarīr ibn ‘Abdullāh (رضي‬ الله عنه‬) said:
+And Jarīr ibn ‘Abdullāh (رضي الله عنه) said:
 
 ***"We were sitting with the Messenger of Allāh (ﷺ) when he looked at the moon on the night of full-moon. Then he said: ‘Verily you will be presented to your Lord – ‘azza wa jalla – and you will see Him, just as you see this moon, you have
 no difficulty in seeing it. So if you are capable of avoiding to miss a prayer before the rising of the sun and before its setting, then do so.’ He said: Then he recited: ‚And exalt your Lord by praising Him before the rising of the sun and before its setting."*** (Tā-hā 20:130)" (Sahīh Ibn Mājah)
@@ -2063,9 +2063,9 @@ The Prophet (ﷺ) said:
 
 And he (ﷺ) said:
 
-***"Verily some people of my companions will come to me at the basin, and when I recognize them they will be taken away from me. So I will say: ‘My companions.’ Then it will be said: ‘You do not know what they have innovated after you. [*footnote:* **This means: the hypocrites, those who returned to *kufr* after their Islām, and it even includes those after him (ﷺ) who were Muslims but fell in innovations. This hadīth cannot be used to accuse the *Sahābah* (رضي‬ الله عنهم‬) for deviating, since Allāh informed that He was pleased with them**] ’"*** (Sahīh Al-Bukhārī)
+***"Verily some people of my companions will come to me at the basin, and when I recognize them they will be taken away from me. So I will say: ‘My companions.’ Then it will be said: ‘You do not know what they have innovated after you. [*footnote:* **This means: the hypocrites, those who returned to *kufr* after their Islām, and it even includes those after him (ﷺ) who were Muslims but fell in innovations. This hadīth cannot be used to accuse the *Sahābah* (رضي الله عنهم) for deviating, since Allāh informed that He was pleased with them**] ’"*** (Sahīh Al-Bukhārī)
 
-And Abū Dhar Al-Ghifārī (رضي‬ الله عنه‬) said:
+And Abū Dhar Al-Ghifārī (رضي الله عنه) said:
 
 ***"I said: ‘O Messenger of Allāh. What are the vessels of the basin?’ He said: ‘By Him in Whose Hand the soul of Muhammad is, it’s vessels are more than the number of the stars in the sky and its planets, verily (shining) on a dark clear night. These would be the vessels of Paradise. He who drinks out of it (i.e. the basin) would never feel thirsty after 
 that. In it runs two spouts from Paradise. Whoever drinks from it will not feel thirsty (ever again). It width is like its length; the distance between ‘Ammān and Aylah. Its water is whiter than milk, and sweeter than honey."*** (Sahīh Muslim)
@@ -2084,7 +2084,7 @@ And the Prophet (ﷺ) said:
 
 *"Two words that are light upon the tongue, but heavy on the scale and beloved to Ar- Rahmān: SubhānAllāh Al-‘Adhīm, SubhānAllāh wa bihamdihi."* (Sahīh Al-Bukhārī)
 
-And ‘Abdullāh ibn Mas’ūd (رضي‬ الله عنه‬) narrated:
+And ‘Abdullāh ibn Mas’ūd (رضي الله عنه) narrated:
 
 ***"That he was harvesting siwāk from an Arāk tree and he had thin shins. The wind blew and made him fall over, so people laughed at him. So the Messenger of Allāh (ﷺ): ‘Who are you laughing at?’ They said: ‘O Prophet of Allāh, at the thinness of his shins.’ So he said: ‘By the one in Whose Hand my soul is, they will both be heavier on the Scale than the mountain of Uhud."*** (Ahmad, At-Tayālisī and Al-Bazzār – sahīh li-ghayrihi)
 
@@ -2105,11 +2105,11 @@ And the Prophet (ﷺ) said:
 
 ***"Whoever sees something from his leader which he hates (or dislikes), then let him have patience in it. Because there is no-one who separates from them Jamā’ah (even a) hands span and then dies, except that he dies the death of jāhiliyyah."*** (Sahīh Al-Bukhārī)
     
-And Hudhayfah ibn Al-Yamān (رضي‬ الله عنه‬) said:
+And Hudhayfah ibn Al-Yamān (رضي الله عنه) said:
 
 ***"I said: ‘O Messenger of Allāh, we were verily in an evil state and then Allāh sent us the good which we are in now. So is there any evil after this good?’ He said: ‘Yes.’ I said: ‘I there any good after this evil?’ He said: ‘Yes.’ I said: ‘So is there any evil after this good?’ He said: ‘Yes.’ I said: ‘How?’ He said: ‘After me there will be leaders who do not follow my guidance, nor do they adhere to my Sunnah. And among them there will be men whose hearts are the hearts of shayātīn (devils) in the bodies of a human.’ He (Hudyafah) said: ‘I  said: How should I act, O Messenger of Allāh, if I live to see this?’ He said: ‘You listen and obey the leaders. Even if your back is beaten and your wealth is taken, then listen and obey.’"*** (Sahīh Muslim)
     
-And ‘Ubādah Ibn As-Sāmit (رضي‬ الله عنه‬) said:
+And ‘Ubādah Ibn As-Sāmit (رضي الله عنه) said:
 
 ***"The Prophet (ﷺ) called us and we pledged allegiance to him. And among that which held us accountable for was: That we pledged allegiance to listen
 and obey in what we were able to perform and what we disliked, in our difficult times and at our times of ease, to give precedence (to the leader) over ourselves, and not do dispute
@@ -2166,7 +2166,7 @@ And ’Ubayd-Allāh ibn ’Adī ibn Al-Khiyār [*footnote:* **There is a differe
    
 Humayd ibn Abu Humayd At-Tawīl (d. 142h) said:
 
-*"Maymun ibn Siyāh asked Anas ibn Mālik (رضي‬ الله عنه‬) and said: ‘O Abū Hamzah, what prohibits the blood of a Muslim and his wealth?’ So he said: ‘If he testifies to Lā ilāha illa Allāh and
+*"Maymun ibn Siyāh asked Anas ibn Mālik (رضي الله عنه) and said: ‘O Abū Hamzah, what prohibits the blood of a Muslim and his wealth?’ So he said: ‘If he testifies to Lā ilāha illa Allāh and
   that Muhammad is Rasūl-Allāh, he faces our Qiblah, he prays our prayer and he eats our slaughter, then he is a Muslim. He has what the Muslims have (of rights), and upon him is what is upon the  Muslims (of obligations)."* (Al-Bukhārī and An-Nasāī – sahīh)
 
 The **Khawārij** that occurred after the death of the Messenger of Allāh (ﷺ) deviated from this principle by declaring *takfīr* upon a Muslim who committed a
@@ -2180,7 +2180,7 @@ The Prophet (ﷺ) said:
 
 ***"I was verily not ordered to search in the hearts of the people, nor to split open their bellies."*** (Sahīh Al-Bukhārī)
     
-And ’Umar ibn Al-Khattāb – (رضي‬ الله عنه‬) – said:
+And ’Umar ibn Al-Khattāb – (رضي الله عنه) – said:
 
 *"Verily the people were judged according to the revelation in the time of the Messenger of Allāh (ﷺ), and verily has the revelation stopped. And verily do we (now) judge
   you now from what appears to us from your deeds. So whoever shows us good we consider trustworthy and we bring him close and as for his inner self then we have nothing to do with that,
@@ -2219,12 +2219,12 @@ Al-Lālakāī (d. 418h) narrated:
   
 And this is a spot-on description of the modern day Khāwarij who under no circumstances will give the hukm (judgment) of Islām to anyone except if they have heard the meaning of Tawhīd and its issues from him. But since this is a practice which does not have any basis
   in the *Sunnah*, it is an innovation which renders the one who believes in it an innovator. Furthermore, the most extreme of these people will declare *takfīr* upon those who follow
-  the belief described in the *ahādīth* and the scholars in this issue. So they describe the *manhaj* of the Muslims – all the way from the Prophet (ﷺ), to the *Sahābah* (رضي‬ الله عنهم‬), their followers and whoever came after them of scholars – as *kufr*, and
+  the belief described in the *ahādīth* and the scholars in this issue. So they describe the *manhaj* of the Muslims – all the way from the Prophet (ﷺ), to the *Sahābah* (رضي الله عنهم), their followers and whoever came after them of scholars – as *kufr*, and
   that the one who believes in it have not rejected *tāghūt*. This opinion without a doubt is *kufr* and *zandaqah* due them rejecting the clear evidences and the agreement of the Muslims.
 
 ## Adhering to the *Sunnah* and leaving the innovator
 
-It is very important to understand that in order to be upon the way of the *Sahābah* (رضي‬ الله عنهم‬) and those who followed them in goodness, a person must hold a
+It is very important to understand that in order to be upon the way of the *Sahābah* (رضي الله عنهم) and those who followed them in goodness, a person must hold a
 correct belief and firmly adhere to that which has it foundation in the sources that has been described in this book. There is no exception or excuse when it comes to not following or believing in the *Sunnah*.
 
 Al-Barbahārī (d. 329h) said:
@@ -2232,7 +2232,7 @@ Al-Barbahārī (d. 329h) said:
 *"And there is no permission for anyone to take (i.e. believe in) something which the Companions of the Messenger of Allāh (ﷺ) were not upon, or that a man invites to something which was innovated by someone before him by the people of innovation, then (in that case) he is like the one who innovated it. So whoever claims this, or holds this opinion, then he has
   verily rejected the Sunnah and opposed the truth and the Jamā’ah, and he has allowed the desires (i.e. innovation) and he is worse for this Ummah than Iblīs. And whoever knows what the people of innovation left of the Sunnah and that which they separated themselves from, and he then adheres to it, then he is a follower of the Sunnah and a follower of the Jamā’ah. This person is deserving of  being followed, aided and protected, and he is among those towards whom the Messenger of Allāh (ﷺ) advised."* (Sharh As-Sunnah by Al-Barbahārī)
  
-Ibn ’Umar (رضي‬ الله عنه‬) said regarding the people who did not believe in the *Qadar* (Divine Decree):
+Ibn ’Umar (رضي الله عنه) said regarding the people who did not believe in the *Qadar* (Divine Decree):
 
 *"If you met those people then inform them that I am free from them and they are free from me."* (Sahīh Muslim)
 
@@ -2334,7 +2334,7 @@ Names and Attributes of Allāh in general) then he is not excused, due to his *k
 ## The predecessors vs. the latecomers
 
 There is no doubt whatsoever, that the one who leaves the books of the *Salaf* (predecessors) and solely studies the religion from the books of the latecomers, he will
-remain in doubt and confusion. The reason for this is that the books of the *Salaf* contain the truth which they heard from the *Sahābah* (رضي‬ الله عنهم‬) and they were very strict on
+remain in doubt and confusion. The reason for this is that the books of the *Salaf* contain the truth which they heard from the *Sahābah* (رضي الله عنهم) and they were very strict on
 not accepting the opinions of the innovators and those who were accused in their religion, either of lying or of believing in an innovation. Thus you have chapters and even books
 from the *Salaf* that dealt with the leaders of misguidance, discrediting them and warning against them.
 
@@ -2347,7 +2347,7 @@ Imām? And why are people referring to such and such person as *Shaykh*, when he
 The solution to this problem lies in studying in the books of the *Salaf* to get to know their *‘aqīdah*. With this a person acquires a scale with which he can measure the words of those
 who came after them. Because the lesson is not in the name or status of a person, rather the lesson lies in that which agrees with the Qurān and the *Sunnah* according to the understanding of the *Salaf*. And what is besides this is misguidance, even if most of the people are gathered upon it.
 
-Hudhayfah ibn Al-Yamān (رضي‬ الله عنه‬) said:
+Hudhayfah ibn Al-Yamān (رضي الله عنه) said:
 
 *"Fear Allāh O you readers (of the Qurān)! And take the path of those who came before you. Because by Allāh, if you remain steadfast upon that, you have verily went ahead with a great advantage. But if you leave it (in order to go) right or left, then you have verily went far astray."* (Az-Zuhd war-Raqāiq by Ibn Al-Mubārak)
 
