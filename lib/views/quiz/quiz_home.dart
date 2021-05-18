@@ -58,7 +58,7 @@ class _FetchQuestionsState extends State<FetchQuestions>
             body: AnimatedBackground(
               behaviour: RectanglesBehaviour(),
               vsync: this,
-              child: Center(child: Lottie.asset("assets/lottie/loader.json")),
+              child: Center(child: Lottie.asset("assets/lottie/loading.json")),
             ),
           );
         } else {

@@ -8,7 +8,6 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get/get.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:islam_made_easy/routes/app_route.dart';
-import 'package:islam_made_easy/theme/theme.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/device_info.dart';
 import 'package:islam_made_easy/utils/quick_util.dart';
@@ -28,7 +27,6 @@ import 'locale/localePro.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setPathUrlStrategy();
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   // Portrait only
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -100,7 +98,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
 
   Future<LottieComposition> _loadComposition() async {
     var assetData = await rootBundle
-        .load(kIsWeb ? 'assets/lottie/404.json' : "assets/lottie/loader.json");
+        .load(kIsWeb ? 'assets/lottie/404.json' : "assets/lottie/loading.json");
     return await LottieComposition.fromByteData(assetData);
   }
 
@@ -119,16 +117,13 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
   /// sEARch   
   @override
   Widget build(BuildContext context) {
-    final base = ThemeData.light();
     final localeProvide = Provider.of<LocaleProvide>(context);
     final themeProvide = Provider.of<ThemeProvide>(context);
     return GetMaterialApp(
       title: 'Islam Made Easy',
       locale: localeProvide.locale,
       localeResolutionCallback: localeCallback,
-      theme: themeProvide.themeData.copyWith(
-          textTheme: buildTextTheme(
-              base.textTheme, Color(0xFF333333), Color(0xFF17262A))),
+      theme: themeProvide.themeData,
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
