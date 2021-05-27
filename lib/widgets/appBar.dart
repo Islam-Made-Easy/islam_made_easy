@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
+import 'detailsPage.dart';
+
 class QnAppBar extends StatelessWidget with PreferredSizeWidget {
   final String title;
   final bool isDesktop;
@@ -27,18 +29,25 @@ class QnAppBar extends StatelessWidget with PreferredSizeWidget {
       leading: Shortcuts(
         shortcuts: <LogicalKeySet, Intent>{
           LogicalKeySet(LogicalKeyboardKey.alt, LogicalKeyboardKey.arrowLeft):
-              const ButtonActivateIntent(),
+          backIndent(),
         },
-        child: isDesktop
-            ? BackButton()
-            : IconButton(
-                key: const ValueKey('Exit'),
-                icon: FaIcon(locale.languageCode == 'ar'
-                    ? FontAwesomeIcons.angleRight
-                    : FontAwesomeIcons.angleLeft),
-                onPressed: Get.back,
-                tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-              ),
+        child: Actions(
+          actions: {
+            backIndent: CallbackAction<backIndent>(onInvoke: (intent)=> Navigator.pop(context))
+          },
+          child: Focus(
+            autofocus: true,
+            child: isDesktop
+                ? BackButton()
+                : IconButton(
+                    icon: FaIcon(locale.languageCode == 'ar'
+                        ? FontAwesomeIcons.angleRight
+                        : FontAwesomeIcons.angleLeft),
+                    onPressed: Get.back,
+                    tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+                  ),
+          ),
+        ),
       ),
       elevation: 0,
     );

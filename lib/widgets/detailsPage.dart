@@ -3,7 +3,7 @@ import 'package:islam_made_easy/utils/device_info.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:islam_made_easy/widgets/page_decoration.dart';
-
+class backIndent extends Intent{}
 class DetailsPage extends StatefulWidget {
   final List<Widget> data;
   final String title;
@@ -59,17 +59,25 @@ class _DetailsPageState extends State<DetailsPage> {
         leading: Shortcuts(
           shortcuts: <LogicalKeySet, Intent>{
             LogicalKeySet(LogicalKeyboardKey.alt, LogicalKeyboardKey.arrowLeft):
-            const ButtonActivateIntent(),
+            backIndent(),
           },
-          child: isDesktop
-              ? BackButton()
-              : IconButton(
-                  icon: FaIcon(ar
-                      ? FontAwesomeIcons.angleRight
-                      : FontAwesomeIcons.angleLeft),
-                  onPressed: Get.back,
-                  tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-                ),
+          child: Actions(
+            actions: {
+              backIndent: CallbackAction<backIndent>(onInvoke: (intent)=> Navigator.pop(context))
+            },
+            child: Focus(
+              autofocus: true,
+              child: isDesktop
+                  ? BackButton()
+                  : IconButton(
+                      icon: FaIcon(ar
+                          ? FontAwesomeIcons.angleRight
+                          : FontAwesomeIcons.angleLeft),
+                      onPressed: Get.back,
+                      tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+                    ),
+            ),
+          ),
         ),
         actions: [
           IconButton(
