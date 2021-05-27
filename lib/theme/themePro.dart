@@ -23,15 +23,18 @@ class ThemeProvide with ChangeNotifier {
         fontWeight: FontWeight.w700,
         letterSpacing: 0.5,
         fontSize: 20,
+        fontFamily: 'Amiri',
       ),
       headline6: TextStyle(
         fontWeight: FontWeight.w500,
         letterSpacing: 0.5,
         fontSize: 20,
+        fontFamily: 'Amiri',
       ),
       subtitle1: TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
+        fontFamily: 'Amiri',
       ),
     ),
   );
@@ -63,6 +66,8 @@ class ThemeProvide with ChangeNotifier {
     if (themeIndex >= 0 && themeIndex < Colors.primaries.length) {
       this._themeIndex = themeIndex;
       this._themeData = ThemeData(
+        fontFamily: 'Amiri',
+        appBarTheme: AppBarTheme(toolbarHeight: 40, elevation: 0),
         primarySwatch: Colors.primaries[themeIndex],
         textSelectionTheme: TextSelectionThemeData(
           cursorColor: Colors.primaries[themeIndex],
