@@ -149,20 +149,20 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
   Widget getErrorWidget(BuildContext context, FlutterErrorDetails error) {
     return Center(
       child: AnimatedBackground(
-        behaviour: RectanglesBehaviour(),
-        vsync: this,
-        child: FutureBuilder<LottieComposition>(
-          future: _composition,
-          builder: (context, snapshot) {
-            var composition = snapshot.data;
-            if (composition != null) {
-              return Lottie(composition: composition);
-            } else {
-              return Center(child: CircularProgressIndicator());
-            }
-          },
-        ),
-      ),
+          behaviour: RectanglesBehaviour(),
+          vsync: this,
+          child: Center(
+            child: FutureBuilder<LottieComposition>(
+              future: _composition,
+              builder: (context, snapshot) {
+                var composition = snapshot.data;
+                if (composition != null)
+                  return Lottie(composition: composition);
+                else
+                  return CircularProgressIndicator();
+              },
+            ),
+          )),
     );
   }
 }
