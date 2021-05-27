@@ -1,5 +1,6 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/page_decoration.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'anim/anim.dart';
 
@@ -22,6 +23,14 @@ class AppFeedback extends StatefulWidget {
 }
 
 class _AppFeedbackState extends State<AppFeedback> {
+  launchUrl(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   final _formKey = GlobalKey<FormState>();
   TextEditingController name = TextEditingController();
   TextEditingController email = TextEditingController();
@@ -45,7 +54,7 @@ class _AppFeedbackState extends State<AppFeedback> {
         print("Response: $response");
         if (response == FeedbackServices.STATUS_SUCCESS) {
           Get.snackbar('Submitted',
-              'Your Feedback is successfully submitted, Jazakumullahu Khayran!!');
+              'Your Feedback is successfully submitted, Jazakumullahu Khayraa!!');
           name.clear(); email.clear(); feed.clear();
         } else {
           Get.snackbar('An Error Occurred!', 'Please try later');
@@ -61,21 +70,21 @@ class _AppFeedbackState extends State<AppFeedback> {
     final isDesktop = isDisplayDesktop(context);
     return Scaffold(
       backgroundColor:
-          isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
-              ? Colors.transparent
-              : theme.backgroundColor,
+      isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
+          ? Colors.transparent
+          : theme.backgroundColor,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
         title: Text(
           'IME Feedback  Center',
-          style: TextStyle(color: Theme.of(context).textTheme.caption.color),
+          style: TextStyle(color: theme.textTheme.caption.color),
         ),
         automaticallyImplyLeading: !isDesktop,
         backgroundColor:
-            isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
-                ? Colors.transparent
-                : theme.appBarTheme.color,
+        isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
+            ? Colors.transparent
+            : theme.appBarTheme.color,
       ),
       body: Form(
         key: _formKey,
@@ -95,19 +104,22 @@ class _AppFeedbackState extends State<AppFeedback> {
                     child: DefaultTextStyle(
                       style: TextStyle(
                           fontSize: isDesktop || context.isTablet ? 26.0 : 22),
-                      child: AnimatedTextKit(animatedTexts: [
-                        TyperAnimatedText(
-                          isDesktop
-                              ? "Assalam'alaikum warahmatullah Wabarakatuh,"
-                              : "Assalam'alaikum warahmatullahو",
-                        ),
-                        TyperAnimatedText("Welcome to IME Feedback Center"),
-                      ]),
+                      child: AnimatedTextKit(
+                        animatedTexts: [
+                          TyperAnimatedText(
+                            isDesktop
+                                ? "Assalam'alaikum warahmatullah Wabarakatuh,"
+                                : "Assalam'alaikum warahmatullahو",
+                          ),
+                          TyperAnimatedText("Welcome to IME Feedback Center"),
+                        ],
+                        isRepeatingAnimation: false,
+                      ),
                     ),
                   ),
                 ),
                 Text(
-                  "We can't wait to get your feedback on our application, tell ideas, request a feature or send an applause.",
+                  "We can't wait to get your feedback about our application, try help or support, have a question? We'd love to hear it.",
                   style: theme.textTheme.headline6,
                 ),
                 SizedBox(height: 10),
@@ -115,7 +127,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                   validator: (value) {
                     if (value.isEmpty) {
                       return "Name can't be empty";
-                    } else if (value.length < 3) {
+                    } else if (value.length < 4) {
                       return "Name is too short";
                     } else if (value.length > 32) {
                       return "Name is too long";
@@ -146,7 +158,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                     controller: email,
                     decoration: InputDecoration(
                         contentPadding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                         hintText: 'Enter your email',
                         labelText: 'Email')),
                 InputContainer(
@@ -163,7 +175,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                     controller: feed,
                     decoration: InputDecoration(
                         contentPadding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                               color: theme.primaryColorDark, width: 2.0),
@@ -174,6 +186,38 @@ class _AppFeedbackState extends State<AppFeedback> {
                         labelText: 'Feedback')),
                 SizedBox(height: 20),
                 StretchButton(onTap: _submitFeed, text: 'Submit'),
+                Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Text(
+                              'We will not send you anything except for the content about your feedback.'),
+                          Text(
+                              'Alternatively  you can also report bugs and errors on the following platforms'),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                  tooltip:'Github',
+                                  onPressed: () =>
+                                      launchUrl(
+                                          "https://github.com/Islam-Made-Easy/Islam-Made-Easy/issues"),
+                                  icon: FaIcon(FontAwesomeIcons.github),
+                                  splashRadius: 1),
+                              SizedBox(width:10),
+                              IconButton(
+                                  tooltip:'Gitter',
+                                  onPressed: () =>
+                                      launchUrl(
+                                          "https://gitter.im/orgs/Islam-Made-Easy/community"),
+                                  icon: FaIcon(FontAwesomeIcons.gitter),
+                                  splashRadius: 1),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ))
               ],
             ),
           ],
@@ -189,12 +233,11 @@ class InputContainer extends StatelessWidget {
   final TextInputType inputType;
   final String Function(String) validator;
 
-  const InputContainer(
-      {Key key,
-      @required this.decoration,
-      @required this.controller,
-      this.validator,
-      @required this.inputType})
+  const InputContainer({Key key,
+    @required this.decoration,
+    @required this.controller,
+    this.validator,
+    @required this.inputType})
       : super(key: key);
 
   @override
