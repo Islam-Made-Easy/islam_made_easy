@@ -20,4 +20,4 @@ Any usage issues can ask for help via
 
 We welcome and encourage you to report issues and contribute changes
 
-* [Contribution guide for developers](https://github.com/Islam-Made-Easy/developer-center/wiki/Contribution-Guidelines-for-Developers).
+* [Contribution guide for developers](https://github.com/Islam-Made-Easy/developer-center/wiki)
