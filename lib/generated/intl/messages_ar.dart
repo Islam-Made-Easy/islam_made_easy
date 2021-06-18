@@ -150,6 +150,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "fastQ5" : MessageLookupByLibrary.simpleMessage("What is greater, the first 10 of dhil hijjah or the last 10 of Ramadan?"),
     "fastQ6" : MessageLookupByLibrary.simpleMessage("Is the Hadīth authentic: “Do not fast on Saturday, except that with is obligated upon you” ?"),
     "fastQ7" : MessageLookupByLibrary.simpleMessage("Hadith \"O Allâh bless us in Rajab and Sha\'bān & allow us to reach Ramadān\""),
+    "feedWelcome" : MessageLookupByLibrary.simpleMessage("مرحباً بكم في مركز التغذية المرتدة"),
     "forPlatform" : MessageLookupByLibrary.simpleMessage("For"),
     "fridayFirst" : MessageLookupByLibrary.simpleMessage("من بين أول من يتدخل من أجله من قبل (بروفيت) و من أرسل معظم الصلاة إليه و أفضل يوم لإرسال صلاة له"),
     "fridayRemind" : MessageLookupByLibrary.simpleMessage("الجمعة تذكير"),

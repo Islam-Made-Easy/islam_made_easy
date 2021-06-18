@@ -175,6 +175,16 @@ class S {
     );
   }
 
+  /// `Welcome to IME Feedback Center`
+  String get feedWelcome {
+    return Intl.message(
+      'Welcome to IME Feedback Center',
+      name: 'feedWelcome',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Share Link copied!`
   String get linkCopied {
     return Intl.message(

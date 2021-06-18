@@ -155,6 +155,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "fastQ6" : MessageLookupByLibrary.simpleMessage("Is the Hadīth authentic: “Do not fast on Saturday, except that with is obligated upon you” ?"),
     "fastQ7" : MessageLookupByLibrary.simpleMessage("Hadith \"O Allâh bless us in Rajab and Sha\'bān & allow us to reach Ramadān\""),
     "fatawaAuthor2" : MessageLookupByLibrary.simpleMessage("Sheikh Muhammad bin Hizam Al-Ba\'dany"),
+    "feedWelcome" : MessageLookupByLibrary.simpleMessage("Welcome to IME Feedback Center"),
     "forPlatform" : MessageLookupByLibrary.simpleMessage("For"),
     "fridayFirst" : MessageLookupByLibrary.simpleMessage("The Messenger of Allāh ﷺ said: “Verily, Allah has made this day (of Friday) a celebration for the Muslims. So whoever comes to Friday (prayer), then let him bathe himself and if he has any perfume let him put some on, and use the toothstick."),
     "fridayRemind" : MessageLookupByLibrary.simpleMessage("Friday Reminders"),
