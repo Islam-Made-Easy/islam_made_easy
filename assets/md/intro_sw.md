@@ -268,7 +268,7 @@ Kichwa cha *tawāghīt* (wingi wa. *tāghūt* ) ni Iblīs ambaye ni Shaytani (sh
 
 Allāh - Aliyetukuka - alisema:
 
-**”**(Kumbuka) **Mola wako Alipowaambia Malaika: 'Hakika Mimi nitaumba mtu kwa udongo. Na Nitakapomkamilisha na kumpulizia rohp inayotokana na Mimi, basi mwangukieni kwa kumtii. Basi Malaika wakatii wote pamoja. Isipokuwa Ibilisi; alijivuna na akawa katika makafiri.** 
+**”**(Kumbuka) **Mola wako Alipowaambia Malaika: 'Hakika Mimi nitaumba mtu kwa udongo. Na Nitakapomkamilisha na kumpulizia roho inayotokana na Mimi, basi mwangukieni kwa kumtii. Basi Malaika wakatii wote pamoja. Isipokuwa Ibilisi; alijivuna na akawa katika makafiri.** 
 (Allah) **akamwambia; 'Ewe Iblisi! Kipi kilichokuzuia kumtii yule niliyemuumba kwa mikono Yangu? Je! Umetakabari,** (wala huna ukubwa) **au umo miongoni mwa wakubwa** (kweli)**?' Akasema: 'Mimi ni bora kuliko yeye; Kwani mimi Umeniumba kwa moto na yeye Umemuumba kwa udongo.'** (Allah)  **Akasema: 'Basi toka humo kwani umebaidishwa na rehema. 
 Na hakika laana Yangu itakuwa juu yako mpaka Siku ya Malipo.' Akasema: 'Mola wangu! Nipe nafasi** (ya kuishi nisife) **mpaka siku watakayofufuliwa** (viumbe)**.'** (Allah) **akamwambia: 'Haya umekwisha kuwa miongoni mwa waliyopewa nafasi** (ya kuishi) **Mpaka wakati wa siku maalumu** (ya kufa viumb vyote, hapo na wewe utakufa) **.' Akasema: 'Naapa kwa haki ya Utukufu Wako, bila shaka nitawapoteza wote** (hao watoto wa huyu adui yangu – Adam) **Isipokuwa wale waja Wako miongoni mwa waliosafishwa** (Uliowasafisha)**.”** (Sād 38:71-83)
 
