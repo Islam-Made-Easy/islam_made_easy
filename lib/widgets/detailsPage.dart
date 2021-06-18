@@ -3,7 +3,9 @@ import 'package:islam_made_easy/utils/device_info.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:islam_made_easy/widgets/page_decoration.dart';
-class backIndent extends Intent{}
+
+class backIndent extends Intent {}
+
 class DetailsPage extends StatefulWidget {
   final List<Widget> data;
   final String title;
@@ -23,22 +25,8 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-  ScrollController controller = ScrollController();
-
-  @override
-  void initState() {
-    controller = ScrollController();
-    super.initState();
-  }
-
   void _showSnackBarOnCopyFailure(Object exception) {
     Get.snackbar(S.current.copyError, exception);
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
   }
 
   static DelayUI shareDelay = DelayUI(Duration(seconds: 1));
@@ -59,11 +47,12 @@ class _DetailsPageState extends State<DetailsPage> {
         leading: Shortcuts(
           shortcuts: <LogicalKeySet, Intent>{
             LogicalKeySet(LogicalKeyboardKey.alt, LogicalKeyboardKey.arrowLeft):
-            backIndent(),
+                backIndent(),
           },
           child: Actions(
             actions: {
-              backIndent: CallbackAction<backIndent>(onInvoke: (intent)=> Navigator.pop(context))
+              backIndent: CallbackAction<backIndent>(
+                  onInvoke: (intent) => Navigator.pop(context))
             },
             child: Focus(
               autofocus: true,
@@ -74,7 +63,8 @@ class _DetailsPageState extends State<DetailsPage> {
                           ? FontAwesomeIcons.angleRight
                           : FontAwesomeIcons.angleLeft),
                       onPressed: Get.back,
-                      tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+                      tooltip:
+                          MaterialLocalizations.of(context).backButtonTooltip,
                     ),
             ),
           ),
@@ -114,101 +104,29 @@ class _DetailsPageState extends State<DetailsPage> {
       body: Stack(
         children: [
           GradientCircles(),
-          CupertinoScrollbar(
-            isAlwaysShown: true,
-            controller: controller,
-            child: ListView(
-              controller: controller,
-              padding: EdgeInsets.symmetric(
-                  horizontal: isDesktop || context.isTablet ? 30 : 10,
-                  vertical: isDesktop || context.isTablet ? 20 : 10),
-              children: [
-                Stack(
-                  children: [
-                    Positioned(
-                      top: 40.0,
-                      left: ar ? 120 : 0,
-                      right: ar ? 0 : 120,
-                      child: Container(
-                        height: 30.0,
-                        width: 170.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                              topRight:
-                                  ar ? Radius.zero : Radius.elliptical(10, 50),
-                              topLeft:
-                                  ar ? Radius.elliptical(50, 20) : Radius.zero),
-                          gradient: LinearGradient(
-                            colors: [
-                              theme.accentColor,
-                              theme.backgroundColor,
-                            ],
-                            tileMode: TileMode.mirror,
-                            end: ar ? Alignment.topLeft : Alignment.topRight,
-                            begin: ar
-                                ? Alignment.bottomRight
-                                : Alignment.bottomLeft,
-                            stops: [0.0, 1.0],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 10.0,
-                      child: Container(
-                        height: 100.0,
-                        width: 100.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(50)),
-                          gradient: LinearGradient(
-                            colors: [theme.accentColor, theme.backgroundColor],
-                            tileMode: TileMode.mirror,
-                            end: ar ? Alignment.topLeft : Alignment.topRight,
-                            begin: ar
-                                ? Alignment.bottomRight
-                                : Alignment.bottomLeft,
-                            stops: [0.0, 1.0],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 75.0,
-                      left: ar ? 0 : 200,
-                      right: ar ? 200 : 0,
-                      child: Container(
-                        height: 120.0,
-                        width: 140.0,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                bottomLeft:
-                                    ar ? Radius.zero : Radius.circular(10),
-                                topLeft: ar ? Radius.zero : Radius.circular(10),
-                                topRight: ar
-                                    ? Radius.elliptical(50, 20)
-                                    : Radius.zero),
-                            gradient: LinearGradient(
-                              colors: [
-                                theme.accentColor,
-                                theme.backgroundColor
-                              ],
-                              tileMode: TileMode.mirror,
-                              begin:
-                                  ar ? Alignment.topRight : Alignment.topLeft,
-                              end: ar
-                                  ? Alignment.bottomLeft
-                                  : Alignment.bottomRight,
-                              stops: [0.0, 1.0],
-                            ),
-                            shape: BoxShape.rectangle),
-                      ),
-                    ),
-                    Container(
+          ListView(
+            padding: EdgeInsets.symmetric(
+                horizontal: isDesktop || context.isTablet ? 30 : 10,
+                vertical: isDesktop || context.isTablet ? 20 : 10),
+            children: [
+              Stack(
+                children: [
+                  Positioned(
+                    top: 40.0,
+                    left: ar ? 120 : 0,
+                    right: ar ? 0 : 120,
+                    child: Container(
+                      height: 30.0,
+                      width: 170.0,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(4)),
+                        borderRadius: BorderRadius.only(
+                            topRight:
+                                ar ? Radius.zero : Radius.elliptical(10, 50),
+                            topLeft:
+                                ar ? Radius.elliptical(50, 20) : Radius.zero),
                         gradient: LinearGradient(
                           colors: [
-                            theme.primaryColorDark,
+                            theme.colorScheme.secondary,
                             theme.backgroundColor,
                           ],
                           tileMode: TileMode.mirror,
@@ -217,42 +135,108 @@ class _DetailsPageState extends State<DetailsPage> {
                               ar ? Alignment.bottomRight : Alignment.bottomLeft,
                           stops: [0.0, 1.0],
                         ),
-                        color:
-                            theme.colorScheme.secondaryVariant.withOpacity(0.5),
                       ),
-                      // color: Color(0xFFF2F2F2),
-
-                      height: size.height * 0.36,
-                      width: size.width - 10,
-                      child: Padding(
-                        padding: const EdgeInsets.all(1),
-                        child: Image.asset(
-                          widget.image,
-                          fit: BoxFit.cover,
-                          matchTextDirection: true,
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 10.0,
+                    child: Container(
+                      height: 100.0,
+                      width: 100.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(50)),
+                        gradient: LinearGradient(
+                          colors: [
+                            theme.colorScheme.secondary,
+                            theme.backgroundColor
+                          ],
+                          tileMode: TileMode.mirror,
+                          end: ar ? Alignment.topLeft : Alignment.topRight,
+                          begin:
+                              ar ? Alignment.bottomRight : Alignment.bottomLeft,
+                          stops: [0.0, 1.0],
                         ),
                       ),
                     ),
-                  ],
-                ),
-                SizedBox(height: 15),
-                SelectableText(
-                  widget.title,
-                  textAlign: TextAlign.center,
-                  style: textTheme.headline5.copyWith(
-                    color: Colors.black54,
-                    fontSize: 30,
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: widget.data,
+                  Positioned(
+                    top: 75.0,
+                    left: ar ? 0 : 200,
+                    right: ar ? 200 : 0,
+                    child: Container(
+                      height: 120.0,
+                      width: 140.0,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft:
+                                  ar ? Radius.zero : Radius.circular(10),
+                              topLeft: ar ? Radius.zero : Radius.circular(10),
+                              topRight:
+                                  ar ? Radius.elliptical(50, 20) : Radius.zero),
+                          gradient: LinearGradient(
+                            colors: [
+                              theme.colorScheme.secondary,
+                              theme.backgroundColor
+                            ],
+                            tileMode: TileMode.mirror,
+                            begin: ar ? Alignment.topRight : Alignment.topLeft,
+                            end: ar
+                                ? Alignment.bottomLeft
+                                : Alignment.bottomRight,
+                            stops: [0.0, 1.0],
+                          ),
+                          shape: BoxShape.rectangle),
+                    ),
                   ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(4)),
+                      gradient: LinearGradient(
+                        colors: [
+                          theme.primaryColorDark,
+                          theme.backgroundColor,
+                        ],
+                        tileMode: TileMode.mirror,
+                        end: ar ? Alignment.topLeft : Alignment.topRight,
+                        begin:
+                            ar ? Alignment.bottomRight : Alignment.bottomLeft,
+                        stops: [0.0, 1.0],
+                      ),
+                      color:
+                          theme.colorScheme.secondaryVariant.withOpacity(0.5),
+                    ),
+                    // color: Color(0xFFF2F2F2),
+
+                    height: size.height * 0.36,
+                    width: size.width - 10,
+                    child: Padding(
+                      padding: const EdgeInsets.all(1),
+                      child: Image.asset(
+                        widget.image,
+                        fit: BoxFit.cover,
+                        matchTextDirection: true,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 15),
+              SelectableText(
+                widget.title,
+                textAlign: TextAlign.center,
+                style: textTheme.headline5.copyWith(
+                  color: Colors.black54,
+                  fontSize: 30,
                 ),
-              ],
-            ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: widget.data,
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -279,13 +263,15 @@ class OpenContainerWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return WidgetAnimator(
       OpenContainer<bool>(
-        transitionType: ContainerTransitionType.fade,closedElevation: 0,
+        transitionType: ContainerTransitionType.fade,
+        closedElevation: 0,
         closedShape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(0)),
         ),
         openBuilder: (context, openContainer) => DetailsPage(
             title: title, data: data, barTitle: barTitle, image: image),
-        tappable: false,openColor: Theme.of(context).backgroundColor,
+        tappable: false,
+        openColor: Theme.of(context).backgroundColor,
         closedBuilder: closedBuilder,
       ),
     );
@@ -346,7 +332,7 @@ class DetailsCard extends StatelessWidget {
                                       : Radius.zero),
                               gradient: LinearGradient(
                                 colors: [
-                                  theme.accentColor,
+                                  theme.colorScheme.secondary,
                                   theme.backgroundColor
                                 ],
                                 tileMode: TileMode.mirror,
@@ -370,7 +356,7 @@ class DetailsCard extends StatelessWidget {
                                   BorderRadius.all(Radius.circular(50)),
                               gradient: LinearGradient(
                                 colors: [
-                                  theme.accentColor,
+                                  theme.colorScheme.secondary,
                                   theme.backgroundColor
                                 ],
                                 tileMode: TileMode.mirror,
@@ -402,7 +388,7 @@ class DetailsCard extends StatelessWidget {
                                         : Radius.zero),
                                 gradient: LinearGradient(
                                   colors: [
-                                    theme.accentColor,
+                                    theme.colorScheme.secondary,
                                     theme.backgroundColor
                                   ],
                                   tileMode: TileMode.mirror,
