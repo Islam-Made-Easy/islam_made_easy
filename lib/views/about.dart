@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:ui';
+
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/listHeader.dart';
 import 'package:package_info/package_info.dart';
@@ -26,7 +27,10 @@ class _AboutAppState extends State<AboutApp> {
     final packageInfo = await PackageInfo.fromPlatform();
     return packageInfo.version;
   }
+
+  bool verified = false;
   static DelayUI shareDelay = DelayUI(Duration(seconds: 1));
+
   @override
   Widget build(BuildContext context) {
     print(window.physicalSize);
@@ -39,7 +43,8 @@ class _AboutAppState extends State<AboutApp> {
         'Islam Made Easy ${S.current.forPlatform} ${DeviceOS.isWeb ? 'Web' : Platform.operatingSystem}';
     final legalese = '© ${DateTime.now().year} The IME team';
     Locale locale = Localizations.localeOf(context);
-    final ar = locale.languageCode == 'ar';final size=MediaQuery.of(context).size;
+    final ar = locale.languageCode == 'ar';
+    final size = MediaQuery.of(context).size;
     return AlertDialog(
       title: ListHeader(
         text: MaterialLocalizations.of(context).aboutListTileTitle('IME'),
@@ -81,7 +86,7 @@ class _AboutAppState extends State<AboutApp> {
             Divider(),
             Image.asset(
               'assets/images/logo.png',
-              height: isDesktop ? size.height*0.3 : 150,
+              height: isDesktop ? size.height * 0.3 : 150,
             ),
             Text(S.current.aboutApp),
             FutureBuilder(
@@ -95,15 +100,16 @@ class _AboutAppState extends State<AboutApp> {
               ),
             ),
             Text(
-                DeviceOS.isDesktop ? "${Platform.operatingSystemVersion.replaceRange(23, 73, '')}":'',
+                DeviceOS.isDesktop
+                    ? "${Platform.operatingSystemVersion.replaceRange(23, 73, '')}"
+                    : '',
                 style: bodyTextStyle),
             Text(legalese, style: bodyTextStyle),
             if (isDesktop || DeviceOS.isDesktopOrWeb)
-              Semantics(
-                  child: Text(
+              Text(
                 '━═══◎${S.current.share}◎═══━',
                 style: TextStyle(color: Theme.of(context).primaryColorDark),
-              ))
+              )
             else
               Container(),
             if (isDesktop ||
@@ -135,26 +141,22 @@ class _AboutAppState extends State<AboutApp> {
                   ),
                   ShareButtons(
                       color: Color(0xffA2A2A2),
-                      tip: MaterialLocalizations.of(context).copyButtonLabel,
-                      icon: PixIcon.pix_link,
+                      tip: verified
+                          ? "Link Copied"
+                          : MaterialLocalizations.of(context).copyButtonLabel,
+                      icon: verified ? Icons.verified_user : PixIcon.pix_link,
                       onPressed: () {
-                        HapticFeedback.heavyImpact();
-                        Clipboard.setData(
-                          ClipboardData(
-                              text:
-                                  '$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare}'),
-                        ).then(
-                          (value) => Get.snackbar(
-                            S.current.copiedToClipboardTitle,
-                            S.current.linkCopied,shouldIconPulse: true,
-                            messageText: Row(
-                              children: [
-                                FaIcon(Icons.verified_user,
-                                    color: Theme.of(context).accentColor),
-                                Text(S.current.linkCopied),
-                              ],
-                            ),
-                          ),
+                        shareDelay.run(
+                          () => Clipboard.setData(
+                            ClipboardData(
+                                text:
+                                    '$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare}'),
+                          ).then((value) {
+                            setState(() {
+                              HapticFeedback.heavyImpact();
+                              verified = true;
+                            });
+                          }),
                         );
                       }),
                 ],
