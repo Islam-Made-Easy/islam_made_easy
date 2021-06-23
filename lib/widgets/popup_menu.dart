@@ -85,7 +85,7 @@ class FeedDialog extends StatelessWidget {
         height: double.infinity,
         width: MediaQuery.of(context).size.width / 2,
         decoration: BoxDecoration(
-          color: Color(0xFFFAFAFC),
+          color: context.isDarkMode?Theme.of(context).scaffoldBackgroundColor:Color(0xFFFAFAFC),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(ar ? 0 : 20),
             bottomRight: Radius.circular(ar ? 20 : 0),
@@ -93,7 +93,12 @@ class FeedDialog extends StatelessWidget {
             topRight: Radius.circular(ar ? 20 : 0),
           ),
         ),
-        child: feed.AppFeedback(),
+        child: Stack(
+          children: [
+            GradientCircles(),
+            feed.AppFeedback(),
+          ],
+        ),
       ),
     );
   }
