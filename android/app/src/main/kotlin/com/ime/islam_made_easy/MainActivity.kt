@@ -1,4 +1,4 @@
-package com.imeteam.islam_made_easy
+package com.ime.islam_made_easy
 
 import io.flutter.embedding.android.FlutterActivity
 
