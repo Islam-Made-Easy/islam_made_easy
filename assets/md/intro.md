@@ -293,7 +293,7 @@ will follow his encouragements to evil, and on the Day of Resurrection he will d
 
 Allāh – the Exalted – said:
 
-**”When your Lord said to the angels: ‘I will verily create a person from clay. So when I have made him and breated into him (his) soul I have created, then fall down in
+**”When your Lord said to the angels: ‘I will verily create a person from clay. So when I have made him and breath into him (his) soul I have created, then fall down in
 prostration to him. So the angels prostrated all of them. Except Iblīs he was arrogant and was among the disbelievers. He (i.e. Allāh) said: ‘O Iblīs, what prevented you from
 prostrating to what I have created with My two Hands? Did you become too arrogant (to prostrate) or were you (already) among the haughty?’ He said: ‘I am better than him, You
 have created me from fire and You created him from clay.’ He said: ‘Then go out from it (i.e. Paradise), because you are verily expelled. And verily is My curse upon you until the
@@ -329,7 +329,7 @@ And He – the Exalted – said:
 **“Have you not seen those who claim to believe in what was revealed to you and what was revealed to those who came before you, they wish to seek judgment with the
 *tāghūt*, and they were verily ordered to reject them. And the *Shaytān* wishes to misguide them into a great misguidance.”** (An-Nisā 4:60)
 
-* The one who judges or rules between people with manmade laws that contradict the *Sharī’ah* and have its basis in other legislations than the *Sharī’ah.* Such as presidents,
+* The one who judges or rules between people with man-made laws that contradict the *Sharī’ah* and have its basis in other legislations than the *Sharī’ah.* Such as presidents,
 parliamentarians, political leaders and everyone who takes part in legislative bodies whose foundation is other than the Shari’ah, such as democracy, secularism, communism etc. Allāh – the Exalted – said:
 
 **“And whoever does not judge with what Allāh has revealed, then these are the disbelievers.”** (Al-Māidah 5:44)
