@@ -25,16 +25,20 @@ class StretchButton extends StatelessWidget {
         ? BorderSide.none
         : BorderSide(color: foreground.withOpacity(0.5), width: 0.5);
     return WidgetAnimator(
-     FlatButton(
-        child: Text(text,  style: Theme.of(context)
-            .textTheme
-            .headline6
-            .copyWith(fontSize: 20),),  minWidth: 10, materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        shape: RoundedRectangleBorder(
-            side: border, borderRadius: BorderRadius.circular(5)),
-        color: Theme.of(context).buttonColor,
-        textColor: foreground,
-        onPressed: onTap,  padding: EdgeInsets.symmetric(vertical: 15),
+      TextButton(
+        child: Text(
+          text,
+          style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 20),
+        ),
+        style: ElevatedButton.styleFrom(
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          shape: RoundedRectangleBorder(
+              side: border, borderRadius: BorderRadius.circular(5)),
+          primary: Theme.of(context).buttonColor,
+          textStyle: TextStyle(color: foreground),
+          padding: EdgeInsets.symmetric(vertical: 15),
+        ),
+        onPressed: onTap,
       ),
     );
   }
