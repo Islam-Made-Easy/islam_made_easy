@@ -20,7 +20,7 @@
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Islam Made Easy">
+  <meta name="apple-mobile-web-app-title" content="Islam Made Easy - Built by IME team">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
@@ -47,9 +47,11 @@
   <script src="/__/firebase/init.js"></script>
   <script>
     // for analytics
-    firebase.analytics();
-    // for notification
-    const messaging = firebase.messaging()
+    // Workaround for Firebase issues on Web: https://github.com/FirebaseExtended/flutterfire/issues/3409
+    if (!firebase.analytics || !navigator.cookieEnabled) {
+        firebase.analytics = function() {};
+    }
+    // End-Workaround
   </script>
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
