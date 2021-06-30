@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:islam_made_easy/theme/theme.dart';
 
 enum CustomTextDirection { localeBased, ltr, rtl }
 
@@ -31,10 +30,8 @@ class LocaleProvide with ChangeNotifier {
   // default, return the actual text scale factor, otherwise return the
   // sentinel value.
   double textScaleFactor(BuildContext context, {bool useSentinel = false}) {
-    if (_textScaleFactor == systemTextScaleFactorOption) {
-      return useSentinel
-          ? systemTextScaleFactorOption
-          : MediaQuery.of(context).textScaleFactor;
+    if (_textScaleFactor == -1) {
+      return useSentinel ? -1 : MediaQuery.of(context).textScaleFactor;
     } else {
       return _textScaleFactor;
     }
@@ -65,6 +62,4 @@ class LocaleProvide with ChangeNotifier {
       customTextDirection: customTextDirection ?? this.customTextDirection,
     );
   }
-
 }
-
