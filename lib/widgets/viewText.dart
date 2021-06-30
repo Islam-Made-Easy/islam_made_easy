@@ -9,6 +9,7 @@ class ViewText extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return SelectableText(data,
-        style: theme.textTheme.subtitle1);
+        style: theme.textTheme.headline5
+            .copyWith(fontWeight: FontWeight.w100, height: 1.8, fontSize: 17,));
   }
 }
