@@ -1,8 +1,8 @@
 /// FeedbackModel is a data class which stores data fields of Feedback.
 class FeedbackModel {
-  String name;
-  String email;
-  String feedback;
+  final String name;
+  final String email;
+  final String feedback;
 
   FeedbackModel(this.name, this.email, this.feedback);
 
@@ -11,9 +11,16 @@ class FeedbackModel {
   }
 
   // Method to make GET parameters.
-  Map toJson() => {
-    'name': name,
-    'email': email,
-    'feedback': feedback
+  Map<String,dynamic> toJson() => {
+    FeedbackFields.name: name,
+    FeedbackFields.email: email,
+    FeedbackFields.feedback: feedback
   };
+}
+class FeedbackFields{
+  static final String name = 'name';
+  static final String email = 'email';
+  static final String feedback = 'feedback';
+
+  static List<String> getFields()=>[name,email,feedback];
 }
