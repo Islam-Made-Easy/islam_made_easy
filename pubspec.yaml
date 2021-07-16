@@ -123,12 +123,8 @@ flutter_intl:
     fonts:
     - asset: assets/fonts/Amiri-Regular.ttf
     - asset: assets/fonts/Amiri-Bold.ttf
-  - family: KFGQPC Uthman Taha Naskh
-    fonts:
-    - asset: assets/fonts/uthman_tn09.otf
-  - family: ReemKufi
-    fonts:
-    - asset: assets/fonts/ReemKufi-Regular.tff
+    - asset: assets/fonts/Amiri-BoldItalic.ttf
+    - asset: assets/fonts/Amiri-Italic.ttf
   - family: Quattrocento
     fonts:
     - asset: assets/fonts/Quattrocento-Regular.ttf
