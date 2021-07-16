@@ -10,35 +10,50 @@ import 'intl/messages_all.dart';
 
 // ignore_for_file: non_constant_identifier_names, lines_longer_than_80_chars
 // ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
-// ignore_for_file: avoid_redundant_argument_values
+// ignore_for_file: avoid_redundant_argument_values, avoid_escaping_inner_quotes
 
 class S {
   S();
-  
-  static S current;
-  
-  static const AppLocalizationDelegate delegate =
-    AppLocalizationDelegate();
+
+  static S? _current;
+
+  static S get current {
+    assert(_current != null,
+        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    return _current!;
+  }
+
+  static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
-    final localeName = Intl.canonicalizedLocale(name); 
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
+    final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
-      S.current = S();
-      
-      return S.current;
+      final instance = S();
+      S._current = instance;
+
+      return instance;
     });
-  } 
+  }
 
   static S of(BuildContext context) {
+    final instance = S.maybeOf(context);
+    assert(instance != null,
+        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    return instance!;
+  }
+
+  static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Sheikh Abū Hājar`
+  /// `Sheikh Abū Hājar (حفظه الله)`
   String get tawheedIntroAuthor {
     return Intl.message(
-      'Sheikh Abū Hājar',
+      'Sheikh Abū Hājar (حفظه الله)',
       name: 'tawheedIntroAuthor',
       desc: '',
       args: [],
@@ -5796,12 +5811,19 @@ class S {
   }
 
   /// `Requesting Him, calling upon Him, being humble before Him, breaking down between His hands, seeking guidance and correctness from Him, attaching [oneself] to “ la hawla wa la quwwata illa billah ”  (there is no strength nor power except with Allah) and the multitude of supplications narrated on this subject, like: \n{succinctDua1}\n “ Rabbi zidni ‘ilma  ” (My Lord, increase me in knowledge)\n{succinctDua2} \n“Subhanaka la ‘ilma lana illa ma ‘allamtana, innaka anta al- ‘Alim al-Hakim ” (Glorified are You, we have no knowledge except what You have taught us. Verily, it is You, the All-Knower, the All-Wise)\n {succinctDua3}\n“ Allahumma ‘allimni ma yanfa‘uni wanfa’ni bima ‘allamtani  ” (O Allah, teach me what benefits, and benefit me with what you teach me) \n{succinctDua4}\n“ Allahumma faqqihni fid-Din wa ʿ allimnit-tawil ”  (Oh Allah, grant me understanding of the Din, and teach me its interpretation) \n{succinctDua5}“ Allahumma ya Mu ʿ allima Adama wa Ibrahima ʿ allimni, wa ya Mufahhima Sulaymana fahhimni  ” (Oh Allah, the One who taught Adam and Ibrahim, teach me, and oh One who gave understanding to Sulayman, grant me understanding)`
-  String succinctSub3Par1(Object succinctDua1, Object succinctDua2, Object succinctDua3, Object succinctDua4, Object succinctDua5) {
+  String succinctSub3Par1(Object succinctDua1, Object succinctDua2,
+      Object succinctDua3, Object succinctDua4, Object succinctDua5) {
     return Intl.message(
       'Requesting Him, calling upon Him, being humble before Him, breaking down between His hands, seeking guidance and correctness from Him, attaching [oneself] to “ la hawla wa la quwwata illa billah ”  (there is no strength nor power except with Allah) and the multitude of supplications narrated on this subject, like: \n$succinctDua1\n “ Rabbi zidni ‘ilma  ” (My Lord, increase me in knowledge)\n$succinctDua2 \n“Subhanaka la ‘ilma lana illa ma ‘allamtana, innaka anta al- ‘Alim al-Hakim ” (Glorified are You, we have no knowledge except what You have taught us. Verily, it is You, the All-Knower, the All-Wise)\n $succinctDua3\n“ Allahumma ‘allimni ma yanfa‘uni wanfa’ni bima ‘allamtani  ” (O Allah, teach me what benefits, and benefit me with what you teach me) \n$succinctDua4\n“ Allahumma faqqihni fid-Din wa ʿ allimnit-tawil ”  (Oh Allah, grant me understanding of the Din, and teach me its interpretation) \n$succinctDua5“ Allahumma ya Mu ʿ allima Adama wa Ibrahima ʿ allimni, wa ya Mufahhima Sulaymana fahhimni  ” (Oh Allah, the One who taught Adam and Ibrahim, teach me, and oh One who gave understanding to Sulayman, grant me understanding)',
       name: 'succinctSub3Par1',
       desc: '',
-      args: [succinctDua1, succinctDua2, succinctDua3, succinctDua4, succinctDua5],
+      args: [
+        succinctDua1,
+        succinctDua2,
+        succinctDua3,
+        succinctDua4,
+        succinctDua5
+      ],
     );
   }
 
@@ -6762,11 +6784,9 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   bool shouldReload(AppLocalizationDelegate old) => false;
 
   bool _isSupported(Locale locale) {
-    if (locale != null) {
-      for (var supportedLocale in supportedLocales) {
-        if (supportedLocale.languageCode == locale.languageCode) {
-          return true;
-        }
+    for (var supportedLocale in supportedLocales) {
+      if (supportedLocale.languageCode == locale.languageCode) {
+        return true;
       }
     }
     return false;
