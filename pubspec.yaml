@@ -63,32 +63,34 @@ dependencies:
   flutter_local_notifications: ^5.0.0+4
   markdown: null
   flutter_markdown: null
-  bubble_overlay:
-  system_alert_window:
-  url_strategy:
-  animate_do:
-  desktop_window:
-  bitsdojo_window:
-  syncfusion_flutter_pdfviewer:
-  chewie:
-  ext_storage:
-          # flutter_ffmpeg:
-  flutter_vlc_player:
-  fuzzy:
-  lazy_load_scrollview:
-  permission_handler:
-  subtitle_wrapper_package:
-  transparent_image:
-  youtube_player_flutter:
-  wakelock:
-  firebase_storage:
-  firebase_core:
-#  firebase_analytics:
-  firebase:
+  bubble_overlay: null
+  system_alert_window: null
+  url_strategy: null
+  animate_do: null
+  desktop_window: null
+  bitsdojo_window: null
+  syncfusion_flutter_pdfviewer: null
+  chewie: null
+  ext_storage: null
+  flutter_vlc_player: null
+  fuzzy: null
+  lazy_load_scrollview: null
+  permission_handler: null
+  subtitle_wrapper_package: null
+  transparent_image: null
+  wakelock: null
+  firebase_storage: null
+  firebase_core: null
+  firebase: null
   better_player: ^0.0.13
   gsheets: ^0.3.0
-  statsfl:
-  starflut:
+  statsfl: null
+  starflut: null
+  keyboard_actions: null
+  overlay_support: null
+  flextras: ^0.0.1
+  just_audio: null
+  audioplayers: ^0.19.1
 dev_dependencies:
   flutter_launcher_icons: ^0.9.0
   flutter_native_splash: ^1.1.8+4
@@ -96,17 +98,14 @@ dev_dependencies:
     sdk: flutter
   build_runner: null
   json_serializable: null
-# SPLASH SCREEN GENERATOR
 flutter_native_splash:
   image: assets/images/logo.png
-  color: "111111"
-
-# ICON GENERATOR
+  color: 111111
 flutter_icons:
-  android: "ic_launcher"
-  image_path_android: "assets/images/logo.png"
+  android: ic_launcher
+  image_path_android: assets/images/logo.png
   ios: true
-  image_path_ios: "assets/images/logo.png"
+  image_path_ios: assets/images/logo.png
 flutter:
   uses-material-design: true
   assets:
@@ -136,7 +135,7 @@ flutter_intl:
     - asset: assets/fonts/Quattrocento-Bold.ttf
   - family: Roboto
     fonts:
-      - asset: assets/fonts/Roboto-Regular.ttf
-      - asset: assets/fonts/Roboto-Light.ttf
-      - asset: assets/fonts/Roboto-Thin.ttf
-      - asset: assets/fonts/Roboto-Bold.ttf
+    - asset: assets/fonts/Roboto-Regular.ttf
+    - asset: assets/fonts/Roboto-Light.ttf
+    - asset: assets/fonts/Roboto-Thin.ttf
+    - asset: assets/fonts/Roboto-Bold.ttf
