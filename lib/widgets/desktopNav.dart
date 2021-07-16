@@ -14,8 +14,7 @@ class DesktopNav extends StatefulWidget {
   _DesktopNavState createState() => _DesktopNavState();
 }
 
-class _DesktopNavState extends State<DesktopNav>
-    with SingleTickerProviderStateMixin {
+class _DesktopNavState extends State<DesktopNav> with SingleTickerProviderStateMixin {
   ValueNotifier<bool> _isExtended;
   double _scale;
   AnimationController _controller;
@@ -24,14 +23,10 @@ class _DesktopNavState extends State<DesktopNav>
   void initState() {
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(
-        milliseconds: 500,
-      ),
-      lowerBound: 0.0,
-      upperBound: 0.1,
-    )..addListener(() {
-        setState(() {});
-      });
+      duration: Duration(milliseconds: 500),
+      lowerBound: .0,
+      upperBound: .1,
+    )..addListener(() => setState(() {}));
     super.initState();
     _isExtended = ValueNotifier<bool>(widget.extended);
   }
@@ -61,11 +56,13 @@ class _DesktopNavState extends State<DesktopNav>
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
     final size = MediaQuery.of(context).size;
+    final theme = Theme.of(context);
+    final transparent =Colors.transparent;
     return Row(
       children: [
         LayoutBuilder(builder: (context, constraints) {
           return Container(
-            color: Theme.of(context).navigationRailTheme.backgroundColor,
+            color: theme.navigationRailTheme.backgroundColor,
             child: SingleChildScrollView(
               clipBehavior: Clip.antiAlias,
               child: ConstrainedBox(
@@ -80,53 +77,50 @@ class _DesktopNavState extends State<DesktopNav>
                               destinations: [
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: Colors.transparent,
+                                      color: transparent,
                                       borderRadius: BorderRadius.zero,
                                       child: FaIcon(PixIcon.fab_quora)),
                                   label: Text(S.current.quiz),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: Colors.transparent,
-                                      child:
-                                          FaIcon(PixIcon.typcn_document_text)),
+                                      color: transparent,
+                                      child: FaIcon(PixIcon.typcn_document_text)),
                                   label: Text(S.current.prerequisite),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: Colors.transparent,
+                                      color: transparent,
                                       child: FaIcon(PixIcon.fa_book_open)),
                                   label: Text('Methodology'),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: Colors.transparent,
+                                      color: transparent,
                                       child: FaIcon(PixIcon.fab_quinscape)),
                                   label: Text(S.current.questionsAndAnswers),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: Colors.transparent,
+                                      color: transparent,
                                       child: FaIcon(PixIcon.pix_book)),
                                   label: Text(S.current.generalKnowledge),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: Colors.transparent,
+                                      color: transparent,
                                       child: FaIcon(PixIcon.fa_scroll)),
                                   label: Text(S.current.references),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: Colors.transparent,
+                                      color: transparent,
                                       child: FaIcon(PixIcon.fab_ussunnah)),
                                   label: Text(S.current.shortPhrases),
                                 ),
                               ],
                               extended: _isExtended.value,
                               selectedIndex: _selectedIndex,
-                              labelType: NavigationRailLabelType.none,
-                              backgroundColor: Color(0xFFF2F2F2),
                               leading:
                                   NavigationRailHeader(extended: _isExtended),
                               onDestinationSelected: (index) {
@@ -134,44 +128,27 @@ class _DesktopNavState extends State<DesktopNav>
                                   _selectedIndex = index;
                                 });
                               },
-                              // groupAlignment: 1.0,
                             ),
                             Positioned(
-                              bottom: -size.height * 0.1,
-                              left: ar
-                                  ? isDesktop
-                                      ? size.width * 0.05
-                                      : size.width * 0.43
-                                  : 0,
-                              right: ar
-                                  ? 0
-                                  : isDesktop
-                                      ? size.width * 0.05
-                                      : size.width * 0.43,
+                              bottom: -size.height * .1,
+                              left: ar ? isDesktop ? size.width * .05 : size.width * .43 : 0,
+                              right: ar ? 0 : isDesktop ? size.width * .05 : size.width * .43,
                               child: Container(
-                                height: size.height * 0.165,
+                                height: size.height * .165,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                       topRight: Radius.circular(50),
-                                      bottomLeft: ar
-                                          ? Radius.elliptical(50, 120)
-                                          : Radius.zero,
-                                      bottomRight: ar
-                                          ? Radius.zero
-                                          : Radius.elliptical(50, 120)),
+                                      bottomLeft: ar ? Radius.elliptical(50, 120) : Radius.zero,
+                                      bottomRight: ar ? Radius.zero : Radius.elliptical(50, 120)),
                                   gradient: LinearGradient(
                                     colors: [
-                                      Theme.of(context).accentColor,
-                                      Theme.of(context).backgroundColor
+                                      theme.colorScheme.secondary,
+                                      theme.backgroundColor
                                     ],
                                     tileMode: TileMode.mirror,
-                                    begin: ar
-                                        ? Alignment.topRight
-                                        : Alignment.topLeft,
-                                    end: !ar
-                                        ? Alignment.bottomLeft
-                                        : Alignment.bottomRight,
-                                    stops: [0.0, 1.0],
+                                    begin: ar ? Alignment.topRight : Alignment.topLeft,
+                                    end: !ar ? Alignment.bottomLeft : Alignment.bottomRight,
+                                    stops: [.0, 1.0],
                                   ),
                                 ),
                                 child: GestureDetector(
@@ -180,16 +157,11 @@ class _DesktopNavState extends State<DesktopNav>
                                     Get.dialog(FeedDialog(ar: ar),
                                         transitionDuration: delay.duration,
                                         transitionCurve: Curves.easeIn,
-                                        barrierColor: Theme.of(context)
-                                            .primaryColor
-                                            .withOpacity(0.05),
                                         name: 'Feedback Dialog');
                                   },
                                   onTapUp: _tapUp,
                                   child: Transform.scale(
-                                    scale: _scale,
-                                    child: _animatedButton(),
-                                  ),
+                                      scale: _scale, child: _animatedButton()),
                                 ),
                               ),
                             ),
@@ -201,11 +173,7 @@ class _DesktopNavState extends State<DesktopNav>
             ),
           );
         }),
-        const VerticalDivider(
-          thickness: 1,
-          width: 1,
-          color: Color(0xFFF2F2F2),
-        ),
+        const VerticalDivider(thickness: 1, width: 1),
         Expanded(
           child: SharedAxisTransitionSwitcher(
             child: IMENav(child: screens[_selectedIndex]),
@@ -220,28 +188,11 @@ class _DesktopNavState extends State<DesktopNav>
   void _tapUp(TapUpDetails details) => _controller.reverse();
 
   Widget _animatedButton() {
-    Locale locale = Localizations.localeOf(context);
-    final ar = locale.languageCode == 'ar';
     return Container(
-      decoration: BoxDecoration(
-        color: Theme.of(context).primaryColorDark,
-        borderRadius: BorderRadius.only(
-          topRight:
-              ar ? Radius.elliptical(90, 10) : Radius.elliptical(162, 200),
-          topLeft: ar ? Radius.elliptical(12, 200) : Radius.elliptical(10, 10),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0xFF383838),
-            blurRadius: 12.0,
-            offset: Offset(0.0, 5.0),
-          ),
-        ],
-      ),
       child: Center(
         child: Text(
           'Feedback',
-          style: TextStyle(
+          style: Theme.of(context).textTheme.headline6.copyWith(
               fontSize: 50.0, color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
