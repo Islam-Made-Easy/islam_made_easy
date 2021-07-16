@@ -183,7 +183,7 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
                   front: _buildCardF(
                       S.current.tawheedIntroAuthor, () => _flip5(true)),
                   back: _buildCardB(
-                      () => _flip5(false), 'He is a student of knowledge, studied vocabulary, nahw (grammar) and sarf (morphology). Mainly translates '
+                      () => _flip5(false), 'Studied vocabulary, nahw (grammar) and sarf (morphology). Mainly translates '
                       'books of ‘aqīdah of the Salaf.\n${S.current.tawheedIntroTitle}'),
                 ),
               ],
