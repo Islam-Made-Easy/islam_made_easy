@@ -1,6 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+
 class Animator extends StatefulWidget {
   final Widget child;
   final Duration time;
@@ -11,25 +11,22 @@ class Animator extends StatefulWidget {
   _AnimatorState createState() => _AnimatorState();
 }
 
-class _AnimatorState extends State<Animator>
-    with SingleTickerProviderStateMixin {
+class _AnimatorState extends State<Animator> with SingleTickerProviderStateMixin {
   Timer timer;
-  AnimationController animationController;
+  AnimationController anim;
   Animation animation;
 
   @override
   void initState() {
     super.initState();
-    animationController =
-        AnimationController(duration: Duration(milliseconds: 290), vsync: this);
-    animation =
-        CurvedAnimation(parent: animationController, curve: Curves.easeInOut);
-    timer = Timer(widget.time, animationController.forward);
+    anim = AnimationController(duration: Duration(milliseconds: 290), vsync: this);
+    animation = CurvedAnimation(parent: anim, curve: Curves.easeInOut);
+    timer = Timer(widget.time, anim.forward);
   }
 
   @override
   void dispose() {
-    animationController.dispose();
+    anim.dispose();
     super.dispose();
     timer.cancel();
   }
@@ -43,7 +40,7 @@ class _AnimatorState extends State<Animator>
         return Opacity(
           opacity: animation.value,
           child: Transform.translate(
-            offset: Offset(0.0, (1 - animation.value) * 20),
+            offset: Offset(.0, (1 - animation.value) * 20),
             child: child,
           ),
         );
@@ -57,9 +54,7 @@ Duration duration = Duration();
 
 wait() {
   if (timer == null || !timer.isActive) {
-    timer = Timer(Duration(microseconds: 120), () {
-      duration = Duration();
-    });
+    timer = Timer(Duration(microseconds: 120), () => duration = Duration());
   }
   duration += Duration(milliseconds: 100);
   return duration;
