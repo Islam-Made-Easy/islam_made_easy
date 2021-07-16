@@ -1,13 +1,11 @@
 /// FeedbackModel is a data class which stores data fields of Feedback.
 class FeedbackModel {
-  final String name;
-  final String email;
-  final String feedback;
+  final String name, email, feedback;
 
-  FeedbackModel(this.name, this.email, this.feedback);
+  const FeedbackModel({this.name, this.email, this.feedback});
 
   factory FeedbackModel.fromJson(dynamic json) {
-    return FeedbackModel("${json['name']}", "${json['email']}","${json['feedback']}");
+    return FeedbackModel(name:"${json['name']}",email: "${json['email']}",feedback: "${json['feedback']}");
   }
 
   // Method to make GET parameters.
@@ -17,10 +15,9 @@ class FeedbackModel {
     FeedbackFields.feedback: feedback
   };
 }
+
 class FeedbackFields{
-  static final String name = 'name';
-  static final String email = 'email';
-  static final String feedback = 'feedback';
+  static final String name = 'name', email = 'email', feedback = 'feedback';
 
   static List<String> getFields()=>[name,email,feedback];
 }

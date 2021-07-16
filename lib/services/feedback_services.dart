@@ -32,9 +32,9 @@ class FeedbackServices {
   }
   static Future<Worksheet>_getWorkSheet(Spreadsheet spreadsheet, {String title}) async{
     try {
-      return spreadsheet.addWorksheet(title);
+      return await spreadsheet.addWorksheet(title);
     }catch(e){
-      return spreadsheet.addWorksheet(title);
+      return spreadsheet.worksheetByTitle(title);
     }
   }
   static Future insert(List<Map<String,dynamic>>rowList)async{

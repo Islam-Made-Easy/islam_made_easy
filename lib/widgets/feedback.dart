@@ -29,25 +29,25 @@ class _AppFeedbackState extends State<AppFeedback> {
   }
 
   final _formKey = GlobalKey<FormState>();
-  TextEditingController name = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController feed = TextEditingController();
+  TextEditingController name, email, feed;
+
+  @override
+  void initState() {
+    name = TextEditingController();
+    email = TextEditingController();
+    feed = TextEditingController();
+    super.initState();
+  }
 
   void _submitFeed() async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
-      final feedback = FeedbackModel(name.text, email.text, feed.text);
+      final feedback = FeedbackModel(name: name.text,email: email.text,feedback: feed.text);
       await FeedbackServices.insert([feedback.toJson()]);
       Get.snackbar('Submitting', 'Thank you for submitting your feedback!, Jazakumullahu Khayraa!!');
       name.clear(); email.clear(); feed.clear();
     }
   }
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
