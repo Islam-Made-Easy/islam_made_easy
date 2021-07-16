@@ -8,26 +8,16 @@ class backIndent extends Intent {}
 
 class DetailsPage extends StatefulWidget {
   final List<Widget> data;
-  final String title;
-  final String barTitle;
-  final String image;
+  final String title, barTitle, image;
 
-  const DetailsPage({
-    Key key,
-    @required this.data,
-    @required this.title,
-    @required this.barTitle,
-    @required this.image,
-  }) : super(key: key);
+  DetailsPage({Key key, this.data, this.title, this.barTitle, this.image})
+      : super(key: key);
 
   @override
   _DetailsPageState createState() => _DetailsPageState();
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-  void _showSnackBarOnCopyFailure(Object exception) {
-    Get.snackbar(S.current.copyError, exception);
-  }
 
   static DelayUI shareDelay = DelayUI(Duration(seconds: 1));
 
@@ -40,65 +30,60 @@ class _DetailsPageState extends State<DetailsPage> {
     final ar = locale.languageCode == 'ar';
     final size = context.mediaQuery.size;
     return Scaffold(
-      backgroundColor: theme.backgroundColor,
       appBar: AppBar(
         title: Text(widget.barTitle),
         elevation: 0,
         leading: Shortcuts(
           shortcuts: <LogicalKeySet, Intent>{
             LogicalKeySet(LogicalKeyboardKey.alt, LogicalKeyboardKey.arrowLeft):
-                backIndent(),
+            backIndent(),
           },
           child: Actions(
             actions: {
               backIndent: CallbackAction<backIndent>(
-                  onInvoke: (intent) => Navigator.pop(context))
+                  onInvoke: (intent) => Navigator.of(context).pop())
             },
             child: Focus(
               autofocus: true,
               child: isDesktop
                   ? BackButton()
                   : IconButton(
-                      icon: FaIcon(ar
-                          ? FontAwesomeIcons.angleRight
-                          : FontAwesomeIcons.angleLeft),
-                      onPressed: Get.back,
-                      tooltip:
-                          MaterialLocalizations.of(context).backButtonTooltip,
-                    ),
+                    icon: FaIcon(ar ? FontAwesomeIcons.angleRight
+                    : FontAwesomeIcons.angleLeft),
+                onPressed: Get.back,
+                tooltip:
+                MaterialLocalizations.of(context).backButtonTooltip,
+              ),
             ),
           ),
         ),
         actions: [
-          IconButton(
-              icon: FaIcon(
+          DeviceOS.isDesktopOrWeb
+              ? IconButton(
+               icon: FaIcon(
                 PixIcon.pix_copy,
-                color: Colors.greenAccent.withOpacity(0.4),
+                color: Colors.greenAccent.withOpacity(.4),
               ),
               tooltip: MaterialLocalizations.of(context).copyButtonLabel,
               onPressed: () {
-                HapticFeedback.heavyImpact();
-                Clipboard.setData(
-                  ClipboardData(text: widget.title),
-                )
+                Clipboard.setData(ClipboardData(text: widget.title))
                     .then(
-                      (value) => Get.snackbar(S.current.copiedToClipboardTitle,
+                      (value) =>
+                      Get.snackbar(S.current.copiedToClipboardTitle,
                           S.current.copiedToClipboard),
-                    )
-                    .catchError(_showSnackBarOnCopyFailure);
-              }),
-          DeviceOS.isMobile
-              ? IconButton(
-                  icon: FaIcon(FontAwesomeIcons.shareAlt),
-                  onPressed: () {
-                    shareDelay.run(
-                      () => Share.share(
-                          "${widget.title} \nIslam Made Easy\n${S.current.aboutApp}",
-                          subject: ShareUtil().getPlatformShare()),
-                    );
-                  },
-                )
-              : Container(),
+                );
+              }) :
+          IconButton(
+            icon: FaIcon(FontAwesomeIcons.shareAlt),
+            onPressed: () {
+              shareDelay.run(
+                    () =>
+                    Share.share(
+                        "${widget.title} \nIslam Made Easy\n${S.current.aboutApp}",
+                        subject: ShareUtil().getPlatformShare()),
+              );
+            },
+          ),
         ],
       ),
       body: Stack(
@@ -121,9 +106,9 @@ class _DetailsPageState extends State<DetailsPage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topRight:
-                                ar ? Radius.zero : Radius.elliptical(10, 50),
+                            ar ? Radius.zero : Radius.elliptical(10, 50),
                             topLeft:
-                                ar ? Radius.elliptical(50, 20) : Radius.zero),
+                            ar ? Radius.elliptical(50, 20) : Radius.zero),
                         gradient: LinearGradient(
                           colors: [
                             theme.colorScheme.secondary,
@@ -131,9 +116,8 @@ class _DetailsPageState extends State<DetailsPage> {
                           ],
                           tileMode: TileMode.mirror,
                           end: ar ? Alignment.topLeft : Alignment.topRight,
-                          begin:
-                              ar ? Alignment.bottomRight : Alignment.bottomLeft,
-                          stops: [0.0, 1.0],
+                          begin: ar ? Alignment.bottomRight : Alignment.bottomLeft,
+                          stops: [.0, 1.0],
                         ),
                       ),
                     ),
@@ -152,9 +136,8 @@ class _DetailsPageState extends State<DetailsPage> {
                           ],
                           tileMode: TileMode.mirror,
                           end: ar ? Alignment.topLeft : Alignment.topRight,
-                          begin:
-                              ar ? Alignment.bottomRight : Alignment.bottomLeft,
-                          stops: [0.0, 1.0],
+                          begin: ar ? Alignment.bottomRight : Alignment.bottomLeft,
+                          stops: [.0, 1.0],
                         ),
                       ),
                     ),
@@ -168,11 +151,9 @@ class _DetailsPageState extends State<DetailsPage> {
                       width: 140.0,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
-                              bottomLeft:
-                                  ar ? Radius.zero : Radius.circular(10),
+                              bottomLeft: ar ? Radius.zero : Radius.circular(10),
                               topLeft: ar ? Radius.zero : Radius.circular(10),
-                              topRight:
-                                  ar ? Radius.elliptical(50, 20) : Radius.zero),
+                              topRight: ar ? Radius.elliptical(50, 20) : Radius.zero),
                           gradient: LinearGradient(
                             colors: [
                               theme.colorScheme.secondary,
@@ -180,10 +161,8 @@ class _DetailsPageState extends State<DetailsPage> {
                             ],
                             tileMode: TileMode.mirror,
                             begin: ar ? Alignment.topRight : Alignment.topLeft,
-                            end: ar
-                                ? Alignment.bottomLeft
-                                : Alignment.bottomRight,
-                            stops: [0.0, 1.0],
+                            end: ar ? Alignment.bottomLeft : Alignment.bottomRight,
+                            stops: [.0, 1.0],
                           ),
                           shape: BoxShape.rectangle),
                     ),
@@ -198,16 +177,12 @@ class _DetailsPageState extends State<DetailsPage> {
                         ],
                         tileMode: TileMode.mirror,
                         end: ar ? Alignment.topLeft : Alignment.topRight,
-                        begin:
-                            ar ? Alignment.bottomRight : Alignment.bottomLeft,
-                        stops: [0.0, 1.0],
+                        begin: ar ? Alignment.bottomRight : Alignment.bottomLeft,
+                        stops: [.0, 1.0],
                       ),
-                      color:
-                          theme.colorScheme.secondaryVariant.withOpacity(0.5),
+                      color: theme.colorScheme.primary.withOpacity(.5),
                     ),
-                    // color: Color(0xFFF2F2F2),
-
-                    height: size.height * 0.36,
+                    height: size.height * .36,
                     width: size.width - 10,
                     child: Padding(
                       padding: const EdgeInsets.all(1),
@@ -225,7 +200,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 widget.title,
                 textAlign: TextAlign.center,
                 style: textTheme.headline5.copyWith(
-                  color: Colors.black54,
+                  color: theme.colorScheme.secondary,
                   fontSize: 30,
                 ),
               ),
@@ -245,33 +220,31 @@ class _DetailsPageState extends State<DetailsPage> {
 }
 
 class OpenContainerWrapper extends StatelessWidget {
-  const OpenContainerWrapper({
-    this.closedBuilder,
-    @required this.data,
-    @required this.title,
-    @required this.barTitle,
-    @required this.image,
-  });
+  const OpenContainerWrapper({this.closedBuilder, this.data, this.title, this.barTitle, this.image});
 
   final CloseContainerBuilder closedBuilder;
   final List<Widget> data;
-  final String title;
-  final String barTitle;
-  final String image;
+  final String title, barTitle, image;
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return WidgetAnimator(
       OpenContainer<bool>(
         transitionType: ContainerTransitionType.fade,
         closedElevation: 0,
+        closedColor: theme.hoverColor,
         closedShape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(0)),
+          borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
-        openBuilder: (context, openContainer) => DetailsPage(
-            title: title, data: data, barTitle: barTitle, image: image),
+        openShape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+        ),
+        openBuilder: (context, openContainer) =>
+            DetailsPage(
+                title: title, data: data, barTitle: barTitle, image: image),
         tappable: false,
-        openColor: Theme.of(context).backgroundColor,
+        openColor: theme.primaryColor,
         closedBuilder: closedBuilder,
       ),
     );
@@ -279,18 +252,9 @@ class OpenContainerWrapper extends StatelessWidget {
 }
 
 class DetailsCard extends StatelessWidget {
-  const DetailsCard({
-    this.openContainer,
-    @required this.title,
-    this.subTitle,
-    @required this.img,
-    this.details,
-  });
+  const DetailsCard({this.openContainer, this.title, this.subTitle, this.img, this.details});
 
-  final String title;
-  final String img;
-  final String details;
-  final String subTitle;
+  final String title, img, details, subTitle;
   final VoidCallback openContainer;
 
   @override
@@ -301,136 +265,143 @@ class DetailsCard extends StatelessWidget {
     final size = context.mediaQuery.size;
     final theme = Theme.of(context);
     return SizedBox(
-      height: size.height * 0.45,
+      height: size.height * .45,
       child: InkWell(
         onTap: openContainer,
         child: LayoutBuilder(
-          builder: (context, constraints) => ConstrainedBox(
-            constraints: BoxConstraints(maxHeight: constraints.maxHeight),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          top: 40.0,
-                          left: ar ? 120 : 0,
-                          right: ar ? 0 : 120,
-                          child: Container(
-                            height: 30.0,
-                            width: 170.0,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topRight: ar
-                                      ? Radius.zero
-                                      : Radius.elliptical(10, 50),
-                                  topLeft: ar
-                                      ? Radius.elliptical(50, 20)
-                                      : Radius.zero),
-                              gradient: LinearGradient(
-                                colors: [
-                                  theme.colorScheme.secondary,
-                                  theme.backgroundColor
-                                ],
-                                tileMode: TileMode.mirror,
-                                end:
+          builder: (context, constraints) =>
+              ConstrainedBox(
+                constraints: BoxConstraints(maxHeight: constraints.maxHeight),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              top: 40.0,
+                              left: ar ? 120 : 0,
+                              right: ar ? 0 : 120,
+                              child: Container(
+                                height: 30.0,
+                                width: 170.0,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topRight: ar
+                                          ? Radius.zero
+                                          : Radius.elliptical(10, 50),
+                                      topLeft: ar
+                                          ? Radius.elliptical(50, 20)
+                                          : Radius.zero),
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      theme.colorScheme.secondary,
+                                      theme.backgroundColor
+                                    ],
+                                    tileMode: TileMode.mirror,
+                                    end:
                                     ar ? Alignment.topLeft : Alignment.topRight,
-                                begin: ar
-                                    ? Alignment.bottomRight
-                                    : Alignment.bottomLeft,
-                                stops: [0.0, 1.0],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 10.0,
-                          child: Container(
-                            height: 100.0,
-                            width: 100.0,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(50)),
-                              gradient: LinearGradient(
-                                colors: [
-                                  theme.colorScheme.secondary,
-                                  theme.backgroundColor
-                                ],
-                                tileMode: TileMode.mirror,
-                                end:
-                                    ar ? Alignment.topLeft : Alignment.topRight,
-                                begin: ar
-                                    ? Alignment.bottomRight
-                                    : Alignment.bottomLeft,
-                                stops: [0.0, 1.0],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          top: 75.0,
-                          left: ar ? 0 : 200,
-                          right: ar ? 200 : 0,
-                          child: Container(
-                            height: 120.0,
-                            width: 140.0,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    bottomLeft:
-                                        ar ? Radius.zero : Radius.circular(10),
-                                    topLeft:
-                                        ar ? Radius.zero : Radius.circular(10),
-                                    topRight: ar
-                                        ? Radius.elliptical(50, 20)
-                                        : Radius.zero),
-                                gradient: LinearGradient(
-                                  colors: [
-                                    theme.colorScheme.secondary,
-                                    theme.backgroundColor
-                                  ],
-                                  tileMode: TileMode.mirror,
-                                  begin: ar
-                                      ? Alignment.topRight
-                                      : Alignment.topLeft,
-                                  end: ar
-                                      ? Alignment.bottomLeft
-                                      : Alignment.bottomRight,
-                                  stops: [0.0, 1.0],
+                                    begin: ar
+                                        ? Alignment.bottomRight
+                                        : Alignment.bottomLeft,
+                                    stops: [.0, 1.0],
+                                  ),
                                 ),
-                                shape: BoxShape.rectangle),
-                          ),
-                        ),
-                        Container(
-                          color: theme.hoverColor,
-                          child: Center(
-                            child: Image.asset(
-                              img,
-                              fit: BoxFit.cover,
-                              matchTextDirection: true,
-                              width: MediaQuery.of(context).size.width,
-                              height: MediaQuery.of(context).size.height,
+                              ),
                             ),
-                          ),
+                            Positioned(
+                              bottom: 10.0,
+                              child: Container(
+                                height: 100.0,
+                                width: 100.0,
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(50)),
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      theme.colorScheme.secondary,
+                                      theme.backgroundColor
+                                    ],
+                                    tileMode: TileMode.mirror,
+                                    end:
+                                    ar ? Alignment.topLeft : Alignment.topRight,
+                                    begin: ar
+                                        ? Alignment.bottomRight
+                                        : Alignment.bottomLeft,
+                                    stops: [.0, 1.0],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              top: 75.0,
+                              left: ar ? 0 : 200,
+                              right: ar ? 200 : 0,
+                              child: Container(
+                                height: 120.0,
+                                width: 140.0,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        bottomLeft:
+                                        ar ? Radius.zero : Radius.circular(10),
+                                        topLeft:
+                                        ar ? Radius.zero : Radius.circular(10),
+                                        topRight: ar
+                                            ? Radius.elliptical(50, 20)
+                                            : Radius.zero),
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        theme.colorScheme.secondary,
+                                        theme.backgroundColor
+                                      ],
+                                      tileMode: TileMode.mirror,
+                                      begin: ar
+                                          ? Alignment.topRight
+                                          : Alignment.topLeft,
+                                      end: ar
+                                          ? Alignment.bottomLeft
+                                          : Alignment.bottomRight,
+                                      stops: [.0, 1.0],
+                                    ),
+                                    shape: BoxShape.rectangle),
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: theme.hoverColor,
+                                  image: DecorationImage(
+                                    image: AssetImage(img),
+                                    fit: BoxFit.cover,
+                                    matchTextDirection: true,
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(8),
+                                      topRight: Radius.circular(8))),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                      ListTile(
+                        tileColor: theme.primaryColor.withOpacity(.05),
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(10),
+                                bottomLeft: Radius.circular(10))
+                        ),
+                        title: Text(
+                          title,
+                          textAlign: TextAlign.center,
+                          style: theme.textTheme.headline6.copyWith(
+                              fontWeight: FontWeight.w200,
+                              fontSize: isDesktop || context.isTablet ? 21 : 15),
+                        ),
+                      ),
+                    ],
                   ),
-                  ListTile(
-                    title: Text(
-                      title,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w200,
-                          fontSize: isDesktop || context.isTablet ? 21 : 15),
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
-          ),
         ),
       ),
     );

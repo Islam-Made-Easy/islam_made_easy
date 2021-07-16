@@ -15,8 +15,9 @@ class PopupOptionMenu extends StatelessWidget {
     Locale locale = Localizations.localeOf(context);
     final isDesktop = isDisplayDesktop(context);
     final ar = locale.languageCode == 'ar';
+    final color = Theme.of(context).iconTheme.color;
     return PopupMenuButton(
-      icon: FaIcon(FontAwesomeIcons.ellipsisV),
+      icon: FaIcon(FontAwesomeIcons.ellipsisV),elevation: 0,
       onSelected: (MenuOptions options) async {
         switch (options) {
           case MenuOptions.Settings:
@@ -40,9 +41,9 @@ class PopupOptionMenu extends StatelessWidget {
         PopupMenuItem(
           child: Row(
             children: [
-              FaIcon(PixIcon.pix_info),
+              FaIcon(PixIcon.pix_info,color: color),
               const SizedBox(width: 10),
-              Text('About'),
+              Text(MaterialLocalizations.of(context).aboutListTileTitle('')),
             ],
           ),
           value: MenuOptions.about,
@@ -50,9 +51,9 @@ class PopupOptionMenu extends StatelessWidget {
         PopupMenuItem(
           child: Row(
             children: [
-              FaIcon(FontAwesomeIcons.cog),
+              FaIcon(FontAwesomeIcons.cog,color: color),
               const SizedBox(width: 10),
-              Text('Settings'),
+              Text(S.current.settings),
             ],
           ),
           value: MenuOptions.Settings,
@@ -60,7 +61,7 @@ class PopupOptionMenu extends StatelessWidget {
         PopupMenuItem(
           child: Row(
             children: [
-              FaIcon(FontAwesomeIcons.comment),
+              FaIcon(FontAwesomeIcons.comment,color: color),
               const SizedBox(width: 10),
               Text('Send Feedback'),
             ],

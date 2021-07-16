@@ -46,28 +46,25 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
     return RelativeRectTween(
             begin: RelativeRect.fromLTRB(
-                0.0, backPanelHeight, 0.0, frontPanelHeight),
-            end: RelativeRect.fromLTRB(0.0, 0.0, 0.0, 0.0))
+                .0, backPanelHeight, .0, frontPanelHeight),
+            end: RelativeRect.fromLTRB(.0, .0, .0, .0))
         .animate(CurvedAnimation(parent: controller, curve: Curves.linear));
   }
 
   Widget bothPanels(BuildContext context, BoxConstraints constraints) {
-    return Container(
-      child: Stack(
-        children: <Widget>[
-          NavigationPanel(),
-          PositionedTransition(
-            rect: getPanelAnimation(constraints),
-            child: Material(
-              elevation: 0.0,
-              color: Theme.of(context).backgroundColor,
-              child: Column(
-                children: <Widget>[Expanded(child: Center(child: MainPanel()))],
-              ),
+    return Stack(
+      children: <Widget>[
+        NavigationPanel(),
+        PositionedTransition(
+          rect: getPanelAnimation(constraints),
+          child: Container(
+            color:  context.isDarkMode?Theme.of(context).primaryColorDark: Theme.of(context).primaryColorLight,
+            child: Column(
+              children: <Widget>[Expanded(child: Center(child: MainPanel()))],
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 
@@ -75,43 +72,31 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final isTablet = isDisplaySmallDesktop(context);
-    final theme = Theme.of(context).backgroundColor;
     if (DeviceOS.isDesktopOrWeb && isDesktop ||
         (context.isLargeTablet && DeviceOS.isMobile)) {
-      return Scaffold(
-        backgroundColor: theme,
-        body: DesktopNav(extended: !isTablet),
-      );
+      return Scaffold(body: DesktopNav(extended: !isTablet));
     } else {
       return DoubleBack(
-        onFirstBackPress: (context) => Get.snackbar('', "Smile It's Sunnah"),
-        child: Stack(
-          children: [
-            Scaffold(
-              backgroundColor: theme,
-              appBar: AppBar(
-                elevation: 0,
-                toolbarHeight: 40,
-                backgroundColor: Colors.transparent,
-                leading: IconButton(
-                  onPressed: () {
-                    double velocity = 2.0;
-                    controller.fling(
-                        velocity: isPanelVisible ? -velocity : velocity);
-                  },
-                  splashRadius: 10,
-                  icon: AnimatedIcon(
-                    icon: AnimatedIcons.close_menu,
-                    size: 30,
-                    progress: controller.view,
-                  ),
-                ),
-                actions: [PopupOptionMenu(isVisible: isPanelVisible)],
+        onFirstBackPress: (context) => Get.snackbar('Smile It\'s Sunnah', ''),
+        child: Scaffold(backgroundColor: context.isDarkMode?null:null,
+          appBar: AppBar(
+            // backgroundColor: context.isDarkMode?Theme.of(context).primaryColorDark: Theme.of(context).primaryColorLight,
+            leading: IconButton(
+              onPressed: () {
+                double velocity = 2.0;
+                controller.fling(
+                    velocity: isPanelVisible ? -velocity : velocity);
+              },
+              splashRadius: 10,
+              icon: AnimatedIcon(
+                icon: AnimatedIcons.close_menu,
+                size: 30,
+                progress: controller.view,
               ),
-              body: LayoutBuilder(builder: bothPanels),
             ),
-            GradientCircles(),
-          ],
+            actions: [PopupOptionMenu(isVisible: isPanelVisible)],
+          ),
+          body: LayoutBuilder(builder: bothPanels),
         ),
       );
     }

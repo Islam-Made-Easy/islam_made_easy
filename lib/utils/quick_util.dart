@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/settings/settings.dart';
 import 'package:islam_made_easy/views/home.dart';
+import 'package:islam_made_easy/views/prerequisite.dart';
 import 'package:quick_actions/quick_actions.dart';
 
 class QuickUtil extends StatefulWidget {
@@ -27,7 +28,7 @@ class _QuickUtilState extends State<QuickUtil> {
   void _setupQuickActions() {
     quickActions.setShortcutItems(<ShortcutItem>[
       ShortcutItem(
-          type: 'action_home', localizedTitle: S.current.home, icon: 'ic_menu_home'),
+          type: 'action_home', localizedTitle: S.current.prerequisite, icon: 'ic_menu_home'),
       ShortcutItem(
           type: 'action_quiz_start',
           localizedTitle: S.current.quiz,
@@ -42,7 +43,7 @@ class _QuickUtilState extends State<QuickUtil> {
   void _handleQuickActions() {
     quickActions.initialize((String shortcutType) {
       if (shortcutType == 'action_quiz_start') {
-        Get.to(() => Home());
+        Get.to(() => Prerequisite());
       } else if (shortcutType == 'action_home') {
         Get.to(() => Home());
       } else if (shortcutType == 'action_settings') {

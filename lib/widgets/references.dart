@@ -118,12 +118,10 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
     final isDesktop = isDisplayDesktop(context);
     final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: theme.backgroundColor,
       appBar: AppBar(
         title: Text(S.current.references),
         centerTitle: true,
-        elevation: 0,
-        backgroundColor: isDesktop ? Colors.transparent : Theme.of(context).appBarTheme.color,
+        backgroundColor: isDesktop ? Colors.transparent : null,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
@@ -132,20 +130,20 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
           Container(
             decoration: isDesktop
                 ? BoxDecoration(
-                    color: Color(0xFFFAFAFC).withOpacity(0.2),
-                    border: Border.all(color: theme.backgroundColor),
+                    color: theme.cardColor.withOpacity(.2),
+                    border: Border.all(color: theme.hoverColor),
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
                       matchTextDirection: true,
                       image: AssetImage('assets/images/frame1.png'),
                       fit: BoxFit.cover,
                       colorFilter: ColorFilter.mode(
-                        theme.backgroundColor.withOpacity(0.4),
-                        BlendMode.colorBurn,
+                        theme.hintColor.withOpacity(.4),
+                        BlendMode.dst,
                       ),
                     ),
                   )
-                : BoxDecoration(color: theme.backgroundColor),
+                : BoxDecoration(),
             padding: EdgeInsets.all(isDesktop ? 42 : 10),
             child: Column(
               children: [
@@ -185,7 +183,8 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
                   front: _buildCardF(
                       S.current.tawheedIntroAuthor, () => _flip5(true)),
                   back: _buildCardB(
-                      () => _flip5(false), S.current.tawheedIntroTitle),
+                      () => _flip5(false), 'He is a student of knowledge, studied vocabulary, nahw (grammar) and sarf (morphology). Mainly translates '
+                      'books of ‘aqīdah of the Salaf.\n${S.current.tawheedIntroTitle}'),
                 ),
               ],
             ),
@@ -202,7 +201,7 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
       shape: GetPlatform.isWeb
           ? null
           : RoundedRectangleBorder(
-              side: BorderSide(width: 0.5, color: Theme.of(context).hoverColor),
+              side: BorderSide(width: .5, color: Theme.of(context).hoverColor),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(ar ? 0 : 10),
                 topRight: Radius.circular(ar ? 10 : 0),
@@ -233,7 +232,7 @@ class _ReferencesState extends State<References> with TickerProviderStateMixin {
       shape: GetPlatform.isWeb
           ? null
           : RoundedRectangleBorder(
-        side: BorderSide(width: 0.5, color: Theme.of(context).hoverColor),
+        side: BorderSide(width: .5, color: Theme.of(context).hoverColor),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(ar ? 0 : 10),
           topRight: Radius.circular(ar ? 10 : 0),

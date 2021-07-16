@@ -2,7 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
 class IMENav extends StatefulWidget {
-  const IMENav({@required this.child}) : assert(child != null);
+  const IMENav({this.child}) : assert(child != null);
   final Widget child;
 
   @override
@@ -17,7 +17,7 @@ class _IMENavState extends State<IMENav> {
         return MaterialPageRoute<void>(
           builder: (context) {
             return FadeThroughTransitionSwitcher(
-              fillColor: Theme.of(context).backgroundColor,
+              fillColor: Theme.of(context).scaffoldBackgroundColor,
               child: widget.child,
             );
           },
@@ -29,8 +29,7 @@ class _IMENavState extends State<IMENav> {
 }
 
 class FadeThroughTransitionSwitcher extends StatelessWidget {
-  const FadeThroughTransitionSwitcher(
-      {@required this.fillColor, @required this.child})
+  const FadeThroughTransitionSwitcher({this.fillColor, this.child})
       : assert(fillColor != null),
         assert(child != null);
 
@@ -40,12 +39,12 @@ class FadeThroughTransitionSwitcher extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageTransitionSwitcher(
-      transitionBuilder: (child, animation, secondaryAnimation) {
+      transitionBuilder: (child, anim, secAnim) {
         return FadeThroughTransition(
           fillColor: fillColor,
           child: child,
-          animation: animation,
-          secondaryAnimation: secondaryAnimation,
+          animation: anim,
+          secondaryAnimation: secAnim,
         );
       },
       child: child,

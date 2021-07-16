@@ -7,8 +7,7 @@ class SplashView extends StatefulWidget {
   _SplashViewState createState() => _SplashViewState();
 }
 
-class _SplashViewState extends State<SplashView>
-    with SingleTickerProviderStateMixin {
+class _SplashViewState extends State<SplashView> with SingleTickerProviderStateMixin {
   List<OnBoardPageItem> onboardPageItems = [
     OnBoardPageItem(
       lottieAsset: 'assets/lottie/bookI.json',
@@ -18,10 +17,7 @@ class _SplashViewState extends State<SplashView>
       lottieAsset: 'assets/lottie/bath.json',
       text: 'Ghusl Before Jum\'ah Prayer',
     ),
-    OnBoardPageItem(
-      lottieAsset: 'assets/lottie/hand.json',
-      text: '‎Trim Nails',
-    ),
+    OnBoardPageItem(lottieAsset: 'assets/lottie/hand.json', text: 'Trim Nails'),
     OnBoardPageItem(
       lottieAsset: 'assets/lottie/brush.json',
       text: 'Miswāk Before  Ablution',
@@ -56,9 +52,8 @@ class _SplashViewState extends State<SplashView>
 
   List<Widget> onBoardItems = [];
   double _activeIndex;
-  bool onBoardPage = false;
-  bool glow = false;
-  AnimationController _animationController;
+  bool onBoardPage = false,glow = false;
+  AnimationController _anim;
 
   @override
   void initState() {
@@ -82,7 +77,7 @@ class _SplashViewState extends State<SplashView>
       }
       glow = false;
     });
-    _animationController = AnimationController(
+    _anim = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1000))
       ..forward();
     super.initState();
@@ -105,18 +100,18 @@ class _SplashViewState extends State<SplashView>
     // final isDesktop = isDisplayDesktop(context);
     if (DeviceOS.isDesktopOrWeb && context.isTablet) {
       return Scaffold(
-        backgroundColor: theme.primaryColorDark,
+        backgroundColor: theme.colorScheme.primary,
         floatingActionButton: Visibility(
           visible: onBoardPage,
           child: FadingSlidingWidget(
-            animationController: _animationController,
+            anim: _anim,
             child: FloatingActionButton(
               onPressed: () => Get.off(() => Home()),
-              backgroundColor: theme.primaryColorDark,
+              backgroundColor: theme.colorScheme.primary,
               child: glow
                   ? AvatarGlow(
                       endRadius: 30,
-                      glowColor: theme.accentColor,
+                      glowColor: theme.colorScheme.secondary,
                       child: FaIcon(ar
                           ? FontAwesomeIcons.angleLeft
                           : FontAwesomeIcons.angleRight),
@@ -134,7 +129,7 @@ class _SplashViewState extends State<SplashView>
               left: ar ? width * 0.6 : width * 0.165,
               right: ar ? width * 0.16 : width * 0.6,
               child: FadingSlidingWidget(
-                animationController: _animationController,
+                anim: _anim,
                 child: AnimatedContainer(
                   duration: const Duration(seconds: 1),
                   height: height * 0.45,
@@ -151,7 +146,7 @@ class _SplashViewState extends State<SplashView>
               right: ar ? width * 0.6 : width * 0.15,
               left: ar ? width * 0.15 : width * 0.6,
               child: FadingSlidingWidget(
-                animationController: _animationController,
+                anim: _anim,
                 child: AnimatedContainer(
                   duration: const Duration(seconds: 1),
                   height: height * 0.03,
@@ -170,7 +165,7 @@ class _SplashViewState extends State<SplashView>
               left: ar ? width * 0.18 : width * 0.185,
               right: ar ? width * 0.186 : width * 0.18,
               child: Material(
-                color: theme.primaryColorDark,
+                color: theme.colorScheme.primary,
                 borderRadius: BorderRadius.circular(20),
                 elevation: 50,
                 child: AnimatedContainer(
@@ -178,7 +173,7 @@ class _SplashViewState extends State<SplashView>
                   height: height * 0.75,
                   width: width * 0.65,
                   decoration: BoxDecoration(
-                    color: theme.primaryColorDark,
+                    color: theme.colorScheme.primary,
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
                         color: Theme.of(context).backgroundColor,
@@ -221,18 +216,18 @@ class _SplashViewState extends State<SplashView>
                                     shape: BoxShape.circle,
                                     boxShadow: [
                                       BoxShadow(
-                                          color: theme.primaryColorDark,
+                                          color: theme.colorScheme.primary,
                                           offset: Offset(8.0, 8.0),
                                           blurRadius: 20,
                                           spreadRadius: 1.0),
                                       BoxShadow(
-                                          color: theme.primaryColorDark,
+                                          color: theme.colorScheme.primary,
                                           offset: Offset(-8.0, -8.0),
                                           blurRadius: 20,
                                           spreadRadius: 1.0),
                                     ],
                                     gradient: gradient,
-                                    color: theme.primaryColorDark,
+                                    color: theme.colorScheme.primary,
                                     border: Border.all(
                                         color:
                                             Color(0xffeef2f5).withOpacity(0.5)),
@@ -264,18 +259,18 @@ class _SplashViewState extends State<SplashView>
                               shape: BoxShape.circle,
                               boxShadow: [
                                 BoxShadow(
-                                    color: theme.primaryColorDark,
+                                    color: theme.colorScheme.primary,
                                     offset: Offset(8.0, 8.0),
                                     blurRadius: 20,
                                     spreadRadius: 1.0),
                                 BoxShadow(
-                                    color: theme.primaryColorDark,
+                                    color: theme.colorScheme.primary,
                                     offset: Offset(-8.0, -8.0),
                                     blurRadius: 20,
                                     spreadRadius: 1.0),
                               ],
                               gradient: gradient,
-                              color: theme.primaryColorDark,
+                              color: theme.colorScheme.primary,
                               border: Border.all(
                                   color: Color(0xffeef2f5).withOpacity(0.5)),
                             ),
@@ -335,8 +330,24 @@ class _SplashViewState extends State<SplashView>
                   if (onBoardPage) Get.off(() => Home());
                 },
                 child: FadingSlidingWidget(
-                  animationController: _animationController,
+                  anim: _anim,
                   child: AnimatedContainer(
+                    decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(width * 0.1),
+                      ),
+                      gradient: LinearGradient(
+                        colors: onBoardPage
+                            ? [
+                                const Color(0xFF8200FF),
+                                const Color(0xFFFF3264),
+                              ]
+                            : [
+                                const Color(0xFF8200FF),
+                                const Color(0xFFFF3264),
+                              ],
+                      ),
+                    ),
                     duration: const Duration(seconds: 1),
                     alignment: Alignment.center,
                     width: width * 0.8,
@@ -350,26 +361,10 @@ class _SplashViewState extends State<SplashView>
                         fontSize: width * 0.05,
                       ),
                     ),
-                    decoration: ShapeDecoration(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(width * 0.1),
-                      ),
-                      gradient: LinearGradient(
-                        colors: onBoardPage
-                            ? [
-                                const Color(0xFF8200FF),
-                                const Color(0xFFFF3264),
-                              ]
-                            : [
-                                const Color(0xFFFFFFFF),
-                                const Color(0xFFFFFFFF),
-                              ],
-                      ),
-                    ),
                   ),
                 ),
               ),
-            ),
+            )
           ],
         ),
       );
@@ -378,14 +373,10 @@ class _SplashViewState extends State<SplashView>
 }
 
 class OnBoardPageItem {
-  String lottieAsset;
+  String lottieAsset,text;
   Duration animationDuration;
-  String text;
 
-  OnBoardPageItem(
-      {@required this.lottieAsset,
-      @required this.text,
-      this.animationDuration});
+  OnBoardPageItem({this.lottieAsset, this.text, this.animationDuration});
 }
 
 class WelcomePage extends StatefulWidget {
@@ -395,11 +386,11 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomeState extends State<WelcomePage>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
+  AnimationController _anim;
 
   @override
   void initState() {
-    _animationController = AnimationController(
+    _anim = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1700),
     )..forward();
@@ -408,7 +399,7 @@ class _WelcomeState extends State<WelcomePage>
 
   @override
   void dispose() {
-    _animationController.dispose();
+    _anim.dispose();
     super.dispose();
   }
 
@@ -423,16 +414,16 @@ class _WelcomeState extends State<WelcomePage>
         DeviceOS.isDesktopOrWeb && context.isTablet
             ? Container()
             : Positioned.fill(
-                child: Container(color: Theme.of(context).primaryColorDark),
+                child: Container(color: Theme.of(context).primaryColor),
               ),
         Positioned(
-          top: isDesktop ? 0.0 : height * 0.14,
+          top: isDesktop || context.isTablet ? 0.0 : height * 0.1,
           child: Column(
             children: <Widget>[
-                DeviceOS.isDesktopOrWeb && !context.isPhone
+              DeviceOS.isDesktopOrWeb && !context.isPhone
                   ? Container()
                   : ScaleTransition(
-                      scale: _animationController.drive(
+                      scale: _anim.drive(
                         Tween<double>(begin: 0.3, end: 1.0).chain(
                           CurveTween(
                             curve:
@@ -441,7 +432,7 @@ class _WelcomeState extends State<WelcomePage>
                         ),
                       ),
                       child: FadeTransition(
-                        opacity: _animationController.drive(
+                        opacity: _anim.drive(
                           Tween<double>(begin: 0.0, end: 1.0).chain(
                             CurveTween(
                               curve:
@@ -450,7 +441,7 @@ class _WelcomeState extends State<WelcomePage>
                           ),
                         ),
                         child: ScaleTransition(
-                          scale: _animationController.drive(
+                          scale: _anim.drive(
                             Tween<double>(begin: 1.3, end: 1.0).chain(
                               CurveTween(
                                 curve: Interval(0.2, 0.4,
@@ -474,39 +465,38 @@ class _WelcomeState extends State<WelcomePage>
                         ),
                       ),
                     ),
-              SizedBox(height: isDesktop ? 0.0 : height * 0.015),
+              SizedBox(height: isDesktop ? 0.0 : height * 0.02),
               FadingSlidingWidget(
-                animationController: _animationController,
+                anim: _anim,
                 interval: const Interval(0.5, 0.9),
                 child: Text(
                   S.current.fridayRemind,
-                  style: TextStyle(fontFamily: 'Amiri',
+                  style: TextStyle(
+                    fontFamily: 'Amiri',
                     color: const Color(0xFFFFFFFF),
                     fontSize: width * 0.08,
                   ),
                 ),
               ),
               SizedBox(height: isDesktop ? 0.0 : height * 0.015),
-              FadingSlidingWidget(
-                animationController: _animationController,
-                child: AnimatedContainer(
-                  duration: const Duration(seconds: 1),
-                  width: DeviceOS.isDesktopOrWeb && !context.isPhone
-                      ? width * 0.4
-                      : width * 0.9,
-                  child: FadingSlidingWidget(
-                    animationController: _animationController,
-                    interval: const Interval(0.7, 1.0),
-                    child: Text(
-                      S.current.fridayFirst,
-                      style: TextStyle(
-                        color: const Color(0xFFFFFFFF),fontFamily: 'Amiri',
-                        fontSize: DeviceOS.isDesktopOrWeb && context.isTablet
-                            ? width * 0.02
-                            : width * 0.056,
-                      ),
-                      textAlign: TextAlign.center,
+              AnimatedContainer(
+                duration: const Duration(seconds: 1),
+                width: DeviceOS.isDesktopOrWeb && !context.isPhone
+                    ? width * 0.4
+                    : width * 0.9,
+                child: FadingSlidingWidget(
+                  anim: _anim,
+                  interval: const Interval(0.7, 1.0),
+                  child: Text(
+                    S.current.fridayFirst,
+                    style: TextStyle(
+                      color: const Color(0xFFFFFFFF),
+                      fontFamily: 'Amiri',
+                      fontSize: DeviceOS.isDesktopOrWeb && context.isTablet
+                          ? width * 0.02
+                          : width * 0.056,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
@@ -527,19 +517,18 @@ class OnBoardPage extends StatefulWidget {
   _OnboardState createState() => _OnboardState();
 }
 
-class _OnboardState extends State<OnBoardPage>
-    with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
+class _OnboardState extends State<OnBoardPage> with SingleTickerProviderStateMixin {
+  AnimationController _anim;
 
   @override
   void initState() {
-    _animationController = AnimationController(vsync: this);
+    _anim = AnimationController(vsync: this);
     super.initState();
   }
 
   @override
   void dispose() {
-    _animationController.dispose();
+    _anim.dispose();
     super.dispose();
   }
 
@@ -553,23 +542,21 @@ class _OnboardState extends State<OnBoardPage>
       child: Column(
         children: <Widget>[
           Lottie.asset(widget.onBoardPageItem.lottieAsset,
-              controller: _animationController, onLoaded: (composition) {
-            _animationController
-              ..duration = composition.duration
-              ..forward()
+              controller: _anim, onLoaded: (composition) {
+            _anim..duration = composition.duration..forward()
               ..addListener(() {
                 if (widget.onBoardPageItem.animationDuration != null) {
-                  if (_animationController.lastElapsedDuration >
+                  if (_anim.lastElapsedDuration >
                       widget.onBoardPageItem.animationDuration) {
-                    _animationController.stop();
+                    _anim.stop();
                   }
                 }
               });
-          }, width: isDesktop?width * 0.15:width * 0.9),
+          }, width: isDesktop ? width * 0.15 : width * 0.9),
           SizedBox(height: context.isTablet ? height * 0.01 : height * 0.1),
           Flexible(
             child: FadingSlidingWidget(
-              animationController: _animationController,
+              anim: _anim,
               interval: const Interval(0.2, 0.5),
               child: Text(
                 widget.onBoardPageItem.text,

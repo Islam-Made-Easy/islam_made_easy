@@ -6,7 +6,7 @@ class NavigationPanel extends StatefulWidget {
 }
 
 class _NavigationPanelState extends State<NavigationPanel> {
-  Widget drawerTile(String title, VoidCallback onTap, [IconData icon]) {
+  Widget drawerTile(String title, VoidCallback onTap, IconData icon) {
     final colorScheme = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -16,7 +16,7 @@ class _NavigationPanelState extends State<NavigationPanel> {
         dense: true,
         onTap: onTap,
         title: Text(title,
-            style: TextStyle(color: colorScheme.surface, fontSize: 18)),
+            style: Theme.of(context).textTheme.caption.copyWith(fontWeight: FontWeight.w100, fontSize: 18, letterSpacing: 1.8)),
       ),
     );
   }

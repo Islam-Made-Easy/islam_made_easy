@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:animated_background/animated_background.dart';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/foundation.dart';
@@ -8,6 +10,7 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get/get.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:islam_made_easy/routes/app_route.dart';
+import 'package:islam_made_easy/services/feedback_services.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/device_info.dart';
 import 'package:islam_made_easy/utils/quick_util.dart';
@@ -16,7 +19,7 @@ import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
 import 'package:islam_made_easy/views/home.dart';
 import 'package:islam_made_easy/views/intro/splash.dart';
-import 'package:lottie/lottie.dart';
+import 'package:islam_made_easy/widgets/anim/load_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:window_size/window_size.dart';
@@ -32,6 +35,7 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+  await FeedbackServices.init();
   if (kIsWeb) {
     const int megabyte = 1000000;
     SystemChannels.skia.invokeMethod('Skia.setResourceCacheMaxBytes', 512 * megabyte);
@@ -63,8 +67,6 @@ class IMEApp extends StatefulWidget {
 }
 
 class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
-  Future<LottieComposition> _composition;
-
   @override
   void initState() {
     super.initState();
@@ -75,8 +77,11 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
 
   Future _initSp() async {
     var _today = HijriCalendar.now().wkDay;
-    _composition = _loadComposition();
     await appSP.init();
+    bool dark = SpUtil.getDarkTheme();
+    if (dark != null) {
+      Provider.of<ThemeProvide>(context, listen: false).getDark(dark);
+    }
     int themeIndex = SpUtil.getThemeIndex();
     // Provider.of<NotificationServices>(context, listen: false).initialize();
     if (themeIndex != null) {
@@ -87,19 +92,12 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       Provider.of<LocaleProvide>(context, listen: false).changeLocale(Locale(lang));
     }
     int timeNow = DateTime.now().hour;
-
     if ((_today == DateTime.thursday && timeNow > 18) ||
         (_today == DateTime.friday && timeNow < 18)) {
       setState(() {
         isCelebration = true;
       });
     }
-  }
-
-  Future<LottieComposition> _loadComposition() async {
-    var assetData = await rootBundle
-        .load(kIsWeb ? 'assets/lottie/404.json' : "assets/lottie/loading.json");
-    return await LottieComposition.fromByteData(assetData);
   }
 
   Locale localeCallback(locale, supportedLocales) {
@@ -124,6 +122,8 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       locale: localeProvide.locale,
       localeResolutionCallback: localeCallback,
       theme: themeProvide.themeData,
+      darkTheme: themeProvide.themeDataDark,
+      themeMode: ThemeProvide.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -149,20 +149,10 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
   Widget getErrorWidget(BuildContext context, FlutterErrorDetails error) {
     return Center(
       child: AnimatedBackground(
-          behaviour: RectanglesBehaviour(),
-          vsync: this,
-          child: Center(
-            child: FutureBuilder<LottieComposition>(
-              future: _composition,
-              builder: (context, snapshot) {
-                var composition = snapshot.data;
-                if (composition != null)
-                  return Lottie(composition: composition);
-                else
-                  return CircularProgressIndicator();
-              },
-            ),
-          )),
+        behaviour: RectanglesBehaviour(),
+        vsync: this,
+        child: LoadingIndicator(),
+      ),
     );
   }
 }

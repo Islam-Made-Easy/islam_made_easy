@@ -4,14 +4,14 @@ import 'dart:ui';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/listHeader.dart';
 import 'package:package_info/package_info.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-void showAboutDialog({@required BuildContext context}) {
-  final isDesktop = isDisplayDesktop(context);
+void showAboutDialog({BuildContext context}) {
   assert(context != null);
   showAnimatedDialog<void>(
     context: context,
-    barrierDismissible: !isDesktop,
+    barrierDismissible: true,
     animationType: DialogTransitionType.size,
     builder: (context) => AboutApp(),
   );
@@ -33,21 +33,21 @@ class _AboutAppState extends State<AboutApp> {
 
   @override
   Widget build(BuildContext context) {
+    final MaterialLocalizations local = MaterialLocalizations.of(context);
     print(window.physicalSize);
     final isDesktop = isDisplayDesktop(context);
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final bodyTextStyle =
-        textTheme.bodyText1.apply(color: colorScheme.onPrimary);
+    final textButton = textTheme.button.copyWith(letterSpacing: 2,fontFamily: 'Roboto');
     final name =
-        'Islam Made Easy ${S.current.forPlatform} ${DeviceOS.isWeb ? 'Web' : Platform.operatingSystem}';
+        'Islam Made Easy ${S.current.forPlatform} ${DeviceOS.isWeb ? 'Web' : Platform.operatingSystem.capitalizeFirst}';
     final legalese = '© ${DateTime.now().year} The IME team';
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
     final size = MediaQuery.of(context).size;
     return AlertDialog(
       title: ListHeader(
-        text: MaterialLocalizations.of(context).aboutListTileTitle('IME'),
+        text: local.aboutListTileTitle('IME'),
         trailing: IconButton(
           icon: FaIcon(DeviceOS.isMobile
               ? FontAwesomeIcons.shareAlt
@@ -60,25 +60,9 @@ class _AboutAppState extends State<AboutApp> {
                     subject: ShareUtil().getPlatformShare()));
           },
           splashRadius: DeviceOS.isDesktopOrWeb ? 10 : 20,
-          tooltip: DeviceOS.isDesktopOrWeb
-              ? MaterialLocalizations.of(context).closeButtonTooltip
-              : null,
-        ),
+          tooltip: local.closeButtonTooltip ,
+        ), ar: ar,
       ),
-      shape: DeviceOS.isWeb
-          ? RoundedRectangleBorder()
-          : RoundedRectangleBorder(
-              side: BorderSide(width: 0.5, color: Theme.of(context).hoverColor),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(ar ? 0 : 10),
-                topRight: Radius.circular(ar ? 10 : 0),
-                bottomRight:
-                    ar ? Radius.elliptical(90, 10) : Radius.elliptical(12, 200),
-                bottomLeft:
-                    ar ? Radius.elliptical(12, 200) : Radius.elliptical(90, 10),
-              ),
-            ),
-      backgroundColor: Color(0xfff2f2f2),
       content: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -88,27 +72,39 @@ class _AboutAppState extends State<AboutApp> {
               'assets/images/logo.png',
               height: isDesktop ? size.height * 0.3 : 150,
             ),
-            Text(S.current.aboutApp),
+            Text(S.current.aboutApp, style: textButton.copyWith(
+                fontFamily: ar ? 'Amiri' : 'Roboto',
+                fontWeight: FontWeight.w300)),
             FutureBuilder(
               future: getVersionNumber(),
-              builder: (context, snapshot) => Text(
-                snapshot.hasData
-                    ? '$name \nVersion: ${snapshot.data}'
-                    : '$name',
-                textAlign: TextAlign.center,
-                style: textTheme.headline4.apply(color: colorScheme.onPrimary),
-              ),
+              builder: (context, snapshot) =>
+                  Text(
+                    snapshot.hasData
+                        ? '$name \nVersion: ${snapshot.data}'
+                        : '$name',
+                    textAlign: TextAlign.center,
+                    style: textTheme.caption.copyWith(letterSpacing: .5,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 28),
+                  ),
             ),
             Text(
                 DeviceOS.isDesktop
                     ? "${Platform.operatingSystemVersion.replaceRange(23, 73, '')}"
-                    : '',
-                style: bodyTextStyle),
-            Text(legalese, style: bodyTextStyle),
+                    : ''
+                , style: textButton.copyWith(fontWeight: FontWeight.w100)),
+            Shimmer.fromColors(
+                highlightColor: colorScheme.onBackground,
+                loop: 2,
+                baseColor: colorScheme.primary,
+                child: Text(legalese, style: textButton.copyWith(
+                    fontWeight: FontWeight.w400, height: 2)),
+            ),
             if (isDesktop || DeviceOS.isDesktopOrWeb)
               Text(
                 '━═══◎${S.current.share}◎═══━',
-                style: TextStyle(color: Theme.of(context).primaryColorDark),
+                style: TextStyle(color: colorScheme.secondary),
               )
             else
               Container(),
@@ -139,26 +135,22 @@ class _AboutAppState extends State<AboutApp> {
                     onPressed: () => launchURL(
                         'https://wa.me/?text=$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare}'),
                   ),
-                  ShareButtons(
-                      color: Color(0xffA2A2A2),
-                      tip: verified
-                          ? "Link Copied"
-                          : MaterialLocalizations.of(context).copyButtonLabel,
-                      icon: verified ? Icons.verified_user : PixIcon.pix_link,
-                      onPressed: () {
-                        shareDelay.run(
-                          () => Clipboard.setData(
-                            ClipboardData(
-                                text:
-                                    '$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare}'),
-                          ).then((value) {
-                            setState(() {
-                              HapticFeedback.heavyImpact();
-                              verified = true;
-                            });
-                          }),
-                        );
-                      }),
+                  AnimatedSwitcher(
+                    duration: shareDelay.duration,
+                    child: ShareButtons(
+                        color: Color(0xffA2A2A2),
+                        tip: verified ? "Link Copied" : local.copyButtonLabel,
+                        icon: verified ? Icons.verified_user : PixIcon.pix_link,
+                        onPressed: () {
+                          shareDelay.run(
+                                () => Clipboard.setData(
+                                  ClipboardData(
+                                      text:
+                                      '$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare}'),
+                                ).then((value) {setState(() => verified = true);}),
+                          );
+                        }),
+                  ),
                 ],
               )
             else

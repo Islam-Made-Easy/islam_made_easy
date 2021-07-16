@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:lottie/lottie.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class LoadingIndicator extends StatefulWidget {
   const LoadingIndicator({Key key}) : super(key: key);
@@ -30,11 +28,8 @@ class _LoadingIndicatorState extends State<LoadingIndicator> {
         future: _composition,
         builder: (context, snapshot) {
           var composition = snapshot.data;
-          if (composition != null) {
-            return Lottie(composition: composition);
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
+          if (composition != null) return Lottie(composition: composition);
+          return Center(child: CircularProgressIndicator());
         },
       ),
     );

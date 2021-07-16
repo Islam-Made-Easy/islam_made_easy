@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:get/get.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
-import 'package:lottie/lottie.dart';
+import 'package:islam_made_easy/widgets/anim/load_indicator.dart';
 import 'package:markdown/markdown.dart' as md;
 
 class Prerequisite extends StatefulWidget {
@@ -17,23 +16,11 @@ class Prerequisite extends StatefulWidget {
 class _PrerequisiteState extends State<Prerequisite> {
   var _extensionSet = MarkdownExtensionSet.githubFlavored;
   String data;
-  Future<LottieComposition> _composition;
-
-  @override
-  void initState() {
-    super.initState();
-    _composition = _loadComposition();
-  }
-
-  Future<LottieComposition> _loadComposition() async {
-    var assetData = await rootBundle.load('assets/lottie/loading.json');
-    return await LottieComposition.fromByteData(assetData);
-  }
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = isDisplayDesktop(context);
-    final textTheme = Theme.of(context).textTheme;
+    final dp = isDisplayDesktop(context);
+    final theme = Theme.of(context).textTheme;
     final locale = Localizations.localeOf(context).languageCode;
     preLang() {
       if (locale == 'ar') {
@@ -49,10 +36,9 @@ class _PrerequisiteState extends State<Prerequisite> {
 
     preLang();
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: context.isDarkMode ? null : Theme.of(context).primaryColorLight,
       body: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: isDesktop ? 30 : 1, vertical: 20),
+        padding: EdgeInsets.symmetric(horizontal: dp ? 30 : 1, vertical: 20),
         child: FutureBuilder(
           future: DefaultAssetBundle.of(context).loadString(data, cache: false),
           builder: (context, snapshot) {
@@ -63,31 +49,36 @@ class _PrerequisiteState extends State<Prerequisite> {
                   Expanded(
                     child: Markdown(
                       key: Key(_extensionSet.name),
+                      physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
                       data: snapshot.data,
-                      imageDirectory: 'https://raw.githubusercontent.com',
                       extensionSet: _extensionSet.value,
-                      listItemCrossAxisAlignment:
-                          MarkdownListItemCrossAxisAlignment.start,
+                      listItemCrossAxisAlignment: MarkdownListItemCrossAxisAlignment.start,
                       styleSheet: MarkdownStyleSheet(
                         h1Align: WrapAlignment.center,
                         h1: TextStyle(
-                            fontFamily: 'Amiri',
                             fontWeight: FontWeight.bold,
-                            fontSize: isDesktop ? 40 : 30,
+                            fontSize: dp ? 40 : 30,
                             letterSpacing: -3,
                             color: Color(0xff404040)),
-                        h2: textTheme.headline6.copyWith(
-                            letterSpacing: 0.2,
+                        h2: theme.headline6.copyWith(
+                            letterSpacing: .2,
                             decoration: TextDecoration.underline,
-                            fontSize: isDesktop ? 35 : 24,
-                            fontWeight: FontWeight.bold),
-                        blockSpacing: isDesktop ? 25 : 10,
+                            fontSize: dp ? 35 : 24,
+                            fontWeight: FontWeight.w500),
+                        p: theme.bodyText1.copyWith(
+                            fontWeight: FontWeight.w100,
+                            height: dp ? 1.85 : 1.8,
+                            fontSize: dp ? 17 : 15),
+                        blockquote: theme.bodyText1.copyWith(
+                            fontWeight: FontWeight.w100,
+                            height: dp ? 1.85 : 1.8,
+                            fontSize: dp ? 17 : 15),
+                        strong: theme.bodyText1.copyWith(
+                            fontWeight: FontWeight.w600,
+                            height: dp ? 1.85 : 1.8,
+                            fontSize: dp ? 17 : 15),
+                        blockSpacing: dp ? 25 : 10,
                         textScaleFactor: 1.0,
-                        p: textTheme.bodyText1.copyWith(
-                          fontFamily: 'Amiri',
-                          height: isDesktop ? 1.85 : 1.8,
-                          fontSize: isDesktop ? 17 : 15,
-                        ),
                       ),
                       selectable: true,
                       shrinkWrap: true,
@@ -95,21 +86,8 @@ class _PrerequisiteState extends State<Prerequisite> {
                   ),
                 ],
               );
-            } else {
-              return Center(
-                child: FutureBuilder<LottieComposition>(
-                  future: _composition,
-                  builder: (context, snapshot) {
-                    var composition = snapshot.data;
-                    if (composition != null) {
-                      return Lottie(composition: composition);
-                    } else {
-                      return Center(child: CircularProgressIndicator());
-                    }
-                  },
-                ),
-              );
             }
+              return LoadingIndicator();
           },
         ),
       ),
@@ -121,19 +99,6 @@ enum MarkdownExtensionSet { none, commonMark, githubFlavored, githubWeb }
 
 extension MarkdownExtensionSetExtension on MarkdownExtensionSet {
   String get name => describeEnum(this);
-
-  String get displayTitle => () {
-        switch (this) {
-          case MarkdownExtensionSet.none:
-            return 'None';
-          case MarkdownExtensionSet.commonMark:
-            return 'Common Mark';
-          case MarkdownExtensionSet.githubFlavored:
-            return 'GitHub Flavored';
-          case MarkdownExtensionSet.githubWeb:
-            return 'GitHub Web';
-        }
-      }();
 
   md.ExtensionSet get value => () {
         switch (this) {

@@ -9,8 +9,7 @@ import 'package:islam_made_easy/utils/device_info.dart';
 import 'package:islam_made_easy/views/about.dart' as about;
 
 class NavigationRailHeader extends StatelessWidget {
-  const NavigationRailHeader({@required this.extended})
-      : assert(extended != null);
+  const NavigationRailHeader({this.extended}) : assert(extended != null);
 
   final ValueNotifier<bool> extended;
 
@@ -51,8 +50,7 @@ class NavigationRailHeader extends StatelessWidget {
                               opacity: animation.value,
                               child: Text(
                                 'IME',
-                                style: textTheme.bodyText1
-                                    .copyWith(fontFamily: 'Amiri'),
+                                style: textTheme.bodyText1.copyWith(fontFamily: 'Amiri'),
                               ),
                             ),
                           ),
@@ -72,22 +70,15 @@ class NavigationRailHeader extends StatelessWidget {
                               splashRadius: 15,
                               onPressed: () {
                                 Get.dialog(
-                                  Align(
-                                    alignment: locale.languageCode == 'ar'
-                                        ? Alignment.centerLeft
-                                        : Alignment.centerRight,
+                                  Align(alignment: locale.languageCode == 'ar'
+                                        ? Alignment.centerLeft : Alignment.centerRight,
                                     child: Container(
                                       height: double.infinity,
-                                      width:
-                                          MediaQuery.of(context).size.width / 3,
+                                      width: MediaQuery.of(context).size.width / 3,
                                       decoration: BoxDecoration(
-                                        color:
-                                            Color(0xFFFAFAFC).withOpacity(0.1),
-                                        border: Border.all(
-                                            color: Colors.transparent),
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(5),
-                                        ),
+                                        color: Color(0xFFFAFAFC).withOpacity(0.1),
+                                        border: Border.all(color: Colors.transparent),
+                                        borderRadius: BorderRadius.only(topLeft: Radius.circular(5)),
                                       ),
                                       child: Settings(),
                                     ),
@@ -99,8 +90,7 @@ class NavigationRailHeader extends StatelessWidget {
                             SizedBox(width: 20),
                             IconButton(
                               icon: FaIcon(PixIcon.pix_info),
-                              onPressed: () =>
-                                  about.showAboutDialog(context: context),
+                              onPressed: () => about.showAboutDialog(context: context),
                               splashRadius: 15,
                             ),
                             SizedBox(width: 10),

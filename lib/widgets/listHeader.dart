@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ListHeader extends StatelessWidget {
-  ListHeader({@required this.text, this.trailing});
+  ListHeader({this.text, this.trailing, this.ar});
 
   final String text;
   final Widget trailing;
+  final bool ar;
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +17,10 @@ class ListHeader extends StatelessWidget {
           Text(
             text,
             overflow: TextOverflow.clip,
-            style: Theme.of(context)
-                .textTheme
-                .headline6
-                .copyWith(fontWeight: FontWeight.w500),
+            style: Theme.of(context).textTheme.button.copyWith(
+                fontWeight: FontWeight.w400,
+                letterSpacing: 2,
+                fontFamily: ar ? 'Amiri' : 'Roboto'),
           ),
           if (trailing != null) trailing,
         ],

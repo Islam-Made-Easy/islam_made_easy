@@ -1,18 +1,15 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
-import 'package:islam_made_easy/widgets/page_decoration.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'anim/anim.dart';
 
-void showFeedbackDialog({@required BuildContext context, bool isPanelVisible}) {
+void showFeedbackDialog({BuildContext context, bool isPanelVisible}) {
   final isDesktop = isDisplayDesktop(context);
   assert(context != null);
   showAnimatedDialog<void>(
     context: context,
     barrierDismissible: !isDesktop,
-    animationType: isPanelVisible
-        ? DialogTransitionType.slideFromRightFade
-        : DialogTransitionType.size,
+    animationType: isPanelVisible ? DialogTransitionType.slideFromRightFade : DialogTransitionType.size,
     builder: (context) => AppFeedback(),
   );
 }
@@ -36,31 +33,19 @@ class _AppFeedbackState extends State<AppFeedback> {
   TextEditingController email = TextEditingController();
   TextEditingController feed = TextEditingController();
 
-  void _submitFeed() {
+  void _submitFeed() async {
     if (_formKey.currentState.validate()) {
-      FeedbackModel fdModel = FeedbackModel(name.text, email.text, feed.text);
-      FeedbackServices fdServices = FeedbackServices();
-      Get.snackbar(
-        'Submitting...',
-        'Please wait while your feedback is being submitted',
-        instantInit: true,
-        maxWidth: 200,
-        showProgressIndicator: true,
-        duration: Duration(seconds: 10),
-        snackPosition: SnackPosition.BOTTOM,
-        progressIndicatorBackgroundColor: Theme.of(context).primaryColorDark,
-      );
-      fdServices.submitForm(fdModel, (String response) {
-        print("Response: $response");
-        if (response == FeedbackServices.STATUS_SUCCESS) {
-          Get.snackbar('Submitted',
-              'Your Feedback is successfully submitted, Jazakumullahu Khayraa!!');
-          name.clear(); email.clear(); feed.clear();
-        } else {
-          Get.snackbar('An Error Occurred!', 'Please try later');
-        }
-      });
+      _formKey.currentState.save();
+      final feedback = FeedbackModel(name.text, email.text, feed.text);
+      await FeedbackServices.insert([feedback.toJson()]);
+      Get.snackbar('Submitting', 'Thank you for submitting your feedback!, Jazakumullahu Khayraa!!');
+      name.clear(); email.clear(); feed.clear();
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
   }
 
   @override
@@ -68,11 +53,16 @@ class _AppFeedbackState extends State<AppFeedback> {
     final theme = Theme.of(context);
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
+    final labelStyle = Theme.of(context).textTheme.button.copyWith(
+        fontSize: 10 * 1.4,
+        fontFamily: 'Roboto',
+        fontWeight: FontWeight.w300,
+        letterSpacing: 2);
     return Scaffold(
       backgroundColor:
-      isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
-          ? Colors.transparent
-          : theme.backgroundColor,
+          isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
+              ? Colors.transparent
+              : null,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
@@ -82,45 +72,44 @@ class _AppFeedbackState extends State<AppFeedback> {
         ),
         automaticallyImplyLeading: !isDesktop,
         backgroundColor:
-        isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
-            ? Colors.transparent
-            : theme.appBarTheme.color,
+            isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
+                ? Colors.transparent
+                : theme.appBarTheme.color,
       ),
-      body: Form(
-        key: _formKey,
-        child: Stack(
-          children: [
-            GradientCircles(),
-            ListView(
+      body: AutofillGroup(
+        child: Form(
+          key: _formKey,
+          child: Center(
+            child: ListView(
               padding: EdgeInsets.symmetric(
                 horizontal: size.width * 0.035,
                 vertical: isDesktop || context.isTablet ? 30 : 8.0,
               ),
               children: [
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(color: Colors.transparent),
-                  child: SizedBox(
-                    child: DefaultTextStyle(
-                      style: TextStyle(
-                          fontSize: isDesktop || context.isTablet ? 26.0 : 22),
-                      child: AnimatedTextKit(
-                        animatedTexts: [
-                          TyperAnimatedText(
-                            isDesktop
-                                ? "Assalam'alaikum warahmatullah Wabarakatuh,"
-                                : "Assalam'alaikum warahmatullahو",
-                          ),
-                          TyperAnimatedText("Welcome to IME Feedback Center"),
-                        ],
-                        isRepeatingAnimation: false,
-                      ),
+                SizedBox(
+                  child: DefaultTextStyle(
+                    style: theme.textTheme.caption.copyWith(
+                        fontFamily: 'Roboto',
+                        fontSize: isDesktop || context.isTablet ? 26.0 : 20,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.w100),
+                    child: AnimatedTextKit(
+                      animatedTexts: [
+                        TyperAnimatedText(
+                          isDesktop
+                              ? "Assalam'alaikum warahmatullah Wabarakatuh,"
+                              : "Assalam'alaikum warahmatullahو",
+                        ),
+                        TyperAnimatedText("Welcome to IME Feedback Center"),
+                      ],
+                      isRepeatingAnimation: false,
                     ),
                   ),
                 ),
                 Text(
-                  "We can't wait to get your feedback about our application, try help or support, have a question? We'd love to hear it.",
-                  style: theme.textTheme.headline6,
+                  "We can’t wait to get your thoughts on our app. Try help or support, have a question? We'd love to hear it.",
+                  style: theme.textTheme.headline6
+                      .copyWith(fontWeight: FontWeight.w100),
                 ),
                 SizedBox(height: 10),
                 InputContainer(
@@ -135,37 +124,43 @@ class _AppFeedbackState extends State<AppFeedback> {
                       return null;
                     }
                   },
+                  autoFocus: true,
                   inputType: TextInputType.name,
                   controller: name,
+                  autofillHints: [AutofillHints.name],
                   decoration: InputDecoration(
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    hintText: 'Enter your name',
-                    labelText: 'Name',
-                  ),
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      hintText: 'Enter your name',
+                      labelText: 'Name',
+                      labelStyle: labelStyle),
+                ),
+                InputContainer(
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please provide your email';
+                      // return "If you want to get updates regarding your feedback, enter your email";
+                    } else if (!value.isEmail) {
+                      return "Please enter a valid email";
+                    } else {
+                      return null;
+                    }
+                  },
+                  inputType: TextInputType.emailAddress,
+                  controller: email,
+                  autofillHints: [AutofillHints.email],
+                  decoration: InputDecoration(
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      hintText: 'Enter your email',
+                      labelStyle: labelStyle,
+                      labelText: 'Email'),
                 ),
                 InputContainer(
                     validator: (value) {
                       if (value.isEmpty) {
-                        return "Email can't be empty";
-                      } else if (!value.isEmail) {
-                        return "Please enter a valid email";
-                      } else {
-                        return null;
-                      }
-                    },
-                    inputType: TextInputType.emailAddress,
-                    controller: email,
-                    decoration: InputDecoration(
-                        contentPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                        hintText: 'Enter your email',
-                        labelText: 'Email')),
-                InputContainer(
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return "Feedback can't be empty";
-                      } else if (value.length > 200) {
+                        return "Please provide your feedback";
+                      } else if (value.length > 2048) {
                         return "Make it short and concise";
                       } else {
                         return null;
@@ -175,52 +170,58 @@ class _AppFeedbackState extends State<AppFeedback> {
                     controller: feed,
                     decoration: InputDecoration(
                         contentPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: theme.primaryColorDark, width: 2.0),
-                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                          borderSide:
+                              BorderSide(color: theme.primaryColor, width: 2.0),
+                          borderRadius: BorderRadius.all(Radius.circular(8)),
                         ),
                         border: InputBorder.none,
+                        labelStyle: labelStyle,
                         hintText: 'Leave your feedback or share ideas',
                         labelText: 'Feedback')),
                 SizedBox(height: 20),
                 StretchButton(onTap: _submitFeed, text: 'Submit'),
                 Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Text(
-                              'We will not send you anything except for the content about your feedback.'),
-                          Text(
-                              'Alternatively  you can also report bugs and errors on the following platforms'),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              IconButton(
-                                  tooltip:'Github',
-                                  onPressed: () =>
-                                      launchUrl(
-                                          "https://github.com/Islam-Made-Easy/Islam-Made-Easy/issues"),
-                                  icon: FaIcon(FontAwesomeIcons.github),
-                                  splashRadius: 1),
-                              SizedBox(width:10),
-                              IconButton(
-                                  tooltip:'Gitter',
-                                  onPressed: () =>
-                                      launchUrl(
-                                          "https://gitter.im/orgs/Islam-Made-Easy/community"),
-                                  icon: FaIcon(FontAwesomeIcons.gitter),
-                                  splashRadius: 1),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ))
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          'We will not send you anything except for the content about your feedback.\n\nAlternatively  you can also report bugs and errors on the following platforms',
+                          textAlign: TextAlign.center,
+                          style: theme.textTheme.caption.copyWith(
+                              fontWeight: FontWeight.w300,
+                              letterSpacing: 2,
+                              fontFamily: 'Roboto'),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                                color: theme.buttonColor,
+                                tooltip: 'Github',
+                                onPressed: () => launchUrl(
+                                    "https://github.com/Islam-Made-Easy/Islam-Made-Easy/issues"),
+                                icon: FaIcon(FontAwesomeIcons.github),
+                                splashRadius: 1),
+                            SizedBox(width: 10),
+                            IconButton(
+                                color: theme.buttonColor,
+                                tooltip: 'Gitter',
+                                onPressed: () => launchUrl(
+                                    "https://gitter.im/orgs/Islam-Made-Easy/community"),
+                                icon: FaIcon(FontAwesomeIcons.gitter),
+                                splashRadius: 1),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -232,46 +233,54 @@ class InputContainer extends StatelessWidget {
   final InputDecoration decoration;
   final TextInputType inputType;
   final String Function(String) validator;
+  final bool autoFocus;
+  final List<String> autofillHints;
 
-  const InputContainer({Key key,
-    @required this.decoration,
-    @required this.controller,
-    this.validator,
-    @required this.inputType})
-      : super(key: key);
+  const InputContainer(
+      {Key key, this.decoration, this.controller, this.autofillHints,
+        this.validator, this.autoFocus = false, this.inputType}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
     final size = MediaQuery.of(context).size;
+    final theme = Theme.of(context);
     return WidgetAnimator(
       Stack(
         children: [
           Card(
-            color: Color(0xfff6f6f6),
+            color: context.isDarkMode ? theme.cardColor : Color(0xfff6f6f6),
             child: Container(
               height: size.height * 0.13,
               width: size.width - 45,
               child: Stack(
                 children: [
                   TextFormField(
+                    autofillHints: autofillHints,
                     decoration: decoration,
                     textInputAction: TextInputAction.newline,
+                    smartQuotesType: SmartQuotesType.enabled,
                     controller: controller,
+                    style: theme.textTheme.button.copyWith(
+                        fontSize: 10 * 1.3,
+                        fontFamily: ar ? 'Amiri' : 'Roboto',
+                        fontWeight: FontWeight.w100,
+                        letterSpacing: 2),
                     autocorrect: true,
                     keyboardType: inputType,
                     maxLines: null,
                     validator: validator,
+                    autofocus: autoFocus,
                   ),
                   Positioned(
                     left: ar ? null : 0,
                     right: ar ? 0 : null,
-                    top: size.height * 0.05,
+                    top: size.height * .05,
                     child: Container(
                       height: 30,
                       decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColorDark,
+                        color: theme.colorScheme.secondary,
                         borderRadius: BorderRadius.only(
                           topRight: Radius.circular(10),
                         ),

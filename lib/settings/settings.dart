@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,7 +17,6 @@ import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:provider/provider.dart';
-import 'package:system_alert_window/system_alert_window.dart' as sys;
 
 class Settings extends StatefulWidget {
   static const ROUTE_NAME = "/settings";
@@ -25,29 +25,17 @@ class Settings extends StatefulWidget {
   _SettingsState createState() => _SettingsState();
 }
 
-class _SettingsState extends State<Settings> {
-  static final Border _currentThemeBorder =
-      Border.all(width: 2.0, color: Color(0x66000000));
+class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin {
+  static final Border bd = Border.all(width: 2.0, color: Color(0x66000000));
   String selectedLanguage = '';
 
   @override
   void initState() {
     super.initState();
-    // getPermission();
-    // sys.SystemAlertWindow.registerOnClickListener(exitWindow);
     selectedLanguage = SpUtil.getLanguage() ?? '';
   }
-
-  // getPermission() async {
-  //   await sys.SystemAlertWindow.checkPermissions;
-  // }
-
-  void exitWindow(tag) {
-    if (tag == 'Exit') {
-      sys.SystemAlertWindow.closeSystemWindow();
-    }
-  }
-
+  @override
+  bool get wantKeepAlive => true;
   void _changeLanguage(String languageCode) {
     setState(() {
       selectedLanguage = languageCode;
@@ -56,29 +44,28 @@ class _SettingsState extends State<Settings> {
           ? null
           : Locale(languageCode);
       Provider.of<LocaleProvide>(context, listen: false).changeLocale(locale);
+      // TODO: Get permission before restart in future if relevant
+      /// Needs to 'rebirth' to update the ui since [GetMaterialApp] is not effective
       Phoenix.rebirth(context);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
-    final bodyTextStyle = textTheme.bodyText1
-        .apply(color: colorScheme.onPrimary, fontFamily: 'Quattrocento');
+    super.build(context);
+    final MaterialLocalizations localize = MaterialLocalizations.of(context);
+    final theme = Theme.of(context);
+    final bodyTextStyle = theme.textTheme.bodyText1.apply(color: theme.colorScheme.onPrimary, fontFamily: 'Quattrocento');
     final isDesktop = isDisplayDesktop(context);
+    String txt = context.isDarkMode ? 'Get the lights on' : 'Switch to join the dark side';
     return Scaffold(
-      backgroundColor:
-          isDesktop ? Colors.transparent : Theme.of(context).backgroundColor,
+      backgroundColor: isDesktop ? Colors.transparent : null,
       appBar: AppBar(
         title: Text(isDesktop ? S.current.preferences : S.current.settings,
             style: bodyTextStyle),
         automaticallyImplyLeading: isDesktop ? false : true,
         centerTitle: true,
-        backgroundColor: isDesktop
-            ? Colors.transparent
-            : Theme.of(context).appBarTheme.color,
-        elevation: 0,
+        backgroundColor: isDesktop ? Colors.transparent : null,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
@@ -90,14 +77,42 @@ class _SettingsState extends State<Settings> {
           _SettingsTitle(title: S.current.interface),
           Divider(endIndent: 30, indent: 30, height: 20),
           WidgetAnimator(
-              Card(child: _chooseTheme(), color: Theme.of(context).cardColor)),
+            Card(
+              child: Column(
+                children: [
+                  _chooseTheme(),
+                  SettingsButton(
+                    title: 'Dark Mode',
+                    subtitle: txt,
+                    value: ThemeProvide.isDarkMode,
+                    onChanged: (value) {
+                      setState(() {
+                        Provider.of<ThemeProvide>(context, listen: false).getDark(value);
+                        SpUtil.setDarkTheme(value);
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
           SizedBox(height: 10),
           WidgetAnimator(
             Card(
               child: ExpansionTile(
-                title: Text(S.current.language),
-                leading: FaIcon(FontAwesomeIcons.language),
-                subtitle: Text(getLanguageUiString(selectedLanguage)),
+                title: Text(S.current.language,
+                    style: theme.textTheme.button.copyWith(
+                        fontSize: kSpacingUnit * 1.5,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 2)),
+                leading: FaIcon(FontAwesomeIcons.language,color: theme.primaryColor,),
+                subtitle: Text(getLanguageUiString(selectedLanguage),
+                    style: theme.textTheme.button.copyWith(
+                        fontSize: kSpacingUnit * 1.3,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w100,
+                        letterSpacing: 2)),
                 tilePadding: EdgeInsets.symmetric(
                     vertical: context.isTablet ? 15 : 10,
                     horizontal: context.isTablet ? 15 : 10),
@@ -106,11 +121,11 @@ class _SettingsState extends State<Settings> {
                     horizontal: context.isTablet ? 15 : 10),
                 children: [
                   RadioListTile(
+                      activeColor: Theme.of(context).primaryColor,
                       title: Text(getLanguageUiString('')),
                       value: '',
                       groupValue: selectedLanguage,
-                      onChanged: (String languageCode) =>
-                          _changeLanguage(languageCode)),
+                      onChanged: (String languageCode) => _changeLanguage(languageCode)),
                   SettingsRadio(subtitle: S.current.english, value: 0),
                   SettingsRadio(subtitle: S.current.arabi, value: 1),
                   SettingsRadio(subtitle: S.current.bosanski, value: 2),
@@ -138,41 +153,44 @@ class _SettingsState extends State<Settings> {
                           EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                       childrenPadding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                      title: Text(S.current.shortcuts),
+                      title: Text(S.current.shortcuts,
+                          style: theme.textTheme.button.copyWith(
+                              fontSize: kSpacingUnit * 1.5,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.w400,
+                              letterSpacing: 2)),
                       children: [
                         _SettingsShort(
-                          title:
-                              MaterialLocalizations.of(context).copyButtonLabel,
+                          title: localize.copyButtonLabel,
                           subtitle: 'Ctrl+C',
                           icon: PixIcon.pix_copy,
                           color: Colors.greenAccent,
                         ),
                         _SettingsShort(
-                          title: MaterialLocalizations.of(context)
-                              .pasteButtonLabel,
+                          title: localize.pasteButtonLabel,
                           subtitle: 'Ctrl+V',
                           icon: PixIcon.pix_paste,
                           color: Colors.orangeAccent,
                         ),
                         _SettingsShort(
-                          title: MaterialLocalizations.of(context)
-                              .backButtonTooltip,
+                          title: localize.backButtonTooltip,
                           subtitle: 'Alt+Left',
                           icon: PixIcon.pix_arrow_left2,
                           color: Colors.brown,
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color: Color(0xFFFAFAFC).withOpacity(0.5),
+                            color: context.isDarkMode
+                                ? theme.cardColor.withOpacity(.55)
+                                : Color(0xFFFAFAFC).withOpacity(.5),
                             border: Border.all(
-                                color: Color(0xFFFAFAFC).withOpacity(0.5)),
+                                color: Color(0xFFFAFAFC).withOpacity(.5)),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
                             children: [
                               _SettingsShort(
-                                title: MaterialLocalizations.of(context)
-                                    .searchFieldLabel,
+                                title: localize.searchFieldLabel,
                                 subtitle: 'Ctrl+F',
                                 icon: PixIcon.pix_search,
                                 color: Colors.blueAccent,
@@ -205,60 +223,25 @@ class _SettingsState extends State<Settings> {
                 tilePadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 childrenPadding:
                     EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                title: Text(S.current.advanced),
+                title: Text(S.current.advanced,
+                    style: theme.textTheme.button.copyWith(
+                        fontSize: kSpacingUnit * 1.3,
+                        fontWeight: FontWeight.w100,
+                        letterSpacing: 2)),
                 children: [
                   PixMedal(
                     icon: Icons.build,
-                    medalType: MedalType.Silver,
+                    medalType: MedalType.Gold,
                     radius: 70.0,
                     iconColor: Colors.transparent,
                     iconSize: 60.0,
                   ),
-                  Text(S.current.advancedInfo)
-                  // RaisedButton(
-                  //   onPressed: () {
-                  //     sys.SystemAlertWindow.showSystemWindow(
-                  //       gravity: sys.SystemWindowGravity.TOP,
-                  //       margin: sys.SystemWindowMargin(left: 50),
-                  //       header: sys.SystemWindowHeader(
-                  //           padding: sys.SystemWindowPadding(left: 20),
-                  //           decoration: sys.SystemWindowDecoration(
-                  //               startColor: Theme.of(context).primaryColorDark,
-                  //               endColor: Theme.of(context).backgroundColor),
-                  //           title:
-                  //               sys.SystemWindowText(text: 'Islam Made Easy')),
-                  //       body: sys.SystemWindowBody(
-                  //           padding: sys.SystemWindowPadding(left: 20),
-                  //           decoration: sys.SystemWindowDecoration(
-                  //             endColor: Theme.of(context).backgroundColor,
-                  //           ),
-                  //           rows: [
-                  //             sys.EachRow(columns: [
-                  //               sys.EachColumn(
-                  //                   padding: sys.SystemWindowPadding(left: 20),
-                  //                   decoration: sys.SystemWindowDecoration(
-                  //                     startColor:
-                  //                         Theme.of(context).primaryColorDark,
-                  //                     endColor:
-                  //                         Theme.of(context).backgroundColor,
-                  //                   ),
-                  //                   text: sys.SystemWindowText(text: 'IMEasy'))
-                  //             ]),
-                  //           ]),
-                  //       height: 500,
-                  //       footer: sys.SystemWindowFooter(buttons: [
-                  //         sys.SystemWindowButton(
-                  //           text: sys.SystemWindowText(text: 'Islam Made Easy'),
-                  //           tag: 'tag',
-                  //           decoration: sys.SystemWindowDecoration(
-                  //             endColor: Theme.of(context).backgroundColor,
-                  //           ),
-                  //         )
-                  //       ]),
-                  //     );
-                  //   },
-                  //   child: Text('Minimize Window'),
-                  // )
+                  Text(S.current.advancedInfo,
+                      style: theme.textTheme.button.copyWith(
+                          fontSize: kSpacingUnit * 1.5,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 1))
                 ],
               ),
             ),
@@ -271,13 +254,14 @@ class _SettingsState extends State<Settings> {
   ExpansionTile _chooseTheme() {
     final List<Widget> themeChildren = [];
     for (int i = 0; i < Colors.primaries.length; i++) {
+      Color color = context.isDarkMode ? Colors.primaries[i][900] : Colors.primaries[i][700];
       themeChildren.add(InkWell(
         onTap: () {
           setState(() {
             Provider.of<ThemeProvide>(context, listen: false).changeTheme(i);
             SystemChrome.setSystemUIOverlayStyle(
                 Provider.of<ThemeProvide>(context, listen: false).overlayStyle);
-            FlutterStatusbarcolor.setStatusBarColor(Colors.primaries[i][700]);
+            FlutterStatusbarcolor.setStatusBarColor(color, animate: true);
             SpUtil.setThemeIndex(i);
           });
         },
@@ -287,31 +271,35 @@ class _SettingsState extends State<Settings> {
               width: context.isTablet ? 60 : 55,
               height: context.isTablet ? 60 : 55,
               decoration: BoxDecoration(
-                color: Colors.primaries[i][700],
-                border: Provider.of<ThemeProvide>(context, listen: false)
-                            .themeIndex ==
-                        i
-                    ? _currentThemeBorder
-                    : null,
+                color: color,
+                borderRadius: BorderRadius.circular(8),
+                border: Provider.of<ThemeProvide>(context, listen: false).themeIndex == i ? bd : null,
               ),
             ),
           ),
         ),
       ));
     }
+    bool tab = context.isTablet;
     return ExpansionTile(
       tilePadding: EdgeInsets.symmetric(
-          vertical: context.isTablet ? 15 : 10,
-          horizontal: context.isTablet ? 15 : 10),
+          vertical: tab ? 15 : 10, horizontal: tab ? 15 : 10),
       childrenPadding: EdgeInsets.symmetric(
-          vertical: context.isTablet ? 15 : 10,
-          horizontal: context.isTablet ? 15 : 10),
-      leading: FaIcon(FontAwesomeIcons.palette),
+          vertical: tab ? 15 : 10, horizontal: tab ? 15 : 10),
+      leading: FaIcon(FontAwesomeIcons.palette,
+          color: Theme.of(context).primaryColor),
       title: Text(
         S.current.chooseTheme,
         style: TextStyle(color: Theme.of(context).primaryColor),
       ),
-      // subtitle: Text('Choose to join the brighter side'),
+      subtitle: Text(
+        'Select your favorite theme',
+        style: Theme.of(context).textTheme.button.copyWith(
+            fontSize: kSpacingUnit * 1.2,
+            fontWeight: FontWeight.w100,
+            fontFamily: 'Roboto',
+            letterSpacing: 2),
+      ),
       children: <Widget>[Wrap(children: themeChildren)],
     );
   }
@@ -328,26 +316,19 @@ class _SettingsTitle extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(6, 8, 6, 8),
       child: Text(
         title,
-        style: Theme.of(context).textTheme.bodyText1.copyWith(
-            fontSize: 20, color: Colors.black, fontWeight: FontWeight.w500),
+        style: Theme.of(context).textTheme.button.copyWith(
+            fontSize: 20, fontWeight: FontWeight.w500, letterSpacing: 1.8),
       ),
     );
   }
 }
 
 class _SettingsShort extends StatelessWidget {
-  final String title;
-  final String subtitle;
+  final String title, subtitle;
   final IconData icon;
   final Color color;
 
-  const _SettingsShort({
-    Key key,
-    @required this.title,
-    @required this.subtitle,
-    @required this.icon,
-    @required this.color,
-  }) : super(key: key);
+  const _SettingsShort({Key key, this.title, this.subtitle, this.icon, this.color}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -357,14 +338,63 @@ class _SettingsShort extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              FaIcon(icon, color: color.withOpacity(0.4)),
-              Text(title)
+              FaIcon(icon, color: color.withOpacity(.4)),
+              Text(title,
+                  style: Theme.of(context).textTheme.button.copyWith(
+                      fontSize: kSpacingUnit * 1.3,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.w100,
+                      letterSpacing: 2))
             ],
           ),
         ),
         trailing: Chip(
-          label: Text(subtitle),
+          label: Text(subtitle,
+              style: Theme.of(context).textTheme.button.copyWith(
+                  fontSize: kSpacingUnit * 1.3,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w100,
+                  letterSpacing: 2)),
           backgroundColor: Theme.of(context).hoverColor,
+        ),
+      ),
+    );
+  }
+}
+
+class SettingsButton extends StatelessWidget {
+  final String title, subtitle;
+  final bool value;
+  final ValueChanged<bool> onChanged;
+
+  const SettingsButton({Key key, this.title, this.subtitle, this.value, this.onChanged}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
+    return WidgetAnimator(
+      ListTile(
+        title: Text(
+          title,
+          style: Theme.of(context).textTheme.button.copyWith(
+                fontSize: kSpacingUnit * 1.7,
+                fontWeight: FontWeight.w400,
+                letterSpacing: 2,
+                fontFamily: ar ? 'Amiri' : 'Roboto',
+              ),
+        ),
+        subtitle: Text(subtitle,
+            style: Theme.of(context).textTheme.button.copyWith(
+                fontSize: kSpacingUnit * 1.3,
+                fontWeight: FontWeight.w100,
+                fontFamily: 'Roboto',
+                letterSpacing: 2)),
+        
+        trailing: CupertinoSwitch(
+          value: value,
+          onChanged: onChanged,
+          activeColor: Theme.of(context).primaryColor,
         ),
       ),
     );

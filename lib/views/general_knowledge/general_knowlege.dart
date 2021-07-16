@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_easyrefresh/easy_refresh.dart';
-import 'package:get/get.dart';
-import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/layout/adaptive.dart';
-import 'package:islam_made_easy/widgets/detailsPage.dart';
-import 'package:islam_made_easy/widgets/viewText.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class GeneralKnowledge extends StatefulWidget {
   static const ROUTE_NAME = "/general";
@@ -19,19 +14,9 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(
-          backgroundColor: isDesktop ? Colors.transparent : null,
-          title: Text(
-            S.current.generalKnowledge,
-            style: TextStyle(
-                fontWeight: FontWeight.w400, fontFamily: 'Quattrocento'),
-            overflow: TextOverflow.fade,
-          ),
-          centerTitle: true,
-          automaticallyImplyLeading: isDesktop),
-      backgroundColor: theme.backgroundColor,
+      appBar:
+          QnAppBar2(title: S.current.generalKnowledge, isDesktop: isDesktop),
       body: EasyRefresh(
         controller: _controller,
         child: ListView(

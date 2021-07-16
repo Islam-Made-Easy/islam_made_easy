@@ -35,7 +35,9 @@ class StretchButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
               side: border, borderRadius: BorderRadius.circular(5)),
           primary: Theme.of(context).buttonColor,
-          textStyle: TextStyle(color: foreground),
+          textStyle: Theme.of(context).textTheme.button.copyWith(
+            fontFamily: 'Roboto',letterSpacing: 2
+          ),
           padding: EdgeInsets.symmetric(vertical: 15),
         ),
         onPressed: onTap,

@@ -11,8 +11,7 @@ class SettingsRadio extends StatefulWidget {
   final String subtitle;
   final int value;
 
-  const SettingsRadio({Key key, @required this.subtitle, @required this.value})
-      : super(key: key);
+  const SettingsRadio({Key key, this.subtitle, this.value}) : super(key: key);
 
   @override
   _SettingsRadioState createState() => _SettingsRadioState();
@@ -40,11 +39,21 @@ class _SettingsRadioState extends State<SettingsRadio> {
 
   @override
   Widget build(BuildContext context) {
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     return WidgetAnimator(
       RadioListTile(
         title: Text(getLanguageUiString(
-            S.delegate.supportedLocales[widget.value].languageCode)),
-        subtitle: Text(widget.subtitle),
+            S.delegate.supportedLocales[widget.value].languageCode),style: Theme.of(context).textTheme.button.copyWith(
+            fontSize: 10 * 1.5,fontFamily: ar?'Amiri':'Roboto',
+            fontWeight: FontWeight.w400,
+            letterSpacing: 2
+        )),
+        subtitle: Text(widget.subtitle,style: Theme.of(context).textTheme.button.copyWith(
+            fontSize: 10 * 1.3,fontFamily: ar?'Amiri':'Roboto',
+            fontWeight: FontWeight.w100,
+            letterSpacing: 2
+        )), activeColor: Theme.of(context).primaryColor,
         groupValue: selectedLanguage,
         value: S.delegate.supportedLocales[widget.value].languageCode,
         onChanged: (String languageCode) => _changeLanguage(languageCode),
