@@ -91,6 +91,7 @@ dependencies:
   flextras: ^0.0.1
   just_audio: null
   audioplayers: ^0.19.1
+  animated_radial_menu:
 dev_dependencies:
   flutter_launcher_icons: ^0.9.0
   flutter_native_splash: ^1.1.8+4
