@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ViewText extends StatelessWidget {
   final String data;
 
-  const ViewText({Key key, @required this.data}) : super(key: key);
+  const ViewText({Key key, this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

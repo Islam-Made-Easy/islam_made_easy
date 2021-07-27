@@ -41,9 +41,10 @@ class _SettingsLinkButtonState extends State<SettingsLinkButton> {
         children: [
           AnimatedScale(
             duration: Duration(milliseconds: 5000),
-            begin: _isMouseOver ? 0 : 1,
-            end: _isMouseOver ? 2 : 1.1,
+            // begin: _isMouseOver ? 0 : 1,
+            // end: _isMouseOver ? 2 : 1.1,
             curve: Curves.easeIn,
+            scale: _isMouseOver ? 2 : 1.1,
             child: Image.asset(
               widget.title,
               fit: BoxFit.fitHeight,

@@ -40,11 +40,9 @@ void main() async {
     const int megabyte = 1000000;
     SystemChannels.skia.invokeMethod('Skia.setResourceCacheMaxBytes', 512 * megabyte);
     await Future<void>.delayed(Duration.zero);
-  } else {
-    if (DeviceOS.isDesktop) {
+  } else if (DeviceOS.isDesktop) {
       await DesktopWindow.setMinWindowSize(const Size(1051.0, 646.0));
       setWindowTitle('Islam Made Easy');
-    }
   }
 
   runApp(

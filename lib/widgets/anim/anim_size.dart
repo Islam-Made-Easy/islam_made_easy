@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 class _AnimatedSize extends StatelessWidget {
-  _AnimatedSize(
-      {this.child,
-      this.duration,
-      this.begin,
-      this.end,
-      this.curve = Curves.easeOut});
+  _AnimatedSize({this.child, this.duration, this.begin, this.end, this.curve = Curves.easeOut});
 
   final Widget child;
   final Duration duration;
-  final Size begin;
-  final Size end;
+  final Size begin, end;
   final Curve curve;
 
   Widget build(BuildContext context) {
@@ -29,8 +23,7 @@ class _AnimatedSize extends StatelessWidget {
 class AnimatedHeight extends StatelessWidget {
   final Widget child;
   final Duration duration;
-  final double begin;
-  final double end;
+  final double begin, end;
   final Curve curve;
 
   const AnimatedHeight(
@@ -52,8 +45,7 @@ class AnimatedHeight extends StatelessWidget {
 class AnimatedWidth extends StatelessWidget {
   final Widget child;
   final Duration duration;
-  final double begin;
-  final double end;
+  final double begin, end;
   final Curve curve;
 
   const AnimatedWidth(
@@ -72,14 +64,13 @@ class AnimatedWidth extends StatelessWidget {
   }
 }
 
-class AnimatedScale extends StatelessWidget {
-  const AnimatedScale(
+class ScaleAnim extends StatelessWidget {
+  const ScaleAnim(
       {Key key, this.child, this.end, this.duration, this.begin, this.curve})
       : super(key: key);
   final Widget child;
   final Duration duration;
-  final double begin;
-  final double end;
+  final double begin, end;
   final Curve curve;
 
   @override

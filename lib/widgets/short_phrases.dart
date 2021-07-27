@@ -91,16 +91,9 @@ class ShortPhrases extends StatelessWidget {
 }
 
 class _ShortW extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final String trailing;
+  final String title, subtitle, trailing;
 
-  const _ShortW({
-    Key key,
-    @required this.title,
-    @required this.subtitle,
-    @required this.trailing,
-  }) : super(key: key);
+  const _ShortW({Key key, this.title, this.subtitle, this.trailing}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
