@@ -1,15 +1,16 @@
 {
   "project_info": {
     "project_number": "726520556620",
+    "firebase_url": "https://islam-made-easy-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "islam-made-easy",
     "storage_bucket": "islam-made-easy.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:726520556620:android:a3a9ebdb73294d8a96d8e9",
+        "mobilesdk_app_id": "1:726520556620:android:ec316dda7734d28196d8e9",
         "android_client_info": {
-          "package_name": "com.imeteam.islam_made_easy"
+          "package_name": "com.ime.islam_made_easy"
         }
       },
       "oauth_client": [
