@@ -210,7 +210,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                                 color: theme.buttonColor,
                                 tooltip: 'Gitter',
                                 onPressed: () => launchUrl(
-                                    "https://gitter.im/orgs/Islam-Made-Easy/community"),
+                                    "https://gitter.im/orgs/Islam-Made-Easy/rooms"),
                                 icon: FaIcon(FontAwesomeIcons.gitter),
                                 splashRadius: 1),
                           ],
