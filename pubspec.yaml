@@ -60,7 +60,7 @@ dependencies:
   popover: ^0.2.3
   auto_size_text: null
   shimmer: ^2.0.0
-  flutter_local_notifications: ^5.0.0+4
+  flutter_local_notifications: ^8.1.0
   markdown: null
   flutter_markdown: null
   bubble_overlay: null
