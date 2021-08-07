@@ -29,6 +29,7 @@ class _LoadingIndicatorState extends State<LoadingIndicator> {
         builder: (context, snapshot) {
           var composition = snapshot.data;
           if (composition != null) return Lottie(composition: composition);
+          // To avoid errors on web where there is low network connection return CPI
           return Center(child: CircularProgressIndicator());
         },
       ),
