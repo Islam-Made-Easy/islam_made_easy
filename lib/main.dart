@@ -107,7 +107,6 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     return supportedLocales.first;
   }
 
-// todo: Implement first launch dialog > "وَإِنَّ الْمَلَائِكَةَ لَتَضَعُ أَجْنِحَتَهَا لِطَالِبِ الْعِلْمِ رِضًا بِمَا يَصْنَعُ"
 // TODO: Add floating feedback requester for web
 
   /// sEARch   
