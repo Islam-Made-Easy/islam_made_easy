@@ -204,7 +204,7 @@ class _MainPanelState extends State<MainPanel> {
                   title,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: isDesktop||context.isTablet?22:17,
+                      fontSize: context.isTablet?22:context.isPhone?17:null,
                       fontFamily: 'Amiri'),
                 ),
                 tileColor: theme.hoverColor,
