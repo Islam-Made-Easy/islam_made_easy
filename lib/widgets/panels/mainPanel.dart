@@ -24,11 +24,11 @@ class _MainPanelState extends State<MainPanel> {
     final ar = locale.languageCode == 'ar';
     final size = context.mediaQuery.size;
     final appTheme = theme.textTheme.button
-        .copyWith(fontWeight: FontWeight.bold, fontSize: isDesktop ? 30 : 22);
+        .copyWith(fontWeight: FontWeight.bold, fontSize: isDesktop||context.isTablet ? 30 : 22);
     final selectTheme = theme.textTheme.caption.copyWith(
       fontWeight: FontWeight.w100,
       fontSize: 22,
-      letterSpacing: isDesktop ? 2 : null,
+      letterSpacing: isDesktop||context.isTablet ? 2 : null,
       fontFamily: ar ? 'Amiri' : 'Roboto',
     );
     if (DeviceOS.isDesktopOrWeb && isDesktop ||
@@ -159,8 +159,8 @@ class _MainPanelState extends State<MainPanel> {
                         bottomRight: ar ? Radius.zero : Radius.elliptical(50, 120)),
                     gradient: LinearGradient(
                       colors: [
-                        theme.primaryColor,
-                        theme.primaryColor.withOpacity(.09),
+                        theme.colorScheme.primaryVariant,
+                        theme.colorScheme.secondary,
                       ],
                       tileMode: TileMode.mirror,
                       begin: !ar ? Alignment.topLeft : Alignment.topRight,
@@ -194,7 +194,7 @@ class _MainPanelState extends State<MainPanel> {
                       color: theme.colorScheme.secondary),
                   child: IconButton(
                     icon: FaIcon(ar ? PixIcon.typcn_chevron_left : PixIcon.typcn_chevron_right,
-                      color: theme.colorScheme.surface,
+                      color: Colors.white,
                     ),
                     splashRadius: isDesktop ? 20 : 30,
                     onPressed: ()=> Get.to(()=> QuizHome()),
@@ -204,7 +204,7 @@ class _MainPanelState extends State<MainPanel> {
                   title,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: isDesktop||context.isTablet?22:17,
                       fontFamily: 'Amiri'),
                 ),
                 tileColor: theme.hoverColor,
@@ -222,8 +222,8 @@ class _MainPanelState extends State<MainPanel> {
                               ar ? Radius.elliptical(50, 20) : Radius.zero),
                       gradient: LinearGradient(
                         colors: [
-                          theme.primaryColor.withOpacity(.07),
-                          theme.primaryColor
+                          theme.colorScheme.secondary,
+                          theme.colorScheme.primaryVariant,
                         ],
                         tileMode: TileMode.mirror,
                         begin: Alignment.topLeft,

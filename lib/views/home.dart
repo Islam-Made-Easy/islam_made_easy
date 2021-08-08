@@ -58,7 +58,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         PositionedTransition(
           rect: getPanelAnimation(constraints),
           child: Container(
-            color:  context.isDarkMode?Theme.of(context).primaryColorDark: Theme.of(context).primaryColorLight,
+            color:  context.isDarkMode?Theme.of(context).primaryColorDark: Theme.of(context).textSelectionColor,
             child: Column(
               children: <Widget>[Expanded(child: Center(child: MainPanel()))],
             ),
@@ -78,7 +78,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     } else {
       return DoubleBack(
         onFirstBackPress: (context) => Get.snackbar('Smile It\'s Sunnah', ''),
-        child: Scaffold(backgroundColor: context.isDarkMode?null:null,
+        child: Scaffold(backgroundColor: context.isDarkMode?null:Theme.of(context).secondaryHeaderColor,
           appBar: AppBar(
             // backgroundColor: context.isDarkMode?Theme.of(context).primaryColorDark: Theme.of(context).primaryColorLight,
             leading: IconButton(
