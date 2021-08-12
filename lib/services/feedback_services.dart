@@ -1,7 +1,7 @@
 import 'package:gsheets/gsheets.dart';
 import 'package:islam_made_easy/models/feedback_model.dart';
 
-/// FormController is a class which does work of saving FeedbackAPI in Google Sheets using
+/// [FeedbackServices] is a class which does work of saving user feedback in Google Sheets using IME-Feedback-API
 class FeedbackServices {
   static final _sheetID = '1_YoLUNUUXKO_RfMt3P5Y60RB9evR-_4FTCtaGfgcC_0';
   static const _credentials = r'''
