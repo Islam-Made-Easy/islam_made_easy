@@ -26,7 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Shaykh Sulayman ibn Nasir al-‘Alwan said:\nIt\'s not a condition to drink water in order to say this Dhikr, rather you say it after you eat or drink: \n${fastBreakDua1}\n\"Thirst has gone, the arteries are moist, and the reward is sure, if Allah wills.\" [Authentic]";
 
   static String m2(fastBreakDua2) =>
-      "And he also mentioned that the dhikr:\n${fastBreakDua2}\n\"O Allāh, for you we have fasted, and by your provisions/sustenance we have broken our fast\"";
+      "Na he also mentioned that the dhikr:\n${fastBreakDua2}\n\"O Allāh, for you we have fasted, and by your provisions/sustenance we have broken our fast\"";
 
   static String m3(marriageAya) =>
       "A man has no right to remain absent from his wife without a legitimate excuse, merely because he wants to earn a living. If the period is so long that it brings harm to the woman, then it is not permissible for him to do that. The most he can remain absent from her is between four to six months; because Allāh the Almighty has set the limit for those who swear not to have sexual relations with their wives to four months. Allāh the Almighty said: \n${marriageAya}\n“Those who take an oath not to have sexual relation with their wives must wait four months, then if they return (change their idea in this period), verily, Allah is Oft-Forgiving, Most Merciful.” [Sūrah Al-Baqarah 226]";
