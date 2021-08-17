@@ -1,4 +1,4 @@
-zname: IME Builds
+name: IME Builds
 on:
   push:
     branches:
