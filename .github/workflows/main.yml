@@ -26,7 +26,7 @@ jobs:
       - name: Analyze code
         run: flutter analyze
 
-  flutter_test:
+  test:
     name: Run Flutter test and Analyze
     runs-on: ubuntu-latest
     steps:
@@ -41,7 +41,7 @@ jobs:
   version:
     name: Create version number
     runs-on: ubuntu-latest
-    needs: [lint, flutter_test]
+    needs: [lint, test]
       steps:
         - name: Checkout code
           uses: actions/checkout@v2
