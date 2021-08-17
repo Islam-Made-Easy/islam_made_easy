@@ -5,46 +5,46 @@ on:
       - main
 
 jobs:
-  lint:
-    name: Analyze the code
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clone flutter repository from stable channel with 2.2.3 version
-        uses: subosito/flutter-action@v1
-        with:
-          flutter-version: '2.2.3'
-          channel: 'stable'
-
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Update dependencies
-        run: flutter pub get
-
-      - name: Analyze code
-        run: flutter analyze
-
-  test:
-    name: Run Flutter test and Analyze
-    needs: lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clone flutter repository from stable channel with 2.2.3 version
-        uses: subosito/flutter-action@v1
-        with:
-          flutter-version: '2.2.3'
-          channel: 'stable'
-
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Update dependencies
-        run: flutter pub get
+#  lint:
+#    name: Analyze the code
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Clone flutter repository from stable channel with 2.2.3 version
+#        uses: subosito/flutter-action@v1
+#        with:
+#          flutter-version: '2.2.3'
+#          channel: 'stable'
+#
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Update dependencies
+#        run: flutter pub get
+#
+#      - name: Analyze code
+#        run: flutter analyze
+#
+#  test:
+#    name: Run Flutter test and Analyze
+#    needs: lint
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Clone flutter repository from stable channel with 2.2.3 version
+#        uses: subosito/flutter-action@v1
+#        with:
+#          flutter-version: '2.2.3'
+#          channel: 'stable'
+#
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Update dependencies
+#        run: flutter pub get
 
   version:
     name: Create version number
     runs-on: ubuntu-latest
-    needs: [lint, test]
+#    needs: [lint, test]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
