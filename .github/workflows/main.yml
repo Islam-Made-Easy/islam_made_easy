@@ -1,4 +1,4 @@
-name: Build IME Apps
+zname: IME Builds
 on:
   push:
     branches:
@@ -7,20 +7,65 @@ on:
     branches:
       - master
 jobs:
+  lint:
+    name: Analyze the code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone flutter repository from stable channel with 2.2.3 version
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '2.2.3'
+          channel: 'stable'
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Update dependencies
+        run: flutter pub get
+
+      - name: Analyze code
+        run: flutter analyze
+
   flutter_test:
     name: Run Flutter test and Analyze
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
       - uses: subosito/flutter-action@v1
         with:
-          java-version: "12.x"
-      - uses: subosito/flutter-action@v1
-        with:
-          channel: "dev"
+          flutter-version: '2.2.3'
+          channel: 'stable'
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
+
+  version:
+    name: Create version number
+    runs-on: ubuntu-latest
+    needs: [lint, flutter_test]
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Fetch all history for all tags and branches
+          run: git fetch --unshallow --tags
+
+        - name: Install GitVersion
+          uses: gittools/actions/gitversion/setup@v0.9.10
+          with:
+            versionSpec: '5.x'
+
+        - name: Use GitVersion
+          id: gitversion
+          uses: gittools/actions/gitversion/execute@v0.9.10
+
+        - name: Create version.txt with nuGetVersion
+          run: echo ${{ steps.gitversion.outputs.nuGetVersion  }} > version.txt
+
+        - name: Upload version.txt
+          uses: actions/upload-artifact@v2
+          with:
+            name: gitversion
+            path: version.txt
 
   build_web:
     name: Test and Build Flutter Web App
@@ -29,7 +74,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: subosito/flutter-action@v1
         with:
-          channel: 'dev'
+          channel: 'stable'
       - run: flutter pub get
       - run: flutter test
       - run: flutter config --enable-web
@@ -41,25 +86,9 @@ jobs:
           name: web-build
           path: build/web
 
-  build_ios:
-    name: Build Flutter (iOs)
-    needs: [flutter_test]
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
-        with:
-          java-version: "12.x"
-      - uses: subosito/flutter-action@v1
-        with:
-          channel: "dev"
-      - run: flutter pub get
-      - run: flutter clean
-      - run: flutter build ios --no-codesign
-
   build_apk:
-    name: Build Flutter (android)
-    needs: [flutter_test]
+    name: Build aab (android)
+    needs: [ version ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -68,26 +97,47 @@ jobs:
           java-version: "12.x"
       - uses: subosito/flutter-action@v1
         with:
-          channel: "dev"
-      - run: flutter pub get
-      - run: flutter clean
-      - run: flutter build apk --release --no-tree-shake-icons && flutter install apk
+          flutter-version: '2.2.3'
+          channel: "stable"
+      - uses: actions/download-artifact@v2
+        with:
+          name: gitversion
+        run: tr -d '\n' < version.txt > version1.txt
+      - name: Read version
+        id: version
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: version1.txt
 
-  build_desktop:
-    name: Build Flutter (Desktop)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: subosito/flutter-action@v1
-        with:
-          channel: 'dev'
+      - name: Update version in YAML
+        run: |
+          sed -i 's/99.99.99+99/${{ steps.version.outputs.content }}+${{ github.run_number }}/g' pubspec.yaml
+          VERSION_NAME="$(grep 'version:' pubspec.yaml | awk '{ print $2 }' | cut -d'+' -f 1)"
+          VERSION_CODE="$(grep 'version:' pubspec.yaml | awk '{ print $2 }' | cut -d'+' -f 2)"
+          echo $VERSION_NAME
+          echo $VERSION_CODE
+
+      - name: Update KeyStore password in gradle properties
+        run: sed -i 's/#{KEYSTORE_PASS}#/${{ secrets.KEYSTORE_PASS }}/g' android/key.properties
+
+      - name: Update KeyStore key password in gradle properties
+        run: sed -i 's/#{KEYSTORE_KEY_PASS}#/${{ secrets.KEYSTORE_KEY_PASS }}/g' android/key.properties
+
       - run: flutter pub get
-      - run: flutter test
-      - run: flutter config --enable-linux-desktop
-      - run: flutter build linux
-      - run: snapcraft
-      - name: Archive Production Artifact
-        uses: actions/upload-artifact@master
+      - run: flutter build appbundle
+      - run: flutter build apk --release --no-tree-shake-icons
+      - name: Create a Release in GitHub
+        uses: ncipollo/release-action@v1
         with:
-          name: linux-build
-          path: build/linux
+          artifacts: "build/app/outputs/bundle/release/app-release.aab"
+          token: ${{ secrets.TOKEN }}
+          tag: ${{ steps.version.outputs.content }}
+          commit: ${{ github.sha }}
+          prerelease: false
+
+      - name: Upload app bundle
+        uses: actions/upload-artifact@v2
+        with:
+          name: appbundle
+          path: build/app/outputs/bundle/release/app-release.aab
+
