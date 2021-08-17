@@ -19,26 +19,21 @@ class FeedbackServices {
 }
 ''';
   static final _gSheets = GSheets(_credentials);
-  static Worksheet  _wSheet;
-  static Future init()async{
-    try{
+  static Worksheet _wSheet;
+
+  static Future init() async {
+    try {
       final spreadsheet = await _gSheets.spreadsheet(_sheetID);
-      _wSheet = await _getWorkSheet(spreadsheet,title: 'Feedback');
+      _wSheet = await spreadsheet.worksheetByTitle('Feedback');
       final firstRow = FeedbackFields.getFields();
       _wSheet.values.insertRow(1, firstRow);
-    }catch(e){
+    } catch (e) {
       print('Init Error: $e');
     }
   }
-  static Future<Worksheet>_getWorkSheet(Spreadsheet spreadsheet, {String title}) async{
-    try {
-      return await spreadsheet.addWorksheet(title);
-    }catch(e){
-      return spreadsheet.worksheetByTitle(title);
-    }
-  }
-  static Future insert(List<Map<String,dynamic>>rowList)async{
-    if(_wSheet==null) return;
+
+  static Future insert(List<Map<String, dynamic>>rowList) async {
+    if (_wSheet == null) return;
     _wSheet.values.appendRow(rowList);
   }
 }

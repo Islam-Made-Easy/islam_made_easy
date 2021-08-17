@@ -41,6 +41,7 @@ class _AppFeedbackState extends State<AppFeedback> {
 
   void _submitFeed() async {
     if (_formKey.currentState.validate()) {
+      print(feed.text);
       _formKey.currentState.save();
       final feedback = FeedbackModel(name: name.text,email: email.text,feedback: feed.text);
       await FeedbackServices.insert([feedback.toJson()]);
@@ -127,7 +128,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                   autoFocus: true,
                   inputType: TextInputType.name,
                   controller: name,
-                  autofillHints: [AutofillHints.name],
+                  autofillHints: [AutofillHints.name,AutofillHints.newUsername],
                   decoration: InputDecoration(
                       contentPadding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 10),
