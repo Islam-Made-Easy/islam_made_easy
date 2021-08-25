@@ -3,11 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:grafpix/icons.dart';
-import 'package:grafpix/pixbuttons/medal.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:islam_made_easy/locale/localePro.dart';
@@ -163,19 +161,19 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
                         _SettingsShort(
                           title: localize.copyButtonLabel,
                           subtitle: 'Ctrl+C',
-                          icon: PixIcon.pix_copy,
+                          icon: Icons.copy,
                           color: Colors.greenAccent,
                         ),
                         _SettingsShort(
                           title: localize.pasteButtonLabel,
                           subtitle: 'Ctrl+V',
-                          icon: PixIcon.pix_paste,
+                          icon: Icons.paste,
                           color: Colors.orangeAccent,
                         ),
                         _SettingsShort(
                           title: localize.backButtonTooltip,
                           subtitle: 'Alt+Left',
-                          icon: PixIcon.pix_arrow_left2,
+                          icon: Icons.arrow_back,
                           color: Colors.brown,
                         ),
                         Container(
@@ -192,19 +190,19 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
                               _SettingsShort(
                                 title: localize.searchFieldLabel,
                                 subtitle: 'Ctrl+F',
-                                icon: PixIcon.pix_search,
+                                icon: Icons.search,
                                 color: Colors.blueAccent,
                               ),
                               _SettingsShort(
                                 title: "What's New in IME ",
                                 subtitle: 'Ctrl+N',
-                                icon: PixIcon.open_box,
+                                icon: Icons.assignment,
                                 color: Colors.amberAccent,
                               ),
                               _SettingsShort(
                                 title: S.current.qDocs,
                                 subtitle: 'Ctrl+Q',
-                                icon: PixIcon.typcn_document,
+                                icon: Icons.description,
                                 color: Colors.deepPurple,
                               ),
                             ],
@@ -229,13 +227,6 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
                         fontWeight: FontWeight.w100,
                         letterSpacing: 2)),
                 children: [
-                  PixMedal(
-                    icon: Icons.build,
-                    medalType: MedalType.Gold,
-                    radius: 70.0,
-                    iconColor: Colors.transparent,
-                    iconSize: 60.0,
-                  ),
                   Text(S.current.advancedInfo,
                       style: theme.textTheme.button.copyWith(
                           fontSize: kSpacingUnit * 1.5,
