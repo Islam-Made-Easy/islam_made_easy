@@ -16,7 +16,7 @@ class _ReferencesState extends State<References> {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.current!.references),
+        title: Text(S.current.references),
         centerTitle: true,
         backgroundColor: isDesktop ? Colors.transparent : null,
       ),
@@ -45,30 +45,30 @@ class _ReferencesState extends State<References> {
             child: Column(
               children: [
                 FlipCard(
-                  front: _buildCardF(S.current!.tawheedBookAuthor),
-                  back: _buildCardB(S.current!.tawheedAboutAuthor),
+                  front: _buildCardF(S.current.tawheedBookAuthor),
+                  back: _buildCardB(S.current.tawheedAboutAuthor),
                 ),
                 FlipCard(
-                  front: _buildCardF(S.current!.prerequisiteAuthor),
-                  back: _buildCardB(S.current!.prerequisiteAboutAuthor),
+                  front: _buildCardF(S.current.prerequisiteAuthor),
+                  back: _buildCardB(S.current.prerequisiteAboutAuthor),
                 ),
                 FlipCard(
-                  front: _buildCardF(S.current!.qnaAnswer1),
-                  back: _buildCardB(S.current!.aboutAlwan),
+                  front: _buildCardF(S.current.qnaAnswer1),
+                  back: _buildCardB(S.current.aboutAlwan),
                 ),
                 FlipCard(
-                  front: _buildCardF(S.current!.hajjAuthor),
-                  back: _buildCardB(S.current!.aboutJibril),
+                  front: _buildCardF(S.current.hajjAuthor),
+                  back: _buildCardB(S.current.aboutJibril),
                 ),
                 FlipCard(
-                  front: _buildCardF(S.current!.fatawaAuthor2),
-                  back: _buildCardB(S.current!.aboutFatawaAuthor2),
+                  front: _buildCardF(S.current.fatawaAuthor2),
+                  back: _buildCardB(S.current.aboutFatawaAuthor2),
                 ),
                 FlipCard(
-                  front: _buildCardF(S.current!.tawheedIntroAuthor),
+                  front: _buildCardF(S.current.tawheedIntroAuthor),
                   back: _buildCardB(
                       'Studied vocabulary, nahw (grammar) and sarf (morphology). Mainly translates '
-                      'books of ‘aqīdah of the Salaf.\n${S.current!.tawheedIntroTitle}'),
+                      'books of ‘aqīdah of the Salaf.\n${S.current.tawheedIntroTitle}'),
                 ),
               ],
             ),
@@ -130,7 +130,7 @@ class _ReferencesState extends State<References> {
       child: ListTile(
         contentPadding: EdgeInsets.all(10),
         title: Text(
-          S.current!.about,
+          S.current.about,
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
         ),
         subtitle: Text(

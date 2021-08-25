@@ -136,7 +136,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       navigatorObservers: [appRoute],
       routes: appRoute.routes,
       onGenerateRoute: appRoute.generateRoute,
-      onGenerateTitle: (context) => S.current!.appTitle,
+      onGenerateTitle: (context) => S.current.appTitle,
       supportedLocales: S.delegate.supportedLocales,
       home: QuickUtil(child: isCelebration ? SplashView() : Home()),
       debugShowCheckedModeBanner: false,

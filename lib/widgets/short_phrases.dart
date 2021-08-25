@@ -11,7 +11,7 @@ class ShortPhrases extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.current!.shortPhrasesT),
+        title: Text(S.current.shortPhrasesT),
         centerTitle: true,
         backgroundColor: isDesktop ? Colors.transparent : null,
       ),
@@ -35,7 +35,7 @@ class ShortPhrases extends StatelessWidget {
               children: [
                 _ShortW(
                     title: 'بسم الله الرحمان الرحيم',
-                    subtitle: S.current!.basmallah,
+                    subtitle: S.current.basmallah,
                     trailing: '( Bismilahi Rahmani Raheem )'),
                 _ShortW(
                     title: 'سبحانه وتعالى',

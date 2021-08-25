@@ -69,8 +69,8 @@ class _DetailsPageState extends State<DetailsPage> {
                 Clipboard.setData(ClipboardData(text: widget.title))
                     .then(
                       (value) =>
-                      Get.snackbar(S.current!.copiedToClipboardTitle,
-                          S.current!.copiedToClipboard),
+                      Get.snackbar(S.current.copiedToClipboardTitle,
+                          S.current.copiedToClipboard),
                 );
               }) :
           IconButton(
@@ -79,7 +79,7 @@ class _DetailsPageState extends State<DetailsPage> {
               shareDelay.run(
                     () =>
                     Share.share(
-                        "${widget.title} \nIslam Made Easy\n${S.current!.aboutApp}",
+                        "${widget.title} \nIslam Made Easy\n${S.current.aboutApp}",
                         subject: ShareUtil().getPlatformShare()),
               );
             },

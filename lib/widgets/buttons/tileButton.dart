@@ -41,8 +41,6 @@ class _SettingsLinkButtonState extends State<SettingsLinkButton> {
         children: [
           AnimatedScale(
             duration: Duration(milliseconds: 5000),
-            // begin: _isMouseOver ? 0 : 1,
-            // end: _isMouseOver ? 2 : 1.1,
             curve: Curves.easeIn,
             scale: _isMouseOver ? 2 : 1.1,
             child: Image.asset(
@@ -71,8 +69,7 @@ class DesktopButton extends StatefulWidget {
   final Widget? openC;
   final String? title,subtitle;
 
-  const DesktopButton({Key? key, this.openC, this.title, this.subtitle})
-      : super(key: key);
+  const DesktopButton({Key? key, this.openC, this.title, this.subtitle}) : super(key: key);
 
   @override
   State<DesktopButton> createState() => _DesktopButtonState();

@@ -39,7 +39,7 @@ class _AboutAppState extends State<AboutApp> {
     final textTheme = Theme.of(context).textTheme;
     final textButton = textTheme.button!.copyWith(letterSpacing: 2,fontFamily: 'Roboto');
     final name =
-        'Islam Made Easy ${S.current!.forPlatform} ${DeviceOS.isWeb ? 'Web' : Platform.operatingSystem.capitalizeFirst}';
+        'Islam Made Easy ${S.current.forPlatform} ${DeviceOS.isWeb ? 'Web' : Platform.operatingSystem.capitalizeFirst}';
     final legalese = '© ${DateTime.now().year} The IME team';
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
@@ -55,7 +55,7 @@ class _AboutAppState extends State<AboutApp> {
             DeviceOS.isDesktopOrWeb
                 ? Get.back()
                 : shareDelay.run(() => Share.share(
-                    "Islam Made Easy\n${S.current!.aboutApp}",
+                    "Islam Made Easy\n${S.current.aboutApp}",
                     subject: ShareUtil().getPlatformShare()));
           },
           splashRadius: DeviceOS.isDesktopOrWeb ? 10 : 20,
@@ -71,7 +71,7 @@ class _AboutAppState extends State<AboutApp> {
               'assets/images/logo.png',
               height: isDesktop ? size.height * 0.3 : 150,
             ),
-            Text(S.current!.aboutApp, style: textButton.copyWith(
+            Text(S.current.aboutApp, style: textButton.copyWith(
                 fontFamily: ar ? 'Amiri' : 'Roboto',
                 fontWeight: FontWeight.w300)),
             FutureBuilder(
@@ -102,7 +102,7 @@ class _AboutAppState extends State<AboutApp> {
             ),
             if (isDesktop || DeviceOS.isDesktopOrWeb)
               Text(
-                '━═══◎${S.current!.share}◎═══━',
+                '━═══◎${S.current.share}◎═══━',
                 style: TextStyle(color: colorScheme.secondary),
               )
             else
@@ -118,21 +118,21 @@ class _AboutAppState extends State<AboutApp> {
                     tip: 'Mail',
                     icon: Icons.mail,
                     onPressed: () => launchURL(
-                        'mailto:?subject=$name&body=$name ${S.current!.shareText} ${ShareUtil().getPlatformShare()}'),
+                        'mailto:?subject=$name&body=$name ${S.current.shareText} ${ShareUtil().getPlatformShare()}'),
                   ),
                   ShareButtons(
                     color: Color(0xff294C8C),
                     tip: 'Facebook',
                     icon: FontAwesomeIcons.facebook,
                     onPressed: () => launchURL(
-                        'https://www.facebook.com/sharer/sharer.php?t=$name ${S.current!.aboutApp}&quote=Get it from Now:&ref=fbshare&u=${ShareUtil().getPlatformShare()}'),
+                        'https://www.facebook.com/sharer/sharer.php?t=$name ${S.current.aboutApp}&quote=Get it from Now:&ref=fbshare&u=${ShareUtil().getPlatformShare()}'),
                   ),
                   ShareButtons(
                     color: Color(0xff67C15E),
                     tip: 'WhatsApp',
                     icon: FontAwesomeIcons.whatsapp,
                     onPressed: () => launchURL(
-                        'https://wa.me/?text=$name ${S.current!.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare()}'),
+                        'https://wa.me/?text=$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare()}'),
                   ),
                   AnimatedSwitcher(
                     duration: shareDelay.duration,
@@ -145,7 +145,7 @@ class _AboutAppState extends State<AboutApp> {
                                 () => Clipboard.setData(
                                   ClipboardData(
                                       text:
-                                      '$name ${S.current!.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare()}'),
+                                      '$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare()}'),
                                 ).then((value) {setState(() => verified = true);}),
                           );
                         }),

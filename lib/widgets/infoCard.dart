@@ -43,8 +43,8 @@ class _InfoCardState extends State<InfoCard> {
                   onPressed: () =>
                       Clipboard.setData(ClipboardData(text: widget.quest)).then(
                         (value) => Get.snackbar(
-                            S.current!.copiedToClipboardTitle,
-                            S.current!.copiedToClipboard),
+                            S.current.copiedToClipboardTitle,
+                            S.current.copiedToClipboard),
                       ))
               : IconButton(
                   icon: FaIcon(FontAwesomeIcons.shareAlt, size: 20),

@@ -470,7 +470,7 @@ class _WelcomeState extends State<WelcomePage>
                 anim: _anim,
                 interval: const Interval(0.5, 0.9),
                 child: Text(
-                  S.current!.fridayRemind,
+                  S.current.fridayRemind,
                   style: TextStyle(
                     fontFamily: 'Amiri',
                     color: const Color(0xFFFFFFFF),
@@ -488,7 +488,7 @@ class _WelcomeState extends State<WelcomePage>
                   anim: _anim,
                   interval: const Interval(0.7, 1.0),
                   child: Text(
-                    S.current!.fridayFirst,
+                    S.current.fridayFirst,
                     style: TextStyle(
                       color: const Color(0xFFFFFFFF),
                       fontFamily: 'Amiri',

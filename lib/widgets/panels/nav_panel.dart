@@ -29,11 +29,11 @@ class _NavigationPanelState extends State<NavigationPanel> {
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
         children: <Widget>[
           drawerTile(
-              S.current!.prerequisite,
+              S.current.prerequisite,
               () => Get.to(() => Prerequisite(), transition: Transition.size),
               Icons.assignment),
           drawerTile(
-              S.current!.questionsAndAnswers,
+              S.current.questionsAndAnswers,
               () => Get.to(() => QnA(), transition: Transition.size),
               FontAwesomeIcons.quinscape),
           drawerTile(
@@ -41,16 +41,16 @@ class _NavigationPanelState extends State<NavigationPanel> {
               () => Get.to(() => Succinct(), transition: Transition.size),
               FontAwesomeIcons.bookOpen),
           drawerTile(
-              S.current!.generalKnowledge,
+              S.current.generalKnowledge,
               () =>
                   Get.to(() => GeneralKnowledge(), transition: Transition.size),
               FontAwesomeIcons.book),
           drawerTile(
-              S.current!.references,
+              S.current.references,
               () => Get.to(() => References(), transition: Transition.size),
               FontAwesomeIcons.scroll),
           drawerTile(
-              S.current!.shortPhrases,
+              S.current.shortPhrases,
               () => Get.to(() => ShortPhrases(), transition: Transition.size),
               FontAwesomeIcons.ussunnah),
         ],

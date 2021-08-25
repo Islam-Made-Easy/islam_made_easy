@@ -59,7 +59,7 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
     return Scaffold(
       backgroundColor: isDesktop ? Colors.transparent : null,
       appBar: AppBar(
-        title: Text(isDesktop ? S.current!.preferences : S.current!.settings,
+        title: Text(isDesktop ? S.current.preferences : S.current.settings,
             style: bodyTextStyle),
         automaticallyImplyLeading: isDesktop ? false : true,
         centerTitle: true,
@@ -71,8 +71,8 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
           vertical: isDesktop || context.isTablet ? 30 : 8.0,
         ),
         children: [
-          _SettingsTitle(title: S.current!.customizeExp),
-          _SettingsTitle(title: S.current!.interface),
+          _SettingsTitle(title: S.current.customizeExp),
+          _SettingsTitle(title: S.current.interface),
           Divider(endIndent: 30, indent: 30, height: 20),
           WidgetAnimator(
             Card(
@@ -98,7 +98,7 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
           WidgetAnimator(
             Card(
               child: ExpansionTile(
-                title: Text(S.current!.language,
+                title: Text(S.current.language,
                     style: theme.textTheme.button!.copyWith(
                         fontSize: kSpacingUnit * 1.5,
                         fontFamily: 'Roboto',
@@ -124,22 +124,22 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
                       value: '',
                       groupValue: selectedLanguage,
                       onChanged: (String? languageCode) => _changeLanguage(languageCode)),
-                  SettingsRadio(subtitle: S.current!.english, value: 0),
-                  SettingsRadio(subtitle: S.current!.arabi, value: 1),
-                  SettingsRadio(subtitle: S.current!.bosanski, value: 2),
-                  SettingsRadio(subtitle: S.current!.dansk, value: 3),
-                  SettingsRadio(subtitle: S.current!.german, value: 4),
-                  SettingsRadio(subtitle: S.current!.hindii, value: 5),
-                  SettingsRadio(subtitle: S.current!.croatianHR, value: 6),
-                  SettingsRadio(subtitle: S.current!.indonesian, value: 7),
-                  SettingsRadio(subtitle: S.current!.serbian, value: 8),
-                  SettingsRadio(subtitle: S.current!.kiswahili, value: 9),
+                  SettingsRadio(subtitle: S.current.english, value: 0),
+                  SettingsRadio(subtitle: S.current.arabi, value: 1),
+                  SettingsRadio(subtitle: S.current.bosanski, value: 2),
+                  SettingsRadio(subtitle: S.current.dansk, value: 3),
+                  SettingsRadio(subtitle: S.current.german, value: 4),
+                  SettingsRadio(subtitle: S.current.hindii, value: 5),
+                  SettingsRadio(subtitle: S.current.croatianHR, value: 6),
+                  SettingsRadio(subtitle: S.current.indonesian, value: 7),
+                  SettingsRadio(subtitle: S.current.serbian, value: 8),
+                  SettingsRadio(subtitle: S.current.kiswahili, value: 9),
                 ],
               ),
             ),
           ),
           SizedBox(height: 10),
-          isDesktop ? _SettingsTitle(title: S.current!.shortcuts) : Container(),
+          isDesktop ? _SettingsTitle(title: S.current.shortcuts) : Container(),
           isDesktop
               ? Divider(endIndent: 30, indent: 30, height: 20)
               : Container(),
@@ -151,7 +151,7 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
                           EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                       childrenPadding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                      title: Text(S.current!.shortcuts,
+                      title: Text(S.current.shortcuts,
                           style: theme.textTheme.button!.copyWith(
                               fontSize: kSpacingUnit * 1.5,
                               fontFamily: 'Roboto',
@@ -200,7 +200,7 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
                                 color: Colors.amberAccent,
                               ),
                               _SettingsShort(
-                                title: S.current!.qDocs,
+                                title: S.current.qDocs,
                                 subtitle: 'Ctrl+Q',
                                 icon: Icons.description,
                                 color: Colors.deepPurple,
@@ -213,7 +213,7 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
                   ),
                 )
               : Container(),
-          _SettingsTitle(title: S.current!.advanced),
+          _SettingsTitle(title: S.current.advanced),
           Divider(endIndent: 30, indent: 30, height: 20),
           WidgetAnimator(
             Card(
@@ -221,13 +221,13 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
                 tilePadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 childrenPadding:
                     EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                title: Text(S.current!.advanced,
+                title: Text(S.current.advanced,
                     style: theme.textTheme.button!.copyWith(
                         fontSize: kSpacingUnit * 1.3,
                         fontWeight: FontWeight.w100,
                         letterSpacing: 2)),
                 children: [
-                  Text(S.current!.advancedInfo,
+                  Text(S.current.advancedInfo,
                       style: theme.textTheme.button!.copyWith(
                           fontSize: kSpacingUnit * 1.5,
                           fontFamily: 'Roboto',
@@ -280,7 +280,7 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
       leading: FaIcon(FontAwesomeIcons.palette,
           color: Theme.of(context).primaryColor),
       title: Text(
-        S.current!.chooseTheme,
+        S.current.chooseTheme,
         style: TextStyle(color: Theme.of(context).primaryColor),
       ),
       subtitle: Text(

@@ -52,14 +52,14 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
       anchorBelow: anchorBelow,
       clipboardStatus: clipboardStatus,
       handleShare: ()async {
-        canCopy(delegate) && handleCopy != null ? () => handleCopy(delegate, clipboardStatus) : null;
+        canCopy(delegate) ? () => handleCopy(delegate, clipboardStatus) : null;
         // Map<String, dynamic> result = await SystemChannels.platform.invokeMethod('Clipboard.getData');
         // delegate.userUpdateTextEditingValue(
         //     delegate.textEditingValue, SelectionChangedCause.doubleTap);
         customBottomSheet(context,delegate.textEditingValue.text);
         // delegate.hideToolbar();
       },
-      handleCopy: canCopy(delegate) && handleCopy != null
+      handleCopy: canCopy(delegate)
           ? () => handleCopy(delegate, clipboardStatus)
           : null,
       customButton: () {
@@ -72,13 +72,13 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
         );
         delegate.hideToolbar();
       },
-      handleCut: canCut(delegate) && handleCut != null
+      handleCut: canCut(delegate)
           ? () => handleCut(delegate)
           : null,
-      handlePaste: canPaste(delegate) && handlePaste != null
+      handlePaste: canPaste(delegate)
           ? () => handlePaste(delegate)
           : null,
-      handleSelectAll: canSelectAll(delegate) && handleSelectAll != null
+      handleSelectAll: canSelectAll(delegate)
           ? () => handleSelectAll(delegate)
           : null,
     );
@@ -291,7 +291,7 @@ class MyTextSelectionToolbarState extends State<MyTextSelectionToolbar> {
         <_TextSelectionToolbarItemData>[
       _TextSelectionToolbarItemData(
         onPressed: widget.handleShare,
-        label: S.current!.share,
+        label: S.current.share,
       ),
       if (widget.handleCut != null)
         _TextSelectionToolbarItemData(

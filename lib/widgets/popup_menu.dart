@@ -53,7 +53,7 @@ class PopupOptionMenu extends StatelessWidget {
             children: [
               FaIcon(FontAwesomeIcons.cog,color: color),
               const SizedBox(width: 10),
-              Text(S.current!.settings),
+              Text(S.current.settings),
             ],
           ),
           value: MenuOptions.Settings,

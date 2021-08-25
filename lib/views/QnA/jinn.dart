@@ -10,7 +10,7 @@ class _JinnState extends State<Jinn> {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     return Scaffold(
-      appBar: QnAppBar(title: S.current!.jinn, isDesktop: isDesktop),
+      appBar: QnAppBar(title: S.current.jinn, isDesktop: isDesktop),
       body: Stack(
         children: [
           GradientCircles(),
