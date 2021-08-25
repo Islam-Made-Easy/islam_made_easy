@@ -1,6 +1,6 @@
 /// FeedbackModel is a data class which stores data fields of Feedback.
 class FeedbackModel {
-  final String name, email, feedback;
+  final String? name, email, feedback;
 
   const FeedbackModel({this.name, this.email, this.feedback});
 

@@ -3,9 +3,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'anim/anim.dart';
 
-void showFeedbackDialog({BuildContext context, bool isPanelVisible}) {
+void showFeedbackDialog({required BuildContext context, required bool isPanelVisible}) {
   final isDesktop = isDisplayDesktop(context);
-  assert(context != null);
   showAnimatedDialog<void>(
     context: context,
     barrierDismissible: !isDesktop,
@@ -29,7 +28,7 @@ class _AppFeedbackState extends State<AppFeedback> {
   }
 
   final _formKey = GlobalKey<FormState>();
-  TextEditingController name, email, feed;
+  TextEditingController? name, email, feed;
 
   @override
   void initState() {
@@ -40,13 +39,13 @@ class _AppFeedbackState extends State<AppFeedback> {
   }
 
   void _submitFeed() async {
-    if (_formKey.currentState.validate()) {
-      print(feed.text);
-      _formKey.currentState.save();
-      final feedback = FeedbackModel(name: name.text,email: email.text,feedback: feed.text);
+    if (_formKey.currentState!.validate()) {
+      print(feed!.text);
+      _formKey.currentState!.save();
+      final feedback = FeedbackModel(name: name!.text,email: email!.text,feedback: feed!.text);
       await FeedbackServices.insert([feedback.toJson()]);
       Get.snackbar('Submitting', 'Thank you for submitting your feedback!, Jazakumullahu Khayraa!!');
-      name.clear(); email.clear(); feed.clear();
+      name!.clear(); email!.clear(); feed!.clear();
     }
   }
   @override
@@ -54,7 +53,7 @@ class _AppFeedbackState extends State<AppFeedback> {
     final theme = Theme.of(context);
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
-    final labelStyle = Theme.of(context).textTheme.button.copyWith(
+    final labelStyle = Theme.of(context).textTheme.button!.copyWith(
         fontSize: 10 * 1.4,
         fontFamily: 'Roboto',
         fontWeight: FontWeight.w300,
@@ -69,7 +68,7 @@ class _AppFeedbackState extends State<AppFeedback> {
         centerTitle: true,
         title: Text(
           'IME Feedback  Center',
-          style: TextStyle(color: theme.textTheme.caption.color),
+          style: TextStyle(color: theme.textTheme.caption!.color),
         ),
         automaticallyImplyLeading: !isDesktop,
         backgroundColor:
@@ -89,7 +88,7 @@ class _AppFeedbackState extends State<AppFeedback> {
               children: [
                 SizedBox(
                   child: DefaultTextStyle(
-                    style: theme.textTheme.caption.copyWith(
+                    style: theme.textTheme.caption!.copyWith(
                         fontFamily: 'Roboto',
                         fontSize: isDesktop || context.isTablet ? 26.0 : 20,
                         letterSpacing: 1,
@@ -109,13 +108,13 @@ class _AppFeedbackState extends State<AppFeedback> {
                 ),
                 Text(
                   "We can’t wait to get your thoughts on our app. Try help or support, have a question? We'd love to hear it.",
-                  style: theme.textTheme.headline6
+                  style: theme.textTheme.headline6!
                       .copyWith(fontWeight: FontWeight.w100),
                 ),
                 SizedBox(height: 10),
                 InputContainer(
                   validator: (value) {
-                    if (value.isEmpty) {
+                    if (value!.isEmpty) {
                       return "Name can't be empty";
                     } else if (value.length < 4) {
                       return "Name is too short";
@@ -138,7 +137,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                 ),
                 InputContainer(
                   validator: (value) {
-                    if (value.isEmpty) {
+                    if (value!.isEmpty) {
                       return 'Please provide your email';
                       // return "If you want to get updates regarding your feedback, enter your email";
                     } else if (!value.isEmail) {
@@ -159,7 +158,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                 ),
                 InputContainer(
                     validator: (value) {
-                      if (value.isEmpty) {
+                      if (value!.isEmpty) {
                         return "Please provide your feedback";
                       } else if (value.length > 2048) {
                         return "Make it short and concise";
@@ -191,7 +190,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                         Text(
                           'We will not send you anything except for the content about your feedback.\n\nAlternatively  you can also report bugs and errors on the following platforms',
                           textAlign: TextAlign.center,
-                          style: theme.textTheme.caption.copyWith(
+                          style: theme.textTheme.caption!.copyWith(
                               fontWeight: FontWeight.w300,
                               letterSpacing: 2,
                               fontFamily: 'Roboto'),
@@ -238,15 +237,15 @@ class _AppFeedbackState extends State<AppFeedback> {
 }
 
 class InputContainer extends StatelessWidget {
-  final TextEditingController controller;
-  final InputDecoration decoration;
-  final TextInputType inputType;
-  final String Function(String) validator;
+  final TextEditingController? controller;
+  final InputDecoration? decoration;
+  final TextInputType? inputType;
+  final String? Function(String?)? validator;
   final bool autoFocus;
-  final List<String> autofillHints;
+  final List<String>? autofillHints;
 
   const InputContainer(
-      {Key key, this.decoration, this.controller, this.autofillHints,
+      {Key? key, this.decoration, this.controller, this.autofillHints,
         this.validator, this.autoFocus = false, this.inputType}) : super(key: key);
 
   @override
@@ -271,7 +270,7 @@ class InputContainer extends StatelessWidget {
                     textInputAction: TextInputAction.newline,
                     smartQuotesType: SmartQuotesType.enabled,
                     controller: controller,
-                    style: theme.textTheme.button.copyWith(
+                    style: theme.textTheme.button!.copyWith(
                         fontSize: 10 * 1.3,
                         fontFamily: ar ? 'Amiri' : 'Roboto',
                         fontWeight: FontWeight.w100,

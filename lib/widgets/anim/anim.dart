@@ -12,9 +12,9 @@ class Animator extends StatefulWidget {
 }
 
 class _AnimatorState extends State<Animator> with SingleTickerProviderStateMixin {
-  Timer timer;
-  AnimationController anim;
-  Animation animation;
+  late Timer timer;
+  late AnimationController anim;
+  late Animation animation;
 
   @override
   void initState() {
@@ -36,7 +36,7 @@ class _AnimatorState extends State<Animator> with SingleTickerProviderStateMixin
     return AnimatedBuilder(
       animation: animation,
       child: widget.child,
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext context, Widget? child) {
         return Opacity(
           opacity: animation.value,
           child: Transform.translate(
@@ -49,11 +49,11 @@ class _AnimatorState extends State<Animator> with SingleTickerProviderStateMixin
   }
 }
 
-Timer timer;
+Timer? timer;
 Duration duration = Duration();
 
 wait() {
-  if (timer == null || !timer.isActive) {
+  if (timer == null || !timer!.isActive) {
     timer = Timer(Duration(microseconds: 120), () => duration = Duration());
   }
   duration += Duration(milliseconds: 100);

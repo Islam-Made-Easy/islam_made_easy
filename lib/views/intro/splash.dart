@@ -48,25 +48,25 @@ class _SplashViewState extends State<SplashView> with SingleTickerProviderStateM
     ),
   ];
 
-  PageController _pageController;
+  PageController? _pageController;
 
   List<Widget> onBoardItems = [];
-  double _activeIndex;
+  double? _activeIndex;
   bool onBoardPage = false,glow = false;
-  AnimationController _anim;
+  AnimationController? _anim;
 
   @override
   void initState() {
     initializePages(); //initialize pages to be shown
     _pageController = PageController();
-    _pageController.addListener(() {
-      _activeIndex = _pageController.page;
+    _pageController!.addListener(() {
+      _activeIndex = _pageController!.page;
       // print("Active Index: $_activeIndex");
-      if (_activeIndex >= 0.5 && onBoardPage == false) {
+      if (_activeIndex! >= 0.5 && onBoardPage == false) {
         setState(() {
           onBoardPage = true;
         });
-      } else if (_activeIndex < 0.5) {
+      } else if (_activeIndex! < 0.5) {
         setState(() {
           onBoardPage = false;
         });
@@ -191,7 +191,7 @@ class _SplashViewState extends State<SplashView> with SingleTickerProviderStateM
                         left: ar ? width * 0.1 : width * 0.3,
                         right: ar ? width * 0.3 : width * 0.1,
                         child: SmoothPageIndicator(
-                          controller: _pageController,
+                          controller: _pageController!,
                           count: onBoardItems.length,
                           effect: WormEffect(
                             dotWidth: width * 0.015,
@@ -235,7 +235,7 @@ class _SplashViewState extends State<SplashView> with SingleTickerProviderStateM
                                   child: IconButton(
                                     onPressed: () {
                                       setState(() {
-                                        _pageController.nextPage(
+                                        _pageController!.nextPage(
                                             duration:
                                                 Duration(milliseconds: 300),
                                             curve: Curves.easeOut);
@@ -277,7 +277,7 @@ class _SplashViewState extends State<SplashView> with SingleTickerProviderStateM
                             child: IconButton(
                               onPressed: () {
                                 setState(() {
-                                  _pageController.previousPage(
+                                  _pageController!.previousPage(
                                       duration: Duration(milliseconds: 300),
                                       curve: Curves.easeOut);
                                 });
@@ -309,7 +309,7 @@ class _SplashViewState extends State<SplashView> with SingleTickerProviderStateM
             Positioned(
               bottom: height * 0.15,
               child: SmoothPageIndicator(
-                controller: _pageController,
+                controller: _pageController!,
                 count: onBoardItems.length,
                 effect: WormEffect(
                   dotWidth: width * 0.03,
@@ -373,8 +373,8 @@ class _SplashViewState extends State<SplashView> with SingleTickerProviderStateM
 }
 
 class OnBoardPageItem {
-  String lottieAsset,text;
-  Duration animationDuration;
+  String? lottieAsset,text;
+  Duration? animationDuration;
 
   OnBoardPageItem({this.lottieAsset, this.text, this.animationDuration});
 }
@@ -386,7 +386,7 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomeState extends State<WelcomePage>
     with SingleTickerProviderStateMixin {
-  AnimationController _anim;
+  AnimationController? _anim;
 
   @override
   void initState() {
@@ -399,7 +399,7 @@ class _WelcomeState extends State<WelcomePage>
 
   @override
   void dispose() {
-    _anim.dispose();
+    _anim!.dispose();
     super.dispose();
   }
 
@@ -423,7 +423,7 @@ class _WelcomeState extends State<WelcomePage>
               DeviceOS.isDesktopOrWeb && !context.isPhone
                   ? Container()
                   : ScaleTransition(
-                      scale: _anim.drive(
+                      scale: _anim!.drive(
                         Tween<double>(begin: 0.3, end: 1.0).chain(
                           CurveTween(
                             curve:
@@ -432,7 +432,7 @@ class _WelcomeState extends State<WelcomePage>
                         ),
                       ),
                       child: FadeTransition(
-                        opacity: _anim.drive(
+                        opacity: _anim!.drive(
                           Tween<double>(begin: 0.0, end: 1.0).chain(
                             CurveTween(
                               curve:
@@ -441,7 +441,7 @@ class _WelcomeState extends State<WelcomePage>
                           ),
                         ),
                         child: ScaleTransition(
-                          scale: _anim.drive(
+                          scale: _anim!.drive(
                             Tween<double>(begin: 1.3, end: 1.0).chain(
                               CurveTween(
                                 curve: Interval(0.2, 0.4,
@@ -470,7 +470,7 @@ class _WelcomeState extends State<WelcomePage>
                 anim: _anim,
                 interval: const Interval(0.5, 0.9),
                 child: Text(
-                  S.current.fridayRemind,
+                  S.current!.fridayRemind,
                   style: TextStyle(
                     fontFamily: 'Amiri',
                     color: const Color(0xFFFFFFFF),
@@ -488,7 +488,7 @@ class _WelcomeState extends State<WelcomePage>
                   anim: _anim,
                   interval: const Interval(0.7, 1.0),
                   child: Text(
-                    S.current.fridayFirst,
+                    S.current!.fridayFirst,
                     style: TextStyle(
                       color: const Color(0xFFFFFFFF),
                       fontFamily: 'Amiri',
@@ -509,7 +509,7 @@ class _WelcomeState extends State<WelcomePage>
 }
 
 class OnBoardPage extends StatefulWidget {
-  final OnBoardPageItem onBoardPageItem;
+  final OnBoardPageItem? onBoardPageItem;
 
   OnBoardPage({this.onBoardPageItem});
 
@@ -518,7 +518,7 @@ class OnBoardPage extends StatefulWidget {
 }
 
 class _OnboardState extends State<OnBoardPage> with SingleTickerProviderStateMixin {
-  AnimationController _anim;
+  AnimationController? _anim;
 
   @override
   void initState() {
@@ -528,7 +528,7 @@ class _OnboardState extends State<OnBoardPage> with SingleTickerProviderStateMix
 
   @override
   void dispose() {
-    _anim.dispose();
+    _anim!.dispose();
     super.dispose();
   }
 
@@ -541,14 +541,14 @@ class _OnboardState extends State<OnBoardPage> with SingleTickerProviderStateMix
       padding: EdgeInsets.only(top: height * 0.1),
       child: Column(
         children: <Widget>[
-          Lottie.asset(widget.onBoardPageItem.lottieAsset,
+          Lottie.asset(widget.onBoardPageItem!.lottieAsset!,
               controller: _anim, onLoaded: (composition) {
-            _anim..duration = composition.duration..forward()
+            _anim!..duration = composition.duration..forward()
               ..addListener(() {
-                if (widget.onBoardPageItem.animationDuration != null) {
-                  if (_anim.lastElapsedDuration >
-                      widget.onBoardPageItem.animationDuration) {
-                    _anim.stop();
+                if (widget.onBoardPageItem!.animationDuration != null) {
+                  if (_anim!.lastElapsedDuration! >
+                      widget.onBoardPageItem!.animationDuration!) {
+                    _anim!.stop();
                   }
                 }
               });
@@ -559,7 +559,7 @@ class _OnboardState extends State<OnBoardPage> with SingleTickerProviderStateMix
               anim: _anim,
               interval: const Interval(0.2, 0.5),
               child: Text(
-                widget.onBoardPageItem.text,
+                widget.onBoardPageItem!.text!,
                 style: TextStyle(
                     fontSize: isDesktop ? width * 0.04 : width * 0.05),
                 textAlign: TextAlign.center,

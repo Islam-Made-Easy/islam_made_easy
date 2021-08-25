@@ -2,7 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
 class IMENav extends StatefulWidget {
-  const IMENav({this.child}) : assert(child != null);
+  const IMENav({required this.child});
   final Widget child;
 
   @override
@@ -29,9 +29,7 @@ class _IMENavState extends State<IMENav> {
 }
 
 class FadeThroughTransitionSwitcher extends StatelessWidget {
-  const FadeThroughTransitionSwitcher({this.fillColor, this.child})
-      : assert(fillColor != null),
-        assert(child != null);
+  const FadeThroughTransitionSwitcher({required this.fillColor, required this.child});
 
   final Widget child;
   final Color fillColor;

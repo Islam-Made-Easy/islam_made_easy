@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 class Categories {
-  final String tittle;
-  final List<String> categories;
+  final String? tittle;
+  final List<String>? categories;
   Categories({this.tittle, this.categories});
 
-  Categories copyWith({String tittle, List<String> categories}) {
+  Categories copyWith({String? tittle, List<String>? categories}) {
     return Categories(
       tittle: tittle ?? this.tittle,
       categories: categories ?? this.categories,
@@ -21,11 +21,11 @@ class Categories {
     };
   }
 
-  factory Categories.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+  factory Categories.fromMap(Map<String, dynamic>? map) {
+    if (map == null) {};
 
     return Categories(
-      tittle: map['tittle'],
+      tittle: map!['tittle'],
       categories: List<String>.from(map['categories'] as Iterable<dynamic>),
     );
   }
@@ -33,7 +33,7 @@ class Categories {
   String toJson() => json.encode(toMap());
 
   factory Categories.fromJson(String source) =>
-      Categories.fromMap(json.decode(source) as Map<String, dynamic>);
+      Categories.fromMap(json.decode(source) as Map<String, dynamic>?);
 
   @override
   String toString() => 'Categories(tittle: $tittle, categories: $categories)';

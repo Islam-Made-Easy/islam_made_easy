@@ -19,14 +19,14 @@ class FeedbackServices {
 }
 ''';
   static final _gSheets = GSheets(_credentials);
-  static Worksheet _wSheet;
+  static Worksheet? _wSheet;
 
   static Future init() async {
     try {
       final spreadsheet = await _gSheets.spreadsheet(_sheetID);
       _wSheet = await spreadsheet.worksheetByTitle('Feedback');
       final firstRow = FeedbackFields.getFields();
-      _wSheet.values.insertRow(1, firstRow);
+      _wSheet!.values.insertRow(1, firstRow);
     } catch (e) {
       print('Init Error: $e');
     }
@@ -34,6 +34,6 @@ class FeedbackServices {
 
   static Future insert(List<Map<String, dynamic>>rowList) async {
     if (_wSheet == null) return;
-    _wSheet.values.appendRow(rowList);
+    _wSheet!.values.appendRow(rowList);
   }
 }

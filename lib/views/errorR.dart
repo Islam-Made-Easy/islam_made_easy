@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class RouteErrorPage extends StatefulWidget {
   static const ROUTE_NAME = "/error_route";
-  final String route;
+  final String? route;
 
-  RouteErrorPage({Key key, this.route}) : super(key: key);
+  RouteErrorPage({Key? key, this.route}) : super(key: key);
 
   @override
   _RouteErrorPageState createState() => _RouteErrorPageState();

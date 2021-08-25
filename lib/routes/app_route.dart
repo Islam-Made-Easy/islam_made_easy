@@ -23,7 +23,7 @@ class AppRoute extends NavigatorObserver {
   Map<String, WidgetBuilder> get routes => _routes;
 
   Route<dynamic> generateRoute(RouteSettings settings) {
-    MaterialPageRoute page;
+    MaterialPageRoute? page;
     if (settings.name == Home.ROUTE_NAME) {
       page =
           MaterialPageRoute(settings: settings, builder: (context) => Home());
@@ -54,24 +54,24 @@ class AppRoute extends NavigatorObserver {
 
   @override
   void didStartUserGesture(
-      Route<dynamic> route, Route<dynamic> previousRoute) {}
+      Route<dynamic> route, Route<dynamic>? previousRoute) {}
 
   @override
-  void didReplace({Route<dynamic> newRoute, Route<dynamic> oldRoute}) {}
+  void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {}
 
   @override
-  void didRemove(Route<dynamic> route, Route<dynamic> previousRoute) {}
+  void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {}
 
   @override
-  void didPop(Route<dynamic> route, Route<dynamic> previousRoute) {
+  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPop(route, previousRoute);
-    if (previousRoute.settings != null && previousRoute.settings.name != null) {
+    if (previousRoute!.settings != null && previousRoute.settings.name != null) {
       setPreferredOrientations(previousRoute.settings);
     }
   }
 
   @override
-  void didPush(Route<dynamic> route, Route<dynamic> previousRoute) {
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPush(route, previousRoute);
     if (route.settings != null && route.settings.name != null) {
       setPreferredOrientations(route.settings);

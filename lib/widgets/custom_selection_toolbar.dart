@@ -17,7 +17,7 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
 
   CustomTextSelectionControls({this.customButton});
 
-  final OffsetValue customButton;
+  final OffsetValue? customButton;
 
   /// Builder for material-style copy/paste text selection toolbar.
   @override
@@ -29,7 +29,7 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
     List<TextSelectionPoint> endpoints,
     TextSelectionDelegate delegate,
     ClipboardStatusNotifier clipboardStatus,
-    Offset lastSecondaryTapDownPosition,
+    Offset? lastSecondaryTapDownPosition,
   ) {
     final TextSelectionPoint startTextSelectionPoint = endpoints[0];
     final TextSelectionPoint endTextSelectionPoint =
@@ -63,7 +63,7 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
           ? () => handleCopy(delegate, clipboardStatus)
           : null,
       customButton: () {
-        customButton(delegate.textEditingValue.selection.start,
+        customButton!(delegate.textEditingValue.selection.start,
             delegate.textEditingValue.selection.end);
         delegate.textEditingValue = delegate.textEditingValue.copyWith(
           selection: TextSelection.collapsed(
@@ -85,8 +85,8 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
   }
 }
 
-Future<String> getClipBoardData() async {
-  ClipboardData data = await Clipboard.getData(Clipboard.kTextPlain);
+Future<String?> getClipBoardData() async {
+  ClipboardData data = await (Clipboard.getData(Clipboard.kTextPlain) as FutureOr<ClipboardData>);
   return data.text;
 }
 
@@ -230,7 +230,7 @@ class Event {
 
 class MyTextSelectionToolbar extends StatefulWidget {
   const MyTextSelectionToolbar({
-    Key key,
+    Key? key,
     this.anchorAbove,
     this.anchorBelow,
     this.clipboardStatus,
@@ -242,9 +242,9 @@ class MyTextSelectionToolbar extends StatefulWidget {
     this.customButton,
   }) : super(key: key);
 
-  final Offset anchorAbove, anchorBelow;
-  final ClipboardStatusNotifier clipboardStatus;
-  final VoidCallback handleCopy, handleCut, handlePaste, handleSelectAll, handleShare, customButton;
+  final Offset? anchorAbove, anchorBelow;
+  final ClipboardStatusNotifier? clipboardStatus;
+  final VoidCallback? handleCopy, handleCut, handlePaste, handleSelectAll, handleShare, customButton;
 
   @override
   MyTextSelectionToolbarState createState() => MyTextSelectionToolbarState();
@@ -260,25 +260,25 @@ class MyTextSelectionToolbarState extends State<MyTextSelectionToolbar> {
   @override
   void initState() {
     super.initState();
-    widget.clipboardStatus.addListener(_onChangedClipboardStatus);
-    widget.clipboardStatus.update();
+    widget.clipboardStatus!.addListener(_onChangedClipboardStatus);
+    widget.clipboardStatus!.update();
   }
 
   @override
   void didUpdateWidget(MyTextSelectionToolbar oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.clipboardStatus != oldWidget.clipboardStatus) {
-      widget.clipboardStatus.addListener(_onChangedClipboardStatus);
-      oldWidget.clipboardStatus.removeListener(_onChangedClipboardStatus);
+      widget.clipboardStatus!.addListener(_onChangedClipboardStatus);
+      oldWidget.clipboardStatus!.removeListener(_onChangedClipboardStatus);
     }
-    widget.clipboardStatus.update();
+    widget.clipboardStatus!.update();
   }
 
   @override
   void dispose() {
     super.dispose();
-    if (!widget.clipboardStatus.disposed)
-      widget.clipboardStatus.removeListener(_onChangedClipboardStatus);
+    if (!widget.clipboardStatus!.disposed)
+      widget.clipboardStatus!.removeListener(_onChangedClipboardStatus);
   }
 
   @override
@@ -291,7 +291,7 @@ class MyTextSelectionToolbarState extends State<MyTextSelectionToolbar> {
         <_TextSelectionToolbarItemData>[
       _TextSelectionToolbarItemData(
         onPressed: widget.handleShare,
-        label: S.current.share,
+        label: S.current!.share,
       ),
       if (widget.handleCut != null)
         _TextSelectionToolbarItemData(
@@ -304,7 +304,7 @@ class MyTextSelectionToolbarState extends State<MyTextSelectionToolbar> {
           onPressed: widget.handleCopy,
         ),
       if (widget.handlePaste != null &&
-          widget.clipboardStatus.value == ClipboardStatus.pasteable)
+          widget.clipboardStatus!.value == ClipboardStatus.pasteable)
         _TextSelectionToolbarItemData(
           label: localizations.pasteButtonLabel,
           onPressed: widget.handlePaste,
@@ -322,8 +322,8 @@ class MyTextSelectionToolbarState extends State<MyTextSelectionToolbar> {
 
     int childIndex = 0;
     return TextSelectionToolbar(
-      anchorAbove: widget.anchorAbove,
-      anchorBelow: widget.anchorBelow,
+      anchorAbove: widget.anchorAbove!,
+      anchorBelow: widget.anchorBelow!,
       toolbarBuilder: (BuildContext context, Widget child) {
         return Card(child: child);
       },
@@ -332,7 +332,7 @@ class MyTextSelectionToolbarState extends State<MyTextSelectionToolbar> {
           padding: TextSelectionToolbarTextButton.getPadding(
               childIndex++, itemDatas.length),
           onPressed: itemData.onPressed,
-          child: Text(itemData.label),
+          child: Text(itemData.label!),
         );
       }).toList(),
     );
@@ -342,6 +342,6 @@ class MyTextSelectionToolbarState extends State<MyTextSelectionToolbar> {
 class _TextSelectionToolbarItemData {
   const _TextSelectionToolbarItemData({this.label, this.onPressed});
 
-  final String label;
-  final VoidCallback onPressed;
+  final String? label;
+  final VoidCallback? onPressed;
 }

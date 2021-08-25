@@ -4,12 +4,11 @@ import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'detailsPage.dart';
 
 class QnAppBar extends StatelessWidget with PreferredSizeWidget {
-  final String title;
+  final String? title;
   final bool isDesktop;
-  final Color color;
+  final Color? color;
 
-  const QnAppBar({Key key, this.title, this.isDesktop = false, this.color})
-      : super(key: key);
+  const QnAppBar({Key? key, this.title, this.isDesktop = false, this.color}) : super(key: key);
 
   double get myAppBarHeight => 50;
 
@@ -18,13 +17,12 @@ class QnAppBar extends StatelessWidget with PreferredSizeWidget {
     Locale locale = Localizations.localeOf(context);
     return AppBar(
       title: Text(
-        title,
+        title!,
         style:
         TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Quattrocento'),
         overflow: TextOverflow.fade,
       ),
       centerTitle: true,
-      backwardsCompatibility: false,
       backgroundColor: color,
       leading: Shortcuts(
         shortcuts: <LogicalKeySet, Intent>{
@@ -54,17 +52,14 @@ class QnAppBar extends StatelessWidget with PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => isDesktop
-          ? Size.fromHeight(myAppBarHeight)
-          : const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => isDesktop ? Size.fromHeight(myAppBarHeight) : const Size.fromHeight(kToolbarHeight);
 }
 
 class QnAppBar2 extends StatelessWidget with PreferredSizeWidget {
-  final String title;
+  final String? title;
   final bool isDesktop;
 
-  const QnAppBar2({Key key, this.title, this.isDesktop = false})
-      : super(key: key);
+  const QnAppBar2({Key? key, this.title, this.isDesktop = false}) : super(key: key);
 
   double get myAppBarHeight => 50;
 
@@ -73,13 +68,12 @@ class QnAppBar2 extends StatelessWidget with PreferredSizeWidget {
     Locale locale = Localizations.localeOf(context);
     return AppBar(
       title: Text(
-        title,
+        title!,
         style:
         TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Quattrocento'),
         overflow: TextOverflow.fade,
       ),
       centerTitle: true,
-      // backwardsCompatibility: false,
       backgroundColor: isDesktop ? Colors.transparent : null,
       leading: isDesktop
           ? null
@@ -95,7 +89,5 @@ class QnAppBar2 extends StatelessWidget with PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => isDesktop
-      ? Size.fromHeight(myAppBarHeight)
-      : const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => isDesktop ? Size.fromHeight(myAppBarHeight) : const Size.fromHeight(kToolbarHeight);
 }

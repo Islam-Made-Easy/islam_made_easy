@@ -23,9 +23,9 @@ class _MainPanelState extends State<MainPanel> {
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
     final size = context.mediaQuery.size;
-    final appTheme = theme.textTheme.button
+    final appTheme = theme.textTheme.button!
         .copyWith(fontWeight: FontWeight.bold, fontSize: isDesktop||context.isTablet ? 30 : 22);
-    final selectTheme = theme.textTheme.caption.copyWith(
+    final selectTheme = theme.textTheme.caption!.copyWith(
       fontWeight: FontWeight.w100,
       fontSize: 22,
       letterSpacing: isDesktop||context.isTablet ? 2 : null,
@@ -41,11 +41,11 @@ class _MainPanelState extends State<MainPanel> {
             children: [
               Padding(
                 padding:  EdgeInsets.only(left:size.width * .02),
-                child: Text(S.current.salam, style: appTheme),
+                child: Text(S.current!.salam, style: appTheme),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 30, horizontal: size.width * .02),
-                child: Text(S.current.quizDirection, style: selectTheme),
+                child: Text(S.current!.quizDirection, style: selectTheme),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: size.width * .02,vertical: size.height*.07),
@@ -59,12 +59,12 @@ class _MainPanelState extends State<MainPanel> {
                   physics: ClampingScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   children: [
-                    buildCard(S.current.aqeedah),
-                    buildCard(S.current.worship),
-                    buildCard(S.current.hisLife),
-                    buildCard(S.current.quran),
-                    buildCard(S.current.stories),
-                    buildCard(S.current.companions),
+                    buildCard(S.current!.aqeedah),
+                    buildCard(S.current!.worship),
+                    buildCard(S.current!.hisLife),
+                    buildCard(S.current!.quran),
+                    buildCard(S.current!.stories),
+                    buildCard(S.current!.companions),
                   ],
                 ),
               )
@@ -84,9 +84,9 @@ class _MainPanelState extends State<MainPanel> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 5),
-                  Text(S.current.salam, style: appTheme),
+                  Text(S.current!.salam, style: appTheme),
                   SizedBox(height: 10),
-                  Text(S.current.quizDirection, style: selectTheme),
+                  Text(S.current!.quizDirection, style: selectTheme),
                 ],
               ),
             ),
@@ -100,12 +100,12 @@ class _MainPanelState extends State<MainPanel> {
                 physics: AlwaysScrollableScrollPhysics(
                     parent: BouncingScrollPhysics()),
                 children: [
-                  buildCard(S.current.aqeedah),
-                  buildCard(S.current.worship),
-                  buildCard(S.current.hisLife),
-                  buildCard(S.current.quran),
-                  buildCard(S.current.stories),
-                  buildCard(S.current.companions),
+                  buildCard(S.current!.aqeedah),
+                  buildCard(S.current!.worship),
+                  buildCard(S.current!.hisLife),
+                  buildCard(S.current!.quran),
+                  buildCard(S.current!.stories),
+                  buildCard(S.current!.companions),
                 ],
               ),
             ),

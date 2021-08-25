@@ -6,7 +6,7 @@ import 'dart:math';
 import 'package:vector_math/vector_math.dart' show radians;
 
 class QuizHome extends StatefulWidget {
-  const QuizHome({Key key}) : super(key: key);
+  const QuizHome({Key? key}) : super(key: key);
 
   @override
   _QuizHomeState createState() => _QuizHomeState();
@@ -21,7 +21,7 @@ class _QuizHomeState extends State<QuizHome> {
 
   @override
   Widget build(BuildContext context) {
-    Future<void> fullDisplay;
+    Future<void>? fullDisplay;
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
     return Scaffold(
@@ -39,7 +39,7 @@ class _QuizHomeState extends State<QuizHome> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Hello Ahmad!", style: Theme.of(context).textTheme.button.copyWith(
+                Text("Hello Ahmad!", style: Theme.of(context).textTheme.button!.copyWith(
                   fontSize: kSpacingUnit * 1.7,
                   fontWeight: FontWeight.w400,
                   letterSpacing: 2,
@@ -138,7 +138,7 @@ class _QuizHomeState extends State<QuizHome> {
             Lottie.asset('assets/lottie/star.json',height: 100),
             Text(
               'Tawheed and Shirk',
-              style: Theme.of(context).textTheme.button.copyWith(
+              style: Theme.of(context).textTheme.button!.copyWith(
                     fontSize: 18,
                     fontWeight: FontWeight.w300,
                   ),
@@ -165,7 +165,7 @@ class _QuizHomeState extends State<QuizHome> {
             Center(
               child: Text(
                 tittle,
-                style: Theme.of(context).textTheme.button.copyWith(
+                style: Theme.of(context).textTheme.button!.copyWith(
                     fontSize: 20,
                     color: Theme.of(context).disabledColor,
                     fontWeight: FontWeight.w100,
@@ -230,18 +230,18 @@ class _QuizHomeState extends State<QuizHome> {
 }
 
 class QuizMenu extends StatefulWidget {
-  const QuizMenu({Key key,
+  const QuizMenu({Key? key,
     this.child,
     this.context,
     this.children,
     this.centerButtonSize = 0.5,
     this.centerButtonAlignment = Alignment.center}) : super(key: key);
   // will take in list of buttons
-  final List<QuizBtn> children;
-  final BuildContext context;
+  final List<QuizBtn>? children;
+  final BuildContext? context;
   // used for positioning the widget
   final AlignmentGeometry centerButtonAlignment;
-  final Widget child;
+  final Widget? child;
   // set main button size
   final double centerButtonSize;
   @override
@@ -250,7 +250,7 @@ class QuizMenu extends StatefulWidget {
 
 class _QuizMenuState extends State<QuizMenu>  with SingleTickerProviderStateMixin {
   // used to control animations
-  AnimationController controller;
+  late AnimationController controller;
 
   // controller gets initialized here
   @override
@@ -285,9 +285,9 @@ class _QuizMenuState extends State<QuizMenu>  with SingleTickerProviderStateMixi
 
 class QuizAnim extends StatelessWidget {
   QuizAnim(
-      {Key key,
+      {Key? key,
          this.child,
-         this.controller,
+         required this.controller,
          this.radialButtons,
         this.centerSizeOfButton = 0.5})
       :
@@ -327,13 +327,13 @@ class QuizAnim extends StatelessWidget {
   final Animation<double> rotation;
   final Animation<double> translation;
   final Animation<double> scale;
-  final List<QuizBtn> radialButtons;
+  final List<QuizBtn>? radialButtons;
   final double centerSizeOfButton;
-  final Widget child;
+  final Widget? child;
   @override
   Widget build(BuildContext context) {
     // will provide angle for further calculation
-    double generatedAngle = 360 / (radialButtons.length);
+    double generatedAngle = 360 / (radialButtons!.length);
     double iconAngle;
 
     return AnimatedBuilder(
@@ -343,8 +343,8 @@ class QuizAnim extends StatelessWidget {
               angle: radians(rotation.value),
               child: Stack(alignment: Alignment.center, children: [
                 // generates list of buttons
-                ...radialButtons.map((index) {
-                  iconAngle = radialButtons.indexOf(index) * generatedAngle;
+                ...radialButtons!.map((index) {
+                  iconAngle = radialButtons!.indexOf(index) * generatedAngle;
                   return _buildButton(iconAngle,
                       color: index.buttonColor,
                       icon: index.icon,
@@ -376,7 +376,7 @@ class QuizAnim extends StatelessWidget {
 
   // build custom child buttons
   Widget _buildButton(double angle,
-      {Function onPress, Color color, Icon icon}) {
+      {Function? onPress, Color? color, Icon? icon}) {
     final double rad = radians(angle);
     return Transform(
         transform: Matrix4.identity()
@@ -386,7 +386,7 @@ class QuizAnim extends StatelessWidget {
             child: icon,
             backgroundColor: color,
             onPressed: () {
-              onPress();
+              onPress!();
               close();
             },
             elevation: 0));
@@ -398,10 +398,10 @@ class QuizBtn {
   final Color buttonColor;
 
   // sets icon of the child buttons
-  final Icon icon;
+  final Icon? icon;
 
   // onPress function of the child buttons
-  final Function onPress;
+  final Function? onPress;
 
   // constructor for child buttons
   QuizBtn(

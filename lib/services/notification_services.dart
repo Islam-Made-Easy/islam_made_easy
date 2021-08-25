@@ -35,7 +35,7 @@ class NotificationServices extends ChangeNotifier {
         android: androidPlatformChannelSpecifics);
     await _localNotifier.show(
         0,
-        S.current.salam,
+        S.current!.salam,
         'The Quiz part is still under heavy development, it will be LIVE in the next releases In Sha Allah',
         platformChannelSpecifics,
         payload: 'Keep Reading! The Quiz is Coming');

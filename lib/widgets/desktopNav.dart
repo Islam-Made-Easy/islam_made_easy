@@ -8,16 +8,16 @@ import 'navHeader.dart';
 class DesktopNav extends StatefulWidget {
   const DesktopNav({this.extended});
 
-  final bool extended;
+  final bool? extended;
 
   @override
   _DesktopNavState createState() => _DesktopNavState();
 }
 
 class _DesktopNavState extends State<DesktopNav> with SingleTickerProviderStateMixin {
-  ValueNotifier<bool> _isExtended;
-  double _scale;
-  AnimationController _controller;
+  late ValueNotifier<bool?> _isExtended;
+  late double _scale;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -28,7 +28,7 @@ class _DesktopNavState extends State<DesktopNav> with SingleTickerProviderStateM
       upperBound: .1,
     )..addListener(() => setState(() {}));
     super.initState();
-    _isExtended = ValueNotifier<bool>(widget.extended);
+    _isExtended = ValueNotifier<bool?>(widget.extended);
   }
 
   int _selectedIndex = 0;
@@ -68,7 +68,7 @@ class _DesktopNavState extends State<DesktopNav> with SingleTickerProviderStateM
               child: ConstrainedBox(
                 constraints: BoxConstraints(minHeight: constraints.maxHeight),
                 child: IntrinsicHeight(
-                  child: ValueListenableBuilder<bool>(
+                  child: ValueListenableBuilder<bool?>(
                       valueListenable: _isExtended,
                       builder: (context, value, child) {
                         return Stack(
@@ -80,13 +80,13 @@ class _DesktopNavState extends State<DesktopNav> with SingleTickerProviderStateM
                                       color: transparent,
                                       borderRadius: BorderRadius.zero,
                                       child: FaIcon(FontAwesomeIcons.quora)),
-                                  label: Text(S.current.quiz),
+                                  label: Text(S.current!.quiz),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                       color: transparent,
                                       child: FaIcon(Icons.assignment)),
-                                  label: Text(S.current.prerequisite),
+                                  label: Text(S.current!.prerequisite),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
@@ -98,28 +98,28 @@ class _DesktopNavState extends State<DesktopNav> with SingleTickerProviderStateM
                                   icon: Material(
                                       color: transparent,
                                       child: FaIcon(FontAwesomeIcons.quinscape)),
-                                  label: Text(S.current.questionsAndAnswers),
+                                  label: Text(S.current!.questionsAndAnswers),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                       color: transparent,
                                       child: FaIcon(FontAwesomeIcons.book)),
-                                  label: Text(S.current.generalKnowledge),
+                                  label: Text(S.current!.generalKnowledge),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                       color: transparent,
                                       child: FaIcon(FontAwesomeIcons.scroll)),
-                                  label: Text(S.current.references),
+                                  label: Text(S.current!.references),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                       color: transparent,
                                       child: FaIcon(FontAwesomeIcons.ussunnah)),
-                                  label: Text(S.current.shortPhrases),
+                                  label: Text(S.current!.shortPhrases),
                                 ),
                               ],
-                              extended: _isExtended.value,
+                              extended: _isExtended.value!,
                               selectedIndex: _selectedIndex,
                               leading:
                                   NavigationRailHeader(extended: _isExtended),
@@ -192,7 +192,7 @@ class _DesktopNavState extends State<DesktopNav> with SingleTickerProviderStateM
       child: Center(
         child: Text(
           'Feedback',
-          style: Theme.of(context).textTheme.headline6.copyWith(
+          style: Theme.of(context).textTheme.headline6!.copyWith(
               fontSize: 50.0, color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),

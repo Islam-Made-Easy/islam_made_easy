@@ -7,10 +7,10 @@ import 'package:islam_made_easy/widgets/page_decoration.dart';
 class backIndent extends Intent {}
 
 class DetailsPage extends StatefulWidget {
-  final List<Widget> data;
-  final String title, barTitle, image;
+  final List<Widget>? data;
+  final String? title, barTitle, image;
 
-  DetailsPage({Key key, this.data, this.title, this.barTitle, this.image})
+  DetailsPage({Key? key, this.data, this.title, this.barTitle, this.image})
       : super(key: key);
 
   @override
@@ -31,7 +31,7 @@ class _DetailsPageState extends State<DetailsPage> {
     final size = context.mediaQuery.size;
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.barTitle),
+        title: Text(widget.barTitle!),
         elevation: 0,
         leading: Shortcuts(
           shortcuts: <LogicalKeySet, Intent>{
@@ -69,8 +69,8 @@ class _DetailsPageState extends State<DetailsPage> {
                 Clipboard.setData(ClipboardData(text: widget.title))
                     .then(
                       (value) =>
-                      Get.snackbar(S.current.copiedToClipboardTitle,
-                          S.current.copiedToClipboard),
+                      Get.snackbar(S.current!.copiedToClipboardTitle,
+                          S.current!.copiedToClipboard),
                 );
               }) :
           IconButton(
@@ -79,7 +79,7 @@ class _DetailsPageState extends State<DetailsPage> {
               shareDelay.run(
                     () =>
                     Share.share(
-                        "${widget.title} \nIslam Made Easy\n${S.current.aboutApp}",
+                        "${widget.title} \nIslam Made Easy\n${S.current!.aboutApp}",
                         subject: ShareUtil().getPlatformShare()),
               );
             },
@@ -187,7 +187,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(1),
                       child: Image.asset(
-                        widget.image,
+                        widget.image!,
                         fit: BoxFit.cover,
                         matchTextDirection: true,
                       ),
@@ -197,9 +197,9 @@ class _DetailsPageState extends State<DetailsPage> {
               ),
               SizedBox(height: 15),
               SelectableText(
-                widget.title,
+                widget.title!,
                 textAlign: TextAlign.center,
-                style: textTheme.headline5.copyWith(
+                style: textTheme.headline5!.copyWith(
                   color: theme.colorScheme.secondary,
                   fontSize: 30,
                 ),
@@ -208,7 +208,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 padding: const EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: widget.data,
+                  children: widget.data!,
                 ),
               ),
             ],
@@ -222,9 +222,9 @@ class _DetailsPageState extends State<DetailsPage> {
 class OpenContainerWrapper extends StatelessWidget {
   const OpenContainerWrapper({this.closedBuilder, this.data, this.title, this.barTitle, this.image});
 
-  final CloseContainerBuilder closedBuilder;
-  final List<Widget> data;
-  final String title, barTitle, image;
+  final CloseContainerBuilder? closedBuilder;
+  final List<Widget>? data;
+  final String? title, barTitle, image;
 
   @override
   Widget build(BuildContext context) {
@@ -245,7 +245,7 @@ class OpenContainerWrapper extends StatelessWidget {
                 title: title, data: data, barTitle: barTitle, image: image),
         tappable: false,
         openColor: theme.primaryColor,
-        closedBuilder: closedBuilder,
+        closedBuilder: closedBuilder!,
       ),
     );
   }
@@ -254,8 +254,8 @@ class OpenContainerWrapper extends StatelessWidget {
 class DetailsCard extends StatelessWidget {
   const DetailsCard({this.openContainer, this.title, this.subTitle, this.img, this.details});
 
-  final String title, img, details, subTitle;
-  final VoidCallback openContainer;
+  final String? title, img, details, subTitle;
+  final VoidCallback? openContainer;
 
   @override
   Widget build(BuildContext context) {
@@ -372,7 +372,7 @@ class DetailsCard extends StatelessWidget {
                               decoration: BoxDecoration(
                                   color: theme.hoverColor,
                                   image: DecorationImage(
-                                    image: AssetImage(img),
+                                    image: AssetImage(img!),
                                     fit: BoxFit.cover,
                                     matchTextDirection: true,
                                   ),
@@ -391,9 +391,9 @@ class DetailsCard extends StatelessWidget {
                                 bottomLeft: Radius.circular(10))
                         ),
                         title: Text(
-                          title,
+                          title!,
                           textAlign: TextAlign.center,
-                          style: theme.textTheme.headline6.copyWith(
+                          style: theme.textTheme.headline6!.copyWith(
                               fontWeight: FontWeight.w200,
                               fontSize: isDesktop || context.isTablet ? 21 : 15),
                         ),

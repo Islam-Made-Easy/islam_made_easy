@@ -2,7 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
 class SharedAxisTransitionSwitcher extends StatelessWidget {
-  const SharedAxisTransitionSwitcher({this.child}) : assert(child != null);
+  const SharedAxisTransitionSwitcher({required this.child});
 
   final Widget child;
 

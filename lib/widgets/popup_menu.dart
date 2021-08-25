@@ -6,9 +6,9 @@ import 'package:islam_made_easy/widgets/feedback.dart' as feed;
 enum MenuOptions { Settings, about, feed }
 
 class PopupOptionMenu extends StatelessWidget {
-  final bool isVisible;
+  final bool? isVisible;
 
-  const PopupOptionMenu({Key key, this.isVisible}) : super(key: key);
+  const PopupOptionMenu({Key? key, this.isVisible}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class PopupOptionMenu extends StatelessWidget {
                         DelayUI(Duration(milliseconds: 1000)).duration,
                     transitionCurve: Curves.easeIn)
                 : feed.showFeedbackDialog(
-                    context: context, isPanelVisible: isVisible);
+                    context: context, isPanelVisible: isVisible!);
             break;
         }
       },
@@ -53,7 +53,7 @@ class PopupOptionMenu extends StatelessWidget {
             children: [
               FaIcon(FontAwesomeIcons.cog,color: color),
               const SizedBox(width: 10),
-              Text(S.current.settings),
+              Text(S.current!.settings),
             ],
           ),
           value: MenuOptions.Settings,
@@ -74,7 +74,7 @@ class PopupOptionMenu extends StatelessWidget {
 }
 
 class FeedDialog extends StatelessWidget {
-  const FeedDialog({Key key, @required this.ar}) : super(key: key);
+  const FeedDialog({Key? key, required this.ar}) : super(key: key);
 
   final bool ar;
 

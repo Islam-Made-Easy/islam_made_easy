@@ -8,9 +8,9 @@ import 'package:islam_made_easy/utils/device_info.dart';
 import 'package:islam_made_easy/views/about.dart' as about;
 
 class NavigationRailHeader extends StatelessWidget {
-  const NavigationRailHeader({this.extended}) : assert(extended != null);
+  const NavigationRailHeader({required this.extended});
 
-  final ValueNotifier<bool> extended;
+  final ValueNotifier<bool?> extended;
 
   @override
   Widget build(BuildContext context) {
@@ -49,14 +49,14 @@ class NavigationRailHeader extends StatelessWidget {
                               opacity: animation.value,
                               child: Text(
                                 'IME',
-                                style: textTheme.bodyText1.copyWith(fontFamily: 'Amiri'),
+                                style: textTheme.bodyText1!.copyWith(fontFamily: 'Amiri'),
                               ),
                             ),
                           ),
                           SizedBox(width: 18 * animation.value),
                         ],
                       ),
-                      onTap: () => extended.value = !extended.value,
+                      onTap: () => extended.value = !extended.value!,
                     ),
                     if (animation.value > 0)
                       Opacity(

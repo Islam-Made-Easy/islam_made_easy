@@ -15,7 +15,7 @@ class Prerequisite extends StatefulWidget {
 
 class _PrerequisiteState extends State<Prerequisite> {
   var _extensionSet = MarkdownExtensionSet.githubFlavored;
-  String data;
+  late String data;
 
   @override
   Widget build(BuildContext context) {
@@ -60,20 +60,20 @@ class _PrerequisiteState extends State<Prerequisite> {
                             fontSize: dp ? 40 : 30,
                             letterSpacing: -3,
                             color: Color(0xff404040)),
-                        h2: theme.headline6.copyWith(
+                        h2: theme.headline6!.copyWith(
                             letterSpacing: .2,
                             decoration: TextDecoration.underline,
                             fontSize: dp ? 35 : 24,
                             fontWeight: FontWeight.w500),
-                        p: theme.bodyText1.copyWith(
+                        p: theme.bodyText1!.copyWith(
                             fontWeight: FontWeight.w100,
                             height: dp ? 1.85 : 1.8,
                             fontSize: dp ? 17 : 15),
-                        blockquote: theme.bodyText1.copyWith(
+                        blockquote: theme.bodyText1!.copyWith(
                             fontWeight: FontWeight.w100,
                             height: dp ? 1.85 : 1.8,
                             fontSize: dp ? 17 : 15),
-                        strong: theme.bodyText1.copyWith(
+                        strong: theme.bodyText1!.copyWith(
                             fontWeight: FontWeight.w600,
                             height: dp ? 1.85 : 1.8,
                             fontSize: dp ? 17 : 15),

@@ -11,7 +11,7 @@ class ShortPhrases extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.current.shortPhrasesT),
+        title: Text(S.current!.shortPhrasesT),
         centerTitle: true,
         backgroundColor: isDesktop ? Colors.transparent : null,
       ),
@@ -35,7 +35,7 @@ class ShortPhrases extends StatelessWidget {
               children: [
                 _ShortW(
                     title: 'بسم الله الرحمان الرحيم',
-                    subtitle: S.current.basmallah,
+                    subtitle: S.current!.basmallah,
                     trailing: '( Bismilahi Rahmani Raheem )'),
                 _ShortW(
                     title: 'سبحانه وتعالى',
@@ -91,9 +91,9 @@ class ShortPhrases extends StatelessWidget {
 }
 
 class _ShortW extends StatelessWidget {
-  final String title, subtitle, trailing;
+  final String? title, subtitle, trailing;
 
-  const _ShortW({Key key, this.title, this.subtitle, this.trailing}) : super(key: key);
+  const _ShortW({Key? key, this.title, this.subtitle, this.trailing}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -119,13 +119,13 @@ class _ShortW extends StatelessWidget {
             ),
             clipBehavior: Clip.antiAliasWithSaveLayer,
             child: ListTile(
-              title: Text(title,style: theme.textTheme.button.copyWith(
+              title: Text(title!,style: theme.textTheme.button!.copyWith(
                 fontSize: 10 * 1.7,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 2,
               )),
-              trailing: Text(trailing),
-              subtitle: Text(subtitle,style: theme.textTheme.caption.copyWith(
+              trailing: Text(trailing!),
+              subtitle: Text(subtitle!,style: theme.textTheme.caption!.copyWith(
                   fontSize: 10 * 1.3,
                   fontWeight: FontWeight.w100,
                   fontFamily: 'Roboto',

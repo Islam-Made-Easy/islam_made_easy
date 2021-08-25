@@ -9,15 +9,15 @@ class GradientCircles extends StatefulWidget {
 
 class _GradientCirclesState extends State<GradientCircles>
     with TickerProviderStateMixin {
-  AnimationController _controller;
-  AnimationController _controllers;
+  late AnimationController _controller;
+  late AnimationController _controllers;
   GravitySimulation _gravitySimulation =
       GravitySimulation(700.0, -60.0, 410.0, .0);
-  AnimationController controller;
-  Animation _animation;
-  Animation _animation1;
-  Animation _animation2;
-  Animation _animation3;
+  late AnimationController controller;
+  late Animation _animation;
+  late Animation _animation1;
+  late Animation _animation2;
+  late Animation _animation3;
   Duration duration = Duration(seconds: 5);
   Duration _duration = Duration(seconds: 10);
 
@@ -226,11 +226,11 @@ var yellowOrangeGradient = LinearGradient(
 );
 
 class ScaleDetector extends StatefulWidget {
-  final VoidCallback onTap;
-  final double end;
-  final Widget child;
+  final VoidCallback? onTap;
+  final double? end;
+  final Widget? child;
 
-  const ScaleDetector({Key key, this.onTap, this.end, this.child})
+  const ScaleDetector({Key? key, this.onTap, this.end, this.child})
       : super(key: key);
 
   @override
@@ -239,8 +239,8 @@ class ScaleDetector extends StatefulWidget {
 
 class _ScaleDetectorState extends State<ScaleDetector>
     with TickerProviderStateMixin {
-  AnimationController _anim;
-  Animation _scale;
+  late AnimationController _anim;
+  late Animation _scale;
 
   @override
   void initState() {
@@ -288,7 +288,7 @@ class _ScaleDetectorState extends State<ScaleDetector>
 }
 
 class BackgroundPainter extends CustomPainter {
-  Random rand;
+  late Random rand;
   List<Offset> circles = [];
   List<double> sizes = [];
   List<double> opacities = [];

@@ -1,9 +1,9 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class ShareUtil {
-  String platformShare;
+  String? platformShare;
 
-  String getPlatformShare() {
+  String? getPlatformShare() {
     if (DeviceOS.isWeb) {
       platformShare = 'https://islamadeasy.page.link/share';
     } else if (DeviceOS.isLinux) {

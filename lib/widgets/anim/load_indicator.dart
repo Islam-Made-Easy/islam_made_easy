@@ -1,14 +1,14 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class LoadingIndicator extends StatefulWidget {
-  const LoadingIndicator({Key key}) : super(key: key);
+  const LoadingIndicator({Key? key}) : super(key: key);
 
   @override
   State<LoadingIndicator> createState() => _LoadingIndicatorState();
 }
 
 class _LoadingIndicatorState extends State<LoadingIndicator> {
-  Future<LottieComposition> _composition;
+  Future<LottieComposition>? _composition;
 
   @override
   void initState() {

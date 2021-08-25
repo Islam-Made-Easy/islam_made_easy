@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'fade_slide.dart';
 
 class AnimContainer extends StatefulWidget {
-  final Widget child;
-  final BoxDecoration decoration;
-  final double height, width;
-final AlignmentGeometry alignment;
-  const AnimContainer({Key key, this.child, this.decoration, this.height, this.width, this.alignment}) : super(key: key);
+  final Widget? child;
+  final BoxDecoration? decoration;
+  final double? height, width;
+final AlignmentGeometry? alignment;
+  const AnimContainer({Key? key, this.child, this.decoration, this.height, this.width, this.alignment}) : super(key: key);
   @override
   _AnimContainerState createState() => _AnimContainerState();
 }
 
 class _AnimContainerState extends State<AnimContainer> with SingleTickerProviderStateMixin{
-  AnimationController _anim;
+  AnimationController? _anim;
 
   @override
   void initState() {
@@ -24,7 +24,7 @@ class _AnimContainerState extends State<AnimContainer> with SingleTickerProvider
   }
   @override
   void dispose() {
-    _anim.dispose();
+    _anim!.dispose();
     super.dispose();
   }
   @override

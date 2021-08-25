@@ -11,7 +11,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with TickerProviderStateMixin {
-  AnimationController controller;
+  late AnimationController controller;
   static const header_height = 100.0;
 
   @override

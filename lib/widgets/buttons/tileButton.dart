@@ -3,9 +3,9 @@ import 'package:islam_made_easy/views/QnA/qna.dart';
 import '../anim/anim.dart';
 
 class SettingsLinkButton extends StatefulWidget {
-  final String title, subtitle;
+  final String? title, subtitle;
 
-  const SettingsLinkButton({Key key, this.title, this.subtitle}) : super(key: key);
+  const SettingsLinkButton({Key? key, this.title, this.subtitle}) : super(key: key);
 
   @override
   State<SettingsLinkButton> createState() => _SettingsLinkButtonState();
@@ -23,7 +23,7 @@ class _SettingsLinkButtonState extends State<SettingsLinkButton> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
-    final theme = Theme.of(context).textTheme.button.copyWith(
+    final theme = Theme.of(context).textTheme.button!.copyWith(
         fontSize: isDesktop ? size.width * .025 : size.width * .08,
         letterSpacing: .5,
         color: _isMouseOver ? Theme.of(context).primaryColor : null,
@@ -46,14 +46,14 @@ class _SettingsLinkButtonState extends State<SettingsLinkButton> {
             curve: Curves.easeIn,
             scale: _isMouseOver ? 2 : 1.1,
             child: Image.asset(
-              widget.title,
+              widget.title!,
               fit: BoxFit.fitHeight,
               width: size.width,
               matchTextDirection: true,
               height: size.height,
             ),
           ),
-          Center(child: Text(widget.subtitle, style: theme)),
+          Center(child: Text(widget.subtitle!, style: theme)),
           Positioned(
             child: Container(
               height: size.height * .4,
@@ -68,10 +68,10 @@ class _SettingsLinkButtonState extends State<SettingsLinkButton> {
 }
 
 class DesktopButton extends StatefulWidget {
-  final Widget openC;
-  final String title,subtitle;
+  final Widget? openC;
+  final String? title,subtitle;
 
-  const DesktopButton({Key key, this.openC, this.title, this.subtitle})
+  const DesktopButton({Key? key, this.openC, this.title, this.subtitle})
       : super(key: key);
 
   @override
@@ -90,7 +90,7 @@ class _DesktopButtonState extends State<DesktopButton> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
-    final theme = Theme.of(context).textTheme.button.copyWith(
+    final theme = Theme.of(context).textTheme.button!.copyWith(
         fontSize: isDesktop ? size.width * .025 : size.width * .08,
         letterSpacing: .5,
         color: _isMouseOver ? Theme.of(context).primaryColor : null,
@@ -112,7 +112,7 @@ class _DesktopButtonState extends State<DesktopButton> {
             closedColor: Colors.transparent,
             openElevation: .0,
             transitionType: ContainerTransitionType.fade,
-            openBuilder: (context, openContainer) => widget.openC,
+            openBuilder: (context, openContainer) => widget.openC!,
             closedBuilder: (context, openContainer) => AnimatedSwitcher(
                     duration: Duration(milliseconds: 500),
                     switchInCurve: Curves.easeInOut,
@@ -127,11 +127,11 @@ class _DesktopButtonState extends State<DesktopButton> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
                           image: DecorationImage(
-                            image: AssetImage(widget.title),
+                            image: AssetImage(widget.title!),
                             fit: BoxFit.fitHeight,
                             matchTextDirection: true,
                           )),
-                      child: Center(child: Text(widget.subtitle, style: theme)),
+                      child: Center(child: Text(widget.subtitle!, style: theme)),
                     )
                         : SettingsLinkButton(title: widget.title, subtitle: widget.subtitle)),
           ),
@@ -142,9 +142,9 @@ class _DesktopButtonState extends State<DesktopButton> {
 }
 
 class TitleHeader extends StatelessWidget {
-  final String text;
+  final String? text;
 
-  const TitleHeader({Key key, this.text}) : super(key: key);
+  const TitleHeader({Key? key, this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -153,8 +153,8 @@ class TitleHeader extends StatelessWidget {
       Container(
         child: Column(
           children: [
-            Text(text,
-                style: theme.primaryTextTheme.subtitle1.copyWith(
+            Text(text!,
+                style: theme.primaryTextTheme.subtitle1!.copyWith(
                     color: context.isDarkMode ? null : theme.primaryColor,
                     fontWeight: FontWeight.w300,
                     fontSize: 17,

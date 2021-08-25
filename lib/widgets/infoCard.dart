@@ -3,10 +3,10 @@ import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'anim/anim.dart';
 
 class InfoCard extends StatefulWidget {
-  final String quest;
-  final List<Widget> answers;
+  final String? quest;
+  final List<Widget>? answers;
 
-  const InfoCard({Key key, this.quest, this.answers}) : super(key: key);
+  const InfoCard({Key? key, this.quest, this.answers}) : super(key: key);
 
   @override
   _InfoCardState createState() => _InfoCardState();
@@ -22,10 +22,10 @@ class _InfoCardState extends State<InfoCard> {
       Card(
         shape: isDesktop || context.isTablet
             ? Border(
-                left: BorderSide(color: Colors.grey[100], width: 5),
-                bottom: BorderSide(color: Colors.grey[200], width: 5),
-                top: BorderSide(color: Colors.grey[300], width: 2),
-                right: BorderSide(color: Colors.grey[400], width: 3),
+                left: BorderSide(color: Colors.grey[100]!, width: 5),
+                bottom: BorderSide(color: Colors.grey[200]!, width: 5),
+                top: BorderSide(color: Colors.grey[300]!, width: 2),
+                right: BorderSide(color: Colors.grey[400]!, width: 3),
               )
             : RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         elevation: 0,
@@ -43,8 +43,8 @@ class _InfoCardState extends State<InfoCard> {
                   onPressed: () =>
                       Clipboard.setData(ClipboardData(text: widget.quest)).then(
                         (value) => Get.snackbar(
-                            S.current.copiedToClipboardTitle,
-                            S.current.copiedToClipboard),
+                            S.current!.copiedToClipboardTitle,
+                            S.current!.copiedToClipboard),
                       ))
               : IconButton(
                   icon: FaIcon(FontAwesomeIcons.shareAlt, size: 20),
@@ -67,7 +67,7 @@ class _InfoCardState extends State<InfoCard> {
                 letterSpacing: .1,
                 fontWeight: FontWeight.w700),
           ),
-          children: widget.answers,
+          children: widget.answers!,
         ),
       ),
     );

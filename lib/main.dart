@@ -76,16 +76,16 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
   Future _initSp() async {
     var _today = HijriCalendar.now().wkDay;
     await appSP.init();
-    bool dark = SpUtil.getDarkTheme();
+    bool? dark = SpUtil.getDarkTheme();
     if (dark != null) {
       Provider.of<ThemeProvide>(context, listen: false).getDark(dark);
     }
-    int themeIndex = SpUtil.getThemeIndex();
+    int? themeIndex = SpUtil.getThemeIndex();
     // Provider.of<NotificationServices>(context, listen: false).initialize();
     if (themeIndex != null) {
       Provider.of<ThemeProvide>(context, listen: false).changeTheme(themeIndex);
     }
-    String lang = SpUtil.getLanguage();
+    String lang = SpUtil.getLanguage()!;
     if (StringUtil.isNotEmpty(lang)) {
       Provider.of<LocaleProvide>(context, listen: false).changeLocale(Locale(lang));
     }
@@ -98,7 +98,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     }
   }
 
-  Locale localeCallback(locale, supportedLocales) {
+  Locale? localeCallback(locale, supportedLocales) {
     for (var supportedLocale in supportedLocales) {
       if (supportedLocale.languageCode == locale.languageCode &&
           supportedLocale.countryCode == locale.countryCode)
@@ -127,16 +127,16 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      builder: (BuildContext context, Widget widget) {
+      builder: (BuildContext context, Widget? widget) {
         ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
           return getErrorWidget(context, errorDetails);
         };
-        return widget;
+        return widget!;
       },
       navigatorObservers: [appRoute],
       routes: appRoute.routes,
       onGenerateRoute: appRoute.generateRoute,
-      onGenerateTitle: (context) => S.current.appTitle,
+      onGenerateTitle: (context) => S.current!.appTitle,
       supportedLocales: S.delegate.supportedLocales,
       home: QuickUtil(child: isCelebration ? SplashView() : Home()),
       debugShowCheckedModeBanner: false,
