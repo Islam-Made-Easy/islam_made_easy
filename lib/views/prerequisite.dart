@@ -41,7 +41,7 @@ class _PrerequisiteState extends State<Prerequisite> {
         padding: EdgeInsets.symmetric(horizontal: dp ? 30 : 1, vertical: 20),
         child: FutureBuilder(
           future: DefaultAssetBundle.of(context).loadString(data, cache: false),
-          builder: (context, snapshot) {
+          builder: (context,AsyncSnapshot snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               return Column(
                 children: [
