@@ -35,7 +35,7 @@ class _InfoCardState extends State<InfoCard> {
           trailing: DeviceOS.isDesktopOrWeb
               ? IconButton(
                   icon: FaIcon(
-                    PixIcon.pix_copy,
+                    Icons.copy,
                     color: Colors.greenAccent.withOpacity(.4),
                   ),
                   splashRadius: 10,

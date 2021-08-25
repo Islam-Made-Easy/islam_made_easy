@@ -193,7 +193,7 @@ class _MainPanelState extends State<MainPanel> {
                       borderRadius: BorderRadius.circular(50),
                       color: theme.colorScheme.secondary),
                   child: IconButton(
-                    icon: FaIcon(ar ? PixIcon.typcn_chevron_left : PixIcon.typcn_chevron_right,
+                    icon: FaIcon(ar ? Icons.chevron_left : Icons.chevron_right,
                       color: Colors.white,
                     ),
                     splashRadius: isDesktop ? 20 : 30,

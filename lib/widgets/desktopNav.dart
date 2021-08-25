@@ -79,43 +79,43 @@ class _DesktopNavState extends State<DesktopNav> with SingleTickerProviderStateM
                                   icon: Material(
                                       color: transparent,
                                       borderRadius: BorderRadius.zero,
-                                      child: FaIcon(PixIcon.fab_quora)),
+                                      child: FaIcon(FontAwesomeIcons.quora)),
                                   label: Text(S.current.quiz),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                       color: transparent,
-                                      child: FaIcon(PixIcon.typcn_document_text)),
+                                      child: FaIcon(Icons.assignment)),
                                   label: Text(S.current.prerequisite),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                       color: transparent,
-                                      child: FaIcon(PixIcon.fa_book_open)),
+                                      child: FaIcon(FontAwesomeIcons.bookOpen)),
                                   label: Text('Methodology'),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                       color: transparent,
-                                      child: FaIcon(PixIcon.fab_quinscape)),
+                                      child: FaIcon(FontAwesomeIcons.quinscape)),
                                   label: Text(S.current.questionsAndAnswers),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                       color: transparent,
-                                      child: FaIcon(PixIcon.pix_book)),
+                                      child: FaIcon(FontAwesomeIcons.book)),
                                   label: Text(S.current.generalKnowledge),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                       color: transparent,
-                                      child: FaIcon(PixIcon.fa_scroll)),
+                                      child: FaIcon(FontAwesomeIcons.scroll)),
                                   label: Text(S.current.references),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                       color: transparent,
-                                      child: FaIcon(PixIcon.fab_ussunnah)),
+                                      child: FaIcon(FontAwesomeIcons.ussunnah)),
                                   label: Text(S.current.shortPhrases),
                                 ),
                               ],

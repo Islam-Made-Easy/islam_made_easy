@@ -3,7 +3,6 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:grafpix/icons.dart';
 import 'package:islam_made_easy/settings/settings.dart';
 import 'package:islam_made_easy/utils/device_info.dart';
 import 'package:islam_made_easy/views/about.dart' as about;
@@ -66,7 +65,7 @@ class NavigationRailHeader extends StatelessWidget {
                           children: [
                             SizedBox(width: 20),
                             IconButton(
-                              icon: FaIcon(PixIcon.pix_cog),
+                              icon: FaIcon(FontAwesomeIcons.cog),
                               splashRadius: 15,
                               onPressed: () {
                                 Get.dialog(
@@ -89,7 +88,7 @@ class NavigationRailHeader extends StatelessWidget {
                             ),
                             SizedBox(width: 20),
                             IconButton(
-                              icon: FaIcon(PixIcon.pix_info),
+                              icon: FaIcon(FontAwesomeIcons.info),
                               onPressed: () => about.showAboutDialog(context: context),
                               splashRadius: 15,
                             ),

@@ -41,7 +41,7 @@ class PopupOptionMenu extends StatelessWidget {
         PopupMenuItem(
           child: Row(
             children: [
-              FaIcon(PixIcon.pix_info,color: color),
+              FaIcon(FontAwesomeIcons.info, color: color),
               const SizedBox(width: 10),
               Text(MaterialLocalizations.of(context).aboutListTileTitle('')),
             ],

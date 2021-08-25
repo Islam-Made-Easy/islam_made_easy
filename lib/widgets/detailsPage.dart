@@ -61,7 +61,7 @@ class _DetailsPageState extends State<DetailsPage> {
           DeviceOS.isDesktopOrWeb
               ? IconButton(
                icon: FaIcon(
-                PixIcon.pix_copy,
+                Icons.copy,
                 color: Colors.greenAccent.withOpacity(.4),
               ),
               tooltip: MaterialLocalizations.of(context).copyButtonLabel,

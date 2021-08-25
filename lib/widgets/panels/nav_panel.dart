@@ -31,11 +31,11 @@ class _NavigationPanelState extends State<NavigationPanel> {
           drawerTile(
               S.current.prerequisite,
               () => Get.to(() => Prerequisite(), transition: Transition.size),
-              PixIcon.typcn_document_text),
+              Icons.assignment),
           drawerTile(
               S.current.questionsAndAnswers,
               () => Get.to(() => QnA(), transition: Transition.size),
-              PixIcon.fab_quinscape),
+              FontAwesomeIcons.quinscape),
           drawerTile(
               'Methodology',
               () => Get.to(() => Succinct(), transition: Transition.size),
@@ -44,7 +44,7 @@ class _NavigationPanelState extends State<NavigationPanel> {
               S.current.generalKnowledge,
               () =>
                   Get.to(() => GeneralKnowledge(), transition: Transition.size),
-              PixIcon.pix_book),
+              FontAwesomeIcons.book),
           drawerTile(
               S.current.references,
               () => Get.to(() => References(), transition: Transition.size),
@@ -52,7 +52,7 @@ class _NavigationPanelState extends State<NavigationPanel> {
           drawerTile(
               S.current.shortPhrases,
               () => Get.to(() => ShortPhrases(), transition: Transition.size),
-              PixIcon.fab_ussunnah),
+              FontAwesomeIcons.ussunnah),
         ],
       ),
     );
