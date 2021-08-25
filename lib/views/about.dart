@@ -117,36 +117,36 @@ class _AboutAppState extends State<AboutApp> {
                   ShareButtons(
                     color: Color(0xffF59E1B),
                     tip: 'Mail',
-                    icon: PixIcon.mail,
+                    icon: Icons.mail,
                     onPressed: () => launchURL(
-                        'mailto:?subject=$name&body=$name ${S.current.shareText} ${ShareUtil().getPlatformShare}'),
+                        'mailto:?subject=$name&body=$name ${S.current.shareText} ${ShareUtil().getPlatformShare()}'),
                   ),
                   ShareButtons(
                     color: Color(0xff294C8C),
                     tip: 'Facebook',
-                    icon: PixIcon.pix_facebook,
+                    icon: FontAwesomeIcons.facebook,
                     onPressed: () => launchURL(
-                        'https://www.facebook.com/sharer/sharer.php?t=$name ${S.current.aboutApp}&quote=Get it from Now:&ref=fbshare&u=${ShareUtil().getPlatformShare}'),
+                        'https://www.facebook.com/sharer/sharer.php?t=$name ${S.current.aboutApp}&quote=Get it from Now:&ref=fbshare&u=${ShareUtil().getPlatformShare()}'),
                   ),
                   ShareButtons(
                     color: Color(0xff67C15E),
                     tip: 'WhatsApp',
-                    icon: PixIcon.pix_whatsapp,
+                    icon: FontAwesomeIcons.whatsapp,
                     onPressed: () => launchURL(
-                        'https://wa.me/?text=$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare}'),
+                        'https://wa.me/?text=$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare()}'),
                   ),
                   AnimatedSwitcher(
                     duration: shareDelay.duration,
                     child: ShareButtons(
                         color: Color(0xffA2A2A2),
                         tip: verified ? "Link Copied" : local.copyButtonLabel,
-                        icon: verified ? Icons.verified_user : PixIcon.pix_link,
+                        icon: verified ? Icons.verified_user : FontAwesomeIcons.link,
                         onPressed: () {
                           shareDelay.run(
                                 () => Clipboard.setData(
                                   ClipboardData(
                                       text:
-                                      '$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare}'),
+                                      '$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare()}'),
                                 ).then((value) {setState(() => verified = true);}),
                           );
                         }),
