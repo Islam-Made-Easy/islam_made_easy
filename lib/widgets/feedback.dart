@@ -214,6 +214,14 @@ class _AppFeedbackState extends State<AppFeedback> {
                                     "https://gitter.im/orgs/Islam-Made-Easy/rooms"),
                                 icon: FaIcon(FontAwesomeIcons.gitter),
                                 splashRadius: 1),
+                            SizedBox(width: 10),
+                            IconButton(
+                                color: theme.buttonColor,
+                                tooltip: 'Mail',
+                                onPressed: () => launchUrl(
+                                    "mailto:info.islamadeasy@gmail.com"),
+                                icon: FaIcon(Icons.mail),
+                                splashRadius: 1),
                           ],
                         ),
                       ],
