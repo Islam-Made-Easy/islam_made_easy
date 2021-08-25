@@ -24,38 +24,30 @@ dependencies:
   dio: null
   intl: ^0.17.0-nullsafety.2
   flutter_animated_dialog: any
-  flutter_statusbarcolor: null
-  universal_html: null
+  flutter_statusbarcolor_ns: null
   sqflite: null
   sp_util: ^2.0.3
   shared_preferences: ^2.0.5
-  json_annotation: null
   random_string: null
   cached_network_image: null
-  flutter_staggered_grid_view: null
   http: null
   path: null
   url_launcher: null
   animated_background: null
   flutter_phoenix: null
   smooth_page_indicator: null
-  flutter_flip_view: null
+  flip_card: null
   universal_platform: null
   adaptive_breakpoints: ^0.0.2
   get: ^4.1.4
   package_info: null
-  launch_review: null
   animations: ^2.0.0
   flutter_svg: ^0.22.0
-  native_pdf_view: ^4.0.1
-  delayed_display: ^2.0.0
   double_back_to_close: ^2.0.0
   quick_actions: ^0.6.0+1
-  flutter_systray: ^0.4.0
+  systray:
   avatar_glow: ^2.0.1
   animator: null
-  clippy_flutter: null
-  grafpix: null
   animated_text_kit: null
   popover: ^0.2.3
   auto_size_text: null
@@ -63,30 +55,18 @@ dependencies:
   flutter_local_notifications: ^8.1.0
   markdown: null
   flutter_markdown: null
-  bubble_overlay: null
-  system_alert_window: null
   url_strategy: null
   animate_do: null
   desktop_window: null
   bitsdojo_window: null
-  syncfusion_flutter_pdfviewer: null
-  chewie: null
-  ext_storage: null
-  flutter_vlc_player: null
-  fuzzy: null
   lazy_load_scrollview: null
   permission_handler: null
-  subtitle_wrapper_package: null
   transparent_image: null
-  wakelock: null
   firebase_storage: null
   firebase_core: null
   firebase: null
-  better_player: ^0.0.13
   gsheets: ^0.3.0
   statsfl: null
-  starflut: null
-  keyboard_actions: null
   overlay_support: null
   flextras: ^0.0.1
   animated_radial_menu:
@@ -95,8 +75,6 @@ dev_dependencies:
   flutter_native_splash: ^1.1.8+4
   flutter_test:
     sdk: flutter
-  build_runner: null
-  json_serializable: null
 flutter_native_splash:
   image: assets/images/logo.png
   color: 111111
