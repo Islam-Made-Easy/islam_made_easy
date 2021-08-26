@@ -1,13 +1,13 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
-class SplashView extends StatefulWidget {
+class FridayRem extends StatefulWidget {
   static const ROUTE_NAME = "/fridayReminder";
 
   @override
-  _SplashViewState createState() => _SplashViewState();
+  _FridayRemState createState() => _FridayRemState();
 }
 
-class _SplashViewState extends State<SplashView> with SingleTickerProviderStateMixin {
+class _FridayRemState extends State<FridayRem> with SingleTickerProviderStateMixin {
   List<OnBoardPageItem> onboardPageItems = [
     OnBoardPageItem(
       lottieAsset: 'assets/lottie/bookI.json',
