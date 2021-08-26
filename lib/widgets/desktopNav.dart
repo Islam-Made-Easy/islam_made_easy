@@ -1,9 +1,8 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
+import 'package:islam_made_easy/widgets/anim/ime_nav.dart';
+import 'package:islam_made_easy/widgets/anim/shared_switcher.dart';
+import 'package:islam_made_easy/widgets/navHeader.dart';
 import 'package:islam_made_easy/widgets/popup_menu.dart';
-
-import 'anim/ime_nav.dart';
-import 'anim/shared_switcher.dart';
-import 'navHeader.dart';
 
 class DesktopNav extends StatefulWidget {
   const DesktopNav({this.extended});
