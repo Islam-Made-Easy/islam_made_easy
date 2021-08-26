@@ -1,6 +1,5 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
-
-import 'anim/anim.dart';
+import 'package:islam_made_easy/widgets/anim/anim.dart';
 
 class InfoCard extends StatefulWidget {
   final String? quest;
@@ -50,7 +49,7 @@ class _InfoCardState extends State<InfoCard> {
                   icon: FaIcon(FontAwesomeIcons.shareAlt, size: 20),
                   splashRadius: 10,
                   onPressed: () => shareDelay.run(() => Share.share(
-                      "Get Quizzes, Questions and more from: ${ShareUtil().getPlatformShare}",
+                      "Get Quizzes, Questions and more from: ${ShareUtil().getPlatformShare()}",
                       subject: '𝗤. ${widget.quest}')),
                 ),
           expandedAlignment: Alignment.topCenter,
