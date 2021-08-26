@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
-import 'detailsPage.dart';
-
 class QnAppBar extends StatelessWidget with PreferredSizeWidget {
   final String? title;
   final bool isDesktop;
