@@ -32,8 +32,7 @@ class PopupOptionMenu extends StatelessWidget {
                     transitionDuration:
                         DelayUI(Duration(milliseconds: 1000)).duration,
                     transitionCurve: Curves.easeIn)
-                : feed.showFeedbackDialog(
-                    context: context, isPanelVisible: isVisible!);
+                : feed.showFeedbackDialog(context, isVisible!);
             break;
         }
       },
