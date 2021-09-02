@@ -47,7 +47,7 @@ class ThemeProvide with ChangeNotifier {
   ThemeData get themeData => _themeData;
 
   ThemeData get themeDataDark => _themeDataDark;
-
+///  Status bar style on Android/iOS
   SystemUiOverlayStyle _overlayStyle = SystemUiOverlayStyle.light.copyWith(
     statusBarColor: Colors.primaries[DEFAULT_THEME_INDEX],
     systemNavigationBarColor: Colors.primaries[DEFAULT_THEME_INDEX],
