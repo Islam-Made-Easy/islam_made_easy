@@ -27,7 +27,8 @@ const kDark = Color(0xFF1A2C33);
 const kGreyColor = Color(0xffBBC3D7);
 
 class ThemeProvide with ChangeNotifier {
-  static const DEFAULT_THEME_INDEX = 0;
+  // To make the app standard start with index 5
+  static const DEFAULT_THEME_INDEX = 5;
   int _themeIndex = DEFAULT_THEME_INDEX;
 
   int get themeIndex => _themeIndex;
