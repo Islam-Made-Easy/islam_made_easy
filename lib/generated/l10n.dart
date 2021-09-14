@@ -260,10 +260,10 @@ class S {
     );
   }
 
-  /// `is Now Live on any Linux distribution`
+  /// `is Now Live on any Desktop distribution`
   String get shareText {
     return Intl.message(
-      'is Now Live on any Linux distribution',
+      'is Now Live on any Desktop distribution',
       name: 'shareText',
       desc: '',
       args: [],
@@ -675,6 +675,76 @@ class S {
     return Intl.message(
       'Danish (Denmark)',
       name: 'danishDK',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark Mode`
+  String get darkMode {
+    return Intl.message(
+      'Dark Mode',
+      name: 'darkMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What's New in IME`
+  String get whatNew {
+    return Intl.message(
+      'What\'s New in IME',
+      name: 'whatNew',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select your favorite theme`
+  String get selectTheme {
+    return Intl.message(
+      'Select your favorite theme',
+      name: 'selectTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Switch to join the dark side`
+  String get switchDark {
+    return Intl.message(
+      'Switch to join the dark side',
+      name: 'switchDark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get the lights on`
+  String get switchLight {
+    return Intl.message(
+      'Get the lights on',
+      name: 'switchLight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hello`
+  String get hello {
+    return Intl.message(
+      'Hello',
+      name: 'hello',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Play and win to unlock more categories`
+  String get playAndWin {
+    return Intl.message(
+      'Play and win to unlock more categories',
+      name: 'playAndWin',
       desc: '',
       args: [],
     );

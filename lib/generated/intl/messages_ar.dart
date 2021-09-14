@@ -57,7 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("حول"),
         "aboutAlwan": MessageLookupByLibrary.simpleMessage(
-            "A senior Saudi Arabian scholar. He has been described as being one of the most knowledgable contemporary scholars of islam, particularly in the field of Hadith.\n\n~ أسئلة وأجوبة"),
+            " عالم سعودي كبير. He has been described as being one of the most knowledgeable contemporary scholars of islam, particularly in the field of Hadith.\n\n~ أسئلة وأجوبة"),
         "aboutApp": MessageLookupByLibrary.simpleMessage(
             "تطبيق المسابقة الإسلامية التي تتيح لك فهم دينك بسهولة"),
         "aboutJibril": MessageLookupByLibrary.simpleMessage(
@@ -131,6 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "danish": MessageLookupByLibrary.simpleMessage("الكرواتية"),
         "danishDK": MessageLookupByLibrary.simpleMessage("Danish (Danmark)"),
         "dansk": MessageLookupByLibrary.simpleMessage("dansk"),
+        "darkMode": MessageLookupByLibrary.simpleMessage("نص يترجم من"),
         "death": MessageLookupByLibrary.simpleMessage("الموت"),
         "deathA1Par1": MessageLookupByLibrary.simpleMessage(
             "The only time when rasulullah(ﷺ)  prayed salatul janazah AL ghaib is when AL Najjashi the king of Ethiopia died. He had embraced Islam and his people were not Muslims so he was buried like a non Muslim. The Messenger (ﷺ) performed this Salah because there was no one to pray for him."),
@@ -523,6 +524,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "hajjSubTitle9": MessageLookupByLibrary.simpleMessage("تحريم الحج"),
         "hajjTitle": MessageLookupByLibrary.simpleMessage(
             "HAJJ \n تعلم مني عملك النموي"),
+        "hello": MessageLookupByLibrary.simpleMessage("مرحبا"),
         "hindi": MessageLookupByLibrary.simpleMessage("हिंदी"),
         "hindii": MessageLookupByLibrary.simpleMessage("Hindi"),
         "history": MessageLookupByLibrary.simpleMessage("التاريخ"),
@@ -655,6 +657,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(" نواقض التوحيد"),
         "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
         "peace": MessageLookupByLibrary.simpleMessage("(ﷺ)"),
+        "playAndWin": MessageLookupByLibrary.simpleMessage(
+            "اللعب والفوز لفتح المزيد من الفئات"),
         "prayer": MessageLookupByLibrary.simpleMessage("الصلاه"),
         "prayerA10Par1": MessageLookupByLibrary.simpleMessage(
             "The Shaykh(حفظه الله) responded by saying: This Hadīth isn\'t authentic, it\'s narrated by Abū Dāwūd(62), ibn Mājah(512), \'Abd ibn Hamīd(859) and others from the chain of \'Abdûl Rahmān ibn Ziyād ibn An\'am al-Ifrīqī from Abī Ghutayf al-Huthalī from \'Abdullâh ibn \'Omar(رضي الله عنهما) from the Prophet(ﷺ). "),
@@ -1029,6 +1033,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "references": MessageLookupByLibrary.simpleMessage("مرجع"),
         "salam": MessageLookupByLibrary.simpleMessage("السلام عليكم"),
         "seerah": MessageLookupByLibrary.simpleMessage("سيره"),
+        "selectTheme":
+            MessageLookupByLibrary.simpleMessage("اختيار موضوعك المفضل"),
         "serbia": MessageLookupByLibrary.simpleMessage("Serbian"),
         "serbian": MessageLookupByLibrary.simpleMessage("cpƞckͷ"),
         "settings": MessageLookupByLibrary.simpleMessage("إعدادات"),
@@ -1041,9 +1047,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("احصل عليه من Snap Store"),
         "shareText": MessageLookupByLibrary.simpleMessage(
             "أصبح الآن مباشرًا على أي توزيعة Linux"),
-        "shortPhrases": MessageLookupByLibrary.simpleMessage("Short Phrases"),
+        "shortPhrases":
+            MessageLookupByLibrary.simpleMessage("العبارات القصيرة"),
         "shortPhrasesT":
-            MessageLookupByLibrary.simpleMessage("Short Phrases Translated"),
+            MessageLookupByLibrary.simpleMessage("الكلمات القصيرة المترجمة"),
         "shortcuts": MessageLookupByLibrary.simpleMessage("الاختصارات"),
         "startQuiz": MessageLookupByLibrary.simpleMessage("ابدأ الاختبار"),
         "succinctPar1": MessageLookupByLibrary.simpleMessage(
@@ -1168,6 +1175,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "swahili": MessageLookupByLibrary.simpleMessage("Swahili"),
         "swalah": MessageLookupByLibrary.simpleMessage("الصلاة"),
         "swaum": MessageLookupByLibrary.simpleMessage("الصوم"),
+        "switchDark": MessageLookupByLibrary.simpleMessage(
+            "تحويل للانضمام إلى الجانب المظلم"),
+        "switchLight": MessageLookupByLibrary.simpleMessage("ضع الأضواء على"),
         "systemDefault":
             MessageLookupByLibrary.simpleMessage("النظام الافتراضي"),
         "tawheed": MessageLookupByLibrary.simpleMessage("التوحيد"),
@@ -1273,6 +1283,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Side Note: I\'m translating وسبعون بضع as \"70 odd\", but there\'s a difference of opinion regarding what \"\"بضع is, however if you refer back to Fath al-Bārī by Ibn Rajab(رحمه الله) on his explanation of Sahīh al-Bukhārī, chapter of Ēmān, he has mentioned several opinions, and what seems to be most correct according to most scholars is that \"\"بضع is any number\nbetween 3-9."),
         "usuryTitle": MessageLookupByLibrary.simpleMessage(
             "حديث ملفق: للربا 70 فرعاً ، وأدناها معادلة رجل زنى مع أمه."),
+        "whatNew": MessageLookupByLibrary.simpleMessage("ما هو جديد في IME"),
         "yes": MessageLookupByLibrary.simpleMessage("نعم"),
         "zakkah": MessageLookupByLibrary.simpleMessage("الزكاة")
       };

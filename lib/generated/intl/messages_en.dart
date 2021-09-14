@@ -140,6 +140,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "danish": MessageLookupByLibrary.simpleMessage("Danish"),
         "danishDK": MessageLookupByLibrary.simpleMessage("Danish (Denmark)"),
         "dansk": MessageLookupByLibrary.simpleMessage("dansk"),
+        "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "death": MessageLookupByLibrary.simpleMessage("Death & Hereafter"),
         "deathA1Par1": MessageLookupByLibrary.simpleMessage(
             "The only time when rasulullah(ﷺ)  prayed salatul janazah AL ghaib is when AL Najjashi the king of Ethiopia died. He had embraced Islam and his people were not Muslims so he was buried like a non Muslim. The Messenger (ﷺ) performed this Salah because there was no one to pray for him."),
@@ -547,6 +548,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("THE PROHIBITIONS OF HAJJ"),
         "hajjTitle": MessageLookupByLibrary.simpleMessage(
             "HAJJ\nLEARN FROM ME YOUR DEVOTIONAL ACT"),
+        "hello": MessageLookupByLibrary.simpleMessage("Hello"),
         "hindi": MessageLookupByLibrary.simpleMessage("हिंदी"),
         "hindii": MessageLookupByLibrary.simpleMessage("Hindi"),
         "hisLife":
@@ -686,6 +688,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "peace": MessageLookupByLibrary.simpleMessage(
             "(peace and blessings of Allah be upon him)"),
+        "playAndWin": MessageLookupByLibrary.simpleMessage(
+            "Play and win to unlock more categories"),
         "prayer": MessageLookupByLibrary.simpleMessage("Prayer"),
         "prayerA10Par1": MessageLookupByLibrary.simpleMessage(
             "The Shaykh(الله )حفظه responded by saying: This Hadīth isn\'t authentic, it\'s narrated by Abū Dāwūd(62), ibn Mājah(512), \'Abd ibn Hamīd(859) and others from the chain of \'Abdûl Rahmān ibn Ziyād ibn An\'am al-Ifrīqī from Abī Ghutayf al-Huthalī from \'Abdullâh ibn \'Omar(رضي الله عنهما) from the Prophet(ﷺ). "),
@@ -1059,6 +1063,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "references": MessageLookupByLibrary.simpleMessage("References"),
         "salam": MessageLookupByLibrary.simpleMessage("Assalamu\'alaikum"),
         "seerah": MessageLookupByLibrary.simpleMessage("History"),
+        "selectTheme":
+            MessageLookupByLibrary.simpleMessage("Select your favorite theme"),
         "serbia": MessageLookupByLibrary.simpleMessage("Serbian"),
         "serbian": MessageLookupByLibrary.simpleMessage("cpƞckͷ"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
@@ -1070,7 +1076,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shareGetStoreText":
             MessageLookupByLibrary.simpleMessage("Get it from the Snap Store"),
         "shareText": MessageLookupByLibrary.simpleMessage(
-            "is Now Live on any Linux distribution"),
+            "is Now Live on any Desktop distribution"),
         "shortPhrases": MessageLookupByLibrary.simpleMessage("Short Phrases"),
         "shortPhrasesT":
             MessageLookupByLibrary.simpleMessage("Short Phrases Translated"),
@@ -1199,6 +1205,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "swahili": MessageLookupByLibrary.simpleMessage("Swahili"),
         "swalah": MessageLookupByLibrary.simpleMessage("Swalah"),
         "swaum": MessageLookupByLibrary.simpleMessage("Fast"),
+        "switchDark": MessageLookupByLibrary.simpleMessage(
+            "Switch to join the dark side"),
+        "switchLight":
+            MessageLookupByLibrary.simpleMessage("Get the lights on"),
         "systemDefault": MessageLookupByLibrary.simpleMessage("System Default"),
         "tawheed": MessageLookupByLibrary.simpleMessage("A t - T a u h i d "),
         "tawheedAboutAuthor": MessageLookupByLibrary.simpleMessage(
@@ -1306,6 +1316,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Side Note: I\'m translating وسبعون بضع as \"70 odd\", but there\'s a difference of opinion regarding what \"\"بضع is, however if you refer back to Fath al-Bārī by Ibn Rajab(رحمه الله) on his explanation of Sahīh al-Bukhārī, chapter of Ēmān, he has mentioned several opinions, and what seems to be most correct according to most scholars is that \"\"بضع is any number\nbetween 3-9."),
         "usuryTitle": MessageLookupByLibrary.simpleMessage(
             "Fabricated Hadīth \"Ribā has 70 odd branches, the lowest is equivalent to a man committing adultery with his Mother\""),
+        "whatNew": MessageLookupByLibrary.simpleMessage("What\'s New in IME"),
         "worship": MessageLookupByLibrary.simpleMessage("Worship"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "zakkah": MessageLookupByLibrary.simpleMessage("Charity")

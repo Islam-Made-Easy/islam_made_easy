@@ -536,6 +536,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("MAKATAZO ZA HAJJ"),
         "hajjTitle": MessageLookupByLibrary.simpleMessage(
             "HAJJ\nJIFUNZE KUTOKA KWANGU TENDO UNALOLIKUPENDA"),
+        "hello": MessageLookupByLibrary.simpleMessage("Karibu"),
         "hindi": MessageLookupByLibrary.simpleMessage("हिंदी"),
         "hindii": MessageLookupByLibrary.simpleMessage("Hindi"),
         "history": MessageLookupByLibrary.simpleMessage("Seerah"),
@@ -1240,6 +1241,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Nakala ya kando: I\'m translating وسبعون بضع as \"70 odd\", but there\'s a difference of opinion regarding what \"\"بضع is, however if you refer back to Fath al-Bārī by Ibn Rajab(رحمه الله) juu ya ufafanuzi wake wa Sahīh al-Bukhārī, sura ya Ēmān, ametaja maoni kadhaa, na kile kinachoonekana kuwa  sahihi zaidi kulingana na wasomi wengi ni kwamba بضع ni nambari yoyote kati ya 3-9."),
         "usuryTitle": MessageLookupByLibrary.simpleMessage(
             "Hadīth iliyobuniwa \"Ribā ina mgawanyo 70 isiyo ya kawaida, ya chini kabisa ni sawa na mtu anayezini na mama yake\""),
+        "whatNew": MessageLookupByLibrary.simpleMessage("Kipi Kipya kwa IME"),
         "yes": MessageLookupByLibrary.simpleMessage("ndio"),
         "zakkah": MessageLookupByLibrary.simpleMessage("Zakkah")
       };
