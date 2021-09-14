@@ -11,48 +11,74 @@
     Fore more details:
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
   -->
-  <base href="/">
+    <base href="/">
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Islamic application that let you understand your religion easier.">
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description"
+          content="Islamic application that let you understand your religion easier.">
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Islam Made Easy - Built by IME team">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Islam Made Easy - Built by IME team">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>Islam Made Easy</title>
-  <link rel="manifest" href="manifest.json">
+    <title>Islam Made Easy</title>
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
-  <script>
+<!-- This script installs service_worker.js to provide PWA functionality to
+     application. For more information, see:
+     https://developers.google.com/web/fundamentals/primers/service-workers -->
+<script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('flutter-first-frame', function () {
         navigator.serviceWorker.register('flutter_service_worker.js');
       });
     }
-  </script>
-  <!-- Firebase -->
-  <script src="/__/firebase/7.17.1/firebase-app.js"></script>
-  <script src="/__/firebase/7.17.1/firebase-analytics.js"></script>
-  <script src="/__/firebase/7.17.1/firebase-messaging.js"></script>
-  <script src="/__/firebase/init.js"></script>
-  <script>
+
+</script>
+<!-- Firebase -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/8.10.0/firebase-app.js"></script>
+<script src="/__/firebase/8.10.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="/__/firebase/8.10.0/firebase-auth.js"></script>
+<script src="/__/firebase/8.10.0/firebase-storage.js"></script>
+<script src="/__/firebase/8.10.0/firebase-messaging.js"></script>
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script>
     // for analytics
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "firebase/app";
+    import { getAnalytics } from "firebase/analytics";
     // Workaround for Firebase issues on Web: https://github.com/FirebaseExtended/flutterfire/issues/3409
     if (!firebase.analytics || !navigator.cookieEnabled) {
         firebase.analytics = function() {};
     }
     // End-Workaround
-  </script>
-  <script src="main.dart.js" type="application/javascript"></script>
+     <!-- Firebase Configuration -->
+    <script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDFOrQ82Os8mzuL5U38nfqTUGVPCtRD2gg",
+    authDomain: "islam-made-easy.firebaseapp.com",
+    databaseURL: "https://islam-made-easy-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "islam-made-easy",
+    storageBucket: "islam-made-easy.appspot.com",
+    messagingSenderId: "726520556620",
+    appId: "1:726520556620:web:d5569ef0ea9fafc996d8e9",
+    measurementId: "G-DXH9D5FTFF"
+};
+
+   // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app)
+</script>
+<script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>
