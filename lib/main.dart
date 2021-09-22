@@ -18,7 +18,7 @@ import 'package:islam_made_easy/utils/sharedP.dart';
 import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
 import 'package:islam_made_easy/views/home.dart';
-import 'package:islam_made_easy/views/intro/splash.dart';
+import 'package:islam_made_easy/views/intro/splashScreen.dart';
 import 'package:islam_made_easy/widgets/anim/load_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -138,7 +138,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       onGenerateRoute: appRoute.generateRoute,
       onGenerateTitle: (context) => S.current.appTitle,
       supportedLocales: S.delegate.supportedLocales,
-      home: QuickUtil(child: isCelebration ? SplashView() : Home()),
+      home: QuickUtil(child: isCelebration ? SplashScreen() : Home()),
       debugShowCheckedModeBanner: false,
     );
   }
