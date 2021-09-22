@@ -2,11 +2,10 @@ import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class ShareButtons extends StatelessWidget {
   final String? tip;
-  final Color? color;
-  final IconData? icon;
+  final Widget? icon;
   final Function? onPressed;
 
-  const ShareButtons({Key? key, this.color, this.icon, this.onPressed, this.tip}) : super(key: key);
+  const ShareButtons({Key? key, this.icon, this.onPressed, this.tip}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,17 +14,13 @@ class ShareButtons extends StatelessWidget {
       padding: EdgeInsets.all(isDesktop?10:0),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: color,
         boxShadow: [
           BoxShadow(color: Colors.grey[300]!, offset: Offset(4.0, 4.0), blurRadius: isDesktop?10:2, spreadRadius: 1.0),
-          BoxShadow(color: color!.withOpacity(.09), offset: Offset(-4.0, -4.0), blurRadius:  isDesktop?10:2, spreadRadius: 1.0),
+          BoxShadow(color: Colors.transparent.withOpacity(.09), offset: Offset(-4.0, -4.0), blurRadius:  isDesktop?10:2, spreadRadius: 1.0),
         ],
         gradient: gradient,
       ),
-      child: IconButton(
-        icon: FaIcon(icon, color: color),
-        onPressed: onPressed as void Function()?, tooltip: tip, splashRadius: isDesktop ? 10 : 20,
-      ),
+      child: InkWell(child: Tooltip(message: tip!,child: icon,textStyle: Theme.of(context).textTheme.button!.copyWith(fontFamily: 'Roboto',fontWeight: FontWeight.w100)),onTap: onPressed as void Function()?),
     );
   }
 }

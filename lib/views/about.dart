@@ -94,16 +94,16 @@ class _AboutAppState extends State<AboutApp> {
                     : ''
                 , style: textButton.copyWith(fontWeight: FontWeight.w100)),
             Shimmer.fromColors(
-                highlightColor: colorScheme.onBackground,
-                loop: 2,
-                baseColor: colorScheme.primary,
-                child: Text(legalese, style: textButton.copyWith(
-                    fontWeight: FontWeight.w400, height: 2)),
+              highlightColor: colorScheme.onBackground,
+              loop: 2,
+              baseColor: colorScheme.primary,
+              child: Text(legalese, style: textButton.copyWith(
+                  fontWeight: FontWeight.w400, height: 2)),
             ),
             Text(
-                '━═══◎${S.current.share}◎═══━',
-                style: TextStyle(color: colorScheme.secondary),
-              ),
+              '━═══◎${S.current.share}◎═══━',
+              style: TextStyle(color: colorScheme.secondary),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
