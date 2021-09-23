@@ -15,7 +15,9 @@ void log(String? value) {
 
 void logError(String? value) => log("[ERROR] " + (value ?? ""));
 
-// Take from: https://flutter.dev/docs/testing/errors
+/// Take from: https://flutter.dev/docs/testing/errors
+///
+/// Call a method to setup a global error handler so we can log all errors, including ones from native extensions.
 void initLogger(VoidCallback runApp) {
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
