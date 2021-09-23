@@ -72,6 +72,16 @@ dependencies:
   animated_radial_menu: ^0.0.1
   cloud_firestore: ^2.5.0
   firebase_messaging: ^10.0.5
+  firebase_auth: ^3.1.0
+  flutter_collapsing_toolbar:
+  flutter_font_picker:
+  firedart:
+  cloudinary_public: ^0.8.0
+  uuid: ^3.0.1
+  multi_window:
+  interactive_chart:
+  flutter_animated_cards:
+  pdftron_flutter:
 dev_dependencies:
   flutter_launcher_icons: ^0.9.2
   flutter_native_splash: ^1.2.1
