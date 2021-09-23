@@ -1,9 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
-import 'dart:math';
-import 'package:vector_math/vector_math.dart' show radians;
 
 class QuizHome extends StatefulWidget {
   const QuizHome({Key? key}) : super(key: key);
@@ -13,39 +10,106 @@ class QuizHome extends StatefulWidget {
 }
 
 class _QuizHomeState extends State<QuizHome> {
-
   @override
   void initState() {
     super.initState();
   }
 
+  RoundedRectangleBorder kAppBarShape = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      bottomLeft: Radius.circular(32),
+      bottomRight: Radius.circular(32),
+    ),
+  );
+
+  showMessage() {
+    ScaffoldMessenger.of(context).showMaterialBanner(
+      MaterialBanner(
+        content: Text('This section is under development'),
+        backgroundColor: Theme.of(context).primaryColorLight,
+        actions: [
+          TextButton(
+            child: Text('DISMISS'),
+            onPressed: () =>
+                ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  static DelayUI shareDelay = DelayUI(Duration(seconds: 10));
+
   @override
   Widget build(BuildContext context) {
-    Future<void>? fullDisplay;
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 200),
+      appBar: AppBar(
+        toolbarHeight: 200,
+        shape: kAppBarShape,
+        backgroundColor: Colors.transparent,
+        flexibleSpace: Stack(
+          children: [
+            Container(
+              // height: 200,
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "${S.current.hello} Ahmad!",
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.button!.copyWith(
+                        fontSize: kSpacingUnit * 1.7,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 2,
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Hero(
+                        tag: 'tag',
+                        child: CircleAvatar(
+                          child: FaIcon(FontAwesomeIcons.user),
+                        ))
+                  ],
+                ),
+              ),
+              // decoration: BoxDecoration(
+              //   color: Theme.of(context).primaryColor.withOpacity(.5),
+              //     gradient: LinearGradient(
+              //       colors: [Theme.of(context).primaryColorLight,Theme.of(context).primaryColorDark],
+              //       tileMode: TileMode.decal,
+              //       begin: Alignment.topCenter,
+              //       end: Alignment.bottomCenter,
+              //       stops: [0.0, 1.0],
+              //     ),
+              //     // image: DecorationImage(
+              //     //     fit: BoxFit.cover,
+              //     //     matchTextDirection: true,
+              //     //     image: AssetImage('assets/images/deco.jpg')),
+              // ),
+            ),
+            Lottie.asset('assets/lottie/plant.json',
+                alignment: Alignment.bottomRight),
+          ],
+        ),
+      ),
       body: CustomScrollView(slivers: <Widget>[
         SliverToBoxAdapter(
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: isDesktop
-                  ? 30
-                  : context.isTablet
-                  ? 20
-                  : 16.0,
-            ),
+                horizontal: isDesktop
+                    ? 30
+                    : context.isTablet
+                    ? 20
+                    : 16.0,
+                vertical: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Hello Ahmad!", style: Theme.of(context).textTheme.button!.copyWith(
-                  fontSize: kSpacingUnit * 1.7,
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 2,
-                  fontFamily: 'Roboto',
-                ),),
-                Text("Play and win to unlock more categories"),
+                Text(S.current.playAndWin),
               ],
             ),
           ),
@@ -56,31 +120,32 @@ class _QuizHomeState extends State<QuizHome> {
               horizontal: isDesktop
                   ? 30
                   : context.isTablet
-                      ? 20
-                      : 16.0,
+                  ? 20
+                  : 16.0,
               vertical: 30.0,
             ),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              mainAxisSpacing: size.height * .04,
+              mainAxisSpacing: size.height * .02,
+              childAspectRatio: 1.15,
               crossAxisCount: isDesktop
                   ? 4
                   : context.isTablet
-                      ? 3
-                      : 2,
+                  ? 3
+                  : 2,
               crossAxisSpacing: isDesktop
                   ? 30
                   : context.isTablet
-                      ? 25
-                      : 12,
+                  ? 25
+                  : 20,
             ),
             children: [
-              _activeTile(fullDisplay),
+              _activeTile(),
               _inActiveTile('Names of Allah'),
               _inActiveTile('Imaan'),
               _inActiveTile('Angels'),
               _inActiveTile('Books of Allah'),
               _inActiveTile('Prophets & Messengers'),
-              _inActiveTile('Others'),
+              // _inActiveTile('Others'),
             ],
           ),
         ),
@@ -88,44 +153,12 @@ class _QuizHomeState extends State<QuizHome> {
     );
   }
 
-  Widget _activeTile(fullDisplay) {
-    return QuizMenu(
-      children: [
-        QuizBtn(
-            icon: Icon(FontAwesomeIcons.unity),
-            buttonColor: Colors.red,
-            onPress: () {
-              fullDisplay = SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack,overlays: []);
-            }),
-        QuizBtn(
-            icon: Icon(FontAwesomeIcons.feather),
-            buttonColor: Colors.indigo,
-            onPress: () {}),
-        QuizBtn(
-            icon: Icon(FontAwesomeIcons.vest),
-            buttonColor: Colors.orange,
-            onPress: () {}),
-        QuizBtn(
-            icon: Icon(FontAwesomeIcons.stream),
-            buttonColor: Colors.green,
-            onPress: () {}),
-        QuizBtn(
-            icon: Icon(FontAwesomeIcons.superpowers),
-            buttonColor: Colors.pink,
-            onPress: () {}),
-        QuizBtn(
-            icon: Icon(FontAwesomeIcons.cog),
-            buttonColor: Colors.blue,
-            onPress: () {}),
-        QuizBtn(
-            icon: Icon(FontAwesomeIcons.random),
-            buttonColor: Colors.yellow,
-            onPress: () {}),
-        QuizBtn(
-            icon: Icon(FontAwesomeIcons.digitalOcean),
-            buttonColor: Colors.teal,
-            onPress: () {}),
-      ],
+  Widget _activeTile() {
+    return GestureDetector(
+      onTap: () {
+        shareDelay.run(() => Get.snackbar(S.current.salam, ''));
+        showMessage();
+      },
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -135,13 +168,13 @@ class _QuizHomeState extends State<QuizHome> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Lottie.asset('assets/lottie/star.json',height: 100),
+            Lottie.asset('assets/lottie/star.json', height: 50, repeat: false),
             Text(
               'Tawheed and Shirk',
               style: Theme.of(context).textTheme.button!.copyWith(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w300,
-                  ),
+                fontSize: 18,
+                fontWeight: FontWeight.w300,
+              ),
             ),
             Divider(indent: 32, endIndent: 32, color: kGreyColor)
           ],
@@ -183,7 +216,8 @@ class _QuizHomeState extends State<QuizHome> {
                       // bottom: 0,
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Theme.of(context).disabledColor.withOpacity(.5),
+                          color:
+                          Theme.of(context).disabledColor.withOpacity(.5),
                           shape: BoxShape.circle,
                         ),
                         height: 50,
@@ -209,8 +243,9 @@ class _QuizHomeState extends State<QuizHome> {
                       child: Container(
                         decoration: BoxDecoration(
                             border: Border.all(
-                              color:
-                                  Theme.of(context).disabledColor.withOpacity(.3),
+                              color: Theme.of(context)
+                                  .disabledColor
+                                  .withOpacity(.3),
                             ),
                             color: Colors.transparent,
                             borderRadius: BorderRadius.circular(50)),
@@ -227,185 +262,4 @@ class _QuizHomeState extends State<QuizHome> {
       ),
     );
   }
-}
-
-class QuizMenu extends StatefulWidget {
-  const QuizMenu({Key? key,
-    this.child,
-    this.context,
-    this.children,
-    this.centerButtonSize = 0.5,
-    this.centerButtonAlignment = Alignment.center}) : super(key: key);
-  // will take in list of buttons
-  final List<QuizBtn>? children;
-  final BuildContext? context;
-  // used for positioning the widget
-  final AlignmentGeometry centerButtonAlignment;
-  final Widget? child;
-  // set main button size
-  final double centerButtonSize;
-  @override
-  _QuizMenuState createState() => _QuizMenuState();
-}
-
-class _QuizMenuState extends State<QuizMenu>  with SingleTickerProviderStateMixin {
-  // used to control animations
-  late AnimationController controller;
-
-  // controller gets initialized here
-  @override
-  void initState() {
-    super.initState();
-    controller =
-        AnimationController(duration: Duration(milliseconds: 900), vsync: this);
-  }
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: widget.centerButtonAlignment,
-      child: Container(
-        height: 80,
-        width: 80,
-        child: QuizAnim(
-          child: widget.child,
-          controller: controller,
-          radialButtons: widget.children,
-          centerSizeOfButton: widget.centerButtonSize,
-        ),
-      ),
-    );
-  }
-  // controller gets disposed here
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-}
-
-class QuizAnim extends StatelessWidget {
-  QuizAnim(
-      {Key? key,
-         this.child,
-         required this.controller,
-         this.radialButtons,
-        this.centerSizeOfButton = 0.5})
-      :
-  // translation animation
-        translation = Tween<double>(
-          begin: 0.0,
-          end: 100.0,
-        ).animate(
-          CurvedAnimation(parent: controller, curve: Curves.elasticOut),
-        ),
-
-  // scaling animation
-        scale = Tween<double>(
-          begin: centerSizeOfButton * 2,
-          end: 0.0,
-        ).animate(
-          CurvedAnimation(parent: controller, curve: Curves.fastOutSlowIn),
-        ),
-
-  // rotation animation
-        rotation = Tween<double>(
-          begin: 0.0,
-          end: 360.0,
-        ).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: Interval(
-              0.0,
-              0.7,
-              curve: Curves.decelerate,
-            ),
-          ),
-        ),
-        super(key: key);
-
-  final AnimationController controller;
-  final Animation<double> rotation;
-  final Animation<double> translation;
-  final Animation<double> scale;
-  final List<QuizBtn>? radialButtons;
-  final double centerSizeOfButton;
-  final Widget? child;
-  @override
-  Widget build(BuildContext context) {
-    // will provide angle for further calculation
-    double generatedAngle = 360 / (radialButtons!.length);
-    double iconAngle;
-
-    return AnimatedBuilder(
-        animation: controller,
-        builder: (context, widget) {
-          return Transform.rotate(
-              angle: radians(rotation.value),
-              child: Stack(alignment: Alignment.center, children: [
-                // generates list of buttons
-                ...radialButtons!.map((index) {
-                  iconAngle = radialButtons!.indexOf(index) * generatedAngle;
-                  return _buildButton(iconAngle,
-                      color: index.buttonColor,
-                      icon: index.icon,
-                      onPress: index.onPress);
-                }),
-                // secondary button animation
-                // Transform.scale(
-                  // scale: scale.value - (centerSizeOfButton * 2 - 0.25),
-                  // child:
-                  GestureDetector(onTap: close, child: child),
-                // ),
-                // primary button animation
-                // Transform.(
-                //   scale: scale.value,
-                  // child:
-          GestureDetector(onTap: open, child: child),
-                // )
-              ]));
-        });
-  }
-
-  // will show child buttons
-  void open() => controller.forward();
-
-
-  // will hide child buttons
-  void close() => controller.reverse();
-
-
-  // build custom child buttons
-  Widget _buildButton(double angle,
-      {Function? onPress, Color? color, Icon? icon}) {
-    final double rad = radians(angle);
-    return Transform(
-        transform: Matrix4.identity()
-          ..translate(
-              (translation.value) * cos(rad), (translation.value) * sin(rad)),
-        child: FloatingActionButton(
-            child: icon,
-            backgroundColor: color,
-            onPressed: () {
-              onPress!();
-              close();
-            },
-            elevation: 0));
-  }
-}
-
-class QuizBtn {
-  // background colour of the button surrounding the icon
-  final Color buttonColor;
-
-  // sets icon of the child buttons
-  final Icon? icon;
-
-  // onPress function of the child buttons
-  final Function? onPress;
-
-  // constructor for child buttons
-  QuizBtn(
-      {this.buttonColor = Colors.orange,
-         this.icon,
-         this.onPress});
 }

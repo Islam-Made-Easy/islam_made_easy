@@ -88,11 +88,6 @@ class _AboutAppState extends State<AboutApp> {
             Text(S.current.aboutApp, style: textButton.copyWith(
                 fontFamily: ar ? 'Amiri' : 'Roboto',
                 fontWeight: FontWeight.w300),textAlign: TextAlign.center),
-            Text(
-                DeviceOS.isDesktop
-                    ? "${Platform.operatingSystemVersion.replaceRange(23, 73, '')}"
-                    : ''
-                , style: textButton.copyWith(fontWeight: FontWeight.w100)),
             Shimmer.fromColors(
               highlightColor: colorScheme.onBackground,
               loop: 2,
