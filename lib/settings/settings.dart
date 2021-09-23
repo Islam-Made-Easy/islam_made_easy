@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_font_picker/flutter_font_picker.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -14,6 +15,7 @@ import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class Settings extends StatefulWidget {
@@ -43,19 +45,37 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
           : Locale(languageCode!);
       Provider.of<LocaleProvide>(context, listen: false).changeLocale(locale);
       // TODO: Get permission before restart in future if relevant
-      /// Needs to 'rebirth' to update the ui since [GetMaterialApp] is not effective
+      // relevance ^> if the data[translation files] is from remote source.
+      // Needs to 'rebirth' to update the ui since GetMaterialApp is not effective
       Phoenix.rebirth(context);
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
+    String _selectedFont = "Roboto";
+    TextStyle? _selectedFontTextStyle;
+    List<String> _gFonts = [
+      "Abril Fatface", "Aclonica", "Alegreya Sans", "Amiri",
+      "Architects Daughter", "Archivo", "Archivo Narrow",
+      "Bebas Neue", "Bitter", "Bree Serif", "Bungee",
+      "Cabin", "Cairo", "Coda", "Comfortaa", "Comic Neue", "Cousine",
+      "Croissant One", "Faster One", "Forum", "Great Vibes", "Heebo",
+      "Inconsolata", "Josefin Slab", "Lato", "Libre Baskerville", "Lobster",
+      "Lora", "Merriweather", "Montserrat", "Mukta", "Nunito", "Offside",
+      "Open Sans", "Oswald", "Overlock", "Pacifico", "Playfair Display",
+      "Poppins", "Raleway", "Roboto", "Roboto Mono", "Source Sans Pro",
+      "Space Mono", "Spicy Rice", "Squada One", "Sue Ellen Francisco", "Trade Winds",
+      "Ubuntu", "Varela", "Vollkorn", "Work Sans", "Zilla Slab"
+    ];
     super.build(context);
     final MaterialLocalizations localize = MaterialLocalizations.of(context);
     final theme = Theme.of(context);
     final bodyTextStyle = theme.textTheme.bodyText1!.apply(color: theme.colorScheme.onPrimary, fontFamily: 'Quattrocento');
     final isDesktop = isDisplayDesktop(context);
-    String txt = context.isDarkMode ? 'Get the lights on' : 'Switch to join the dark side';
+    String txt = context.isDarkMode ? S.current.switchLight : S.current.switchDark;
     return Scaffold(
       backgroundColor: isDesktop ? Colors.transparent : null,
       appBar: AppBar(
@@ -80,7 +100,7 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
                 children: [
                   _chooseTheme(),
                   SettingsButton(
-                    title: 'Dark Mode',
+                    title: S.current.darkMode,
                     subtitle: txt,
                     value: ThemeProvide.isDarkMode,
                     onChanged: (value) {
@@ -101,14 +121,14 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
                 title: Text(S.current.language,
                     style: theme.textTheme.button!.copyWith(
                         fontSize: kSpacingUnit * 1.5,
-                        fontFamily: 'Roboto',
+                        fontFamily: ar ? 'Amiri' : 'Roboto',
                         fontWeight: FontWeight.w400,
                         letterSpacing: 2)),
                 leading: FaIcon(FontAwesomeIcons.language,color: theme.primaryColor,),
                 subtitle: Text(getLanguageUiString(selectedLanguage!),
                     style: theme.textTheme.button!.copyWith(
                         fontSize: kSpacingUnit * 1.3,
-                        fontFamily: 'Roboto',
+                        fontFamily: ar ? 'Amiri' : 'Roboto',
                         fontWeight: FontWeight.w100,
                         letterSpacing: 2)),
                 tilePadding: EdgeInsets.symmetric(
@@ -145,73 +165,73 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
               : Container(),
           isDesktop
               ? WidgetAnimator(
-                  Card(
-                    child: ExpansionTile(
-                      tilePadding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                      childrenPadding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                      title: Text(S.current.shortcuts,
-                          style: theme.textTheme.button!.copyWith(
-                              fontSize: kSpacingUnit * 1.5,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.w400,
-                              letterSpacing: 2)),
+            Card(
+              child: ExpansionTile(
+                tilePadding:
+                EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                childrenPadding:
+                EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                title: Text(S.current.shortcuts,
+                    style: theme.textTheme.button!.copyWith(
+                        fontSize: kSpacingUnit * 1.5,
+                        fontFamily: ar ? 'Amiri' : 'Roboto',
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 2)),
+                children: [
+                  _SettingsShort(
+                    title: localize.copyButtonLabel,
+                    subtitle: 'Ctrl+C',
+                    icon: Icons.copy,
+                    color: Colors.greenAccent,
+                  ),
+                  _SettingsShort(
+                    title: localize.pasteButtonLabel,
+                    subtitle: 'Ctrl+V',
+                    icon: Icons.paste,
+                    color: Colors.orangeAccent,
+                  ),
+                  _SettingsShort(
+                    title: localize.backButtonTooltip,
+                    subtitle: 'Alt+Left',
+                    icon: Icons.arrow_back,
+                    color: Colors.brown,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: context.isDarkMode
+                          ? theme.cardColor.withOpacity(.55)
+                          : Color(0xFFFAFAFC).withOpacity(.5),
+                      border: Border.all(
+                          color: Color(0xFFFAFAFC).withOpacity(.5)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
                       children: [
                         _SettingsShort(
-                          title: localize.copyButtonLabel,
-                          subtitle: 'Ctrl+C',
-                          icon: Icons.copy,
-                          color: Colors.greenAccent,
+                          title: localize.searchFieldLabel,
+                          subtitle: 'Ctrl+F',
+                          icon: Icons.search,
+                          color: Colors.blueAccent,
                         ),
                         _SettingsShort(
-                          title: localize.pasteButtonLabel,
-                          subtitle: 'Ctrl+V',
-                          icon: Icons.paste,
-                          color: Colors.orangeAccent,
+                          title: S.current.whatNew,
+                          subtitle: 'Ctrl+N',
+                          icon: Icons.assignment,
+                          color: Colors.amberAccent,
                         ),
                         _SettingsShort(
-                          title: localize.backButtonTooltip,
-                          subtitle: 'Alt+Left',
-                          icon: Icons.arrow_back,
-                          color: Colors.brown,
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: context.isDarkMode
-                                ? theme.cardColor.withOpacity(.55)
-                                : Color(0xFFFAFAFC).withOpacity(.5),
-                            border: Border.all(
-                                color: Color(0xFFFAFAFC).withOpacity(.5)),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Column(
-                            children: [
-                              _SettingsShort(
-                                title: localize.searchFieldLabel,
-                                subtitle: 'Ctrl+F',
-                                icon: Icons.search,
-                                color: Colors.blueAccent,
-                              ),
-                              _SettingsShort(
-                                title: "What's New in IME ",
-                                subtitle: 'Ctrl+N',
-                                icon: Icons.assignment,
-                                color: Colors.amberAccent,
-                              ),
-                              _SettingsShort(
-                                title: S.current.qDocs,
-                                subtitle: 'Ctrl+Q',
-                                icon: Icons.description,
-                                color: Colors.deepPurple,
-                              ),
-                            ],
-                          ),
+                          title: S.current.qDocs,
+                          subtitle: 'Ctrl+Q',
+                          icon: Icons.description,
+                          color: Colors.deepPurple,
                         ),
                       ],
                     ),
                   ),
-                )
+                ],
+              ),
+            ),
+          )
               : Container(),
           _SettingsTitle(title: S.current.advanced),
           Divider(endIndent: 30, indent: 30, height: 20),
@@ -220,19 +240,24 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
               child: ExpansionTile(
                 tilePadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 childrenPadding:
-                    EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 title: Text(S.current.advanced,
                     style: theme.textTheme.button!.copyWith(
                         fontSize: kSpacingUnit * 1.3,
                         fontWeight: FontWeight.w100,
                         letterSpacing: 2)),
                 children: [
-                  Text(S.current.advancedInfo,
-                      style: theme.textTheme.button!.copyWith(
-                          fontSize: kSpacingUnit * 1.5,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 1))
+                  FontPicker(
+                      showInDialog: true,
+                      onFontChanged: (font) {
+                        setState(() {
+                          _selectedFont = font.fontFamily;
+                          _selectedFontTextStyle = font.toTextStyle();
+                        });
+                        print(
+                            "${font.fontFamily} with font weight ${font.fontWeight} and font style ${font.fontStyle}. FontSpec: ${font.toFontSpec()}");
+                      },
+                      googleFonts: _gFonts),
                 ],
               ),
             ),
@@ -284,7 +309,7 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
         style: TextStyle(color: Theme.of(context).primaryColor),
       ),
       subtitle: Text(
-        'Select your favorite theme',
+        S.current.selectTheme,
         style: Theme.of(context).textTheme.button!.copyWith(
             fontSize: kSpacingUnit * 1.2,
             fontWeight: FontWeight.w100,
@@ -369,19 +394,19 @@ class SettingsButton extends StatelessWidget {
         title: Text(
           title!,
           style: Theme.of(context).textTheme.button!.copyWith(
-                fontSize: kSpacingUnit * 1.7,
-                fontWeight: FontWeight.w400,
-                letterSpacing: 2,
-                fontFamily: ar ? 'Amiri' : 'Roboto',
-              ),
+            fontSize: kSpacingUnit * 1.7,
+            fontWeight: FontWeight.w400,
+            letterSpacing: 2,
+            fontFamily: ar ? 'Amiri' : 'Roboto',
+          ),
         ),
         subtitle: Text(subtitle!,
             style: Theme.of(context).textTheme.button!.copyWith(
                 fontSize: kSpacingUnit * 1.3,
                 fontWeight: FontWeight.w100,
-                fontFamily: 'Roboto',
+                fontFamily: ar ? 'Amiri' : 'Roboto',
                 letterSpacing: 2)),
-        
+
         trailing: CupertinoSwitch(
           value: value!,
           onChanged: onChanged,
