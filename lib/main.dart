@@ -8,11 +8,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get/get.dart';
-import 'package:hijri/hijri_calendar.dart';
+import 'package:islam_made_easy/generated/l10n.dart';
+import 'package:islam_made_easy/locale/localePro.dart';
+import 'package:islam_made_easy/models/app_model.dart';
 import 'package:islam_made_easy/routes/app_route.dart';
 import 'package:islam_made_easy/services/feedback_services.dart';
+import 'package:islam_made_easy/services/firebase_services.dart';
+import 'package:islam_made_easy/services/notification_services.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/device_info.dart';
+import 'package:islam_made_easy/utils/logger.dart';
 import 'package:islam_made_easy/utils/quick_util.dart';
 import 'package:islam_made_easy/utils/sharedP.dart';
 import 'package:islam_made_easy/utils/spUtil.dart';
@@ -24,39 +29,39 @@ import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:window_size/window_size.dart';
 
-import 'generated/l10n.dart';
-import 'locale/localePro.dart';
-
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  setPathUrlStrategy();
-  // Portrait only
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-  await FeedbackServices.init();
-  if (kIsWeb) {
-    const int megabyte = 1000000;
-    SystemChannels.skia.invokeMethod('Skia.setResourceCacheMaxBytes', 512 * megabyte);
-    await Future<void>.delayed(Duration.zero);
-  } else if (DeviceOS.isDesktop) {
+  initLogger(() async {
+    setPathUrlStrategy();
+    // Portrait only
+    await FeedbackServices.init();
+    if (kIsWeb) {
+      const int megabyte = 1000000;
+      SystemChannels.skia.invokeMethod('Skia.setResourceCacheMaxBytes', 512 * megabyte);
+      await Future<void>.delayed(Duration.zero);
+    } else if (DeviceOS.isDesktop) {
       await DesktopWindow.setMinWindowSize(const Size(1051.0, 646.0));
       setWindowTitle('Islam Made Easy');
-  }
+    }
 
-  runApp(
-    Phoenix(
-      child: MultiProvider(
-        providers: [
-          // ChangeNotifierProvider.value(value: NotificationServices()),
-          ChangeNotifierProvider.value(value: ThemeProvide()),
-          ChangeNotifierProvider.value(value: LocaleProvide()),
-        ],
-        child: IMEApp(),
+    /// Create core models & services
+    FirebaseService firebase = FirebaseFactory.create();
+    AppModel appModel = AppModel(firebase);
+    runApp(
+      Phoenix(
+        child: MultiProvider(
+          providers: [
+            ChangeNotifierProvider.value(value: NotificationServices()),
+            // Firebase
+            Provider.value(value: firebase),
+            ChangeNotifierProvider.value(value: appModel),
+            ChangeNotifierProvider.value(value: ThemeProvide()),
+            ChangeNotifierProvider.value(value: LocaleProvide()),
+          ],
+          child: IMEApp(),
+        ),
       ),
-    ),
-  );
+    );
+  });
 }
 
 class IMEApp extends StatefulWidget {
@@ -71,30 +76,20 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     _initSp();
   }
 
-  bool isCelebration = false;
-
   Future _initSp() async {
-    var _today = HijriCalendar.now().wkDay;
     await appSP.init();
     bool? dark = SpUtil.getDarkTheme();
     if (dark != null) {
       Provider.of<ThemeProvide>(context, listen: false).getDark(dark);
     }
     int? themeIndex = SpUtil.getThemeIndex();
-    // Provider.of<NotificationServices>(context, listen: false).initialize();
+    Provider.of<NotificationServices>(context, listen: false).init();
     if (themeIndex != null) {
       Provider.of<ThemeProvide>(context, listen: false).changeTheme(themeIndex);
     }
     String lang = SpUtil.getLanguage()!;
     if (StringUtil.isNotEmpty(lang)) {
       Provider.of<LocaleProvide>(context, listen: false).changeLocale(Locale(lang));
-    }
-    int timeNow = DateTime.now().hour;
-    if ((_today == DateTime.thursday && timeNow > 18) ||
-        (_today == DateTime.friday && timeNow < 18)) {
-      setState(() {
-        isCelebration = true;
-      });
     }
   }
 
@@ -138,7 +133,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       onGenerateRoute: appRoute.generateRoute,
       onGenerateTitle: (context) => S.current.appTitle,
       supportedLocales: S.delegate.supportedLocales,
-      home: QuickUtil(child: isCelebration ? SplashScreen() : Home()),
+      home: QuickUtil(child: Home()),
       debugShowCheckedModeBanner: false,
     );
   }

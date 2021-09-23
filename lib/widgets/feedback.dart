@@ -1,14 +1,15 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
+import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'anim/anim.dart';
-
-void showFeedbackDialog({required BuildContext context, required bool isPanelVisible}) {
+void showFeedbackDialog(BuildContext context, bool isPanelVisible) {
   final isDesktop = isDisplayDesktop(context);
   showAnimatedDialog<void>(
     context: context,
     barrierDismissible: !isDesktop,
-    animationType: isPanelVisible ? DialogTransitionType.slideFromRightFade : DialogTransitionType.size,
+    animationType: isPanelVisible
+        ? DialogTransitionType.slideFromRightFade
+        : DialogTransitionType.size,
     builder: (context) => AppFeedback(),
   );
 }
@@ -32,22 +33,24 @@ class _AppFeedbackState extends State<AppFeedback> {
 
   @override
   void initState() {
-    name = TextEditingController();
-    email = TextEditingController();
-    feed = TextEditingController();
     super.initState();
   }
 
   void _submitFeed() async {
     if (_formKey.currentState!.validate()) {
-      print(feed!.text);
       _formKey.currentState!.save();
-      final feedback = FeedbackModel(name: name!.text,email: email!.text,feedback: feed!.text);
-      await FeedbackServices.insert([feedback.toJson()]);
-      Get.snackbar('Submitting', 'Thank you for submitting your feedback!, Jazakumullahu Khayraa!!');
-      name!.clear(); email!.clear(); feed!.clear();
+      await FeedbackServices.insert(
+          name: name!.text, email: email!.text, feedback: feed!.text);
+      Get.snackbar('Submitting',
+          'Thank you for submitting your feedback!, Jazakumullahu Khayraa!!');
+      name!.clear();
+      email!.clear();
+      feed!.clear();
+      setState(() {});
+      print(feed!.text);
     }
   }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -67,14 +70,14 @@ class _AppFeedbackState extends State<AppFeedback> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          'IME Feedback  Center',
+          S.current.feedbackCentre,
           style: TextStyle(color: theme.textTheme.caption!.color),
         ),
         automaticallyImplyLeading: !isDesktop,
         backgroundColor:
             isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
                 ? Colors.transparent
-                : theme.appBarTheme.color,
+                : theme.appBarTheme.backgroundColor,
       ),
       body: AutofillGroup(
         child: Form(
@@ -95,19 +98,15 @@ class _AppFeedbackState extends State<AppFeedback> {
                         fontWeight: FontWeight.w100),
                     child: AnimatedTextKit(
                       animatedTexts: [
-                        TyperAnimatedText(
-                          isDesktop
-                              ? "Assalam'alaikum warahmatullah Wabarakatuh,"
-                              : "Assalam'alaikum warahmatullahو",
-                        ),
-                        TyperAnimatedText("Welcome to IME Feedback Center"),
+                        TyperAnimatedText(S.current.salam),
+                        TyperAnimatedText(S.current.welcomeFeedback),
                       ],
                       isRepeatingAnimation: false,
                     ),
                   ),
                 ),
                 Text(
-                  "We can’t wait to get your thoughts on our app. Try help or support, have a question? We'd love to hear it.",
+                  S.current.wait,
                   style: theme.textTheme.headline6!
                       .copyWith(fontWeight: FontWeight.w100),
                 ),
@@ -115,11 +114,11 @@ class _AppFeedbackState extends State<AppFeedback> {
                 InputContainer(
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return "Name can't be empty";
+                      return S.current.emptyName;
                     } else if (value.length < 4) {
                       return "Name is too short";
                     } else if (value.length > 32) {
-                      return "Name is too long";
+                      return S.current.longName;
                     } else {
                       return null;
                     }
@@ -127,21 +126,24 @@ class _AppFeedbackState extends State<AppFeedback> {
                   autoFocus: true,
                   inputType: TextInputType.name,
                   controller: name,
-                  autofillHints: [AutofillHints.name,AutofillHints.newUsername],
+                  autofillHints: const [
+                    AutofillHints.name,
+                    AutofillHints.username
+                  ],
                   decoration: InputDecoration(
                       contentPadding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                      hintText: 'Enter your name',
-                      labelText: 'Name',
+                      hintText: S.current.enterName,
+                      labelText: S.current.lName,
                       labelStyle: labelStyle),
                 ),
                 InputContainer(
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return 'Please provide your email';
+                      return S.current.provideEmail;
                       // return "If you want to get updates regarding your feedback, enter your email";
                     } else if (!value.isEmail) {
-                      return "Please enter a valid email";
+                      return S.current.enterEmailValid;
                     } else {
                       return null;
                     }
@@ -152,16 +154,16 @@ class _AppFeedbackState extends State<AppFeedback> {
                   decoration: InputDecoration(
                       contentPadding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                      hintText: 'Enter your email',
+                      hintText: S.current.enterEmail,
                       labelStyle: labelStyle,
-                      labelText: 'Email'),
+                      labelText: S.current.email),
                 ),
                 InputContainer(
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Please provide your feedback";
+                        return S.current.provideFeed;
                       } else if (value.length > 2048) {
-                        return "Make it short and concise";
+                        return S.current.makeShort;
                       } else {
                         return null;
                       }
@@ -178,17 +180,18 @@ class _AppFeedbackState extends State<AppFeedback> {
                         ),
                         border: InputBorder.none,
                         labelStyle: labelStyle,
-                        hintText: 'Leave your feedback or share ideas',
-                        labelText: 'Feedback')),
+                        hintText: S.current.leaveFeed,
+                        labelText: S.current.feedback)),
                 SizedBox(height: 20),
-                StretchButton(onTap: _submitFeed, text: 'Submit'),
+                StretchButton(
+                    onTap: () => _submitFeed(), text: S.current.submit),
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
                         Text(
-                          'We will not send you anything except for the content about your feedback.\n\nAlternatively  you can also report bugs and errors on the following platforms',
+                          '${S.current.notSend}\n\n${S.current.alternative}',
                           textAlign: TextAlign.center,
                           style: theme.textTheme.caption!.copyWith(
                               fontWeight: FontWeight.w300,
@@ -245,8 +248,14 @@ class InputContainer extends StatelessWidget {
   final List<String>? autofillHints;
 
   const InputContainer(
-      {Key? key, this.decoration, this.controller, this.autofillHints,
-        this.validator, this.autoFocus = false, this.inputType}) : super(key: key);
+      {Key? key,
+      this.decoration,
+      this.controller,
+      this.autofillHints,
+      this.validator,
+      this.autoFocus = false,
+      this.inputType})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -275,7 +284,6 @@ class InputContainer extends StatelessWidget {
                         fontFamily: ar ? 'Amiri' : 'Roboto',
                         fontWeight: FontWeight.w100,
                         letterSpacing: 2),
-                    autocorrect: true,
                     keyboardType: inputType,
                     maxLines: null,
                     validator: validator,

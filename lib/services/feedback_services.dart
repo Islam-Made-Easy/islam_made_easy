@@ -32,8 +32,8 @@ class FeedbackServices {
     }
   }
 
-  static Future insert(List<Map<String, dynamic>>rowList) async {
+  static Future insert({String? name, email, feedback}) async {
     if (_wSheet == null) return;
-    _wSheet!.values.appendRow(rowList);
+    _wSheet!.values.appendRow([name, email, feedback]);
   }
 }
