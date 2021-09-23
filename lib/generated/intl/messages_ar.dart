@@ -63,6 +63,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutJibril": MessageLookupByLibrary.simpleMessage(
             "\n ~ أسئلة وأجوبة \n ~ الحج: تعلم مني عملك التنموي"),
         "advanced": MessageLookupByLibrary.simpleMessage("متقدم"),
+        "alternative": MessageLookupByLibrary.simpleMessage(
+            "كبديل يمكنك أيضاً الإبلاغ عن الحشرات والأخطاء على المنصات التالية"),
         "appTitle": MessageLookupByLibrary.simpleMessage("Islam Made Easy"),
         "arabi": MessageLookupByLibrary.simpleMessage("Arabic"),
         "arabic": MessageLookupByLibrary.simpleMessage("عربى"),
@@ -162,7 +164,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "6. There\'s a difference of opinion whether the meat must be hand slaughtered, Imām Abū Hanīfah(رحمه الله), Imām Al-Shāfi\'ī(رحمه الله), Imām Ahmad ibn Hanbal(رحمه الله) and the majority of the scholars say \"It\'s compulsory for the meat to be hand-slaughtered\"\n7. If you live in a country mixed with Ahlâl Kitāb & Mushrikeen and you\'re not sure whether it was slaughtered by either, it returns back to the principle of the meat, which is Halāl.\n\n8. McDonalds is one of Israel\'s biggest funders, therefore it\'s compulsory to boycott them."),
         "eatingNotesTitle": MessageLookupByLibrary.simpleMessage(
             "ملاحظات عن أكل اللحوم من أهل الكتاب والقتل من فضيلة الشيخ سليمان العلوان."),
+        "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "emptyName":
+            MessageLookupByLibrary.simpleMessage("الاسم لا يمكن أن يكون فارغا"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
+        "enterEmail":
+            MessageLookupByLibrary.simpleMessage("أدخل بريدك الإلكتروني"),
+        "enterEmailValid": MessageLookupByLibrary.simpleMessage(
+            "يرجى الدخول إلى البريد الإلكتروني الصحيح"),
+        "enterName": MessageLookupByLibrary.simpleMessage("أدخل الاسم"),
         "enteringMosquePar1": MessageLookupByLibrary.simpleMessage(
             "Shaykh Sulayman al-‘Alwan said: There are three different opinions regarding the issue of a women in her menses entering the Mosque:\n1. It\'s not permissible for her to enter the mosque, and this is what\'s most known from the Madhab of Imām Mālik and al-Shāfi\'ī, and the لرأي (أهلHanafī\'s), and one of the sayings in the madhab of Imām Ahmad, and they used as evidence the prophet\'s saying \"I do not permit the menstrator or junb(post sexual state) to be in the mosque\" and the prophets saying to Ai\'sha(عنها هللا )رضي \"perform what a pilgrim does, except that you don\'t do Tawāf\" and the hadīth is agreed upon its authenticity, and they used as proof that the Prophet(وسلم عليه هللا )صلى \"Prevented the menstrator to be present at the Eīd prayer\" and the hadīth is agreed upon its authenticity."),
         "enteringMosquePar2": MessageLookupByLibrary.simpleMessage(
@@ -250,6 +260,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Hadith \"O Allâh bless us in Rajab and Sha\'bān & allow us to reach Ramadān\""),
         "feedWelcome": MessageLookupByLibrary.simpleMessage(
             "مرحباً بكم في مركز التغذية المرتدة"),
+        "feedback": MessageLookupByLibrary.simpleMessage("التعليقات"),
+        "feedbackCentre":
+            MessageLookupByLibrary.simpleMessage("IME مركز التغذية"),
         "forPlatform": MessageLookupByLibrary.simpleMessage("For"),
         "fridayFirst": MessageLookupByLibrary.simpleMessage(
             "من بين أول من يتدخل من أجله من قبل (بروفيت) و من أرسل معظم الصلاة إليه و أفضل يوم لإرسال صلاة له"),
@@ -533,7 +546,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "indonesian": MessageLookupByLibrary.simpleMessage("indonesian"),
         "jinn": MessageLookupByLibrary.simpleMessage("الجن"),
         "kiswahili": MessageLookupByLibrary.simpleMessage("كسواحيلية"),
+        "lName": MessageLookupByLibrary.simpleMessage("الاسم"),
         "language": MessageLookupByLibrary.simpleMessage("لغة"),
+        "leaveFeed": MessageLookupByLibrary.simpleMessage(
+            "أترك تعليقاتك أو تشارك أفكارك"),
         "lifestyle": MessageLookupByLibrary.simpleMessage("نمط الحياة"),
         "lifestyleA1Par1": MessageLookupByLibrary.simpleMessage(
             "Shaykh Sulaymān al-\'Alwān(حفظه لله) narrates a Story that\'s spoken about of al-Hāfidh Ibn Hajr(رحمه الله) regarding this Hadīth:\n“...Ibn Hajr(رحمه الله) & his companions were walking on a road, when a man who sells olives from the people of the book approached him & said: You\'re the one who\'s called Shaykh al-Islām. Your Prophet says \"The Dunyâ is a prison for the believer, and a Jannâh for the Kāfir\", so what Jannâh are we in right now, and what prison are you in? So Ibn Hajr(رحمه الله) said to him: You are in a Jannâh for what Allāh has\nreckoned for you of punishment in the hereafter if you die upon Kufr, and I\'m in a prison for what Allāh has reckoned for us of comfort/bliss when we die upon Islām. "),
@@ -560,6 +576,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "lifestyleQ3": MessageLookupByLibrary.simpleMessage(
             "What is the ruling on urinating while standing ?"),
         "linkCopied": MessageLookupByLibrary.simpleMessage("تم نسخ الرابط"),
+        "longName": MessageLookupByLibrary.simpleMessage("الاسم طويل"),
+        "makeShort":
+            MessageLookupByLibrary.simpleMessage("اجعلها قصيرة وموجزة"),
         "marriageA1Par1": MessageLookupByLibrary.simpleMessage(
             "Shaykh Sulaymān al-\'Alwān responded by saying: It\'s not allowed for either parent to compel their son into marriage with someone they don\'t want or love because the result of this marriage might end in a divorce or a miserable life for both of them. And it\'s not compulsory upon the son to obey them in this and it wouldn\'t be considered disobedience in doing so. However, it\'s necessary upon the son to be gentle in his rejection and to not raise his voice upon his parents or let them hear any bad words."),
         "marriageA2Par1": MessageLookupByLibrary.simpleMessage(
@@ -629,6 +648,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "كيف يكون العبد موحدًا لله عزوجل ؟"),
         "nikkah": MessageLookupByLibrary.simpleMessage("النكاح"),
         "no": MessageLookupByLibrary.simpleMessage("لا"),
+        "notSend": MessageLookupByLibrary.simpleMessage(
+            "لن نرسل لكِ أي شيء عدا محتوى تعليقاتكِ"),
         "nullifiersIntro": MessageLookupByLibrary.simpleMessage(
             " والناقض : هو ما يفسد الشيء و يبطل بوجوده .فيجب أن تعلم أخي المسلم أن التوحيد نواقض لماأن الصلاة نواقض إدا وقع المصلي في أي ناقض منها بطلت صلانه, كالضحك قهقهة , وكالأكل و الشرب في الصلاة ونحو ذلك من بطلات الصلاة, فكذلك التوحيد نواقض إذا وقع العبد في أي ناقض منها بطل توحيده وكان بالله مشركاً كافراً"),
         "nullifiersPar1": MessageLookupByLibrary.simpleMessage(
@@ -1021,6 +1042,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "الشيخ نصير الفهد (حفظه الله)"),
         "prerequisiteTitle":
             MessageLookupByLibrary.simpleMessage(" منهج موجز في طلب العلم "),
+        "provideEmail": MessageLookupByLibrary.simpleMessage(
+            "يرجى تقديم البريد الإلكتروني الخاص بك"),
+        "provideFeed":
+            MessageLookupByLibrary.simpleMessage("يرجى تقديم تعليقاتكم"),
         "qDocs": MessageLookupByLibrary.simpleMessage("التوثيق السريع"),
         "qnaAnswer1": MessageLookupByLibrary.simpleMessage(
             "الشيخ سليمان العلوان (حفظه الله)"),
@@ -1035,6 +1060,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "seerah": MessageLookupByLibrary.simpleMessage("سيره"),
         "selectTheme":
             MessageLookupByLibrary.simpleMessage("اختيار موضوعك المفضل"),
+        "sendFeed": MessageLookupByLibrary.simpleMessage("إرسال التعليقات"),
         "serbia": MessageLookupByLibrary.simpleMessage("Serbian"),
         "serbian": MessageLookupByLibrary.simpleMessage("cpƞckͷ"),
         "settings": MessageLookupByLibrary.simpleMessage("إعدادات"),
@@ -1053,6 +1079,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الكلمات القصيرة المترجمة"),
         "shortcuts": MessageLookupByLibrary.simpleMessage("الاختصارات"),
         "startQuiz": MessageLookupByLibrary.simpleMessage("ابدأ الاختبار"),
+        "submit": MessageLookupByLibrary.simpleMessage("إرسال"),
         "succinctPar1": MessageLookupByLibrary.simpleMessage(
             "ALL PRAISE BELONGS to Allah. And may the  salah and  salam [of Allah] be upon the Messenger of Allah. As for what follows...\nSome virtuous brothers thought well of me - assuming the tumor was meat [Publisher’s note: When a lamb used to have a tumor on its body, some might assume that it is getting fatter and thus will have more meat. So the Arabs used to say this phrase. It might mean “overestimating,” and what’s similar to that, in English.] - so they sought from me that I outline a methodology for them in seeking knowledge. I had already compiled a rough draft of a book on this subject, except that I can not complete it at the moment due to circumstances that are not hidden. Therefore, I saw that I should write a summary of what was in it, according to what fits on this paper. I ask Allah to make it beneficial."),
         "succinctSub10Par1": MessageLookupByLibrary.simpleMessage(
@@ -1283,6 +1310,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Side Note: I\'m translating وسبعون بضع as \"70 odd\", but there\'s a difference of opinion regarding what \"\"بضع is, however if you refer back to Fath al-Bārī by Ibn Rajab(رحمه الله) on his explanation of Sahīh al-Bukhārī, chapter of Ēmān, he has mentioned several opinions, and what seems to be most correct according to most scholars is that \"\"بضع is any number\nbetween 3-9."),
         "usuryTitle": MessageLookupByLibrary.simpleMessage(
             "حديث ملفق: للربا 70 فرعاً ، وأدناها معادلة رجل زنى مع أمه."),
+        "wait": MessageLookupByLibrary.simpleMessage(
+            "لا يمكننا الانتظار للحصول على أفكارك على تطبيقنا. حاول المساعدة أو الدعم، ألديك سؤال؟ نود سماعها"),
+        "welcomeFeedback":
+            MessageLookupByLibrary.simpleMessage("مرحبا بكم في مركز التغذية"),
         "whatNew": MessageLookupByLibrary.simpleMessage("ما هو جديد في IME"),
         "yes": MessageLookupByLibrary.simpleMessage("نعم"),
         "zakkah": MessageLookupByLibrary.simpleMessage("الزكاة")

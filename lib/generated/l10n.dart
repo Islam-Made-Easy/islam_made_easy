@@ -140,6 +140,196 @@ class S {
     );
   }
 
+  /// `Name`
+  String get lName {
+    return Intl.message(
+      'Name',
+      name: 'lName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Feedback`
+  String get feedback {
+    return Intl.message(
+      'Feedback',
+      name: 'feedback',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Feedback`
+  String get sendFeed {
+    return Intl.message(
+      'Send Feedback',
+      name: 'sendFeed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to IME Feedback Center`
+  String get welcomeFeedback {
+    return Intl.message(
+      'Welcome to IME Feedback Center',
+      name: 'welcomeFeedback',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your name`
+  String get enterName {
+    return Intl.message(
+      'Enter your name',
+      name: 'enterName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email`
+  String get enterEmail {
+    return Intl.message(
+      'Enter your email',
+      name: 'enterEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email`
+  String get enterEmailValid {
+    return Intl.message(
+      'Please enter a valid email',
+      name: 'enterEmailValid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please provide your email`
+  String get provideEmail {
+    return Intl.message(
+      'Please provide your email',
+      name: 'provideEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please provide your feedback`
+  String get provideFeed {
+    return Intl.message(
+      'Please provide your feedback',
+      name: 'provideFeed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Make it short and concise`
+  String get makeShort {
+    return Intl.message(
+      'Make it short and concise',
+      name: 'makeShort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We will not send you anything except for the content about your feedback.`
+  String get notSend {
+    return Intl.message(
+      'We will not send you anything except for the content about your feedback.',
+      name: 'notSend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alternatively  you can also report bugs and errors on the following platforms`
+  String get alternative {
+    return Intl.message(
+      'Alternatively  you can also report bugs and errors on the following platforms',
+      name: 'alternative',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name can't be empty`
+  String get emptyName {
+    return Intl.message(
+      'Name can\'t be empty',
+      name: 'emptyName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name is too long`
+  String get longName {
+    return Intl.message(
+      'Name is too long',
+      name: 'longName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Leave your feedback or share ideas`
+  String get leaveFeed {
+    return Intl.message(
+      'Leave your feedback or share ideas',
+      name: 'leaveFeed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `IME Feedback Centre`
+  String get feedbackCentre {
+    return Intl.message(
+      'IME Feedback Centre',
+      name: 'feedbackCentre',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get submit {
+    return Intl.message(
+      'Submit',
+      name: 'submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We can’t wait to get your thoughts on our app. Try help or support, have a question? We'd love to hear it.`
+  String get wait {
+    return Intl.message(
+      'We can’t wait to get your thoughts on our app. Try help or support, have a question? We\'d love to hear it.',
+      name: 'wait',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Worship`
   String get worship {
     return Intl.message(
