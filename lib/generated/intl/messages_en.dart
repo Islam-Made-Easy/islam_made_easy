@@ -68,7 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "advancedInfo": MessageLookupByLibrary.simpleMessage(
             "Advancing Soon \n  In Sha Allāh"),
         "alternative": MessageLookupByLibrary.simpleMessage(
-            "Alternatively  you can also report bugs and errors on the following platforms"),
+            "Alternatively you can also report bugs and errors on the following platforms"),
         "appTitle": MessageLookupByLibrary.simpleMessage("Islam Made Easy"),
         "aqeedah": MessageLookupByLibrary.simpleMessage("Aqeedah"),
         "arabi": MessageLookupByLibrary.simpleMessage("Arabic"),
@@ -269,7 +269,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fatawaAuthor2": MessageLookupByLibrary.simpleMessage(
             "Sheikh Muhammad bin Hizam Al-Ba\'dany"),
         "feedWelcome": MessageLookupByLibrary.simpleMessage(
-            "Welcome to IME Feedback Center"),
+            "Welcome to IME Feedback Centre"),
         "feedback": MessageLookupByLibrary.simpleMessage("Feedback"),
         "feedbackCentre":
             MessageLookupByLibrary.simpleMessage("IME Feedback Centre"),

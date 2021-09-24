@@ -50,26 +50,6 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Sheikh Abū Hājar (حفظه الله)`
-  String get tawheedIntroAuthor {
-    return Intl.message(
-      'Sheikh Abū Hājar (حفظه الله)',
-      name: 'tawheedIntroAuthor',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `~ An Introduction To Tawheed and Sunnah according to the understanding of The Salaf of the Ummah`
-  String get tawheedIntroTitle {
-    return Intl.message(
-      '~ An Introduction To Tawheed and Sunnah according to the understanding of The Salaf of the Ummah',
-      name: 'tawheedIntroTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `About`
   String get about {
     return Intl.message(
@@ -100,6 +80,16 @@ class S {
     );
   }
 
+  /// ` \n~ Questions & Answers`
+  String get aboutFatawaAuthor2 {
+    return Intl.message(
+      ' \n~ Questions & Answers',
+      name: 'aboutFatawaAuthor2',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// ` \n~ Questions & Answers \n~ HAJJ: LEARN FROM ME YOUR DEVOTIONAL ACT`
   String get aboutJibril {
     return Intl.message(
@@ -110,11 +100,51 @@ class S {
     );
   }
 
+  /// `Advanced`
+  String get advanced {
+    return Intl.message(
+      'Advanced',
+      name: 'advanced',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advancing Soon \n  In Sha Allāh`
+  String get advancedInfo {
+    return Intl.message(
+      'Advancing Soon \n  In Sha Allāh',
+      name: 'advancedInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alternatively you can also report bugs and errors on the following platforms`
+  String get alternative {
+    return Intl.message(
+      'Alternatively you can also report bugs and errors on the following platforms',
+      name: 'alternative',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Islam Made Easy`
   String get appTitle {
     return Intl.message(
       'Islam Made Easy',
       name: 'appTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Aqeedah`
+  String get aqeedah {
+    return Intl.message(
+      'Aqeedah',
+      name: 'aqeedah',
       desc: '',
       args: [],
     );
@@ -135,356 +165,6 @@ class S {
     return Intl.message(
       'عربى',
       name: 'arabic',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Name`
-  String get lName {
-    return Intl.message(
-      'Name',
-      name: 'lName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Email`
-  String get email {
-    return Intl.message(
-      'Email',
-      name: 'email',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Feedback`
-  String get feedback {
-    return Intl.message(
-      'Feedback',
-      name: 'feedback',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Send Feedback`
-  String get sendFeed {
-    return Intl.message(
-      'Send Feedback',
-      name: 'sendFeed',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Welcome to IME Feedback Center`
-  String get welcomeFeedback {
-    return Intl.message(
-      'Welcome to IME Feedback Center',
-      name: 'welcomeFeedback',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Enter your name`
-  String get enterName {
-    return Intl.message(
-      'Enter your name',
-      name: 'enterName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Enter your email`
-  String get enterEmail {
-    return Intl.message(
-      'Enter your email',
-      name: 'enterEmail',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Please enter a valid email`
-  String get enterEmailValid {
-    return Intl.message(
-      'Please enter a valid email',
-      name: 'enterEmailValid',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Please provide your email`
-  String get provideEmail {
-    return Intl.message(
-      'Please provide your email',
-      name: 'provideEmail',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Please provide your feedback`
-  String get provideFeed {
-    return Intl.message(
-      'Please provide your feedback',
-      name: 'provideFeed',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Make it short and concise`
-  String get makeShort {
-    return Intl.message(
-      'Make it short and concise',
-      name: 'makeShort',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `We will not send you anything except for the content about your feedback.`
-  String get notSend {
-    return Intl.message(
-      'We will not send you anything except for the content about your feedback.',
-      name: 'notSend',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Alternatively  you can also report bugs and errors on the following platforms`
-  String get alternative {
-    return Intl.message(
-      'Alternatively  you can also report bugs and errors on the following platforms',
-      name: 'alternative',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Name can't be empty`
-  String get emptyName {
-    return Intl.message(
-      'Name can\'t be empty',
-      name: 'emptyName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Name is too long`
-  String get longName {
-    return Intl.message(
-      'Name is too long',
-      name: 'longName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Leave your feedback or share ideas`
-  String get leaveFeed {
-    return Intl.message(
-      'Leave your feedback or share ideas',
-      name: 'leaveFeed',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `IME Feedback Centre`
-  String get feedbackCentre {
-    return Intl.message(
-      'IME Feedback Centre',
-      name: 'feedbackCentre',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Submit`
-  String get submit {
-    return Intl.message(
-      'Submit',
-      name: 'submit',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `We can’t wait to get your thoughts on our app. Try help or support, have a question? We'd love to hear it.`
-  String get wait {
-    return Intl.message(
-      'We can’t wait to get your thoughts on our app. Try help or support, have a question? We\'d love to hear it.',
-      name: 'wait',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Worship`
-  String get worship {
-    return Intl.message(
-      'Worship',
-      name: 'worship',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `The life of Muhammad(ﷺ)`
-  String get hisLife {
-    return Intl.message(
-      'The life of Muhammad(ﷺ)',
-      name: 'hisLife',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Stories of prophets`
-  String get stories {
-    return Intl.message(
-      'Stories of prophets',
-      name: 'stories',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `The Companions`
-  String get companions {
-    return Intl.message(
-      'The Companions',
-      name: 'companions',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Aqeedah`
-  String get aqeedah {
-    return Intl.message(
-      'Aqeedah',
-      name: 'aqeedah',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Welcome to IME Feedback Center`
-  String get feedWelcome {
-    return Intl.message(
-      'Welcome to IME Feedback Center',
-      name: 'feedWelcome',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Share Link copied!`
-  String get linkCopied {
-    return Intl.message(
-      'Share Link copied!',
-      name: 'linkCopied',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `An Introduction To Tawheed And Sunnah`
-  String get introductionTawheed {
-    return Intl.message(
-      'An Introduction To Tawheed And Sunnah',
-      name: 'introductionTawheed',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Advanced`
-  String get advanced {
-    return Intl.message(
-      'Advanced',
-      name: 'advanced',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Share`
-  String get share {
-    return Intl.message(
-      'Share',
-      name: 'share',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `The Messenger of Allāh ﷺ said: “Verily, Allah has made this day (of Friday) a celebration for the Muslims. So whoever comes to Friday (prayer), then let him bathe himself and if he has any perfume let him put some on, and use the toothstick.`
-  String get fridayFirst {
-    return Intl.message(
-      'The Messenger of Allāh ﷺ said: “Verily, Allah has made this day (of Friday) a celebration for the Muslims. So whoever comes to Friday (prayer), then let him bathe himself and if he has any perfume let him put some on, and use the toothstick.',
-      name: 'fridayFirst',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Friday Reminders`
-  String get fridayRemind {
-    return Intl.message(
-      'Friday Reminders',
-      name: 'fridayRemind',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `is Now Live on any Desktop distribution`
-  String get shareText {
-    return Intl.message(
-      'is Now Live on any Desktop distribution',
-      name: 'shareText',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Get it from the Snap Store`
-  String get shareGetStoreText {
-    return Intl.message(
-      'Get it from the Snap Store',
-      name: 'shareGetStoreText',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Advancing Soon \n  In Sha Allāh`
-  String get advancedInfo {
-    return Intl.message(
-      'Advancing Soon \n  In Sha Allāh',
-      name: 'advancedInfo',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Quick Documentation`
-  String get qDocs {
-    return Intl.message(
-      'Quick Documentation',
-      name: 'qDocs',
       desc: '',
       args: [],
     );
@@ -780,6 +460,16 @@ class S {
     );
   }
 
+  /// `The Companions`
+  String get companions {
+    return Intl.message(
+      'The Companions',
+      name: 'companions',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Copied to clipboard`
   String get copiedToClipboard {
     return Intl.message(
@@ -810,26 +500,6 @@ class S {
     );
   }
 
-  /// `Customize Your Experience`
-  String get customizeExp {
-    return Intl.message(
-      'Customize Your Experience',
-      name: 'customizeExp',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Interface`
-  String get interface {
-    return Intl.message(
-      'Interface',
-      name: 'interface',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Croatian`
   String get croatian {
     return Intl.message(
@@ -845,6 +515,16 @@ class S {
     return Intl.message(
       'Croatian (Croatia)',
       name: 'croatianHR',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Customize Your Experience`
+  String get customizeExp {
+    return Intl.message(
+      'Customize Your Experience',
+      name: 'customizeExp',
       desc: '',
       args: [],
     );
@@ -870,76 +550,6 @@ class S {
     );
   }
 
-  /// `Dark Mode`
-  String get darkMode {
-    return Intl.message(
-      'Dark Mode',
-      name: 'darkMode',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `What's New in IME`
-  String get whatNew {
-    return Intl.message(
-      'What\'s New in IME',
-      name: 'whatNew',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Select your favorite theme`
-  String get selectTheme {
-    return Intl.message(
-      'Select your favorite theme',
-      name: 'selectTheme',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Switch to join the dark side`
-  String get switchDark {
-    return Intl.message(
-      'Switch to join the dark side',
-      name: 'switchDark',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Get the lights on`
-  String get switchLight {
-    return Intl.message(
-      'Get the lights on',
-      name: 'switchLight',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Hello`
-  String get hello {
-    return Intl.message(
-      'Hello',
-      name: 'hello',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Play and win to unlock more categories`
-  String get playAndWin {
-    return Intl.message(
-      'Play and win to unlock more categories',
-      name: 'playAndWin',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `dansk`
   String get dansk {
     return Intl.message(
@@ -950,21 +560,11 @@ class S {
     );
   }
 
-  /// ` \n~ Questions & Answers`
-  String get aboutFatawaAuthor2 {
+  /// `Dark Mode`
+  String get darkMode {
     return Intl.message(
-      ' \n~ Questions & Answers',
-      name: 'aboutFatawaAuthor2',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Sheikh Muhammad bin Hizam Al-Ba'dany`
-  String get fatawaAuthor2 {
-    return Intl.message(
-      'Sheikh Muhammad bin Hizam Al-Ba\'dany',
-      name: 'fatawaAuthor2',
+      'Dark Mode',
+      name: 'darkMode',
       desc: '',
       args: [],
     );
@@ -1130,11 +730,61 @@ class S {
     );
   }
 
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name can't be empty`
+  String get emptyName {
+    return Intl.message(
+      'Name can\'t be empty',
+      name: 'emptyName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `English`
   String get english {
     return Intl.message(
       'English',
       name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email`
+  String get enterEmail {
+    return Intl.message(
+      'Enter your email',
+      name: 'enterEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email`
+  String get enterEmailValid {
+    return Intl.message(
+      'Please enter a valid email',
+      name: 'enterEmailValid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your name`
+  String get enterName {
+    return Intl.message(
+      'Enter your name',
+      name: 'enterName',
       desc: '',
       args: [],
     );
@@ -1580,11 +1230,71 @@ class S {
     );
   }
 
+  /// `Sheikh Muhammad bin Hizam Al-Ba'dany`
+  String get fatawaAuthor2 {
+    return Intl.message(
+      'Sheikh Muhammad bin Hizam Al-Ba\'dany',
+      name: 'fatawaAuthor2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to IME Feedback Centre`
+  String get feedWelcome {
+    return Intl.message(
+      'Welcome to IME Feedback Centre',
+      name: 'feedWelcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Feedback`
+  String get feedback {
+    return Intl.message(
+      'Feedback',
+      name: 'feedback',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `IME Feedback Centre`
+  String get feedbackCentre {
+    return Intl.message(
+      'IME Feedback Centre',
+      name: 'feedbackCentre',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `For`
   String get forPlatform {
     return Intl.message(
       'For',
       name: 'forPlatform',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The Messenger of Allāh ﷺ said: “Verily, Allah has made this day (of Friday) a celebration for the Muslims. So whoever comes to Friday (prayer), then let him bathe himself and if he has any perfume let him put some on, and use the toothstick.`
+  String get fridayFirst {
+    return Intl.message(
+      'The Messenger of Allāh ﷺ said: “Verily, Allah has made this day (of Friday) a celebration for the Muslims. So whoever comes to Friday (prayer), then let him bathe himself and if he has any perfume let him put some on, and use the toothstick.',
+      name: 'fridayFirst',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Friday Reminders`
+  String get fridayRemind {
+    return Intl.message(
+      'Friday Reminders',
+      name: 'fridayRemind',
       desc: '',
       args: [],
     );
@@ -3020,6 +2730,16 @@ class S {
     );
   }
 
+  /// `Hello`
+  String get hello {
+    return Intl.message(
+      'Hello',
+      name: 'hello',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `हिंदी`
   String get hindi {
     return Intl.message(
@@ -3035,6 +2755,16 @@ class S {
     return Intl.message(
       'Hindi',
       name: 'hindii',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The life of Muhammad(ﷺ)`
+  String get hisLife {
+    return Intl.message(
+      'The life of Muhammad(ﷺ)',
+      name: 'hisLife',
       desc: '',
       args: [],
     );
@@ -3080,6 +2810,26 @@ class S {
     );
   }
 
+  /// `Interface`
+  String get interface {
+    return Intl.message(
+      'Interface',
+      name: 'interface',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An Introduction To Tawheed And Sunnah`
+  String get introductionTawheed {
+    return Intl.message(
+      'An Introduction To Tawheed And Sunnah',
+      name: 'introductionTawheed',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Jinn`
   String get jinn {
     return Intl.message(
@@ -3100,11 +2850,31 @@ class S {
     );
   }
 
+  /// `Name`
+  String get lName {
+    return Intl.message(
+      'Name',
+      name: 'lName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Language`
   String get language {
     return Intl.message(
       'Language',
       name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Leave your feedback or share ideas`
+  String get leaveFeed {
+    return Intl.message(
+      'Leave your feedback or share ideas',
+      name: 'leaveFeed',
       desc: '',
       args: [],
     );
@@ -3235,6 +3005,36 @@ class S {
     return Intl.message(
       'What is the ruling on urinating while standing ?',
       name: 'lifestyleQ3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share Link copied!`
+  String get linkCopied {
+    return Intl.message(
+      'Share Link copied!',
+      name: 'linkCopied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name is too long`
+  String get longName {
+    return Intl.message(
+      'Name is too long',
+      name: 'longName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Make it short and concise`
+  String get makeShort {
+    return Intl.message(
+      'Make it short and concise',
+      name: 'makeShort',
       desc: '',
       args: [],
     );
@@ -3610,6 +3410,16 @@ class S {
     );
   }
 
+  /// `We will not send you anything except for the content about your feedback.`
+  String get notSend {
+    return Intl.message(
+      'We will not send you anything except for the content about your feedback.',
+      name: 'notSend',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `‘Nawaquid’ is the plural form of the word ‘Naquid’. Naquid means ‘what negates and invalidates’. It is therefore very important to know that Tawheed has some Nawaquid, which nullify one’s Islam. For example in Salah (prayer), there are many factors that invalidate it, for instance if a person laughs, eats or drinks while praying- his prayer is invalid. So if a Muslim commits any of the things that nullify Tawheed, then he becomes a Murtad, Mushrik and Kafir.`
   String get nullifiersIntro {
     return Intl.message(
@@ -3755,6 +3565,16 @@ class S {
     return Intl.message(
       '(peace and blessings of Allah be upon him)',
       name: 'peace',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Play and win to unlock more categories`
+  String get playAndWin {
+    return Intl.message(
+      'Play and win to unlock more categories',
+      name: 'playAndWin',
       desc: '',
       args: [],
     );
@@ -5580,6 +5400,36 @@ class S {
     );
   }
 
+  /// `Please provide your email`
+  String get provideEmail {
+    return Intl.message(
+      'Please provide your email',
+      name: 'provideEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please provide your feedback`
+  String get provideFeed {
+    return Intl.message(
+      'Please provide your feedback',
+      name: 'provideFeed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quick Documentation`
+  String get qDocs {
+    return Intl.message(
+      'Quick Documentation',
+      name: 'qDocs',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sheikh Sulayman ibn NāSir ibn 'Abd Allāh al-'Alwan(حفظه الله)`
   String get qnaAnswer1 {
     return Intl.message(
@@ -5660,6 +5510,26 @@ class S {
     );
   }
 
+  /// `Select your favorite theme`
+  String get selectTheme {
+    return Intl.message(
+      'Select your favorite theme',
+      name: 'selectTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Feedback`
+  String get sendFeed {
+    return Intl.message(
+      'Send Feedback',
+      name: 'sendFeed',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Serbian`
   String get serbia {
     return Intl.message(
@@ -5730,6 +5600,36 @@ class S {
     );
   }
 
+  /// `Share`
+  String get share {
+    return Intl.message(
+      'Share',
+      name: 'share',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get it from the Snap Store`
+  String get shareGetStoreText {
+    return Intl.message(
+      'Get it from the Snap Store',
+      name: 'shareGetStoreText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `is Now Live on any Desktop distribution`
+  String get shareText {
+    return Intl.message(
+      'is Now Live on any Desktop distribution',
+      name: 'shareText',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Short Phrases`
   String get shortPhrases {
     return Intl.message(
@@ -5765,6 +5665,26 @@ class S {
     return Intl.message(
       'Start Quiz',
       name: 'startQuiz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stories of prophets`
+  String get stories {
+    return Intl.message(
+      'Stories of prophets',
+      name: 'stories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get submit {
+    return Intl.message(
+      'Submit',
+      name: 'submit',
       desc: '',
       args: [],
     );
@@ -6427,6 +6347,26 @@ class S {
     );
   }
 
+  /// `Switch to join the dark side`
+  String get switchDark {
+    return Intl.message(
+      'Switch to join the dark side',
+      name: 'switchDark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get the lights on`
+  String get switchLight {
+    return Intl.message(
+      'Get the lights on',
+      name: 'switchLight',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `System Default`
   String get systemDefault {
     return Intl.message(
@@ -6472,6 +6412,26 @@ class S {
     return Intl.message(
       'Shaikhul-Islam, al-Mujaddid (the reviver), Muhammad bin Abdul-Wahhab (رحمه الله)',
       name: 'tawheedBookAuthor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sheikh Abū Hājar (حفظه الله)`
+  String get tawheedIntroAuthor {
+    return Intl.message(
+      'Sheikh Abū Hājar (حفظه الله)',
+      name: 'tawheedIntroAuthor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `~ An Introduction To Tawheed and Sunnah according to the understanding of The Salaf of the Ummah`
+  String get tawheedIntroTitle {
+    return Intl.message(
+      '~ An Introduction To Tawheed and Sunnah according to the understanding of The Salaf of the Ummah',
+      name: 'tawheedIntroTitle',
       desc: '',
       args: [],
     );
@@ -6992,6 +6952,46 @@ class S {
     return Intl.message(
       'Fabricated Hadīth "Ribā has 70 odd branches, the lowest is equivalent to a man committing adultery with his Mother"',
       name: 'usuryTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We can’t wait to get your thoughts on our app. Try help or support, have a question? We'd love to hear it.`
+  String get wait {
+    return Intl.message(
+      'We can’t wait to get your thoughts on our app. Try help or support, have a question? We\'d love to hear it.',
+      name: 'wait',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to IME Feedback Center`
+  String get welcomeFeedback {
+    return Intl.message(
+      'Welcome to IME Feedback Center',
+      name: 'welcomeFeedback',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What's New in IME`
+  String get whatNew {
+    return Intl.message(
+      'What\'s New in IME',
+      name: 'whatNew',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Worship`
+  String get worship {
+    return Intl.message(
+      'Worship',
+      name: 'worship',
       desc: '',
       args: [],
     );
