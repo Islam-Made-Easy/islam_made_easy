@@ -53,6 +53,8 @@ class _AppFeedbackState extends State<AppFeedback> {
 
   @override
   Widget build(BuildContext context) {
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     final theme = Theme.of(context);
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
@@ -71,7 +73,7 @@ class _AppFeedbackState extends State<AppFeedback> {
         centerTitle: true,
         title: Text(
           S.current.feedbackCentre,
-          style: TextStyle(color: theme.textTheme.caption!.color),
+          style: TextStyle(color: theme.textTheme.caption!.color,fontFamily: ar ? 'Amiri' : 'Roboto'),
         ),
         automaticallyImplyLeading: !isDesktop,
         backgroundColor:
@@ -92,7 +94,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                 SizedBox(
                   child: DefaultTextStyle(
                     style: theme.textTheme.caption!.copyWith(
-                        fontFamily: 'Roboto',
+                        fontFamily: ar ? 'Amiri' : 'Roboto',
                         fontSize: isDesktop || context.isTablet ? 26.0 : 20,
                         letterSpacing: 1,
                         fontWeight: FontWeight.w100),
@@ -108,7 +110,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                 Text(
                   S.current.wait,
                   style: theme.textTheme.headline6!
-                      .copyWith(fontWeight: FontWeight.w100),
+                      .copyWith(fontWeight: FontWeight.w100,fontFamily: ar ? 'Amiri' : 'Roboto'),
                 ),
                 SizedBox(height: 10),
                 InputContainer(
@@ -196,7 +198,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                           style: theme.textTheme.caption!.copyWith(
                               fontWeight: FontWeight.w300,
                               letterSpacing: 2,
-                              fontFamily: 'Roboto'),
+                              fontFamily: ar ? 'Amiri' : 'Roboto'),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
