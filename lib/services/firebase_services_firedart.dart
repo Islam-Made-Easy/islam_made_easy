@@ -34,7 +34,7 @@ class DartFirebaseService extends FirebaseService {
       _isSignedIn = true;
       return AppUser(user.id);
     } catch (e) {}
-    return null;
+    return AppUser(user!.id);
   }
 
   @override
