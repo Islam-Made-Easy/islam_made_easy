@@ -2,12 +2,12 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:islam_made_easy/services/firebase_services.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
-const AndroidNotificationChannel channel = AndroidNotificationChannel(
+const channel = AndroidNotificationChannel(
     'channel', 'Notifier', 'IME Notifier',
     groupId: 'groupedID');
 final FirebaseMessaging _fM = FirebaseMessaging.instance;
 final FlutterLocalNotificationsPlugin _localNotifier =
-FlutterLocalNotificationsPlugin();
+    FlutterLocalNotificationsPlugin();
 FirebaseService firebase = FirebaseFactory.create();
 
 Future backgroundHandler(RemoteMessage message) async {
@@ -154,11 +154,11 @@ class NotificationServices extends ChangeNotifier {
   }
 
   Future<String?> getToken() async {
-    String? token = await FirebaseMessaging.instance.getToken();
+    String? token = await _fM.getToken();
     return token;
   }
 
   receiveNotification(String topic) async {
-    await FirebaseMessaging.instance.subscribeToTopic(topic);
+    await _fM.subscribeToTopic(topic);
   }
 }
