@@ -22,21 +22,21 @@ class _QuizHomeState extends State<QuizHome> {
     ),
   );
 
-  showMessage() {
-    ScaffoldMessenger.of(context).showMaterialBanner(
-      MaterialBanner(
-        content: Text('This section is under development'),
-        backgroundColor: Theme.of(context).primaryColorLight,
-        actions: [
-          TextButton(
-            child: Text('DISMISS'),
-            onPressed: () =>
-                ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
-          ),
-        ],
-      ),
-    );
-  }
+  // showMessage() {
+  //   ScaffoldMessenger.of(context).showMaterialBanner(
+  //     MaterialBanner(
+  //       content: Text('This section is under development'),
+  //       backgroundColor: Theme.of(context).primaryColorLight,
+  //       actions: [
+  //         TextButton(
+  //           child: Text('DISMISS'),
+  //           onPressed: () =>
+  //               ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   static DelayUI shareDelay = DelayUI(Duration(seconds: 10));
 
@@ -156,8 +156,8 @@ class _QuizHomeState extends State<QuizHome> {
   Widget _activeTile() {
     return GestureDetector(
       onTap: () {
-        shareDelay.run(() => Get.snackbar(S.current.salam, ''));
-        showMessage();
+        shareDelay.run(() => Get.snackbar(S.current.salam, 'This section is under development'));
+        // showMessage();
       },
       child: Container(
         decoration: BoxDecoration(
