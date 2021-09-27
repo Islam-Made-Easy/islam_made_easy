@@ -41,18 +41,18 @@ class _SettingsLinkButtonState extends State<SettingsLinkButton> {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          AnimatedScale(
-            duration: Duration(milliseconds: 5000),
-            curve: Curves.easeIn,
-            scale: _isMouseOver ? 2 : 1.1,
-            child: Image.asset(
+       //   AnimatedScale(
+        //    duration: Duration(milliseconds: 5000),
+          //  curve: Curves.easeIn,
+          //  scale: _isMouseOver ? 2 : 1.1,
+              Image.asset(
               widget.title!,
               fit: BoxFit.fitHeight,
               width: size.width,
               matchTextDirection: true,
               height: size.height,
             ),
-          ),
+       //   ),
           Center(child: Text(widget.subtitle!, style: theme)),
           Positioned(
             child: Container(
