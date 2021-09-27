@@ -111,12 +111,6 @@ jobs:
           echo $VERSION_NAME
           echo $VERSION_CODE
 
-      - name: Update KeyStore password in gradle properties
-        run: sed -i 's/#{KEYSTORE_PASS}#/${{ secrets.KEYSTORE_PASS }}/g' android/key.properties
-
-      - name: Update KeyStore key password in gradle properties
-        run: sed -i 's/#{KEYSTORE_KEY_PASS}#/${{ secrets.KEYSTORE_KEY_PASS }}/g' android/key.properties
-
       - name: Update dependencies
         run: flutter pub get
 
