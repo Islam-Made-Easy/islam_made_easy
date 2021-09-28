@@ -114,8 +114,8 @@ jobs:
       - name: Update dependencies
         run: flutter pub get
 
-      - name: Build Android Bundle
-        run: flutter build appbundle
+      - name: Build Android APK
+        run: flutter build apk
 
       - name: Create a Release in GitHub
         uses: ncipollo/release-action@v1
@@ -126,8 +126,8 @@ jobs:
           commit: ${{ github.sha }}
           prerelease: false
 
-      - name: Upload app bundle
+      - name: Upload Apk
         uses: actions/upload-artifact@v2
         with:
-          name: appbundle
-          path: build/app/outputs/bundle/release/app-release.aab
+          name: apk
+          path: build/app/outputs/apk/release/app-release.apk
