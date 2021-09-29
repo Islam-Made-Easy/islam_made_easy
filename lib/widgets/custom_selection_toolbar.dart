@@ -112,7 +112,7 @@ Future<void> customBottomSheet(BuildContext context,data) async {
                         child: Container(
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage('assets/images/deco.jpg'),
+                              image: AssetImage('assets/images/logo.png'),
                               fit: BoxFit.cover,
                             ),
                             color: Theme.of(context).cardColor,
@@ -214,12 +214,10 @@ Future<void> customBottomSheet(BuildContext context,data) async {
 }
 
 final List<Event> events = [
-  Event('deco.jpg'),
-  Event('deco.jpg'),
-  Event('deco.jpg'),
-  Event('deco.jpg'),
-  Event('deco.jpg'),
-  Event('deco.jpg'),
+  Event('logo.png'),
+  Event('logo.png'),
+  Event('logo.png'),
+  Event('logo.png'),
 ];
 
 class Event {

@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:get/get.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
+import 'package:islam_made_easy/utils/download_util.dart';
 import 'package:islam_made_easy/widgets/anim/load_indicator.dart';
 import 'package:markdown/markdown.dart' as md;
+import 'package:firebase_storage/firebase_storage.dart';
 
 class Prerequisite extends StatefulWidget {
   static const ROUTE_NAME = "/prerequisite";
@@ -14,34 +16,39 @@ class Prerequisite extends StatefulWidget {
 }
 
 class _PrerequisiteState extends State<Prerequisite> {
+  FirebaseStorage storage = FirebaseStorage.instance;
   var _extensionSet = MarkdownExtensionSet.githubFlavored;
-  late String data;
+  String? data;
+  String? downloadURL;
 
   @override
   Widget build(BuildContext context) {
     final dp = isDisplayDesktop(context);
     final theme = Theme.of(context).textTheme;
     final locale = Localizations.localeOf(context).languageCode;
-    preLang() {
+    Future<String?> getFiles() async {
       if (locale == 'ar') {
-        data = 'assets/md/intro_ar.md';
+        data = 'intro_ar';
       } else if (locale == 'sw') {
-        data = 'assets/md/intro_sw.md';
+        data = 'intro_sw';
       } else if (locale == 'id') {
-        data = 'assets/md/intro_id.md';
+        data = 'intro_id';
       } else {
-        data = 'assets/md/intro.md';
+        data = 'intro';
       }
+      downloadURL = await storage.ref('prerequisites/${data}.md').getDownloadURL();
+      await DownloadUtil.downloadFile(downloadURL!, 'preference');
+      return downloadURL;
     }
-
-    preLang();
+    getFiles();
     return Scaffold(
-      backgroundColor: context.isDarkMode ? null : Theme.of(context).primaryColorLight,
+      backgroundColor:
+          context.isDarkMode ? null : Theme.of(context).primaryColorLight,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: dp ? 30 : 1, vertical: 20),
         child: FutureBuilder(
-          future: DefaultAssetBundle.of(context).loadString(data, cache: false),
-          builder: (context,AsyncSnapshot snapshot) {
+          future: DefaultAssetBundle.of(context).loadString(downloadURL!, cache: false),
+          builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               return Column(
                 children: [

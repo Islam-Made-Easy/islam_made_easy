@@ -4,8 +4,9 @@ class ShareButtons extends StatelessWidget {
   final String? tip;
   final Widget? icon;
   final Function? onPressed;
+  final Color? color;
 
-  const ShareButtons({Key? key, this.icon, this.onPressed, this.tip}) : super(key: key);
+  const ShareButtons({Key? key, this.color, this.icon, this.onPressed, this.tip}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +17,7 @@ class ShareButtons extends StatelessWidget {
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(color: Colors.grey[300]!, offset: Offset(4.0, 4.0), blurRadius: isDesktop?10:2, spreadRadius: 1.0),
+          BoxShadow(color: color!.withOpacity(.09), offset: Offset(-4.0, -4.0), blurRadius:  isDesktop?10:2, spreadRadius: 1.0),
           BoxShadow(color: Colors.transparent.withOpacity(.09), offset: Offset(-4.0, -4.0), blurRadius:  isDesktop?10:2, spreadRadius: 1.0),
         ],
         gradient: gradient,

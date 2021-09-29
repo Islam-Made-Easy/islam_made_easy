@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
@@ -21,22 +22,6 @@ class _QuizHomeState extends State<QuizHome> {
       bottomRight: Radius.circular(32),
     ),
   );
-
-  // showMessage() {
-  //   ScaffoldMessenger.of(context).showMaterialBanner(
-  //     MaterialBanner(
-  //       content: Text('This section is under development'),
-  //       backgroundColor: Theme.of(context).primaryColorLight,
-  //       actions: [
-  //         TextButton(
-  //           child: Text('DISMISS'),
-  //           onPressed: () =>
-  //               ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
 
   static DelayUI shareDelay = DelayUI(Duration(seconds: 10));
 
@@ -61,11 +46,11 @@ class _QuizHomeState extends State<QuizHome> {
                       "${S.current.hello} Ahmad!",
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.button!.copyWith(
-                        fontSize: kSpacingUnit * 1.7,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 2,
-                        fontFamily: 'Roboto',
-                      ),
+                            fontSize: kSpacingUnit * 1.7,
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 2,
+                            fontFamily: 'Roboto',
+                          ),
                     ),
                     SizedBox(width: 10),
                     Hero(
@@ -103,8 +88,8 @@ class _QuizHomeState extends State<QuizHome> {
                 horizontal: isDesktop
                     ? 30
                     : context.isTablet
-                    ? 20
-                    : 16.0,
+                        ? 20
+                        : 16.0,
                 vertical: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,8 +105,8 @@ class _QuizHomeState extends State<QuizHome> {
               horizontal: isDesktop
                   ? 30
                   : context.isTablet
-                  ? 20
-                  : 16.0,
+                      ? 20
+                      : 16.0,
               vertical: 30.0,
             ),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -130,13 +115,13 @@ class _QuizHomeState extends State<QuizHome> {
               crossAxisCount: isDesktop
                   ? 4
                   : context.isTablet
-                  ? 3
-                  : 2,
+                      ? 3
+                      : 2,
               crossAxisSpacing: isDesktop
                   ? 30
                   : context.isTablet
-                  ? 25
-                  : 20,
+                      ? 25
+                      : 20,
             ),
             children: [
               _activeTile(),
@@ -156,8 +141,8 @@ class _QuizHomeState extends State<QuizHome> {
   Widget _activeTile() {
     return GestureDetector(
       onTap: () {
-        shareDelay.run(() => Get.snackbar(S.current.salam, 'This section is under development'));
-        // showMessage();
+        shareDelay.run(() =>
+            Get.snackbar(S.current.salam, 'This section is under development'));
       },
       child: Container(
         decoration: BoxDecoration(
@@ -172,9 +157,9 @@ class _QuizHomeState extends State<QuizHome> {
             Text(
               'Tawheed and Shirk',
               style: Theme.of(context).textTheme.button!.copyWith(
-                fontSize: 18,
-                fontWeight: FontWeight.w300,
-              ),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w300,
+                  ),
             ),
             Divider(indent: 32, endIndent: 32, color: kGreyColor)
           ],
@@ -206,57 +191,14 @@ class _QuizHomeState extends State<QuizHome> {
                 textAlign: TextAlign.center,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: Align(
-                alignment: AlignmentDirectional.bottomStart,
-                child: Stack(
-                  children: [
-                    Positioned(
-                      // bottom: 0,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color:
-                          Theme.of(context).disabledColor.withOpacity(.5),
-                          shape: BoxShape.circle,
-                        ),
-                        height: 50,
-                        width: 30,
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 18,
-                      left: 10,
-                      right: 10,
-                      child: Container(
-                          height: 15,
-                          width: 7,
-                          decoration: BoxDecoration(
-                              color: Theme.of(context)
-                                  .highlightColor
-                                  .withOpacity(.8),
-                              borderRadius: BorderRadius.circular(20))),
-                    ),
-                    Positioned(
-                      left: 0,
-                      right: 0,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Theme.of(context)
-                                  .disabledColor
-                                  .withOpacity(.3),
-                            ),
-                            color: Colors.transparent,
-                            borderRadius: BorderRadius.circular(50)),
-                        height: 40,
-                        width: 10,
-                      ),
-                    ),
-                  ],
-                ),
+            Positioned(
+              left: 0,bottom: 0,
+              child: SvgPicture.asset(
+                'assets/icons/icons8-lock-80.svg',
+                matchTextDirection: true,color: kGreyColor,
+                height: 50,
               ),
-            )
+            ),
           ],
         ),
       ),

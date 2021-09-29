@@ -62,7 +62,7 @@ class PopupOptionMenu extends StatelessWidget {
             children: [
               FaIcon(FontAwesomeIcons.comment,color: color),
               const SizedBox(width: 10),
-              Text('Send Feedback'),
+              Text(S.current.sendFeed),
             ],
           ),
           value: MenuOptions.feed,
