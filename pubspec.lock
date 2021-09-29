@@ -197,13 +197,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
-  cloudinary_public:
-    dependency: "direct main"
-    description:
-      name: cloudinary_public
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.8.2"
   collection:
     dependency: transitive
     description:
@@ -391,13 +384,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_animated_cards:
-    dependency: "direct main"
-    description:
-      name: flutter_animated_cards
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.2"
   flutter_animated_dialog:
     dependency: "direct main"
     description:
@@ -595,13 +581,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.2"
-  interactive_chart:
-    dependency: "direct main"
-    description:
-      name: interactive_chart
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.1"
   intl:
     dependency: "direct main"
     description:
@@ -658,34 +637,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  multi_window:
-    dependency: "direct main"
-    description:
-      name: multi_window
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.2"
-  multi_window_interface:
-    dependency: transitive
-    description:
-      name: multi_window_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.1"
-  multi_window_linux:
-    dependency: transitive
-    description:
-      name: multi_window_linux
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.1"
-  multi_window_macos:
-    dependency: transitive
-    description:
-      name: multi_window_macos
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.1"
   nested:
     dependency: transitive
     description:
@@ -700,13 +651,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0+1"
-  overlay_support:
-    dependency: "direct main"
-    description:
-      name: overlay_support
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.1"
   package_info:
     dependency: "direct main"
     description:
@@ -861,13 +805,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  random_string:
-    dependency: "direct main"
-    description:
-      name: random_string
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.3.1"
   rxdart:
     dependency: transitive
     description:
@@ -1013,13 +950,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0"
-  systray:
-    dependency: "direct main"
-    description:
-      name: systray
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.5"
   term_glyph:
     dependency: transitive
     description:
@@ -1041,13 +971,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.7.0"
-  transparent_image:
-    dependency: "direct main"
-    description:
-      name: transparent_image
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   typed_data:
     dependency: transitive
     description:
@@ -1119,7 +1042,7 @@ packages:
     source: hosted
     version: "0.2.0"
   uuid:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: uuid
       url: "https://pub.dartlang.org"
