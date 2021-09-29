@@ -10,10 +10,10 @@ grade: stable
 apps:
   islam-made-easy:
     command: islam_made_easy
-    extensions: [flutter-master] # Where "master" defines which Flutter channel to use for the build
+    extensions: [ flutter-master ] # Where "master" defines which Flutter channel to use for the build
     plugs:
       - network
-      - home
+
 parts:
   islam-made-easy:
     source: .
