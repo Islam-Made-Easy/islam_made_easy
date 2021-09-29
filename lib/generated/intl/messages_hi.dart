@@ -574,7 +574,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "lName": MessageLookupByLibrary.simpleMessage("Name"),
         "language": MessageLookupByLibrary.simpleMessage("भाषा: हिन्दी"),
         "leaveFeed": MessageLookupByLibrary.simpleMessage(
-            "Leave your feedback or share ideas"),
+            "अपनी प्रतिक्रिया या साझा विचारों को छोड़ दें"),
         "lifestyle": MessageLookupByLibrary.simpleMessage("बॉलीवुड"),
         "lifestyleA1Par1": MessageLookupByLibrary.simpleMessage(
             "Shaykh Sulaymān al-\'Alwān(حفظه الله) narrates a Story that\'s spoken about of al-Hāfidh Ibn Hajr(رحمه الله) regarding this Hadīth:\n“...Ibn Hajr(رحمه الله) & his companions were walking on a road, when a man who sells olives from the people of the book approached him & said: You\'re the one who\'s called Shaykh al-Islām. Your Prophet says \"The Dunyâ is a prison for the believer, and a Jannâh for the Kāfir\", so what Jannâh are we in right now, and what prison are you in? So Ibn Hajr(رحمه الله) said to him: You are in a Jannâh for what Allāh has\nreckoned for you of punishment in the hereafter if you die upon Kufr, and I\'m in a prison for what Allāh has reckoned for us of comfort/bliss when we die upon Islām. "),
@@ -600,6 +600,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "What\'s the ruling on hanging a Qur\'ān in the car?"),
         "lifestyleQ3": MessageLookupByLibrary.simpleMessage(
             "What is the ruling on urinating while standing ?"),
+        "linkCopied":
+            MessageLookupByLibrary.simpleMessage("Share Link copied!"),
+        "longName": MessageLookupByLibrary.simpleMessage("Name is too long"),
+        "makeShort":
+            MessageLookupByLibrary.simpleMessage("Make it short and concise"),
         "marriageA1Par1": MessageLookupByLibrary.simpleMessage(
             "Shaykh Sulaymān al-\'Alwān responded by saying: It\'s not allowed for either parent to compel their son into marriage with someone they don\'t want or love because the result of this marriage might end in a divorce or a miserable life for both of them. And it\'s not compulsory upon the son to obey them in this and it wouldn\'t be considered disobedience in doing so. However, it\'s necessary upon the son to be gentle in his rejection and to not raise his voice upon his parents or let them hear any bad words."),
         "marriageA2Par1": MessageLookupByLibrary.simpleMessage(
@@ -669,6 +674,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "How can a person be a monotheist?"),
         "nikkah": MessageLookupByLibrary.simpleMessage("शादी"),
         "no": MessageLookupByLibrary.simpleMessage("नहीं"),
+        "notSend": MessageLookupByLibrary.simpleMessage(
+            "We will not send you anything except for the content about your feedback."),
         "nullifiersIntro": MessageLookupByLibrary.simpleMessage(
             "‘Nawaquid’ is the plural form of the word ‘Naquid’. Naquid means ‘what negates and invalidates’. It is therefore very important to know that Tawheed has some Nawaquid, which nullify one’s Islam. For example in Salah (prayer), there are many factors that invalidate it, for instance if a person laughs, eats or drinks while praying- his prayer is invalid. So if a Muslim commits any of the things that nullify Tawheed, then he becomes a Murtad, Mushrik and Kafir."),
         "nullifiersPar1": MessageLookupByLibrary.simpleMessage(
@@ -698,6 +705,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("ठीक"),
         "peace": MessageLookupByLibrary.simpleMessage(
             "(peace and blessings of Allah be upon him)"),
+        "playAndWin": MessageLookupByLibrary.simpleMessage(
+            "Play and win to unlock more categories"),
         "prayer": MessageLookupByLibrary.simpleMessage("प्रार्थना"),
         "prayerA10Par1": MessageLookupByLibrary.simpleMessage(
             "The Shaykh(هللا )حفظه responded by saying: This Hadīth isn\'t authentic, it\'s narrated by Abū Dāwūd(62), ibn Mājah(512), \'Abd ibn Hamīd(859) and others from the chain of \'Abdûl Rahmān ibn Ziyād ibn An\'am al-Ifrīqī from Abī Ghutayf al-Huthalī from \'Abdullâh ibn \'Omar(رضي الله عنهما) from the Prophet(ﷺ). "),
@@ -1059,6 +1068,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("शेख नसीर अल-फहद"),
         "prerequisiteTitle": MessageLookupByLibrary.simpleMessage(
             "ज्ञान की तलाश में एक सफल पद्धति"),
+        "provideEmail":
+            MessageLookupByLibrary.simpleMessage("Please provide your email"),
+        "provideFeed": MessageLookupByLibrary.simpleMessage(
+            "Please provide your feedback"),
+        "qDocs": MessageLookupByLibrary.simpleMessage("Quick Documentation"),
         "qnaAnswer1": MessageLookupByLibrary.simpleMessage(
             "Sheikh Sulayman ibn NāSir ibn \'Abd Allāh al-\'Alwan(حفظه الله)"),
         "questionsAndAnswers":
@@ -1070,6 +1084,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "references": MessageLookupByLibrary.simpleMessage("संदर्भ"),
         "salam": MessageLookupByLibrary.simpleMessage("Assalamu\'alaikum"),
         "seerah": MessageLookupByLibrary.simpleMessage("इतिहास"),
+        "selectTheme":
+            MessageLookupByLibrary.simpleMessage("Select your favorite theme"),
+        "sendFeed": MessageLookupByLibrary.simpleMessage("Send Feedback"),
         "serbia": MessageLookupByLibrary.simpleMessage("Serbian"),
         "serbian": MessageLookupByLibrary.simpleMessage("cpƞckͷ"),
         "settings": MessageLookupByLibrary.simpleMessage("समायोजन"),
@@ -1077,12 +1094,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsTextLarge": MessageLookupByLibrary.simpleMessage("Large"),
         "settingsTextNormal": MessageLookupByLibrary.simpleMessage("Normal"),
         "settingsTextSmall": MessageLookupByLibrary.simpleMessage("Small"),
+        "share": MessageLookupByLibrary.simpleMessage("Share"),
+        "shareGetStoreText":
+            MessageLookupByLibrary.simpleMessage("Get it from the Snap Store"),
+        "shareText": MessageLookupByLibrary.simpleMessage(
+            "is Now Live on any Desktop distribution"),
         "shortPhrases": MessageLookupByLibrary.simpleMessage("Short Phrases"),
         "shortPhrasesT":
             MessageLookupByLibrary.simpleMessage("Short Phrases Translated"),
         "shortcuts": MessageLookupByLibrary.simpleMessage("शॉर्टकट"),
         "startQuiz":
             MessageLookupByLibrary.simpleMessage("प्रश्नोत्तरी शुरू करें"),
+        "stories": MessageLookupByLibrary.simpleMessage("Stories of prophets"),
+        "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "succinctPar1": MessageLookupByLibrary.simpleMessage(
             "ALL PRAISE BELONGS to Allah. And may the ​ salah and ​ salam [of Allah] be upon the Messenger of Allah. As for what follows...\nSome virtuous brothers thought well of me - assuming the tumor was meat [Publisher’s note: When a lamb used to have a tumor on its body, some might assume that it is getting fatter and thus will have more meat. So the Arabs used to say this phrase. It might mean “overestimating,” and what’s similar to that, in English.] - so they sought from me that I outline a methodology for them in seeking knowledge. I had already compiled a rough draft of a book on this subject, except that I can not complete it at the moment due to circumstances that are not hidden. Therefore, I saw that I should write a summary of what was in it, according to what fits on this paper. I ask Allah to make it beneficial."),
         "succinctSub10Par1": MessageLookupByLibrary.simpleMessage(
@@ -1205,6 +1229,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "swahili": MessageLookupByLibrary.simpleMessage("Swahili"),
         "swalah": MessageLookupByLibrary.simpleMessage("स्वाल्लाह"),
         "swaum": MessageLookupByLibrary.simpleMessage("तेज"),
+        "switchDark": MessageLookupByLibrary.simpleMessage(
+            "Switch to join the dark side"),
+        "switchLight":
+            MessageLookupByLibrary.simpleMessage("Get the lights on"),
         "systemDefault":
             MessageLookupByLibrary.simpleMessage("सिस्टम डिफ़ॉल्ट"),
         "tawheed": MessageLookupByLibrary.simpleMessage("पर- तौहीद "),
@@ -1214,6 +1242,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("K i t a b A t - T a u h i d"),
         "tawheedBookAuthor": MessageLookupByLibrary.simpleMessage(
             "Muhammad bin Abdul-Wahhab (rahimahullah)"),
+        "tawheedIntroAuthor": MessageLookupByLibrary.simpleMessage(
+            "Sheikh Abū Hājar (حفظه الله)"),
+        "tawheedIntroTitle": MessageLookupByLibrary.simpleMessage(
+            "~ An Introduction To Tawheed and Sunnah according to the understanding of The Salaf of the Ummah"),
         "tawheedQ1": MessageLookupByLibrary.simpleMessage(
             "What is the correct view with regards to the ruling on the Sāhir? "),
         "tawheedQ1Par1": MessageLookupByLibrary.simpleMessage(
@@ -1309,6 +1341,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Side Note: I\'m translating وسبعون بضع as \"70 odd\", but there\'s a difference of opinion regarding what \"\"بضع is, however if you refer back to Fath al-Bārī by Ibn Rajab(رحمه الله) on his explanation of Sahīh al-Bukhārī, chapter of Ēmān, he has mentioned several opinions, and what seems to be most correct according to most scholars is that \"\"بضع is any number\nbetween 3-9."),
         "usuryTitle": MessageLookupByLibrary.simpleMessage(
             "Fabricated_Hadīth \"Ribā has 70 odd branches, the lowest is equivalent to a man committing adultery with his Mother\""),
+        "wait": MessageLookupByLibrary.simpleMessage(
+            "We can’t wait to get your thoughts on our app. Try help or support, have a question? We\'d love to hear it."),
+        "welcomeFeedback": MessageLookupByLibrary.simpleMessage(
+            "Welcome to IME Feedback Center"),
+        "whatNew": MessageLookupByLibrary.simpleMessage("What\'s New in IME"),
+        "worship": MessageLookupByLibrary.simpleMessage("Worship"),
         "yes": MessageLookupByLibrary.simpleMessage("हाँ"),
         "zakkah": MessageLookupByLibrary.simpleMessage("दान पुण्य ")
       };
