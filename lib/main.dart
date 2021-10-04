@@ -14,7 +14,7 @@ import 'package:islam_made_easy/models/app_model.dart';
 import 'package:islam_made_easy/routes/app_route.dart';
 import 'package:islam_made_easy/services/feedback_services.dart';
 import 'package:islam_made_easy/services/firebase_services.dart';
-import 'package:islam_made_easy/services/notification_services.dart';
+// import 'package:islam_made_easy/services/notification_services.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/device_info.dart';
 import 'package:islam_made_easy/utils/logger.dart';
@@ -33,7 +33,7 @@ void main() async {
   initLogger(() async {
     setPathUrlStrategy();
     // Portrait only
-    await FeedbackServices.init();
+    // await FeedbackServices.init();
     if (kIsWeb) {
       const int megabyte = 1000000;
       SystemChannels.skia.invokeMethod('Skia.setResourceCacheMaxBytes', 512 * megabyte);
@@ -50,7 +50,7 @@ void main() async {
       Phoenix(
         child: MultiProvider(
           providers: [
-            ChangeNotifierProvider.value(value: NotificationServices()),
+//            ChangeNotifierProvider.value(value: NotificationServices()),
             // Firebase
             Provider.value(value: firebase),
             ChangeNotifierProvider.value(value: appModel),
@@ -83,7 +83,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       Provider.of<ThemeProvide>(context, listen: false).getDark(dark);
     }
     int? themeIndex = SpUtil.getThemeIndex();
-    Provider.of<NotificationServices>(context, listen: false).init();
+  //  Provider.of<NotificationServices>(context, listen: false).init();
     if (themeIndex != null) {
       Provider.of<ThemeProvide>(context, listen: false).changeTheme(themeIndex);
     }
