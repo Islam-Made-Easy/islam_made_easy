@@ -7,10 +7,18 @@ confinement: strict
 base: core18
 grade: stable
 
+slots:
+  dbus-islam_made_easy:
+    interface: dbus
+    bus: session
+    name: com.ime.islam_made_easy
+
 apps:
   islam-made-easy:
     command: islam_made_easy
     extensions: [ flutter-master ] # Where "master" defines which Flutter channel to use for the build
+    slots:
+      - dbus-islam_made_easy
     plugs:
       - network
 
