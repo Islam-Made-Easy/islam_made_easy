@@ -7,7 +7,7 @@ Islamic Quiz application that let you understand your religion easier.
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/islam-made-easy)
 
 
-| [Get the latest APK version](https://github.com/Islam-Made-Easy/Islam-Made-Easy/releases)
+| [Get the Pre-release APK version](https://github.com/Islam-Made-Easy/Islam-Made-Easy/releases)
 
 
 | Get the Web App [https://islam-made-easy.web.app](https://islam-made-easy.web.app)
