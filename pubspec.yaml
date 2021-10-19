@@ -73,6 +73,7 @@ dependencies:
   flutter_font_picker:
   firedart:
   pdftron_flutter:
+  system_tray: ^0.0.7
 dev_dependencies:
   flutter_launcher_icons: ^0.9.2
   flutter_native_splash: ^1.2.1
