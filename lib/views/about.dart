@@ -33,7 +33,6 @@ class _AboutAppState extends State<AboutApp> {
   @override
   Widget build(BuildContext context) {
     final MaterialLocalizations local = MaterialLocalizations.of(context);
-    print(window.physicalSize);
     final isDesktop = isDisplayDesktop(context);
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
@@ -99,44 +98,44 @@ class _AboutAppState extends State<AboutApp> {
               '━═══◎${S.current.share}◎═══━',
               style: TextStyle(color: colorScheme.secondary),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ShareButtons(
-                  tip: 'Mail',
-                  icon: FaIcon(Icons.mail,color: Color(0xffF59E1B)),
-                  onPressed: () => launchURL(
-                      'mailto:?subject=$name&body=$name ${S.current.shareText} ${ShareUtil().getPlatformShare()}'),
-                ),
-                ShareButtons(
-                  tip: 'Facebook',
-                  icon: Lottie.asset('assets/lottie/Ficon.json',height: 50,repeat: false),
-                  onPressed: () => launchURL(
-                      'https://www.facebook.com/sharer/sharer.php?t=$name ${S.current.aboutApp}&quote=Get it from Now:&ref=fbshare&u=${ShareUtil().getPlatformShare()}'),
-                ),
-                ShareButtons(
-                  tip: 'WhatsApp',
-                  icon: FaIcon(FontAwesomeIcons.whatsapp,color: Color(0xff67C15E)),
-                  onPressed: () => launchURL(
-                      'https://wa.me/?text=$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare()}'),
-                ),
-                AnimatedSwitcher(
-                  duration: shareDelay.duration,
-                  child: ShareButtons(
-                      tip: verified ? "Link Copied" : local.copyButtonLabel,
-                      icon: FaIcon(verified?Icons.verified_user:FontAwesomeIcons.link,color: Color(0xffA2A2A2)),
-                      onPressed: () {
-                        shareDelay.run(
-                              () => Clipboard.setData(
-                            ClipboardData(
-                                text:
-                                '$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare()}'),
-                          ).then((value) {setState(() => verified = true);}),
-                        );
-                      }),
-                ),
-              ],
-            )
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     ShareButtons(
+            //       tip: 'Mail',
+            //       icon: FaIcon(Icons.mail,color: Color(0xffF59E1B)),
+            //       onPressed: () => launchURL(
+            //           'mailto:?subject=$name&body=$name ${S.current.shareText} ${ShareUtil().getPlatformShare()}'),
+            //     ),
+            //     ShareButtons(
+            //       tip: 'Facebook',
+            //       icon: Lottie.asset('assets/lottie/Ficon.json',height: 50,repeat: false),
+            //       onPressed: () => launchURL(
+            //           'https://www.facebook.com/sharer/sharer.php?t=$name ${S.current.aboutApp}&quote=Get it from Now:&ref=fbshare&u=${ShareUtil().getPlatformShare()}'),
+            //     ),
+            //     ShareButtons(
+            //       tip: 'WhatsApp',
+            //       icon: FaIcon(FontAwesomeIcons.whatsapp,color: Color(0xff67C15E)),
+            //       onPressed: () => launchURL(
+            //           'https://wa.me/?text=$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare()}'),
+            //     ),
+            //     AnimatedSwitcher(
+            //       duration: Duration(milliseconds: 200),
+            //       child: ShareButtons(
+            //           tip: verified ? "Link Copied" : local.copyButtonLabel,
+            //           icon: FaIcon(verified?Icons.verified_user:FontAwesomeIcons.link,color: Color(0xffA2A2A2)),
+            //           onPressed: () {
+            //             shareDelay.run(
+            //                   () => Clipboard.setData(
+            //                 ClipboardData(
+            //                     text:
+            //                     '$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare()}'),
+            //               ).then((value) {setState(() => verified = true);}),
+            //             );
+            //           }),
+            //     ),
+            //   ],
+            // )
           ],
         ),
       ),
