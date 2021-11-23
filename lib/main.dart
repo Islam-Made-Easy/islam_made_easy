@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:animated_background/animated_background.dart';
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +13,9 @@ import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/locale/localePro.dart';
 import 'package:islam_made_easy/models/app_model.dart';
 import 'package:islam_made_easy/routes/app_route.dart';
-import 'package:islam_made_easy/services/feedback_services.dart';
 import 'package:islam_made_easy/services/firebase_services.dart';
+import 'package:islam_made_easy/settings/settings_pro.dart';
+
 // import 'package:islam_made_easy/services/notification_services.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/device_info.dart';
@@ -23,7 +25,6 @@ import 'package:islam_made_easy/utils/sharedP.dart';
 import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
 import 'package:islam_made_easy/views/home.dart';
-import 'package:islam_made_easy/views/intro/splashScreen.dart';
 import 'package:islam_made_easy/widgets/anim/load_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -36,11 +37,21 @@ void main() async {
     // await FeedbackServices.init();
     if (kIsWeb) {
       const int megabyte = 1000000;
-      SystemChannels.skia.invokeMethod('Skia.setResourceCacheMaxBytes', 512 * megabyte);
+      SystemChannels.skia
+          .invokeMethod('Skia.setResourceCacheMaxBytes', 512 * megabyte);
       await Future<void>.delayed(Duration.zero);
     } else if (DeviceOS.isDesktop) {
       await DesktopWindow.setMinWindowSize(const Size(1051.0, 646.0));
       setWindowTitle('Islam Made Easy');
+      // doWhenWindowReady(() {
+      //   final win = appWindow;
+      //   const initialSize = Size(600, 450);
+      //   win.minSize = initialSize;
+      //   win.size = initialSize;
+      //   win.alignment = Alignment.center;
+      //   win.title = "Islam Made Easy";
+      //   win.show();
+      // });
     }
 
     /// Create core models & services
@@ -55,6 +66,7 @@ void main() async {
             Provider.value(value: firebase),
             ChangeNotifierProvider.value(value: appModel),
             ChangeNotifierProvider.value(value: ThemeProvide()),
+            ChangeNotifierProvider.value(value: SettingProvide()),
             ChangeNotifierProvider.value(value: LocaleProvide()),
           ],
           child: IMEApp(),
@@ -82,10 +94,18 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     if (dark != null) {
       Provider.of<ThemeProvide>(context, listen: false).getDark(dark);
     }
+    double? fontSize = SpUtil.getFontSize();
+    if (fontSize != null) {
+      Provider.of<SettingProvide>(context, listen: false).getFontSize(fontSize);
+    }
     int? themeIndex = SpUtil.getThemeIndex();
   //  Provider.of<NotificationServices>(context, listen: false).init();
     if (themeIndex != null) {
       Provider.of<ThemeProvide>(context, listen: false).changeTheme(themeIndex);
+    }
+    String font = SpUtil.getFont()!;
+    if (StringUtil.isNotEmpty(font)) {
+      Provider.of<SettingProvide>(context, listen: false).getFontFamily(font);
     }
     String lang = SpUtil.getLanguage()!;
     if (StringUtil.isNotEmpty(lang)) {
