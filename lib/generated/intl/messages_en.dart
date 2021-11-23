@@ -85,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "In the Name of Allāh the Most Merciful the Most Beneficent"),
         "bosanski": MessageLookupByLibrary.simpleMessage("bosanski"),
         "bosnian": MessageLookupByLibrary.simpleMessage("Bosnian"),
+        "changeFSize": MessageLookupByLibrary.simpleMessage("Change Font Size"),
         "charityA1Par1": MessageLookupByLibrary.simpleMessage(
             "Shaykh Sulaymān ibn Nāsir al-\'Alwān(حفظه الله) was asked: A dispute has occurred between some of the brothers regarding the ruling of paying the Zakāt in money instead of Food. And everyone had his own opinion from an Islamic point of view, so I\'ll summarise it for you quickly: "),
         "charityA1Par2": MessageLookupByLibrary.simpleMessage(

@@ -520,6 +520,16 @@ class S {
     );
   }
 
+  /// `Change Font Size`
+  String get changeFSize {
+    return Intl.message(
+      'Change Font Size',
+      name: 'changeFSize',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Customize Your Experience`
   String get customizeExp {
     return Intl.message(

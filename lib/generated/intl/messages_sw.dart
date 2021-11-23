@@ -248,7 +248,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fastQ4": MessageLookupByLibrary.simpleMessage(
             "If a woman becomes pure from her menses during the day of Ramadān, does she have to refrain from eating for the rest of the day?"),
         "fastQ5": MessageLookupByLibrary.simpleMessage(
-            "What is greater, the first 10 of dhil hijjah or the last 10 of Ramadan?"),
+            "Kilicho kikubwa, the first 10 of dhil hijjah or the last 10 of Ramadan?"),
         "fastQ6": MessageLookupByLibrary.simpleMessage(
             "Is the Hadīthi ni sahihi: “Usifunge siju ya jumamosi, isipokuwa ile[siku] ilio faradhishwa kwako” ?"),
         "fastQ7": MessageLookupByLibrary.simpleMessage(
