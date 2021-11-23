@@ -77,6 +77,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false
 
       - name: Setup Java
         uses: actions/setup-java@v1
