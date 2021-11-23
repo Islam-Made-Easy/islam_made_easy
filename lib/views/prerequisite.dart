@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:get/get.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
+import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/utils/download_util.dart';
 import 'package:islam_made_easy/widgets/anim/load_indicator.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:provider/provider.dart';
 
 class Prerequisite extends StatefulWidget {
   static const ROUTE_NAME = "/prerequisite";
@@ -53,43 +55,47 @@ class _PrerequisiteState extends State<Prerequisite> {
               return Column(
                 children: [
                   SizedBox(height: 30),
-                  Expanded(
-                    child: Markdown(
-                      key: Key(_extensionSet.name),
-                      physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
-                      data: snapshot.data,
-                      extensionSet: _extensionSet.value,
-                      listItemCrossAxisAlignment: MarkdownListItemCrossAxisAlignment.start,
-                      styleSheet: MarkdownStyleSheet(
-                        h1Align: WrapAlignment.center,
-                        h1: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: dp ? 40 : 30,
-                            letterSpacing: -3,
-                            color: Color(0xff404040)),
-                        h2: theme.headline6!.copyWith(
-                            letterSpacing: .2,
-                            decoration: TextDecoration.underline,
-                            fontSize: dp ? 35 : 24,
-                            fontWeight: FontWeight.w500),
-                        p: theme.bodyText1!.copyWith(
-                            fontWeight: FontWeight.w100,
-                            height: dp ? 1.85 : 1.8,
-                            fontSize: dp ? 17 : 15),
-                        blockquote: theme.bodyText1!.copyWith(
-                            fontWeight: FontWeight.w100,
-                            height: dp ? 1.85 : 1.8,
-                            fontSize: dp ? 17 : 15),
-                        strong: theme.bodyText1!.copyWith(
-                            fontWeight: FontWeight.w600,
-                            height: dp ? 1.85 : 1.8,
-                            fontSize: dp ? 17 : 15),
-                        blockSpacing: dp ? 25 : 10,
-                        textScaleFactor: 1.0,
-                      ),
-                      selectable: true,
-                      shrinkWrap: true,
-                    ),
+                  Consumer<SettingProvide>(
+                    builder: (context, provide, child) {
+                      return Expanded(
+                        child: Markdown(
+                          key: Key(_extensionSet.name),
+                          physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+                          data: snapshot.data,
+                          extensionSet: _extensionSet.value,
+                          listItemCrossAxisAlignment: MarkdownListItemCrossAxisAlignment.start,
+                          styleSheet: MarkdownStyleSheet(
+                            h1Align: WrapAlignment.center,
+                            h1: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: dp ? provide.fontSize!+24 : 30,
+                                letterSpacing: -3,
+                                color: Color(0xff404040)),
+                            h2: theme.headline6!.copyWith(
+                                letterSpacing: .2,
+                                decoration: TextDecoration.underline,
+                                fontSize: dp ? provide.fontSize! +18 : provide.fontSize!+8,
+                                fontWeight: FontWeight.w500),
+                            p: theme.bodyText1!.copyWith(
+                                fontWeight: FontWeight.w100,
+                                height: dp ? 1.85 : 1.8,
+                                fontSize: provide.fontSize),
+                            blockquote: theme.bodyText1!.copyWith(
+                                fontWeight: FontWeight.w100,
+                                height: dp ? 1.85 : 1.8,
+                                fontSize: provide.fontSize),
+                            strong: theme.bodyText1!.copyWith(
+                                fontWeight: FontWeight.w600,
+                                height: dp ? 1.85 : 1.8,
+                                fontSize: dp ? 17 : 15),
+                            blockSpacing: dp ? 25 : 10,
+                            textScaleFactor: 1.0,
+                          ),
+                          selectable: true,
+                          shrinkWrap: true,
+                        ),
+                      );
+                    }
                   ),
                 ],
               );

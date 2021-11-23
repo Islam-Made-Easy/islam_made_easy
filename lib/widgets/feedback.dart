@@ -20,14 +20,18 @@ class AppFeedback extends StatefulWidget {
 }
 
 class _AppFeedbackState extends State<AppFeedback> {
-  launchUrl(String url) async {
+  launchUrl(String url, bool? isWebView) async {
     if (await canLaunch(url)) {
-      await launch(url);
+      await launch(url, forceWebView: isWebView!);
     } else {
       throw 'Could not launch $url';
     }
   }
-
+  void sendViaEmail(String messageContent) {
+    final emailLink = Uri.encodeFull(
+        'mailto:info.islamadeasy@gmail.com?subject=Feedback IME&body=$messageContent');
+    launchUrl(emailLink, DeviceOS.isWeb);
+  }
   final _formKey = GlobalKey<FormState>();
   TextEditingController? name, email, feed;
 
@@ -207,7 +211,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                                 color: theme.buttonColor,
                                 tooltip: 'Github',
                                 onPressed: () => launchUrl(
-                                    "https://github.com/Islam-Made-Easy/Islam-Made-Easy/issues"),
+                                    "https://github.com/Islam-Made-Easy/Islam-Made-Easy/issues",DeviceOS.isWeb),
                                 icon: FaIcon(FontAwesomeIcons.github),
                                 splashRadius: 1),
                             SizedBox(width: 10),
@@ -215,15 +219,20 @@ class _AppFeedbackState extends State<AppFeedback> {
                                 color: theme.buttonColor,
                                 tooltip: 'Gitter',
                                 onPressed: () => launchUrl(
-                                    "https://gitter.im/orgs/Islam-Made-Easy/rooms"),
+                                    "https://gitter.im/orgs/Islam-Made-Easy/rooms",DeviceOS.isWeb),
                                 icon: FaIcon(FontAwesomeIcons.gitter),
                                 splashRadius: 1),
                             SizedBox(width: 10),
                             IconButton(
                                 color: theme.buttonColor,
                                 tooltip: 'Mail',
-                                onPressed: () => launchUrl(
-                                    "mailto:info.islamadeasy@gmail.com"),
+                                onPressed: () {
+                                  sendViaEmail('');
+                                      launchUrl(
+                                          "mailto:info.islamadeasy@gmail.com",
+                                          DeviceOS.isWeb)
+                                  ;
+                                },
                                 icon: FaIcon(Icons.mail),
                                 splashRadius: 1),
                           ],

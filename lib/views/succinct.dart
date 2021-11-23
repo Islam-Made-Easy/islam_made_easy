@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
+import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/custom_selection_toolbar.dart';
+import 'package:provider/provider.dart';
 
 class Succinct extends StatefulWidget {
   static const ROUTE_NAME = "/succinct";
@@ -20,23 +22,25 @@ class _SuccinctState extends State<Succinct> {
   }
   @override
   Widget build(BuildContext context) {
+   double? proSize = Provider.of<SettingProvide>(context, listen: false).fontSize;
+   String? proType = Provider.of<SettingProvide>(context, listen: false).fontType??'Amiri';
      Function(TextSelection)? onSelectionChange;
     TextSelection textSelection = TextSelection.collapsed(offset: -1);
     final isDesktop = isDisplayDesktop(context);
     final size = MediaQuery.of(context).size;
     final textTheme = Theme.of(context).textTheme;
     final bodyTextStyle = textTheme.bodyText1!.copyWith(
-      fontFamily: 'Amiri',
+      fontFamily: proType,
       height: isDesktop ? 1.85 : 1.8,
-      fontSize: isDesktop ? 17 : 15,
+      fontSize: isDesktop ? proSize!+1 : proSize,
     );
     final bodyTextStyle2 =
         textTheme.headline5!.apply(fontFamily: 'Amiri', heightDelta: 2);
     final txtStyle = textTheme.headline6!.copyWith(
-        fontFamily: 'Amiri',
+        fontFamily: proType,
         fontStyle: FontStyle.italic,
         decoration: TextDecoration.underline,
-        fontSize: 18,
+        fontSize: proSize!+2,
         fontWeight: FontWeight.bold);
     return Scaffold(
       backgroundColor: context.isDarkMode ? null : Theme.of(context).primaryColorLight,

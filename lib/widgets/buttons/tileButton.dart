@@ -1,7 +1,9 @@
 import 'dart:ui';
+import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/implicit_animations.dart';
+import 'package:provider/provider.dart';
 import '../anim/anim.dart';
 
 class SettingsLinkButton extends StatefulWidget {
@@ -87,6 +89,7 @@ class _DesktopButtonState extends State<DesktopButton> {
 
   @override
   Widget build(BuildContext context) {
+    // double? proSize = Provider.of<SettingProvide>(context).fontSize;
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
     final theme = Theme.of(context).textTheme.button!.copyWith(
