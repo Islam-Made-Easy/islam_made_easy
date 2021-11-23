@@ -6,8 +6,10 @@ class SharedP {
   static final SharedP _appSP = SharedP._internal();
   int? getInt(String key) => _sp!.getInt(key);
   bool? getBool(String key) => _sp!.getBool(key);
+  double? getDouble(String key) => _sp!.getDouble(key);
   Future<bool> setInt(String key, int value) => _sp!.setInt(key, value);
   Future<bool> setBool(String key, bool value) => _sp!.setBool(key, value);
+  Future<bool> setDouble(String key, double value) => _sp!.setDouble(key, value);
   String? getString(String key) => _sp!.getString(key);
   Future<bool> setString(String key, String value) => _sp!.setString(key, value);
   factory SharedP() => _appSP;
