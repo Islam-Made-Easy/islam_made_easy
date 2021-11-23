@@ -10,12 +10,13 @@ import 'package:get/get.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:islam_made_easy/locale/localePro.dart';
+import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/settings/settings_radio.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class Settings extends StatefulWidget {
@@ -55,7 +56,6 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
   Widget build(BuildContext context) {
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
-    String _selectedFont = "Roboto";
     TextStyle? _selectedFontTextStyle;
     List<String> _gFonts = [
       "Abril Fatface", "Aclonica", "Alegreya Sans", "Amiri",
@@ -235,6 +235,28 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
               : Container(),
           _SettingsTitle(title: S.current.advanced),
           Divider(endIndent: 30, indent: 30, height: 20),
+          Card(
+            child: ExpansionTile(title: Text('Change Font Size',
+              style: theme.textTheme.button!.copyWith(
+                  fontSize: kSpacingUnit * 1.5,
+                  fontFamily: ar ? 'Amiri' : 'Roboto',
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 2)),
+            children: [
+            Slider(
+              label: Provider.of<SettingProvide>(context,listen: false).fontSize!.toDouble().toString(),
+              min: 12.0,
+              max: 22.0,
+              divisions: 5,
+              value: Provider.of<SettingProvide>(context,listen: false).fontSize!,
+              onChanged: (value) {
+                setState(() {
+                  Provider.of<SettingProvide>(context,listen: false).getFontSize(value);
+                  SpUtil.setFontSize(value);
+                });
+              },
+            ),
+          ],),),
           WidgetAnimator(
             Card(
               child: ExpansionTile(
@@ -251,11 +273,10 @@ class _SettingsState extends State<Settings> with AutomaticKeepAliveClientMixin 
                       showInDialog: true,
                       onFontChanged: (font) {
                         setState(() {
-                          _selectedFont = font.fontFamily;
+                          Provider.of<SettingProvide>(context, listen: false).getFontFamily(font.fontFamily);
                           _selectedFontTextStyle = font.toTextStyle();
+                          SpUtil.setFont(font.fontFamily);
                         });
-                        print(
-                            "${font.fontFamily} with font weight ${font.fontWeight} and font style ${font.fontStyle}. FontSpec: ${font.toFontSpec()}");
                       },
                       googleFonts: _gFonts),
                 ],
