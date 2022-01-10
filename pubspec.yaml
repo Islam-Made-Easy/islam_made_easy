@@ -77,8 +77,16 @@ dependencies:
 dev_dependencies:
   flutter_launcher_icons: ^0.9.2
   flutter_native_splash: ^1.2.1
+  msix:
   flutter_test:
     sdk: flutter
+msix_config:
+  display_name: Islam Made Easy
+  publisher_display_name: IME team
+  identity_name: https://github.com/Islam-Made-Easy
+  msix_version: 0.1.0.0
+  logo_path: .\assets\images\logo.png
+  capabilities: "internetClient,microphone"
 flutter_native_splash:
   image: assets/images/logo.png
   color: 111111
