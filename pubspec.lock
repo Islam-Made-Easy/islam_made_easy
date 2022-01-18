@@ -386,11 +386,25 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.5.0"
+  fluent_ui:
+    dependency: "direct main"
+    description:
+      name: fluent_ui
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.6.0"
   flutter:
     dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_acrylic:
+    dependency: "direct main"
+    description:
+      name: flutter_acrylic
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   flutter_animated_dialog:
     dependency: "direct main"
     description:
@@ -840,6 +854,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  recase:
+    dependency: transitive
+    description:
+      name: recase
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   rxdart:
     dependency: transitive
     description:
@@ -847,6 +868,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.1"
+  scroll_pos:
+    dependency: transitive
+    description:
+      name: scroll_pos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.0"
   share:
     dependency: "direct main"
     description:
@@ -1128,5 +1156,5 @@ packages:
     source: hosted
     version: "3.1.0"
 sdks:
-  dart: ">=2.14.0 <3.0.0"
-  flutter: ">=2.2.0"
+  dart: ">=2.15.0 <3.0.0"
+  flutter: ">=2.8.0"
