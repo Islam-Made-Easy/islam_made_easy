@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -27,32 +29,19 @@ class _AppFeedbackState extends State<AppFeedback> {
       throw 'Could not launch $url';
     }
   }
+
   void sendViaEmail(String messageContent) {
     final emailLink = Uri.encodeFull(
         'mailto:info.islamadeasy@gmail.com?subject=Feedback IME&body=$messageContent');
     launchUrl(emailLink, DeviceOS.isWeb);
   }
+
   final _formKey = GlobalKey<FormState>();
   TextEditingController? name, email, feed;
 
   @override
   void initState() {
     super.initState();
-  }
-
-  void _submitFeed() async {
-    if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
-      await FeedbackServices.insert(
-          name: name!.text, email: email!.text, feedback: feed!.text);
-      Get.snackbar('Submitting',
-          'Thank you for submitting your feedback!, Jazakumullahu Khayraa!!');
-      name!.clear();
-      email!.clear();
-      feed!.clear();
-      setState(() {});
-      print(feed!.text);
-    }
   }
 
   @override
@@ -77,7 +66,9 @@ class _AppFeedbackState extends State<AppFeedback> {
         centerTitle: true,
         title: Text(
           S.current.feedbackCentre,
-          style: TextStyle(color: theme.textTheme.caption!.color,fontFamily: ar ? 'Amiri' : 'Roboto'),
+          style: TextStyle(
+              color: theme.textTheme.caption!.color,
+              fontFamily: ar ? 'Amiri' : 'Roboto'),
         ),
         automaticallyImplyLeading: !isDesktop,
         backgroundColor:
@@ -113,8 +104,9 @@ class _AppFeedbackState extends State<AppFeedback> {
                 ),
                 Text(
                   S.current.wait,
-                  style: theme.textTheme.headline6!
-                      .copyWith(fontWeight: FontWeight.w100,fontFamily: ar ? 'Amiri' : 'Roboto'),
+                  style: theme.textTheme.headline6!.copyWith(
+                      fontWeight: FontWeight.w100,
+                      fontFamily: ar ? 'Amiri' : 'Roboto'),
                 ),
                 SizedBox(height: 10),
                 InputContainer(
@@ -190,7 +182,27 @@ class _AppFeedbackState extends State<AppFeedback> {
                         labelText: S.current.feedback)),
                 SizedBox(height: 20),
                 StretchButton(
-                    onTap: () => _submitFeed(), text: S.current.submit),
+                    onTap: () async {
+                      if (_formKey.currentState!.validate()) {
+                        final response = await submitData(
+                          name: name!.text,
+                          email: email!.text,
+                          feed: feed!.text,
+                        );
+                        Get.snackbar(
+                            response == 200 ? 'Submitted' : 'Error!',
+                            response == 200
+                                ? 'Thank you for submitting your feedback!, Jazakumullahu Khayraa!!'
+                                : 'Try back later',
+                            colorText: response == 200 ? null : Colors.red,
+                            snackPosition: SnackPosition.BOTTOM);
+                        name!.clear();
+                        email!.clear();
+                        feed!.clear();
+                        setState(() {});
+                      }
+                    },
+                    text: S.current.submit),
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -211,7 +223,8 @@ class _AppFeedbackState extends State<AppFeedback> {
                                 color: theme.buttonColor,
                                 tooltip: 'Github',
                                 onPressed: () => launchUrl(
-                                    "https://github.com/Islam-Made-Easy/Islam-Made-Easy/issues",DeviceOS.isWeb),
+                                    "https://github.com/Islam-Made-Easy/Islam-Made-Easy/issues",
+                                    DeviceOS.isWeb),
                                 icon: FaIcon(FontAwesomeIcons.github),
                                 splashRadius: 1),
                             SizedBox(width: 10),
@@ -219,7 +232,8 @@ class _AppFeedbackState extends State<AppFeedback> {
                                 color: theme.buttonColor,
                                 tooltip: 'Gitter',
                                 onPressed: () => launchUrl(
-                                    "https://gitter.im/orgs/Islam-Made-Easy/rooms",DeviceOS.isWeb),
+                                    "https://gitter.im/orgs/Islam-Made-Easy/rooms",
+                                    DeviceOS.isWeb),
                                 icon: FaIcon(FontAwesomeIcons.gitter),
                                 splashRadius: 1),
                             SizedBox(width: 10),
@@ -228,10 +242,8 @@ class _AppFeedbackState extends State<AppFeedback> {
                                 tooltip: 'Mail',
                                 onPressed: () {
                                   sendViaEmail('');
-                                      launchUrl(
-                                          "mailto:info.islamadeasy@gmail.com",
-                                          DeviceOS.isWeb)
-                                  ;
+                                  launchUrl("mailto:info.islamadeasy@gmail.com",
+                                      DeviceOS.isWeb);
                                 },
                                 icon: FaIcon(Icons.mail),
                                 splashRadius: 1),
@@ -247,6 +259,33 @@ class _AppFeedbackState extends State<AppFeedback> {
         ),
       ),
     );
+  }
+
+  Future submitData({
+    required String name,
+    required String email,
+    required String feed,
+  }) async {
+    final url = Uri.parse('https://api.emailjs.com/api/v1.0/email');
+    const serviceId = 'service_v3buc5h';
+    const templateId = 'template_lvbfme7';
+    const userId = 'user_QPzEf7RiM430WtpDknE2Y';
+    final response = await http.post(url,
+        headers: {
+          'origin': 'http://localhost',
+          'Content-Type': 'application/json'
+        }, //This line makes
+        body: json.encode({
+          'service_id': serviceId,
+          'template_id': templateId,
+          'user_id': userId,
+          'template_params': {
+            'from_name': name,
+            'from_email': email,
+            'message': feed
+          }
+        }));
+    return response.statusCode;
   }
 }
 
