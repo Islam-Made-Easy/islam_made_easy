@@ -352,7 +352,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
                     title: S.current.hajjSubTitle3,
-                    img: 'assets/images/Hajj.jpg',
+                    img: 'assets/images/hajj2.jpg',
                   ),
                   title: S.current.hajjSubTitle3,
                   data: [
@@ -360,7 +360,7 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     SizedBox(height: 10),
                   ],
                   barTitle: S.current.hajj,
-                  image: 'assets/images/Hajj.jpg',
+                  image: 'assets/images/hajj2.jpg',
                 ),
                 Divider(endIndent: 40, indent: 40, height: 50),
                 OpenContainerWrapper(
