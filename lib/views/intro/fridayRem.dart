@@ -7,7 +7,8 @@ class FridayRem extends StatefulWidget {
   _FridayRemState createState() => _FridayRemState();
 }
 
-class _FridayRemState extends State<FridayRem> with SingleTickerProviderStateMixin {
+class _FridayRemState extends State<FridayRem>
+    with SingleTickerProviderStateMixin {
   List<OnBoardPageItem> onboardPageItems = [
     OnBoardPageItem(
       lottieAsset: 'assets/lottie/bookI.json',
@@ -52,7 +53,7 @@ class _FridayRemState extends State<FridayRem> with SingleTickerProviderStateMix
 
   List<Widget> onBoardItems = [];
   double? _activeIndex;
-  bool onBoardPage = false,glow = false;
+  bool onBoardPage = false, glow = false;
   AnimationController? _anim;
 
   @override
@@ -137,6 +138,10 @@ class _FridayRemState extends State<FridayRem> with SingleTickerProviderStateMix
                   decoration: BoxDecoration(
                     color: theme.splashColor,
                     borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/cor.png'),
+                        opacity: .02,
+                        fit: BoxFit.cover),
                   ),
                 ),
               ),
@@ -153,6 +158,10 @@ class _FridayRemState extends State<FridayRem> with SingleTickerProviderStateMix
                   width: width * 0.25,
                   decoration: BoxDecoration(
                     color: theme.splashColor,
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/cor.png'),
+                        opacity: .05,repeat: ImageRepeat.repeatY,
+                        fit: BoxFit.cover),
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20)),
@@ -248,6 +257,13 @@ class _FridayRemState extends State<FridayRem> with SingleTickerProviderStateMix
                                 ),
                               ),
                       ),
+                      Positioned(
+                          child: Opacity(
+                              opacity: .3,
+                              child: Image.asset(
+                                'assets/images/mas.png',
+                                matchTextDirection: true,
+                              ))),
                       Visibility(
                         visible: onBoardPage,
                         child: Positioned(
@@ -373,7 +389,7 @@ class _FridayRemState extends State<FridayRem> with SingleTickerProviderStateMix
 }
 
 class OnBoardPageItem {
-  String? lottieAsset,text;
+  String? lottieAsset, text;
   Duration? animationDuration;
 
   OnBoardPageItem({this.lottieAsset, this.text, this.animationDuration});
@@ -408,6 +424,8 @@ class _WelcomeState extends State<WelcomePage>
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     final isDesktop = isDisplayDesktop(context);
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     return Stack(
       alignment: Alignment.topCenter,
       children: <Widget>[
@@ -459,8 +477,7 @@ class _WelcomeState extends State<WelcomePage>
                                     BorderRadius.circular(width * 0.08),
                               ),
                             ),
-                            child: Image.asset('assets/images/logo.png',
-                                scale: 0.9),
+                            child: Image.asset('assets/images/ctr.png'),
                           ),
                         ),
                       ),
@@ -472,7 +489,7 @@ class _WelcomeState extends State<WelcomePage>
                 child: Text(
                   S.current.fridayRemind,
                   style: TextStyle(
-                    fontFamily: 'Amiri',
+                    fontFamily: ar ? 'Amiri' : 'Roboto',
                     color: const Color(0xFFFFFFFF),
                     fontSize: width * 0.08,
                   ),
@@ -491,7 +508,8 @@ class _WelcomeState extends State<WelcomePage>
                     S.current.fridayFirst,
                     style: TextStyle(
                       color: const Color(0xFFFFFFFF),
-                      fontFamily: 'Amiri',
+                      fontFamily: ar ? 'Amiri' : 'Roboto',
+                      fontWeight: FontWeight.w300,
                       fontSize: DeviceOS.isDesktopOrWeb && context.isTablet
                           ? width * 0.02
                           : width * 0.056,
@@ -517,7 +535,8 @@ class OnBoardPage extends StatefulWidget {
   _OnboardState createState() => _OnboardState();
 }
 
-class _OnboardState extends State<OnBoardPage> with SingleTickerProviderStateMixin {
+class _OnboardState extends State<OnBoardPage>
+    with SingleTickerProviderStateMixin {
   AnimationController? _anim;
 
   @override
@@ -541,9 +560,11 @@ class _OnboardState extends State<OnBoardPage> with SingleTickerProviderStateMix
       padding: EdgeInsets.only(top: height * 0.1),
       child: Column(
         children: <Widget>[
-          Lottie.asset(widget.onBoardPageItem!.lottieAsset!,
-              controller: _anim, onLoaded: (composition) {
-            _anim!..duration = composition.duration..forward()
+          Lottie.asset(widget.onBoardPageItem!.lottieAsset!, controller: _anim,
+              onLoaded: (composition) {
+            _anim!
+              ..duration = composition.duration
+              ..forward()
               ..addListener(() {
                 if (widget.onBoardPageItem!.animationDuration != null) {
                   if (_anim!.lastElapsedDuration! >
