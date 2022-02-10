@@ -75,6 +75,7 @@ class ThemeProvide with ChangeNotifier {
       this._themeIndex = themeIndex;
       this._themeData = ThemeData(
           fontFamily: 'Amiri',
+          splashFactory: InkRipple.splashFactory,
           appBarTheme: AppBarTheme(elevation: 0),
           scaffoldBackgroundColor: kBackgroundLight,
           backgroundColor: kBackgroundLight,
@@ -121,6 +122,7 @@ class ThemeProvide with ChangeNotifier {
       this._themeDataDark = ThemeData(
           brightness: Brightness.dark,
           fontFamily: 'Amiri',
+          splashFactory: InkRipple.splashFactory,
           appBarTheme: AppBarTheme(elevation: 0),
           accentColor: Colors.primaries[themeIndex],
           dialogTheme: DialogTheme(backgroundColor: kDark),
