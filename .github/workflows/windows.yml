@@ -1,0 +1,17 @@
+name: IME Windows Releases
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+ build:
+   runs-on: windows-latest
+   steps:
+     - uses: actions/checkout@v2
+     - uses: subosito/flutter-action@v2
+       with:
+         channel: 'beta'
+     - run: flutter config --enable-windows-desktop
+     - run: flutter build windows        
