@@ -24,7 +24,7 @@ dependencies:
   dio: ^4.0.0
   intl: ^0.17.0
   flutter_animated_dialog: ^2.0.1
-  flutter_statusbarcolor_ns: ^0.3.0-nullsafety
+  flutter_statusbarcolor_ns: ^0.4.0
   sqflite: ^2.0.0+4
   sp_util: ^2.0.3
   shared_preferences: ^2.0.7
@@ -34,14 +34,14 @@ dependencies:
   url_launcher: ^6.0.9
   animated_background: ^2.0.0
   flutter_phoenix: ^1.0.0
-  smooth_page_indicator: ^0.3.0-nullsafety.0
-  flip_card: ^0.5.0
+  smooth_page_indicator: ^1.0.0+2
+  flip_card: ^0.6.0
   universal_platform: ^1.0.0+1
   adaptive_breakpoints: ^0.1.0
   get: ^4.3.8
   package_info: ^2.0.2
   animations: ^2.0.1
-  flutter_svg: ^0.22.0
+  flutter_svg: ^1.0.3
   double_back_to_close: ^2.0.0
   quick_actions: ^0.6.0+6
   avatar_glow: ^2.0.1
@@ -50,7 +50,7 @@ dependencies:
   popover: ^0.2.6+2
   auto_size_text: ^3.0.0-nullsafety.0
   shimmer: ^2.0.0
-  flutter_local_notifications: ^8.1.1+1
+  flutter_local_notifications: ^9.2.0
   markdown: ^4.0.0
   flutter_markdown: ^0.6.5
   url_strategy: ^0.2.0
@@ -66,19 +66,19 @@ dependencies:
   statsfl: ^2.0.1+1
   flextras: ^0.0.2
   animated_radial_menu: ^0.0.1
-  cloud_firestore: ^2.5.0
-  firebase_messaging: ^10.0.5
+  cloud_firestore: ^3.1.7
+  firebase_messaging: ^11.2.6
   firebase_auth: ^3.1.0
   flutter_collapsing_toolbar:
   flutter_font_picker:
   firedart:
   pdftron_flutter:
-  flutter_acrylic:
+#  flutter_acrylic:
   fluent_ui:
 #  system_tray: ^0.0.7
 dev_dependencies:
   flutter_launcher_icons: ^0.9.2
-  flutter_native_splash: ^1.2.1
+  flutter_native_splash: ^2.0.1+1
   msix:
   flutter_test:
     sdk: flutter
