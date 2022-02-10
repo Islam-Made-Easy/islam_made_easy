@@ -1,11 +1,6 @@
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
 typedef OffsetValue = void Function(int start, int end);
@@ -73,7 +68,7 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
         delegate.hideToolbar();
       },
       handleCut: canCut(delegate)
-          ? () => handleCut(delegate)
+          ? () => handleCut(delegate,clipboardStatus)
           : null,
       handlePaste: canPaste(delegate)
           ? () => handlePaste(delegate)
