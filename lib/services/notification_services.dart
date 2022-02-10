@@ -2,9 +2,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:islam_made_easy/services/firebase_services.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
-const channel = AndroidNotificationChannel(
-    'channel', 'Notifier', 'IME Notifier',
-    groupId: 'groupedID');
+const channel =
+    AndroidNotificationChannel('channel', 'Notifier', groupId: 'groupedID');
 final FirebaseMessaging _fM = FirebaseMessaging.instance;
 final FlutterLocalNotificationsPlugin _localNotifier =
     FlutterLocalNotificationsPlugin();
@@ -21,12 +20,13 @@ class NotificationServices extends ChangeNotifier {
     FirebaseMessaging.onBackgroundMessage(backgroundHandler);
     await _localNotifier
         .resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>()
+            AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(channel);
-    var initializationSettingsAndroid = AndroidInitializationSettings('log');
-    var initializationSettingsIOS = IOSInitializationSettings();
+    var initAndroid = AndroidInitializationSettings('log');
+    var initSettingsIOS = IOSInitializationSettings();
+    var initLinux = LinuxInitializationSettings(defaultActionName: 'log');
     var initializationSettings = InitializationSettings(
-        android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
+        android: initAndroid, iOS: initSettingsIOS, linux: initLinux);
     await _localNotifier.initialize(initializationSettings);
     FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
       RemoteNotification? notification = message.notification;
@@ -34,7 +34,8 @@ class NotificationServices extends ChangeNotifier {
       AppleNotification? iOS = message.notification?.apple;
       if (notification != null && android != null && iOS != null) {
         AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
-            channel.id, channel.name, channel.description,
+            channel.id, channel.name,
+            channelDescription: channel.description,
             importance: Importance.max,
             priority: Priority.high,
             icon: android.smallIcon,
@@ -49,23 +50,24 @@ class NotificationServices extends ChangeNotifier {
       }
       List<ActiveNotification>? activeNotification = await _localNotifier
           .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin>()
+              AndroidFlutterLocalNotificationsPlugin>()
           ?.getActiveNotifications();
       if (activeNotification!.length < 0) {
         List<String> lines =
-        activeNotification.map((e) => e.title.toString()).toList();
+            activeNotification.map((e) => e.title.toString()).toList();
         InboxStyleInformation inboxStyle = InboxStyleInformation(lines,
             contentTitle: '${activeNotification.length - 1} messages',
             summaryText: '${activeNotification.length - 1} messages');
         AndroidNotificationDetails groupDetails = AndroidNotificationDetails(
-            channel.id, channel.name, channel.description,
+            channel.id, channel.name,
+            channelDescription: channel.description,
             importance: Importance.max,
             priority: Priority.high,
             styleInformation: inboxStyle,
             setAsGroupSummary: true,
             groupKey: channel.groupId);
         NotificationDetails groupSpecific =
-        NotificationDetails(android: groupDetails);
+            NotificationDetails(android: groupDetails);
         await _localNotifier.show(0, '', '', groupSpecific);
       }
     });
