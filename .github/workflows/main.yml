@@ -5,42 +5,20 @@ on:
       - main
 
 jobs:
-#  lint:
-#    name: Analyze the code
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Clone flutter repository from stable channel with 2.2.3 version
-#        uses: subosito/flutter-action@v1
-#        with:
-#          flutter-version: '2.2.3'
-#          channel: 'stable'
-#
-#      - name: Checkout code
-#        uses: actions/checkout@v2
-#
-#      - name: Update dependencies
-#        run: flutter pub get
-#
-#      - name: Analyze code
-#        run: flutter analyze
-#
-#  test:
-#    name: Run Flutter test and Analyze
-#    needs: lint
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Clone flutter repository from stable channel with 2.2.3 version
-#        uses: subosito/flutter-action@v1
-#        with:
-#          flutter-version: '2.2.3'
-#          channel: 'stable'
-#
-#      - name: Checkout code
-#        uses: actions/checkout@v2
-#
-#      - name: Update dependencies
-#        run: flutter pub get
-
+  web-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      - run: flutter pub get
+      - run: flutter test
+      - run: flutter build web
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.2.3
+        with:
+          folder: "build/web"
   version:
     name: Create version number
     runs-on: ubuntu-latest
@@ -133,7 +111,7 @@ jobs:
           prerelease: false
 
       - name: Upload Apk
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: apk
           path: build/app/outputs/apk/release/app-release.apk
