@@ -1,8 +1,7 @@
 name: islam-made-easy
 version: 0.1.0
 summary: Islamic Quiz app to understand your religion easier.
-description:  |
-	Islamic Quiz application that let you understand your religion easier.
+description:  Islamic Quiz application that let you understand your religion easier.
 
 confinement: classic
 base: core18
