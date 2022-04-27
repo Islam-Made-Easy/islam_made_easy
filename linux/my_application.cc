@@ -99,15 +99,11 @@ static void my_application_class_init(MyApplicationClass* klass) {
   G_OBJECT_CLASS(klass)->dispose = my_application_dispose;
 }
 
-diff --git a/linux/my_application.cc b/linux/my_application.cc
-index 3ad3281..8b02ceb 100644
---- a/linux/my_application.cc
-+++ b/linux/my_application.cc
-@@ -42,5 +42,6 @@ static void my_application_init(MyApplication* self) {}
+static void my_application_init(MyApplication* self) {}
 
 MyApplication* my_application_new() {
   return MY_APPLICATION(g_object_new(my_application_get_type(),
                                      "application-id", APPLICATION_ID,
-                                     "flags", G_APPLICATION_NON_UNIQUE,
+                                    // "flags", G_APPLICATION_NON_UNIQUE,
                                      nullptr));
 }
