@@ -9,7 +9,6 @@ export 'package:flutter/foundation.dart';
 export 'package:flutter/material.dart';
 export 'package:flutter/rendering.dart';
 export 'package:flutter/services.dart';
-export 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 export 'package:flutter_easyrefresh/easy_refresh.dart';
 export 'package:flutter_local_notifications/flutter_local_notifications.dart';
 export 'package:font_awesome_flutter/font_awesome_flutter.dart';

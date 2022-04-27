@@ -1,7 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/layout/adaptive.dart';
 import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/custom_selection_toolbar.dart';
@@ -60,7 +56,7 @@ class _SuccinctState extends State<Succinct> {
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: size.height * .06,
-                  letterSpacing: -3,
+                  letterSpacing: -3,fontFamily: 'Quicksand',
                   color: Color(0xff404040)),
             )),
             Padding(
@@ -85,6 +81,7 @@ class _SuccinctState extends State<Succinct> {
                   SizedBox(height: 20),
                   SelectableText(
                     S.current.succinctSubTitle1,
+                    selectionControls: CustomTextSelectionControls(),
                     style: bodyTextStyle2,
                   ),
                   SelectableText(

@@ -16,7 +16,7 @@ class _ReferencesState extends State<References> {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.current.references),
+        title: Text(S.current.references,style: TextStyle(fontFamily: 'Quicksand'),),
         centerTitle: true,
         backgroundColor: isDesktop ? Colors.transparent : null,
       ),

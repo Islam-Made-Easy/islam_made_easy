@@ -160,7 +160,8 @@ class _FridayRemState extends State<FridayRem>
                     color: theme.splashColor,
                     image: DecorationImage(
                         image: AssetImage('assets/images/cor.png'),
-                        opacity: .05,repeat: ImageRepeat.repeatY,
+                        opacity: .05,
+                        repeat: ImageRepeat.repeatY,
                         fit: BoxFit.cover),
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
@@ -371,11 +372,11 @@ class _FridayRemState extends State<FridayRem>
                     child: Text(
                       'Get Started',
                       style: TextStyle(
-                        color: onBoardPage
-                            ? const Color(0xFFFFFFFF)
-                            : const Color(0xFF220555),
-                        fontSize: width * 0.05,
-                      ),
+                          color: onBoardPage
+                              ? const Color(0xFFFFFFFF)
+                              : const Color(0xFF220555),
+                          fontSize: width * 0.05,
+                          fontFamily: 'Quicksand'),
                     ),
                   ),
                 ),
@@ -489,9 +490,9 @@ class _WelcomeState extends State<WelcomePage>
                 child: Text(
                   S.current.fridayRemind,
                   style: TextStyle(
-                    fontFamily: ar ? 'Amiri' : 'Roboto',
+                    fontFamily: ar ? 'Amiri' : 'Quicksand',
                     color: const Color(0xFFFFFFFF),
-                    fontSize: width * 0.08,
+                    fontSize: width * 0.07,
                   ),
                 ),
               ),
@@ -582,6 +583,7 @@ class _OnboardState extends State<OnBoardPage>
               child: Text(
                 widget.onBoardPageItem!.text!,
                 style: TextStyle(
+                    fontFamily: 'QuickSand',
                     fontSize: isDesktop ? width * 0.04 : width * 0.05),
                 textAlign: TextAlign.center,
               ),

@@ -20,7 +20,7 @@ class ListHeader extends StatelessWidget {
             style: Theme.of(context).textTheme.button!.copyWith(
                 fontWeight: FontWeight.w400,
                 letterSpacing: 2,
-                fontFamily: ar! ? 'Amiri' : 'Roboto'),
+                fontFamily: ar! ? 'Amiri' : 'Quicksand'),
           ),
           if (trailing != null) trailing!,
         ],

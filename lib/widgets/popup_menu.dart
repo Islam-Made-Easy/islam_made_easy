@@ -24,7 +24,7 @@ class PopupOptionMenu extends StatelessWidget {
             Get.to(() => Settings());
             break;
           case MenuOptions.about:
-            about.showAboutDialog(context: context);
+            about.showAboutDialog();
             break;
           case MenuOptions.feed:
             isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
@@ -42,7 +42,7 @@ class PopupOptionMenu extends StatelessWidget {
             children: [
               FaIcon(FontAwesomeIcons.info, color: color),
               const SizedBox(width: 10),
-              Text(MaterialLocalizations.of(context).aboutListTileTitle('')),
+              Text(MaterialLocalizations.of(context).aboutListTileTitle(''),style: TextStyle(fontFamily: 'Quicksand'),),
             ],
           ),
           value: MenuOptions.about,
@@ -52,7 +52,7 @@ class PopupOptionMenu extends StatelessWidget {
             children: [
               FaIcon(FontAwesomeIcons.cog,color: color),
               const SizedBox(width: 10),
-              Text(S.current.settings),
+              Text(S.current.settings,style: TextStyle(fontFamily: 'Quicksand'),),
             ],
           ),
           value: MenuOptions.Settings,
@@ -62,7 +62,7 @@ class PopupOptionMenu extends StatelessWidget {
             children: [
               FaIcon(FontAwesomeIcons.comment,color: color),
               const SizedBox(width: 10),
-              Text(S.current.sendFeed),
+              Text(S.current.sendFeed,style: TextStyle(fontFamily: 'Quicksand'),),
             ],
           ),
           value: MenuOptions.feed,

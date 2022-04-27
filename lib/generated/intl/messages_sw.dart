@@ -8,6 +8,7 @@
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
+// ignore_for_file:unnecessary_string_interpolations, unnecessary_string_escapes
 
 import 'package:intl/intl.dart';
 import 'package:intl/message_lookup_by_library.dart';
@@ -26,7 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Shaykh Sulayman ibn Nasir al-‘Alwan said:\nIt\'s not a condition to drink water in order to say this Dhikr, rather you say it after you eat or drink: \n${fastBreakDua1}\n\"Thirst has gone, the arteries are moist, and the reward is sure, if Allah wills.\" [Authentic]";
 
   static String m2(fastBreakDua2) =>
-      "Na he also mentioned that the dhikr:\n${fastBreakDua2}\n\"O Allāh, for you we have fasted, and by your provisions/sustenance we have broken our fast\"";
+      "Na alitaja pia kuwa the dhikr:\n${fastBreakDua2}\n\"O Allāh, for you we have fasted, and by your provisions/sustenance we have broken our fast\"";
 
   static String m3(marriageAya) =>
       "A man has no right to remain absent from his wife without a legitimate excuse, merely because he wants to earn a living. If the period is so long that it brings harm to the woman, then it is not permissible for him to do that. The most he can remain absent from her is between four to six months; because Allāh the Almighty has set the limit for those who swear not to have sexual relations with their wives to four months. Allāh the Almighty said: \n${marriageAya}\n“Those who take an oath not to have sexual relation with their wives must wait four months, then if they return (change their idea in this period), verily, Allah is Oft-Forgiving, Most Merciful.” [Sūrah Al-Baqarah 226]";
@@ -234,7 +235,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "1. That food has water minerals within it.\n2. This dhikr is said for food, it doesn\'t have to be said for water, because if he breaks his fast, the thirst is gone & the arteries become moist.\nIt\'s probable that the Prophet(ﷺ) used to say it even without drinking water, because he used to break his fast on dates, and it\'s not necessary to [break your fast] on both water & dates together.\nThe Prophet\'s statement: \"and the arteries become moist\", Yaani becomes moist through [eating] food, it doesn\'t have to become moist by [drinking] water."),
         "fastBreakPar4": m2,
         "fastBreakPar5": MessageLookupByLibrary.simpleMessage(
-            " This Hadīth is Mursal, so it\'s weak & the only authentically narrated Dhikr from the Prophet(ﷺ) was what was previously mentioned from the Hadīth of ibn \'Omar(رضي الله عنهما) and Allāh(جل وعال) knows best."),
+            " Hii Hadīth ni Mursal, so it\'s weak & the only authentically narrated Dhikr from the Prophet(ﷺ) was what was previously mentioned from the Hadīth of ibn \'Omar(رضي الله عنهما) and Allāh(جل وعال) knows best."),
         "fastBreakSubTitle":
             MessageLookupByLibrary.simpleMessage("Kufungua swaum"),
         "fastBreakTitle": MessageLookupByLibrary.simpleMessage(
@@ -265,7 +266,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "hajjA1par11": MessageLookupByLibrary.simpleMessage(
             "Note: The definition of \"travelling\" goes back to the \'Urf(customs) of the time - It\'s not permissible to use the hadīths \"Travel for 3 days without Mahram\" in today\'s sense where a person can basically travel the whole world in that specified time period. Rather, whatever is considered \"Travelling in our times\" even if it was 1 hour on a plane n.k... is considered harām if it was without a Mahram اعلم وهللا "),
         "hajjA1par2": MessageLookupByLibrary.simpleMessage(
-            "And from this, the majority of the scholars have stated that it\'s not permissible for a woman to make Hajj except with a Mahram, regardless if her Hajj was compulsory or optional, and regardless if the woman was young or old, and regardless if the travelling distance was long or short. And some of the scholars are of the view that a woman can make Hajj with a group of trustworthy women, infact Imām Mālik(رحمه الله) & al-Shāfi\'ee(رحمه الله) said she is compelled to go to Hajj with a group of women, Yaani in the compulsory Hajj, and from al-Shāfi\'ee(رحمه الله) is a second saying in the issue \"that the woman goes out(for Hajj) even if she was with one woman that\'s trustworthy\", and another group of scholars said \"A woman can travel alone if the road was safe\" and this is what ibn Muflih(رحمه الله) mentions from Shaykh al-Islām ibn Taymiyyâh(رحمه الله), "),
+            "Na kwa haya, the majority of the scholars have stated that it\'s not permissible for a woman to make Hajj except with a Mahram, regardless if her Hajj was compulsory or optional, and regardless if the woman was young or old, and regardless if the travelling distance was long or short. And some of the scholars are of the view that a woman can make Hajj with a group of trustworthy women, infact Imām Mālik(رحمه الله) & al-Shāfi\'ee(رحمه الله) said she is compelled to go to Hajj with a group of women, Yaani in the compulsory Hajj, and from al-Shāfi\'ee(رحمه الله) is a second saying in the issue \"that the woman goes out(for Hajj) even if she was with one woman that\'s trustworthy\", and another group of scholars said \"A woman can travel alone if the road was safe\" and this is what ibn Muflih(رحمه الله) mentions from Shaykh al-Islām ibn Taymiyyâh(رحمه الله), "),
         "hajjA1par3": MessageLookupByLibrary.simpleMessage(
             "but what is present in the Fatāwâh(of ibn Taymiyyâh) is that the woman doesn\'t travel to Hajj, except with friends or Mahrams, so what\'s clear from this is that Shaykh al-Islām ibn Taymiyyâh(رحمه الله) permits a woman to travel without a Mahram if she was with trustworthy friends Yaani trustworthy women, and the proof of this saying is what is mentioned in Sahīh al-Bukhārî Mu\'allâqâ that \'Omar ibn al-Khattâb(رضي الله عنه ) in the final Hajj he made, gave permission to the wives of the Prophet(ﷺ) to perform Hajj, so he sent with them \'Uthmân ibn \'Affān( هللا رضي )عنه and \'Abdûl al-Rahmân ibn \'Âwf(رضي الله عنه ), so they(the scholars of this view) said \"this is a consensus of the Sahābah of the permissibility of a woman travelling without a Mahram if she was with trustworthy women and the road was safe\". "),
         "hajjA1par4": MessageLookupByLibrary.simpleMessage(

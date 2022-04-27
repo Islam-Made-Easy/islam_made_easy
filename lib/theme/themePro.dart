@@ -48,7 +48,8 @@ class ThemeProvide with ChangeNotifier {
   ThemeData get themeData => _themeData;
 
   ThemeData get themeDataDark => _themeDataDark;
-///  Status bar style on Android/iOS
+
+  ///  Status bar style on Android/iOS
   SystemUiOverlayStyle _overlayStyle = SystemUiOverlayStyle.light.copyWith(
     statusBarColor: Colors.primaries[DEFAULT_THEME_INDEX],
     systemNavigationBarColor: Colors.primaries[DEFAULT_THEME_INDEX],
@@ -110,9 +111,12 @@ class ThemeProvide with ChangeNotifier {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           ),
-          textButtonTheme: TextButtonThemeData(style:ElevatedButton.styleFrom(textStyle: TextStyle(
-              fontSize: kSpacingUnit * 1.3, fontWeight: FontWeight.w100,letterSpacing: 2
-          )) ),
+          textButtonTheme: TextButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                  textStyle: TextStyle(
+                      fontSize: kSpacingUnit * 1.3,
+                      fontWeight: FontWeight.w100,
+                      letterSpacing: 2))),
           textSelectionTheme:
               TextSelectionThemeData(cursorColor: Colors.primaries[themeIndex]),
           navigationRailTheme: NavigationRailThemeData(
@@ -129,9 +133,12 @@ class ThemeProvide with ChangeNotifier {
           primaryColor: Colors.primaries[themeIndex],
           primarySwatch: Colors.primaries[themeIndex],
           dividerTheme: DividerThemeData(color: kDividerDark),
-          textButtonTheme: TextButtonThemeData(style:ElevatedButton.styleFrom(textStyle: TextStyle(
-            fontSize: kSpacingUnit * 1.3, fontWeight: FontWeight.w100,letterSpacing: 2
-          )) ),
+          textButtonTheme: TextButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                  textStyle: TextStyle(
+                      fontSize: kSpacingUnit * 1.3,
+                      fontWeight: FontWeight.w100,
+                      letterSpacing: 2))),
           textTheme: TextTheme(
             bodyText1: TextStyle(
               fontWeight: FontWeight.w500,
@@ -163,7 +170,8 @@ class ThemeProvide with ChangeNotifier {
             clipBehavior: Clip.antiAlias,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          ),primaryColorDark: kDarkPrimaryColor2,
+          ),
+          primaryColorDark: kDarkPrimaryColor2,
           scaffoldBackgroundColor: kBackgroundDark,
           backgroundColor: kDarkSecondaryColor,
           dividerColor: kDividerLight,

@@ -13,8 +13,9 @@ class SharedP {
   String? getString(String key) => _sp!.getString(key);
   Future<bool> setString(String key, String value) => _sp!.setString(key, value);
   factory SharedP() => _appSP;
+
   Future<void> init() async {
-    if (_sp == null) _sp = await SharedPreferences.getInstance();
+    _sp ??= await SharedPreferences.getInstance();
   }
 }
 SharedP appSP = SharedP();

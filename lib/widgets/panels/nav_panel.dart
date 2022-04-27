@@ -16,7 +16,7 @@ class _NavigationPanelState extends State<NavigationPanel> {
         dense: true,
         onTap: onTap,
         title: Text(title,
-            style: Theme.of(context).textTheme.caption!.copyWith(fontWeight: FontWeight.w100, fontSize: 18, letterSpacing: 1.8)),
+            style: Theme.of(context).textTheme.caption!.copyWith(fontWeight: FontWeight.w100, fontSize: 18, letterSpacing: 1.8,fontFamily: 'Quicksand')),
       ),
     );
   }
@@ -31,7 +31,7 @@ class _NavigationPanelState extends State<NavigationPanel> {
           drawerTile(
               S.current.prerequisite,
               () => Get.to(() => Prerequisite(), transition: Transition.size),
-              Icons.assignment),
+              FontAwesomeIcons.fileAlt),
           drawerTile(
               S.current.questionsAndAnswers,
               () => Get.to(() => QnA(), transition: Transition.size),

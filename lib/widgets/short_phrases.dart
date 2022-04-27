@@ -11,7 +11,7 @@ class ShortPhrases extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.current.shortPhrasesT),
+        title: Text(S.current.shortPhrasesT,style: TextStyle(fontFamily: 'Quicksand'),),
         centerTitle: true,
         backgroundColor: isDesktop ? Colors.transparent : null,
       ),

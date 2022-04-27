@@ -49,7 +49,7 @@ class NavigationRailHeader extends StatelessWidget {
                               opacity: animation.value,
                               child: Text(
                                 'IME',
-                                style: textTheme.bodyText1!.copyWith(fontFamily: 'Amiri'),
+                                style: textTheme.bodyText1!.copyWith(fontFamily: 'Quicksand'),
                               ),
                             ),
                           ),
@@ -83,13 +83,14 @@ class NavigationRailHeader extends StatelessWidget {
                                     ),
                                   ),transitionDuration: DelayUI(Duration(milliseconds: 1000)).duration,
                                   transitionCurve: Curves.easeInOutSine,
+                                    name: 'Preferences'
                                 );
                               },
                             ),
                             SizedBox(width: 20),
                             IconButton(
                               icon: FaIcon(FontAwesomeIcons.info),
-                              onPressed: () => about.showAboutDialog(context: context),
+                              onPressed: () => about.showAboutDialog(),
                               splashRadius: 15,
                             ),
                             SizedBox(width: 10),

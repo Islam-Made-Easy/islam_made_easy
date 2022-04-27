@@ -46,12 +46,12 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
       anchorAbove: anchorAbove,
       anchorBelow: anchorBelow,
       clipboardStatus: clipboardStatus,
-      handleShare: ()async {
+      handleShare: () async {
         canCopy(delegate) ? () => handleCopy(delegate, clipboardStatus) : null;
         // Map<String, dynamic> result = await SystemChannels.platform.invokeMethod('Clipboard.getData');
         // delegate.userUpdateTextEditingValue(
-        //     delegate.textEditingValue, SelectionChangedCause.doubleTap);
-        customBottomSheet(context,delegate.textEditingValue.text);
+        //     delegate.textEditingValue, SelectionChangedCause.tap);
+        customBottomSheet(context, delegate.textEditingValue.text);
         // delegate.hideToolbar();
       },
       handleCopy: canCopy(delegate)
@@ -67,25 +67,22 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
         );
         delegate.hideToolbar();
       },
-      handleCut: canCut(delegate)
-          ? () => handleCut(delegate,clipboardStatus)
-          : null,
-      handlePaste: canPaste(delegate)
-          ? () => handlePaste(delegate)
-          : null,
-      handleSelectAll: canSelectAll(delegate)
-          ? () => handleSelectAll(delegate)
-          : null,
+      handleCut:
+          canCut(delegate) ? () => handleCut(delegate, clipboardStatus) : null,
+      handlePaste: canPaste(delegate) ? () => handlePaste(delegate) : null,
+      handleSelectAll:
+          canSelectAll(delegate) ? () => handleSelectAll(delegate) : null,
     );
   }
 }
 
 Future<String?> getClipBoardData() async {
-  ClipboardData data = await (Clipboard.getData(Clipboard.kTextPlain) as FutureOr<ClipboardData>);
+  ClipboardData data = await (Clipboard.getData(Clipboard.kTextPlain)
+      as FutureOr<ClipboardData>);
   return data.text;
 }
 
-Future<void> customBottomSheet(BuildContext context,data) async {
+Future<void> customBottomSheet(BuildContext context, data) async {
   final size = MediaQuery.of(context).size;
   showCupertinoModalPopup(
       context: context,
@@ -126,16 +123,11 @@ Future<void> customBottomSheet(BuildContext context,data) async {
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: FutureBuilder(future: getClipBoardData(),
-                                initialData: 'nothing',
-                              builder: (context, snapshot) {
-                                return Text(snapshot.data.toString(),
-                                  style: Theme.of(context).textTheme.headline6,
-                                );
-                              }
-                            ),
-                          ),
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                data.toString(),
+                                style: Theme.of(context).textTheme.headline6,
+                              )),
                         ),
                       ),
                     ),
@@ -161,9 +153,7 @@ Future<void> customBottomSheet(BuildContext context,data) async {
                           children: [
                             ...events.map((event) {
                               return GestureDetector(
-                                onTap: () {
-                                  
-                                },
+                                onTap: () {},
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: ClipRRect(
@@ -210,7 +200,7 @@ Future<void> customBottomSheet(BuildContext context,data) async {
 
 final List<Event> events = [
   Event('logo.png'),
-  Event('logo.png'),
+  Event('ctr.png'),
   Event('logo.png'),
   Event('logo.png'),
 ];
@@ -237,7 +227,12 @@ class MyTextSelectionToolbar extends StatefulWidget {
 
   final Offset? anchorAbove, anchorBelow;
   final ClipboardStatusNotifier? clipboardStatus;
-  final VoidCallback? handleCopy, handleCut, handlePaste, handleSelectAll, handleShare, customButton;
+  final VoidCallback? handleCopy,
+      handleCut,
+      handlePaste,
+      handleSelectAll,
+      handleShare,
+      customButton;
 
   @override
   MyTextSelectionToolbarState createState() => MyTextSelectionToolbarState();

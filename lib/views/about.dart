@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:ui';
 
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/listHeader.dart';
@@ -7,12 +6,11 @@ import 'package:package_info/package_info.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-void showAboutDialog({required BuildContext context}) {
-  showAnimatedDialog<void>(
-    context: context,
-    barrierDismissible: true,
-    animationType: DialogTransitionType.size,
-    builder: (context) => AboutApp(),
+void showAboutDialog() {
+  Get.dialog(
+    AboutApp(),
+    name: 'About IME',
+    transitionCurve: Curves.easeIn,
   );
 }
 
@@ -36,7 +34,8 @@ class _AboutAppState extends State<AboutApp> {
     final isDesktop = isDisplayDesktop(context);
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final textButton = textTheme.button!.copyWith(letterSpacing: 2,fontFamily: 'Roboto');
+    final textButton =
+        textTheme.button!.copyWith(letterSpacing: 2, fontFamily: 'Roboto');
     final name =
         'Islam Made Easy ${S.current.forPlatform} ${DeviceOS.isWeb ? 'Web' : Platform.operatingSystem.capitalizeFirst}';
     final legalese = '${DateTime.now().year} The IME team';
@@ -58,8 +57,9 @@ class _AboutAppState extends State<AboutApp> {
                     subject: ShareUtil().getPlatformShare()));
           },
           splashRadius: DeviceOS.isDesktopOrWeb ? 10 : 20,
-          tooltip: local.closeButtonTooltip ,
-        ), ar: ar,
+          tooltip: local.closeButtonTooltip,
+        ),
+        ar: ar,
       ),
       content: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -72,27 +72,38 @@ class _AboutAppState extends State<AboutApp> {
             ),
             FutureBuilder(
               future: getVersionNumber(),
-              builder: (context, snapshot) =>
-                  Text(
-                    snapshot.hasData
-                        ? '$name \nVersion: ${snapshot.data}'
-                        : '$name',
-                    textAlign: TextAlign.center,
-                    style: textTheme.caption!.copyWith(letterSpacing: .5,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w500,
-                        fontSize: 28),
-                  ),
+              builder: (context, snapshot) => Text(
+                snapshot.hasData
+                    ? '$name \nVersion: ${snapshot.data}'
+                    : '$name',
+                textAlign: TextAlign.center,
+                style: textTheme.caption!.copyWith(
+                    letterSpacing: .5,
+                    fontFamily: 'Quicksand',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 28),
+              ),
             ),
-            Text(S.current.aboutApp, style: textButton.copyWith(
-                fontFamily: ar ? 'Amiri' : 'Roboto',
-                fontWeight: FontWeight.w300),textAlign: TextAlign.center),
+            Text(S.current.aboutApp,
+                style: textButton.copyWith(
+                    fontFamily: ar ? 'Amiri' : 'Roboto',
+                    fontWeight: FontWeight.w300),
+                textAlign: TextAlign.center),
             Shimmer.fromColors(
               highlightColor: colorScheme.onBackground,
               loop: 2,
               baseColor: colorScheme.primary,
-              child: Text(legalese, style: textButton.copyWith(
-                  fontWeight: FontWeight.w400, height: 2)),
+              child: GestureDetector(
+                onTap: () {
+                  launchURL('https://github.com/Islam-Made-Easy/');
+                },
+                child: Text(legalese,
+                    style: textButton.copyWith(
+                        fontWeight: FontWeight.w400,
+                        height: 2,
+                        decoration: TextDecoration.underline,
+                        fontFamily: 'Quicksand')),
+              ),
             ),
             Text(
               '━═══◎${S.current.share}◎═══━',

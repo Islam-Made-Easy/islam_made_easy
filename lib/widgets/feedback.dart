@@ -5,14 +5,10 @@ import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void showFeedbackDialog(BuildContext context, bool isPanelVisible) {
-  final isDesktop = isDisplayDesktop(context);
-  showAnimatedDialog<void>(
-    context: context,
-    barrierDismissible: !isDesktop,
-    animationType: isPanelVisible
-        ? DialogTransitionType.slideFromRightFade
-        : DialogTransitionType.size,
-    builder: (context) => AppFeedback(),
+  Get.dialog(
+    AppFeedback(),
+    name: 'Feedback',
+    transitionCurve: Curves.easeOutQuad,
   );
 }
 
@@ -68,7 +64,7 @@ class _AppFeedbackState extends State<AppFeedback> {
           S.current.feedbackCentre,
           style: TextStyle(
               color: theme.textTheme.caption!.color,
-              fontFamily: ar ? 'Amiri' : 'Roboto'),
+              fontFamily: ar ? 'Amiri' : 'Quicksand'),
         ),
         automaticallyImplyLeading: !isDesktop,
         backgroundColor:

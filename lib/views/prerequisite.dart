@@ -7,7 +7,6 @@ import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/utils/download_util.dart';
 import 'package:islam_made_easy/widgets/anim/load_indicator.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:provider/provider.dart';
 
 class Prerequisite extends StatefulWidget {
@@ -18,7 +17,7 @@ class Prerequisite extends StatefulWidget {
 }
 
 class _PrerequisiteState extends State<Prerequisite> {
-  FirebaseStorage storage = FirebaseStorage.instance;
+  // FirebaseStorage storage = FirebaseStorage.instance;
   var _extensionSet = MarkdownExtensionSet.githubFlavored;
   String? data;
   String? downloadURL;
@@ -38,7 +37,7 @@ class _PrerequisiteState extends State<Prerequisite> {
       } else {
         data = 'intro';
       }
-      downloadURL = await storage.ref('prerequisites/${data}.md').getDownloadURL();
+      // downloadURL = await storage.ref('prerequisites/${data}.md').getDownloadURL();
       await DownloadUtil.downloadFile(downloadURL!, 'preference');
       return downloadURL;
     }
@@ -69,7 +68,7 @@ class _PrerequisiteState extends State<Prerequisite> {
                             h1: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: dp ? provide.fontSize!+24 : 30,
-                                letterSpacing: -3,
+                                letterSpacing: -3,fontFamily: 'Quicksand',
                                 color: Color(0xff404040)),
                             h2: theme.headline6!.copyWith(
                                 letterSpacing: .2,

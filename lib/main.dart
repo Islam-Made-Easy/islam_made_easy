@@ -2,25 +2,19 @@ import 'dart:async';
 
 import 'package:animated_background/animated_background.dart';
 import 'package:desktop_window/desktop_window.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:get/get.dart';
-import 'package:islam_made_easy/generated/l10n.dart';
+import 'package:hijri/hijri_calendar.dart';
 import 'package:islam_made_easy/locale/localePro.dart';
-import 'package:islam_made_easy/models/app_model.dart';
 import 'package:islam_made_easy/routes/app_route.dart';
-import 'package:islam_made_easy/services/firebase_services.dart';
 import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
-import 'package:islam_made_easy/utils/device_info.dart';
 import 'package:islam_made_easy/utils/logger.dart';
 import 'package:islam_made_easy/utils/quick_util.dart';
 import 'package:islam_made_easy/utils/sharedP.dart';
 import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/views/intro/fridayRem.dart';
 import 'package:islam_made_easy/widgets/anim/load_indicator.dart';
 import 'package:provider/provider.dart';
@@ -49,16 +43,16 @@ void main() async {
     }
 
     /// Create core models & services
-    FirebaseService firebase = FirebaseFactory.create();
-    AppModel appModel = AppModel(firebase);
+    // FirebaseService firebase = FirebaseFactory.create();
+    // AppModel appModel = AppModel(firebase);
     runApp(
       Phoenix(
         child: MultiProvider(
           providers: [
 //            ChangeNotifierProvider.value(value: NotificationServices()),
             // Firebase
-            Provider.value(value: firebase),
-            ChangeNotifierProvider.value(value: appModel),
+            // Provider.value(value: firebase),
+            // ChangeNotifierProvider.value(value: appModel),
             ChangeNotifierProvider.value(value: ThemeProvide()),
             ChangeNotifierProvider.value(value: SettingProvide()),
             ChangeNotifierProvider.value(value: LocaleProvide()),
@@ -82,8 +76,12 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     _initSp();
   }
 
+  bool isCelebration = false;
+
   Future _initSp() async {
     await appSP.init();
+    var _today = HijriCalendar.now().wkDay;
+    int _now = DateTime.now().hour;
     bool? dark = SpUtil.getDarkTheme();
     if (dark != null) {
       Provider.of<ThemeProvide>(context, listen: false).getDark(dark);
@@ -93,7 +91,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       Provider.of<SettingProvide>(context, listen: false).getFontSize(fontSize);
     }
     int? themeIndex = SpUtil.getThemeIndex();
-  //  Provider.of<NotificationServices>(context, listen: false).init();
+    //  Provider.of<NotificationServices>(context, listen: false).init();
     if (themeIndex != null) {
       Provider.of<ThemeProvide>(context, listen: false).changeTheme(themeIndex);
     }
@@ -104,6 +102,12 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     String lang = SpUtil.getLanguage()!;
     if (StringUtil.isNotEmpty(lang)) {
       Provider.of<LocaleProvide>(context, listen: false).changeLocale(Locale(lang));
+    }
+    if ((_today == DateTime.thursday && _now > 18) ||
+        (_today == DateTime.friday && _now < 18)) {
+      setState(() {
+        isCelebration = true;
+      });
     }
   }
 
@@ -147,7 +151,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       onGenerateRoute: appRoute.generateRoute,
       onGenerateTitle: (context) => S.current.appTitle,
       supportedLocales: S.delegate.supportedLocales,
-      home: QuickUtil(child: FridayRem()),
+      home: QuickUtil(child: isCelebration ? FridayRem() : Home()),
       debugShowCheckedModeBanner: false,
     );
   }

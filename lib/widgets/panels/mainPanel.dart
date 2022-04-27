@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/views/quiz/quiz_home.dart';
@@ -41,7 +39,7 @@ class _MainPanelState extends State<MainPanel> {
             children: [
               Padding(
                 padding:  EdgeInsets.only(left:size.width * .02),
-                child: Text(S.current.salam, style: appTheme),
+                child: Text(S.current.salam, style: appTheme.copyWith(fontFamily: 'Quicksand')),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 30, horizontal: size.width * .02),
@@ -84,7 +82,7 @@ class _MainPanelState extends State<MainPanel> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 5),
-                  Text(S.current.salam, style: appTheme),
+                  Text(S.current.salam, style: appTheme.copyWith(fontFamily: 'Quicksand')),
                   SizedBox(height: 10),
                   Text(S.current.quizDirection, style: selectTheme),
                 ],
@@ -205,7 +203,7 @@ class _MainPanelState extends State<MainPanel> {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: context.isTablet?22:context.isPhone?17:null,
-                      fontFamily: 'Amiri'),
+                      fontFamily: ar?'Amiri':'Quicksand'),
                 ),
                 tileColor: theme.hoverColor,
               ),

@@ -13,7 +13,8 @@ class DesktopNav extends StatefulWidget {
   _DesktopNavState createState() => _DesktopNavState();
 }
 
-class _DesktopNavState extends State<DesktopNav> with SingleTickerProviderStateMixin {
+class _DesktopNavState extends State<DesktopNav>
+    with SingleTickerProviderStateMixin {
   late ValueNotifier<bool?> _isExtended;
   late double _scale;
   late AnimationController _controller;
@@ -56,7 +57,8 @@ class _DesktopNavState extends State<DesktopNav> with SingleTickerProviderStateM
     final ar = locale.languageCode == 'ar';
     final size = MediaQuery.of(context).size;
     final theme = Theme.of(context);
-    final transparent =Colors.transparent;
+    final text = theme.textTheme.labelLarge!.copyWith(fontFamily: 'Quicksand');
+    final transparent = Colors.transparent;
     return Row(
       children: [
         LayoutBuilder(builder: (context, constraints) {
@@ -76,46 +78,53 @@ class _DesktopNavState extends State<DesktopNav> with SingleTickerProviderStateM
                               destinations: [
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: transparent,
-                                      borderRadius: BorderRadius.zero,
-                                      child: FaIcon(FontAwesomeIcons.quora)),
-                                  label: Text(S.current.quiz),
+                                    color: transparent,
+                                    borderRadius: BorderRadius.zero,
+                                    child: Icon(FontAwesomeIcons.quora),
+                                  ),
+                                  label: Text(S.current.quiz,style: text),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: transparent,
-                                      child: FaIcon(Icons.assignment)),
-                                  label: Text(S.current.prerequisite),
+                                    color: transparent,
+                                    child: Icon(FontAwesomeIcons.fileAlt),
+                                  ),
+                                  label: Text(S.current.prerequisite,style: text),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: transparent,
-                                      child: FaIcon(FontAwesomeIcons.bookOpen)),
-                                  label: Text('Methodology'),
+                                    color: transparent,
+                                    child: Icon(FontAwesomeIcons.bookOpen),
+                                  ),
+                                  label: Text('Methodology',style: text),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: transparent,
-                                      child: FaIcon(FontAwesomeIcons.quinscape)),
-                                  label: Text(S.current.questionsAndAnswers),
+                                    color: transparent,
+                                    child: Icon(FontAwesomeIcons.quinscape),
+                                  ),
+                                  label: Text(S.current.questionsAndAnswers,style: text),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: transparent,
-                                      child: FaIcon(FontAwesomeIcons.book)),
-                                  label: Text(S.current.generalKnowledge),
+                                    color: transparent,
+                                    child: Icon(FontAwesomeIcons.book),
+                                  ),
+                                  label: Text(S.current.generalKnowledge,style: text),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: transparent,
-                                      child: FaIcon(FontAwesomeIcons.scroll)),
-                                  label: Text(S.current.references),
+                                    color: transparent,
+                                    child: Icon(FontAwesomeIcons.scroll),
+                                  ),
+                                  label: Text(S.current.references,style: text),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
-                                      color: transparent,
-                                      child: FaIcon(FontAwesomeIcons.ussunnah)),
-                                  label: Text(S.current.shortPhrases),
+                                    color: transparent,
+                                    child: Icon(FontAwesomeIcons.ussunnah),
+                                  ),
+                                  label: Text(S.current.shortPhrases,style: text),
                                 ),
                               ],
                               extended: _isExtended.value!,
@@ -129,24 +138,40 @@ class _DesktopNavState extends State<DesktopNav> with SingleTickerProviderStateM
                               },
                             ),
                             Positioned(
-                              bottom: -size.height * .1,
-                              left: ar ? isDesktop ? size.width * .05 : size.width * .43 : 0,
-                              right: ar ? 0 : isDesktop ? size.width * .05 : size.width * .43,
+                              bottom: -size.height * .01,
+                              left: ar
+                                  ? isDesktop
+                                      ? size.width * .05
+                                      : size.width * .43
+                                  : 0,
+                              right: ar
+                                  ? 0
+                                  : isDesktop
+                                      ? size.width * .05
+                                      : size.width * .43,
                               child: Container(
-                                height: size.height * .165,
+                                height: size.height * .1,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                       topRight: Radius.circular(50),
-                                      bottomLeft: ar ? Radius.elliptical(50, 120) : Radius.zero,
-                                      bottomRight: ar ? Radius.zero : Radius.elliptical(50, 120)),
+                                      bottomLeft: ar
+                                          ? Radius.elliptical(50, 120)
+                                          : Radius.zero,
+                                      bottomRight: ar
+                                          ? Radius.zero
+                                          : Radius.elliptical(50, 120)),
                                   gradient: LinearGradient(
                                     colors: [
                                       theme.colorScheme.secondary,
                                       theme.backgroundColor
                                     ],
                                     tileMode: TileMode.mirror,
-                                    begin: ar ? Alignment.topRight : Alignment.topLeft,
-                                    end: !ar ? Alignment.bottomLeft : Alignment.bottomRight,
+                                    begin: ar
+                                        ? Alignment.topRight
+                                        : Alignment.topLeft,
+                                    end: !ar
+                                        ? Alignment.bottomLeft
+                                        : Alignment.bottomRight,
                                     stops: [.0, 1.0],
                                   ),
                                 ),
@@ -191,8 +216,8 @@ class _DesktopNavState extends State<DesktopNav> with SingleTickerProviderStateM
       child: Center(
         child: Text(
           'Feedback',
-          style: Theme.of(context).textTheme.headline6!.copyWith(
-              fontSize: 50.0, color: Colors.white, fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.headline6!.copyWith(fontFamily: 'Quicksand',
+              fontSize: 30.0, color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );
