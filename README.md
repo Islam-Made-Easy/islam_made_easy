@@ -26,3 +26,5 @@ Any usage issues can ask for help via
 We welcome and encourage you to report issues and contribute changes
 
 * [Contribution guide for developers](https://github.com/Islam-Made-Easy/developer-center/wiki)
+
+[![Open in Gitpod!](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Islam-Made-Easy/islam_made_easy)
