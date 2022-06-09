@@ -44,6 +44,9 @@ class _SettingsState extends State<Settings>
       // TODO: Get permission before restart in future if relevant
       // relevance ^> if the data[translation files] is from remote source.
       // Needs to 'rebirth' to update the ui since GetMaterialApp is not effective
+      if(DeviceOS.isDesktop){
+        Get.dialog(widget);
+      }
       Phoenix.rebirth(context);
     });
   }
@@ -235,7 +238,7 @@ class _SettingsState extends State<Settings>
                   ),
                 )
               : Container(),
-          _SettingsTitle(title: S.current.advanced),
+          _SettingsTitle(title: 'Fonts'),
           Divider(endIndent: 30, indent: 30, height: 20),
           Card(
             child: ExpansionTile(
@@ -273,7 +276,7 @@ class _SettingsState extends State<Settings>
                 tilePadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 childrenPadding:
                     EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                title: Text(S.current.advanced,
+                title: Text('Select Font',
                     style: theme.textTheme.button!.copyWith(
                         fontSize: kSpacingUnit * 1.3,
                         fontWeight: FontWeight.w100,
@@ -357,6 +360,14 @@ class _SettingsState extends State<Settings>
       ),
       children: <Widget>[Wrap(children: themeChildren)],
     );
+  }
+}
+class RestartDialog extends StatelessWidget {
+  const RestartDialog({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(title: Text('Restart'),);
   }
 }
 

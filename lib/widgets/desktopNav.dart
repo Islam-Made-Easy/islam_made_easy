@@ -82,49 +82,54 @@ class _DesktopNavState extends State<DesktopNav>
                                     borderRadius: BorderRadius.zero,
                                     child: Icon(FontAwesomeIcons.quora),
                                   ),
-                                  label: Text(S.current.quiz,style: text),
+                                  label: Text(S.current.quiz, style: text),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                     color: transparent,
                                     child: Icon(FontAwesomeIcons.fileAlt),
                                   ),
-                                  label: Text(S.current.prerequisite,style: text),
+                                  label:
+                                      Text(S.current.prerequisite, style: text),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                     color: transparent,
                                     child: Icon(FontAwesomeIcons.bookOpen),
                                   ),
-                                  label: Text('Methodology',style: text),
+                                  label: Text('Methodology', style: text),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                     color: transparent,
                                     child: Icon(FontAwesomeIcons.quinscape),
                                   ),
-                                  label: Text(S.current.questionsAndAnswers,style: text),
+                                  label: Text(S.current.questionsAndAnswers,
+                                      style: text),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                     color: transparent,
                                     child: Icon(FontAwesomeIcons.book),
                                   ),
-                                  label: Text(S.current.generalKnowledge,style: text),
+                                  label: Text(S.current.generalKnowledge,
+                                      style: text),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                     color: transparent,
                                     child: Icon(FontAwesomeIcons.scroll),
                                   ),
-                                  label: Text(S.current.references,style: text),
+                                  label:
+                                      Text(S.current.references, style: text),
                                 ),
                                 NavigationRailDestination(
                                   icon: Material(
                                     color: transparent,
                                     child: Icon(FontAwesomeIcons.ussunnah),
                                   ),
-                                  label: Text(S.current.shortPhrases,style: text),
+                                  label:
+                                      Text(S.current.shortPhrases, style: text),
                                 ),
                               ],
                               extended: _isExtended.value!,
@@ -175,17 +180,22 @@ class _DesktopNavState extends State<DesktopNav>
                                     stops: [.0, 1.0],
                                   ),
                                 ),
-                                child: GestureDetector(
-                                  onTapDown: _tapDown,
-                                  onTap: () {
-                                    Get.dialog(FeedDialog(ar: ar),
-                                        transitionDuration: delay.duration,
-                                        transitionCurve: Curves.easeIn,
-                                        name: 'Feedback Dialog');
-                                  },
-                                  onTapUp: _tapUp,
-                                  child: Transform.scale(
-                                      scale: _scale, child: _animatedButton()),
+                                child: Tooltip(
+                                  message: 'Please give your Feedback',
+                                  textStyle: TextStyle(fontFamily: 'Quicksand'),
+                                  child: GestureDetector(
+                                    onTapDown: _tapDown,
+                                    onTap: () {
+                                      Get.dialog(FeedDialog(ar: ar),
+                                          transitionDuration: delay.duration,
+                                          transitionCurve: Curves.easeIn,
+                                          name: 'Feedback Dialog');
+                                    },
+                                    onTapUp: _tapUp,
+                                    child: Transform.scale(
+                                        scale: _scale,
+                                        child: _animatedButton()),
+                                  ),
                                 ),
                               ),
                             ),
@@ -216,8 +226,11 @@ class _DesktopNavState extends State<DesktopNav>
       child: Center(
         child: Text(
           'Feedback',
-          style: Theme.of(context).textTheme.headline6!.copyWith(fontFamily: 'Quicksand',
-              fontSize: 30.0, color: Colors.white, fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.headline6!.copyWith(
+              fontFamily: 'Quicksand',
+              fontSize: 30.0,
+              color: Colors.white,
+              fontWeight: FontWeight.bold),
         ),
       ),
     );

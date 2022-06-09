@@ -65,7 +65,7 @@ class AppRoute extends NavigatorObserver {
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPop(route, previousRoute);
-    if (previousRoute!.settings != null && previousRoute.settings.name != null) {
+    if (previousRoute!.settings.name != null) {
       setPreferredOrientations(previousRoute.settings);
     }
   }
@@ -73,7 +73,7 @@ class AppRoute extends NavigatorObserver {
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPush(route, previousRoute);
-    if (route.settings != null && route.settings.name != null) {
+    if (route.settings.name != null) {
       setPreferredOrientations(route.settings);
     }
   }

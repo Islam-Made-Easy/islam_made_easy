@@ -42,17 +42,11 @@ void main() async {
       // });
     }
 
-    /// Create core models & services
-    // FirebaseService firebase = FirebaseFactory.create();
-    // AppModel appModel = AppModel(firebase);
     runApp(
       Phoenix(
         child: MultiProvider(
           providers: [
 //            ChangeNotifierProvider.value(value: NotificationServices()),
-            // Firebase
-            // Provider.value(value: firebase),
-            // ChangeNotifierProvider.value(value: appModel),
             ChangeNotifierProvider.value(value: ThemeProvide()),
             ChangeNotifierProvider.value(value: SettingProvide()),
             ChangeNotifierProvider.value(value: LocaleProvide()),
