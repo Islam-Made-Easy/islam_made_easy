@@ -1,5 +1,7 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
+import '../../models/app_intents.dart';
+
 class FridayRem extends StatefulWidget {
   static const ROUTE_NAME = "/fridayReminder";
 
@@ -242,18 +244,43 @@ class _FridayRemState extends State<FridayRem>
                                         color:
                                             Color(0xffeef2f5).withOpacity(0.5)),
                                   ),
-                                  child: IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        _pageController!.nextPage(
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                            curve: Curves.easeOut);
-                                      });
+                                  child: Shortcuts(
+                                    shortcuts: <LogicalKeySet, Intent>{
+                                      LogicalKeySet(LogicalKeyboardKey.alt,
+                                              LogicalKeyboardKey.arrowRight):
+                                          BackIndent(),
                                     },
-                                    icon: FaIcon(ar
-                                        ? FontAwesomeIcons.angleLeft
-                                        : FontAwesomeIcons.angleRight),
+                                    child: Actions(
+                                      actions: {
+                                        BackIndent: CallbackAction<BackIndent>(
+                                            onInvoke: (intent) {
+                                          setState(() {
+                                            _pageController!.nextPage(
+                                                duration:
+                                                    Duration(milliseconds: 300),
+                                                curve: Curves.easeOut);
+                                          });
+                                          return null;
+                                        })
+                                      },
+                                      child: Focus(
+                                        autofocus: true,
+                                        canRequestFocus: true,
+                                        child: IconButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              _pageController!.nextPage(
+                                                  duration: Duration(
+                                                      milliseconds: 300),
+                                                  curve: Curves.easeOut);
+                                            });
+                                          },
+                                          icon: FaIcon(ar
+                                              ? FontAwesomeIcons.angleLeft
+                                              : FontAwesomeIcons.angleRight),
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -291,17 +318,41 @@ class _FridayRemState extends State<FridayRem>
                               border: Border.all(
                                   color: Color(0xffeef2f5).withOpacity(0.5)),
                             ),
-                            child: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  _pageController!.previousPage(
-                                      duration: Duration(milliseconds: 300),
-                                      curve: Curves.easeOut);
-                                });
+                            child: Shortcuts(
+                              shortcuts: <LogicalKeySet, Intent>{
+                                LogicalKeySet(LogicalKeyboardKey.alt,
+                                    LogicalKeyboardKey.arrowLeft): BackIndent(),
                               },
-                              icon: FaIcon(ar
-                                  ? FontAwesomeIcons.angleRight
-                                  : FontAwesomeIcons.angleLeft),
+                              child: Actions(
+                                actions: {
+                                  BackIndent: CallbackAction<BackIndent>(
+                                      onInvoke: (intent) {
+                                    setState(() {
+                                      _pageController!.previousPage(
+                                          duration: Duration(milliseconds: 300),
+                                          curve: Curves.easeOut);
+                                    });
+                                    return null;
+                                  })
+                                },
+                                child: Focus(
+                                  autofocus: true,
+                                  canRequestFocus: true,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        _pageController!.previousPage(
+                                            duration:
+                                                Duration(milliseconds: 300),
+                                            curve: Curves.easeOut);
+                                      });
+                                    },
+                                    icon: FaIcon(ar
+                                        ? FontAwesomeIcons.angleRight
+                                        : FontAwesomeIcons.angleLeft),
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -509,7 +560,7 @@ class _WelcomeState extends State<WelcomePage>
                     S.current.fridayFirst,
                     style: TextStyle(
                       color: const Color(0xFFFFFFFF),
-                      fontFamily: ar ? 'Amiri' : 'Roboto',
+                      fontFamily: ar ? 'Amiri' : 'Amiri',
                       fontWeight: FontWeight.w300,
                       fontSize: DeviceOS.isDesktopOrWeb && context.isTablet
                           ? width * 0.02
