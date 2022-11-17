@@ -1,7 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:desktop_window/desktop_window.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/views/quiz/quiz_home.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
+import 'package:provider/provider.dart';
+
+import '../../settings/full_screen.dart';
 
 class MainPanel extends StatefulWidget {
   @override
@@ -157,7 +161,7 @@ class _MainPanelState extends State<MainPanel> {
                         bottomRight: ar ? Radius.zero : Radius.elliptical(50, 120)),
                     gradient: LinearGradient(
                       colors: [
-                        theme.colorScheme.primaryVariant,
+                        theme.colorScheme.primaryContainer,
                         theme.colorScheme.secondary,
                       ],
                       tileMode: TileMode.mirror,
@@ -195,7 +199,14 @@ class _MainPanelState extends State<MainPanel> {
                       color: Colors.white,
                     ),
                     splashRadius: isDesktop ? 20 : 30,
-                    onPressed: ()=> Get.to(()=> QuizHome()),
+                    onPressed: ()  {
+                      setState(() async {
+                        Provider.of<AppFullScreen>(context, listen: false).getFullScreen(true);
+                        await DesktopWindow.setFullScreen(true);
+                        Get.to(() => QuizHome());
+                      });
+
+                    },
                   ),
                 ),
                 title: AutoSizeText(
@@ -221,7 +232,7 @@ class _MainPanelState extends State<MainPanel> {
                       gradient: LinearGradient(
                         colors: [
                           theme.colorScheme.secondary,
-                          theme.colorScheme.primaryVariant,
+                          theme.colorScheme.primaryContainer,
                         ],
                         tileMode: TileMode.mirror,
                         begin: Alignment.topLeft,

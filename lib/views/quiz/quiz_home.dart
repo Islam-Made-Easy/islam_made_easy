@@ -1,7 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
+import 'package:provider/provider.dart';
+
+import '../../settings/full_screen.dart';
 
 class QuizHome extends StatefulWidget {
   const QuizHome({Key? key}) : super(key: key);
@@ -33,6 +36,16 @@ class _QuizHomeState extends State<QuizHome> {
       appBar: AppBar(
         toolbarHeight: 200,
         shape: kAppBarShape,
+        leading: IconButton(
+            onPressed: () {
+              setState(() async {
+                Provider.of<AppFullScreen>(context, listen: false)
+                    .getFullScreen(false);
+                await DesktopWindow.setFullScreen(false);
+                Get.back();
+              });
+            },
+            icon: FaIcon(FontAwesomeIcons.angleLeft)),
         backgroundColor: Colors.transparent,
         flexibleSpace: Stack(
           children: [

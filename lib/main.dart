@@ -7,6 +7,7 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:islam_made_easy/locale/localePro.dart';
 import 'package:islam_made_easy/routes/app_route.dart';
+import 'package:islam_made_easy/settings/full_screen.dart';
 import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/logger.dart';
@@ -77,6 +78,10 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     var _today = HijriCalendar.now().wkDay;
     int _now = DateTime.now().hour;
     bool? dark = SpUtil.getDarkTheme();
+    bool? full = SpUtil.getFullScreen();
+    if (full != null){
+      Provider.of<AppFullScreen>(context,listen: false).getFullScreen(full);
+    }
     if (dark != null) {
       Provider.of<ThemeProvide>(context, listen: false).getDark(dark);
     }
