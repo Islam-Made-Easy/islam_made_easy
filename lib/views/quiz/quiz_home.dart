@@ -4,7 +4,7 @@ import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:provider/provider.dart';
 
-import '../../settings/full_screen.dart';
+import '../../settings/settings_pro.dart';
 
 class QuizHome extends StatefulWidget {
   const QuizHome({Key? key}) : super(key: key);
@@ -39,7 +39,7 @@ class _QuizHomeState extends State<QuizHome> {
         leading: IconButton(
             onPressed: () {
               setState(() async {
-                Provider.of<AppFullScreen>(context, listen: false)
+                Provider.of<SettingProvide>(context, listen: false)
                     .getFullScreen(false);
                 await DesktopWindow.setFullScreen(false);
                 Get.back();

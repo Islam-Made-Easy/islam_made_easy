@@ -58,7 +58,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         PositionedTransition(
           rect: getPanelAnimation(constraints),
           child: Container(
-            color:  context.isDarkMode?Theme.of(context).primaryColorDark: Theme.of(context).textSelectionColor,
+            color:  context.isDarkMode?Theme.of(context).primaryColorDark: Theme.of(context).backgroundColor,
             child: Column(
               children: <Widget>[Expanded(child: Center(child: MainPanel()))],
             ),

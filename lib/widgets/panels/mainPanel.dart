@@ -5,7 +5,7 @@ import 'package:islam_made_easy/views/quiz/quiz_home.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:provider/provider.dart';
 
-import '../../settings/full_screen.dart';
+import '../../settings/settings_pro.dart';
 
 class MainPanel extends StatefulWidget {
   @override
@@ -201,7 +201,7 @@ class _MainPanelState extends State<MainPanel> {
                     splashRadius: isDesktop ? 20 : 30,
                     onPressed: ()  {
                       setState(() async {
-                        Provider.of<AppFullScreen>(context, listen: false).getFullScreen(true);
+                        Provider.of<SettingProvide>(context, listen: false).getFullScreen(true);
                         await DesktopWindow.setFullScreen(true);
                         Get.to(() => QuizHome());
                       });

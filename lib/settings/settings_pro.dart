@@ -1,3 +1,4 @@
+import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/material.dart';
 import 'package:islam_made_easy/utils/spUtil.dart';
 
@@ -20,4 +21,11 @@ class SettingProvide with ChangeNotifier {
   String? get fontType => _fontType;
 
   double? get fontSize => _fontSize;
+
+  void getFullScreen(bool full) async {
+    await DesktopWindow.setFullScreen(full);
+    SpUtil.setFullScreen(full);
+    notifyListeners();
+  }
+
 }
