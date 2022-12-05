@@ -244,28 +244,28 @@ class _FridayRemState extends State<FridayRem>
                                         color:
                                             Color(0xffeef2f5).withOpacity(0.5)),
                                   ),
-                                  child: Shortcuts(
-                                    shortcuts: <LogicalKeySet, Intent>{
-                                      LogicalKeySet(LogicalKeyboardKey.alt,
-                                              LogicalKeyboardKey.arrowRight):
-                                          BackIndent(),
-                                    },
-                                    child: Actions(
-                                      actions: {
-                                        BackIndent: CallbackAction<BackIndent>(
-                                            onInvoke: (intent) {
-                                          setState(() {
-                                            _pageController!.nextPage(
-                                                duration:
-                                                    Duration(milliseconds: 300),
-                                                curve: Curves.easeOut);
-                                          });
-                                          return null;
-                                        })
+                                  child: FocusScope(
+                                    autofocus: true,
+                                    child: Shortcuts(
+                                      shortcuts: {
+                                        SingleActivator(
+                                                LogicalKeyboardKey.arrowRight):
+                                            BackIndent(),
                                       },
-                                      child: Focus(
-                                        autofocus: true,
-                                        canRequestFocus: true,
+                                      child: Actions(
+                                        actions: {
+                                          BackIndent:
+                                              CallbackAction<BackIndent>(
+                                                  onInvoke: (intent) {
+                                            setState(() {
+                                              _pageController!.nextPage(
+                                                  duration: Duration(
+                                                      milliseconds: 300),
+                                                  curve: Curves.easeOut);
+                                            });
+                                            return null;
+                                          })
+                                        },
                                         child: IconButton(
                                           onPressed: () {
                                             setState(() {
@@ -318,26 +318,26 @@ class _FridayRemState extends State<FridayRem>
                               border: Border.all(
                                   color: Color(0xffeef2f5).withOpacity(0.5)),
                             ),
-                            child: Shortcuts(
-                              shortcuts: <LogicalKeySet, Intent>{
-                                LogicalKeySet(LogicalKeyboardKey.alt,
-                                    LogicalKeyboardKey.arrowLeft): BackIndent(),
-                              },
-                              child: Actions(
-                                actions: {
-                                  BackIndent: CallbackAction<BackIndent>(
-                                      onInvoke: (intent) {
-                                    setState(() {
-                                      _pageController!.previousPage(
-                                          duration: Duration(milliseconds: 300),
-                                          curve: Curves.easeOut);
-                                    });
-                                    return null;
-                                  })
+                            child: FocusScope(
+                              autofocus: true,
+                              child: Shortcuts(
+                                shortcuts: {
+                                  SingleActivator(LogicalKeyboardKey.arrowLeft):
+                                      BackIndent(),
                                 },
-                                child: Focus(
-                                  autofocus: true,
-                                  canRequestFocus: true,
+                                child: Actions(
+                                  actions: {
+                                    BackIndent: CallbackAction<BackIndent>(
+                                        onInvoke: (intent) {
+                                      setState(() {
+                                        _pageController!.previousPage(
+                                            duration:
+                                                Duration(milliseconds: 300),
+                                            curve: Curves.easeOut);
+                                      });
+                                      return null;
+                                    })
+                                  },
                                   child: IconButton(
                                     onPressed: () {
                                       setState(() {
