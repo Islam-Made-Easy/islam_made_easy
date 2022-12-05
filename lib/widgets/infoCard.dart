@@ -19,14 +19,14 @@ class _InfoCardState extends State<InfoCard> {
     final isDesktop = isDisplayDesktop(context);
     return WidgetAnimator(
       Card(
-        shape: isDesktop || context.isTablet
-            ? Border(
-                left: BorderSide(color: Colors.grey[100]!, width: 5),
-                bottom: BorderSide(color: Colors.grey[200]!, width: 5),
-                top: BorderSide(color: Colors.grey[300]!, width: 2),
-                right: BorderSide(color: Colors.grey[400]!, width: 3),
-              )
-            : RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(4),
+            topRight: Radius.circular(4),
+            bottomRight: Radius.elliptical(10, 90),
+            bottomLeft: Radius.elliptical(90, 10),
+          ),
+        ),
         elevation: 0,
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         shadowColor: Colors.grey,
