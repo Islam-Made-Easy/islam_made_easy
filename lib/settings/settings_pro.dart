@@ -27,5 +27,4 @@ class SettingProvide with ChangeNotifier {
     SpUtil.setFullScreen(full);
     notifyListeners();
   }
-
 }
