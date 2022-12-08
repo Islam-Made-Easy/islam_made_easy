@@ -1,3 +1,4 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/desktopNav.dart';
 import 'package:islam_made_easy/widgets/panels/nav_panel.dart';
@@ -58,7 +59,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         PositionedTransition(
           rect: getPanelAnimation(constraints),
           child: Container(
-            color:  context.isDarkMode?Theme.of(context).primaryColorDark: Theme.of(context).backgroundColor,
+            color: context.isDarkMode
+                ? Theme.of(context).primaryColorDark
+                : Theme.of(context).backgroundColor,
             child: Column(
               children: <Widget>[Expanded(child: Center(child: MainPanel()))],
             ),
@@ -74,11 +77,20 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     final isTablet = isDisplaySmallDesktop(context);
     if (DeviceOS.isDesktopOrWeb && isDesktop ||
         (context.isLargeTablet && DeviceOS.isMobile)) {
-      return Scaffold(body: DesktopNav(extended: !isTablet));
+      return Scaffold(
+        body: WindowBorder(
+          color: Get.theme.primaryColor,
+          width: 1,
+          child: DesktopNav(extended: !isTablet),
+        ),
+      );
     } else {
       return DoubleBack(
         onFirstBackPress: (context) => Get.snackbar('Smile It\'s Sunnah', ''),
-        child: Scaffold(backgroundColor: context.isDarkMode?null:Theme.of(context).secondaryHeaderColor,
+        child: Scaffold(
+          backgroundColor: context.isDarkMode
+              ? null
+              : Theme.of(context).secondaryHeaderColor,
           appBar: AppBar(
             // backgroundColor: context.isDarkMode?Theme.of(context).primaryColorDark: Theme.of(context).primaryColorLight,
             leading: IconButton(

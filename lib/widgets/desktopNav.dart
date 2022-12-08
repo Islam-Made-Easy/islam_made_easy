@@ -1,3 +1,4 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/anim/ime_nav.dart';
 import 'package:islam_made_easy/widgets/anim/shared_switcher.dart';
@@ -16,17 +17,9 @@ class DesktopNav extends StatefulWidget {
 class _DesktopNavState extends State<DesktopNav>
     with SingleTickerProviderStateMixin {
   late ValueNotifier<bool?> _isExtended;
-  late double _scale;
-  late AnimationController _controller;
 
   @override
   void initState() {
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 500),
-      lowerBound: .0,
-      upperBound: .1,
-    )..addListener(() => setState(() {}));
     super.initState();
     _isExtended = ValueNotifier<bool?>(widget.extended);
   }
@@ -44,18 +37,9 @@ class _DesktopNavState extends State<DesktopNav>
   static DelayUI delay = DelayUI(Duration(seconds: 1));
 
   @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    _scale = 1 - _controller.value;
-    final isDesktop = isDisplayDesktop(context);
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
-    final size = MediaQuery.of(context).size;
     final theme = Theme.of(context);
     final text = theme.textTheme.labelLarge!.copyWith(fontFamily: 'Quicksand');
     final transparent = Colors.transparent;
@@ -134,6 +118,22 @@ class _DesktopNavState extends State<DesktopNav>
                               ],
                               extended: _isExtended.value!,
                               selectedIndex: _selectedIndex,
+                              trailing: GestureDetector(
+                                onTap: () {
+                                  Get.dialog(FeedDialog(ar: ar),
+                                      transitionDuration: delay.duration,
+                                      transitionCurve: Curves.easeIn,
+                                      name: 'Feedback Dialog');
+                                },
+                                child: Expanded(
+                                  child: Tooltip(
+                                    message: 'Please give your Feedback',
+                                    child: FaIcon(
+                                        FontAwesomeIcons.affiliatetheme,
+                                        color: Get.theme.primaryColor),
+                                  ),
+                                ),
+                              ),
                               leading:
                                   NavigationRailHeader(extended: _isExtended),
                               onDestinationSelected: (index) {
@@ -141,63 +141,6 @@ class _DesktopNavState extends State<DesktopNav>
                                   _selectedIndex = index;
                                 });
                               },
-                            ),
-                            Positioned(
-                              bottom: -size.height * .01,
-                              left: ar
-                                  ? isDesktop
-                                      ? size.width * .05
-                                      : size.width * .43
-                                  : 0,
-                              right: ar
-                                  ? 0
-                                  : isDesktop
-                                      ? size.width * .05
-                                      : size.width * .43,
-                              child: Container(
-                                height: size.height * .1,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(50),
-                                      bottomLeft: ar
-                                          ? Radius.elliptical(50, 120)
-                                          : Radius.zero,
-                                      bottomRight: ar
-                                          ? Radius.zero
-                                          : Radius.elliptical(50, 120)),
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      theme.colorScheme.secondary,
-                                      theme.backgroundColor
-                                    ],
-                                    tileMode: TileMode.mirror,
-                                    begin: ar
-                                        ? Alignment.topRight
-                                        : Alignment.topLeft,
-                                    end: !ar
-                                        ? Alignment.bottomLeft
-                                        : Alignment.bottomRight,
-                                    stops: [.0, 1.0],
-                                  ),
-                                ),
-                                child: Tooltip(
-                                  message: 'Please give your Feedback',
-                                  textStyle: TextStyle(fontFamily: 'Quicksand'),
-                                  child: GestureDetector(
-                                    onTapDown: _tapDown,
-                                    onTap: () {
-                                      Get.dialog(FeedDialog(ar: ar),
-                                          transitionDuration: delay.duration,
-                                          transitionCurve: Curves.easeIn,
-                                          name: 'Feedback Dialog');
-                                    },
-                                    onTapUp: _tapUp,
-                                    child: Transform.scale(
-                                        scale: _scale,
-                                        child: _animatedButton()),
-                                  ),
-                                ),
-                              ),
                             ),
                           ],
                         );
@@ -207,32 +150,58 @@ class _DesktopNavState extends State<DesktopNav>
             ),
           );
         }),
-        const VerticalDivider(thickness: 1, width: 1),
+        const VerticalDivider(
+            thickness: 1, width: 1, endIndent: 30, indent: 30),
         Expanded(
           child: SharedAxisTransitionSwitcher(
-            child: IMENav(child: screens[_selectedIndex]),
+            child: IMENav(
+              child: Stack(
+                children: [
+                  screens[_selectedIndex],
+                  WindowTitleBarBox(
+                    child: Row(
+                      children: [
+                        Expanded(child: MoveWindow()),
+                        const WindowButtons()
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         )
       ],
     );
   }
+}
 
-  void _tapDown(TapDownDetails details) => _controller.forward();
+final buttonColors = WindowButtonColors(
+  iconNormal: Get.theme.primaryColor,
+  mouseOver: Get.theme.primaryColor,
+  mouseDown: Get.theme.primaryColor,
+  iconMouseOver: Colors.white,
+  iconMouseDown: Get.theme.backgroundColor,
+);
 
-  void _tapUp(TapUpDetails details) => _controller.reverse();
+final closeDeco = WindowButtonColors(
+  mouseOver: const Color(0xFFD32F2F),
+  mouseDown: const Color(0xFFB71C1C),
+  iconNormal: Get.theme.primaryColor,
+  iconMouseOver: Colors.white,
+);
 
-  Widget _animatedButton() {
-    return Container(
-      child: Center(
-        child: Text(
-          'Feedback',
-          style: Theme.of(context).textTheme.headline6!.copyWith(
-              fontFamily: 'Quicksand',
-              fontSize: 30.0,
-              color: Colors.white,
-              fontWeight: FontWeight.bold),
-        ),
-      ),
+class WindowButtons extends StatelessWidget {
+  const WindowButtons({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        MinimizeWindowButton(colors: buttonColors),
+        MaximizeWindowButton(colors: buttonColors),
+        CloseWindowButton(colors: closeDeco),
+      ],
     );
   }
 }

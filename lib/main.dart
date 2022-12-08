@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:animated_background/animated_background.dart';
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
@@ -31,15 +32,6 @@ void main() async {
       await Future<void>.delayed(Duration.zero);
     } else if (DeviceOS.isDesktop) {
       await DesktopWindow.setMinWindowSize(const Size(1051.0, 646.0));
-      // doWhenWindowReady(() {
-      //   final win = appWindow;
-      //   const initialSize = Size(600, 450);
-      //   win.minSize = initialSize;
-      //   win.size = initialSize;
-      //   win.alignment = Alignment.center;
-      //   win.title = "Islam Made Easy";
-      //   win.show();
-      // });
     }
 
     runApp(
@@ -55,6 +47,15 @@ void main() async {
         ),
       ),
     );
+    doWhenWindowReady(() {
+      final win = appWindow;
+      const initialSize = Size(600, 450);
+      win.minSize = initialSize;
+      win.size = initialSize;
+      win.alignment = Alignment.center;
+      win.title = "Islam Made Easy";
+      win.show();
+    });
   });
 }
 
@@ -78,8 +79,8 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     int _now = DateTime.now().hour;
     bool? dark = SpUtil.getDarkTheme();
     bool? full = SpUtil.getFullScreen();
-    if (full != null){
-      Provider.of<SettingProvide>(context,listen: false).getFullScreen(full);
+    if (full != null) {
+      Provider.of<SettingProvide>(context, listen: false).getFullScreen(full);
     }
     if (dark != null) {
       Provider.of<ThemeProvide>(context, listen: false).getDark(dark);
@@ -99,7 +100,8 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     }
     String lang = SpUtil.getLanguage()!;
     if (StringUtil.isNotEmpty(lang)) {
-      Provider.of<LocaleProvide>(context, listen: false).changeLocale(Locale(lang));
+      Provider.of<LocaleProvide>(context, listen: false)
+          .changeLocale(Locale(lang));
     }
     if ((_today == DateTime.thursday && _now > 18) ||
         (_today == DateTime.friday && _now < 18)) {
