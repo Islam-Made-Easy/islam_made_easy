@@ -65,11 +65,11 @@ class _FridayRemState extends State<FridayRem>
     _pageController!.addListener(() {
       _activeIndex = _pageController!.page;
       // print("Active Index: $_activeIndex");
-      if (_activeIndex! >= 0.5 && onBoardPage == false) {
+      if (_activeIndex! >= .5 && onBoardPage == false) {
         setState(() {
           onBoardPage = true;
         });
-      } else if (_activeIndex! < 0.5) {
+      } else if (_activeIndex! < .5) {
         setState(() {
           onBoardPage = false;
         });
@@ -112,31 +112,32 @@ class _FridayRemState extends State<FridayRem>
               onPressed: () => Get.off(() => Home()),
               backgroundColor: theme.colorScheme.primary,
               child: glow
-                  ? AvatarGlow(
-                      endRadius: 30,
-                      glowColor: theme.colorScheme.secondary,
-                      child: FaIcon(ar
+                  ? FaIcon(
+                      ar
                           ? FontAwesomeIcons.angleLeft
-                          : FontAwesomeIcons.angleRight),
+                          : FontAwesomeIcons.angleRight,
+                      color: Colors.white,
                     )
-                  : FaIcon(ar
-                      ? FontAwesomeIcons.angleLeft
-                      : FontAwesomeIcons.angleRight),
+                  : FaIcon(
+                      ar
+                          ? FontAwesomeIcons.angleLeft
+                          : FontAwesomeIcons.angleRight,
+                      color: Colors.white),
             ),
           ),
         ),
         body: Stack(
           children: [
             Positioned(
-              top: height * 0.11,
-              left: ar ? width * 0.6 : width * 0.165,
-              right: ar ? width * 0.16 : width * 0.6,
+              top: height * .11,
+              left: ar ? width * .6 : width * .165,
+              right: ar ? width * .16 : width * .6,
               child: FadingSlidingWidget(
                 anim: _anim,
                 child: AnimatedContainer(
                   duration: const Duration(seconds: 1),
-                  height: height * 0.45,
-                  width: width * 0.25,
+                  height: height * .45,
+                  width: width * .25,
                   decoration: BoxDecoration(
                     color: theme.splashColor,
                     borderRadius: BorderRadius.circular(20),
@@ -150,14 +151,14 @@ class _FridayRemState extends State<FridayRem>
             ),
             Positioned(
               bottom: 0,
-              right: ar ? width * 0.6 : width * 0.15,
-              left: ar ? width * 0.15 : width * 0.6,
+              right: ar ? width * .6 : width * .15,
+              left: ar ? width * .15 : width * .6,
               child: FadingSlidingWidget(
                 anim: _anim,
                 child: AnimatedContainer(
                   duration: const Duration(seconds: 1),
-                  height: height * 0.03,
-                  width: width * 0.25,
+                  height: height * .03,
+                  width: width * .25,
                   decoration: BoxDecoration(
                     color: theme.splashColor,
                     image: DecorationImage(
@@ -173,17 +174,17 @@ class _FridayRemState extends State<FridayRem>
               ),
             ),
             Positioned(
-              top: height * 0.15,
-              left: ar ? width * 0.18 : width * 0.185,
-              right: ar ? width * 0.186 : width * 0.18,
+              top: height * .15,
+              left: ar ? width * .18 : width * .185,
+              right: ar ? width * .186 : width * .18,
               child: Material(
                 color: theme.colorScheme.primary,
                 borderRadius: BorderRadius.circular(20),
                 elevation: 50,
                 child: AnimatedContainer(
                   duration: const Duration(seconds: 1),
-                  height: height * 0.75,
-                  width: width * 0.65,
+                  height: height * .75,
+                  width: width * .65,
                   decoration: BoxDecoration(
                     color: theme.colorScheme.primary,
                     borderRadius: BorderRadius.circular(20),
@@ -199,15 +200,15 @@ class _FridayRemState extends State<FridayRem>
                             children: onBoardItems),
                       ),
                       Positioned(
-                        bottom: height * 0.03,
-                        left: ar ? width * 0.1 : width * 0.3,
-                        right: ar ? width * 0.3 : width * 0.1,
+                        bottom: height * .03,
+                        left: ar ? width * .1 : width * .3,
+                        right: ar ? width * .3 : width * .1,
                         child: SmoothPageIndicator(
                           controller: _pageController!,
                           count: onBoardItems.length,
                           effect: WormEffect(
-                            dotWidth: width * 0.015,
-                            dotHeight: width * 0.015,
+                            dotWidth: width * .015,
+                            dotHeight: width * .015,
                             dotColor: onBoardPage
                                 ? const Color(0x11000000)
                                 : const Color(0x566FFFFFF),
@@ -218,7 +219,7 @@ class _FridayRemState extends State<FridayRem>
                       Positioned(
                         right: ar ? null : 1,
                         left: ar ? 1 : null,
-                        top: height * 0.35,
+                        top: height * .35,
                         child: _activeIndex == 10
                             ? Container()
                             : Visibility(
@@ -242,7 +243,7 @@ class _FridayRemState extends State<FridayRem>
                                     color: theme.colorScheme.primary,
                                     border: Border.all(
                                         color:
-                                            Color(0xffeef2f5).withOpacity(0.5)),
+                                            Color(0xffeef2f5).withOpacity(.5)),
                                   ),
                                   child: FocusScope(
                                     autofocus: true,
@@ -297,7 +298,7 @@ class _FridayRemState extends State<FridayRem>
                         child: Positioned(
                           right: ar ? 1 : null,
                           left: ar ? null : 1,
-                          top: height * 0.35,
+                          top: height * .35,
                           child: AnimContainer(
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
@@ -316,7 +317,7 @@ class _FridayRemState extends State<FridayRem>
                               gradient: gradient,
                               color: theme.colorScheme.primary,
                               border: Border.all(
-                                  color: Color(0xffeef2f5).withOpacity(0.5)),
+                                  color: Color(0xffeef2f5).withOpacity(.5)),
                             ),
                             child: FocusScope(
                               autofocus: true,
@@ -375,13 +376,13 @@ class _FridayRemState extends State<FridayRem>
                   PageView(controller: _pageController, children: onBoardItems),
             ),
             Positioned(
-              bottom: height * 0.15,
+              bottom: height * .15,
               child: SmoothPageIndicator(
                 controller: _pageController!,
                 count: onBoardItems.length,
                 effect: WormEffect(
-                  dotWidth: width * 0.03,
-                  dotHeight: width * 0.03,
+                  dotWidth: width * .03,
+                  dotHeight: width * .03,
                   dotColor: onBoardPage
                       ? const Color(0x11000000)
                       : const Color(0x566FFFFFF),
@@ -402,7 +403,7 @@ class _FridayRemState extends State<FridayRem>
                   child: AnimatedContainer(
                     decoration: ShapeDecoration(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(width * 0.1),
+                        borderRadius: BorderRadius.circular(width * .1),
                       ),
                       gradient: LinearGradient(
                         colors: onBoardPage
@@ -418,15 +419,15 @@ class _FridayRemState extends State<FridayRem>
                     ),
                     duration: const Duration(seconds: 1),
                     alignment: Alignment.center,
-                    width: width * 0.8,
-                    height: height * 0.075,
+                    width: width * .8,
+                    height: height * .075,
                     child: Text(
                       'Get Started',
                       style: TextStyle(
                           color: onBoardPage
                               ? const Color(0xFFFFFFFF)
                               : const Color(0xFF220555),
-                          fontSize: width * 0.05,
+                          fontSize: width * .05,
                           fontFamily: 'Quicksand'),
                     ),
                   ),
@@ -487,26 +488,24 @@ class _WelcomeState extends State<WelcomePage>
                 child: Container(color: Theme.of(context).primaryColor),
               ),
         Positioned(
-          top: isDesktop || context.isTablet ? 0.0 : height * 0.1,
+          top: isDesktop || context.isTablet ? .0 : height * .1,
           child: Column(
             children: <Widget>[
               DeviceOS.isDesktopOrWeb && !context.isPhone
                   ? Container()
                   : ScaleTransition(
                       scale: _anim!.drive(
-                        Tween<double>(begin: 0.3, end: 1.0).chain(
+                        Tween<double>(begin: .3, end: 1.0).chain(
                           CurveTween(
-                            curve:
-                                Interval(0.0, 0.2, curve: Curves.elasticInOut),
+                            curve: Interval(.0, .2, curve: Curves.elasticInOut),
                           ),
                         ),
                       ),
                       child: FadeTransition(
                         opacity: _anim!.drive(
-                          Tween<double>(begin: 0.0, end: 1.0).chain(
+                          Tween<double>(begin: .0, end: 1.0).chain(
                             CurveTween(
-                              curve:
-                                  Interval(0.2, 0.4, curve: Curves.decelerate),
+                              curve: Interval(.2, .4, curve: Curves.decelerate),
                             ),
                           ),
                         ),
@@ -514,19 +513,19 @@ class _WelcomeState extends State<WelcomePage>
                           scale: _anim!.drive(
                             Tween<double>(begin: 1.3, end: 1.0).chain(
                               CurveTween(
-                                curve: Interval(0.2, 0.4,
+                                curve: Interval(.2, .4,
                                     curve: Curves.elasticInOut),
                               ),
                             ),
                           ),
                           child: Container(
-                            width: width * 0.3,
-                            height: width * 0.3,
+                            width: width * .3,
+                            height: width * .3,
                             decoration: ShapeDecoration(
                               color: Theme.of(context).hoverColor,
                               shape: RoundedRectangleBorder(
                                 borderRadius:
-                                    BorderRadius.circular(width * 0.08),
+                                    BorderRadius.circular(width * .08),
                               ),
                             ),
                             child: Image.asset('assets/images/ctr.png'),
@@ -534,10 +533,10 @@ class _WelcomeState extends State<WelcomePage>
                         ),
                       ),
                     ),
-              SizedBox(height: isDesktop ? 0.0 : height * 0.02),
+              SizedBox(height: isDesktop ? .0 : height * .02),
               FadingSlidingWidget(
                 anim: _anim,
-                interval: const Interval(0.5, 0.9),
+                interval: const Interval(.5, .9),
                 child: Text(
                   S.current.fridayRemind,
                   style: TextStyle(
@@ -547,15 +546,15 @@ class _WelcomeState extends State<WelcomePage>
                   ),
                 ),
               ),
-              SizedBox(height: isDesktop ? 0.0 : height * 0.015),
+              SizedBox(height: isDesktop ? .0 : height * .015),
               AnimatedContainer(
                 duration: const Duration(seconds: 1),
                 width: DeviceOS.isDesktopOrWeb && !context.isPhone
-                    ? width * 0.4
-                    : width * 0.9,
+                    ? width * .4
+                    : width * .9,
                 child: FadingSlidingWidget(
                   anim: _anim,
-                  interval: const Interval(0.7, 1.0),
+                  interval: const Interval(.7, 1.0),
                   child: Text(
                     S.current.fridayFirst,
                     style: TextStyle(
@@ -563,8 +562,8 @@ class _WelcomeState extends State<WelcomePage>
                       fontFamily: ar ? 'Amiri' : 'Amiri',
                       fontWeight: FontWeight.w300,
                       fontSize: DeviceOS.isDesktopOrWeb && context.isTablet
-                          ? width * 0.02
-                          : width * 0.056,
+                          ? width * .02
+                          : width * .056,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -609,7 +608,7 @@ class _OnboardState extends State<OnBoardPage>
     double height = MediaQuery.of(context).size.height;
     final isDesktop = isDisplayDesktop(context);
     return Container(
-      padding: EdgeInsets.only(top: height * 0.1),
+      padding: EdgeInsets.only(top: height * .1),
       child: Column(
         children: <Widget>[
           Lottie.asset(widget.onBoardPageItem!.lottieAsset!, controller: _anim,
@@ -625,17 +624,17 @@ class _OnboardState extends State<OnBoardPage>
                   }
                 }
               });
-          }, width: isDesktop ? width * 0.15 : width * 0.9),
-          SizedBox(height: context.isTablet ? height * 0.01 : height * 0.1),
+          }, width: isDesktop ? width * .15 : width * .9),
+          SizedBox(height: context.isTablet ? height * .01 : height * .1),
           Flexible(
             child: FadingSlidingWidget(
               anim: _anim,
-              interval: const Interval(0.2, 0.5),
+              interval: const Interval(.2, .5),
               child: Text(
                 widget.onBoardPageItem!.text!,
                 style: TextStyle(
                     fontFamily: 'QuickSand',
-                    fontSize: isDesktop ? width * 0.04 : width * 0.05),
+                    fontSize: isDesktop ? width * .04 : width * .05),
                 textAlign: TextAlign.center,
               ),
             ),
