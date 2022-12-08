@@ -78,7 +78,7 @@ class _AppFeedbackState extends State<AppFeedback> {
           child: Center(
             child: ListView(
               padding: EdgeInsets.symmetric(
-                horizontal: size.width * 0.035,
+                horizontal: size.width * .035,
                 vertical: isDesktop || context.isTablet ? 30 : 8.0,
               ),
               children: [
@@ -180,18 +180,8 @@ class _AppFeedbackState extends State<AppFeedback> {
                 StretchButton(
                     onTap: () async {
                       if (_formKey.currentState!.validate()) {
-                        final response = await submitData(
-                          name: name!.text,
-                          email: email!.text,
-                          feed: feed!.text,
-                        );
-                        Get.snackbar(
-                            response == 200 ? 'Submitted' : 'Error!',
-                            response == 200
-                                ? 'Thank you for submitting your feedback!, Jazakumullahu Khayraa!!'
-                                : 'Try back later',
-                            colorText: response == 200 ? null : Colors.red,
-                            snackPosition: SnackPosition.BOTTOM);
+                        // todo: get data to server :)
+                        sendViaEmail(feed!.text);
                         name!.clear();
                         email!.clear();
                         feed!.clear();
@@ -256,33 +246,6 @@ class _AppFeedbackState extends State<AppFeedback> {
       ),
     );
   }
-
-  Future submitData({
-    required String name,
-    required String email,
-    required String feed,
-  }) async {
-    final url = Uri.parse('https://api.emailjs.com/api/v1.0/email');
-    const serviceId = 'service_v3buc5h';
-    const templateId = 'template_lvbfme7';
-    const userId = 'user_QPzEf7RiM430WtpDknE2Y';
-    final response = await http.post(url,
-        headers: {
-          'origin': 'http://localhost',
-          'Content-Type': 'application/json'
-        }, //This line makes
-        body: json.encode({
-          'service_id': serviceId,
-          'template_id': templateId,
-          'user_id': userId,
-          'template_params': {
-            'from_name': name,
-            'from_email': email,
-            'message': feed
-          }
-        }));
-    return response.statusCode;
-  }
 }
 
 class InputContainer extends StatelessWidget {
@@ -315,7 +278,7 @@ class InputContainer extends StatelessWidget {
           Card(
             color: context.isDarkMode ? theme.cardColor : Color(0xfff6f6f6),
             child: Container(
-              height: size.height * 0.13,
+              height: size.height * .13,
               width: size.width - 45,
               child: Stack(
                 children: [
