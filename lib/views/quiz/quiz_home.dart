@@ -205,10 +205,12 @@ class _QuizHomeState extends State<QuizHome> {
               ),
             ),
             Positioned(
-              left: 0,bottom: 0,
+              left: 0,
+              bottom: 0,
               child: SvgPicture.asset(
                 'assets/icons/icons8-lock-80.svg',
-                matchTextDirection: true,color: kGreyColor,
+                matchTextDirection: true,
+                color: kGreyColor,
                 height: 50,
               ),
             ),
