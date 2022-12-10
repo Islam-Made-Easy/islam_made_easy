@@ -39,7 +39,7 @@ class NavigationRailHeader extends StatelessWidget {
                             angle: animation.value * math.pi,
                             child: const FaIcon(Icons.arrow_left, size: 16),
                           ),
-                          Image.asset('assets/images/logo.png', width: 32),
+                          Image.asset('assets/images/Logo3.png', width: 32),
                           const SizedBox(width: 10),
                           Align(
                             alignment: AlignmentDirectional.centerStart,
