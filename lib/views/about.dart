@@ -67,7 +67,7 @@ class _AboutAppState extends State<AboutApp> {
           children: [
             Divider(),
             Image.asset(
-              'assets/images/logo.png',
+              'assets/images/Logo3.png',
               height: isDesktop ? size.height * .3 : 150,
             ),
             FutureBuilder(

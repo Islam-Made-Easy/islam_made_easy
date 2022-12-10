@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
 import '../models/app_intents.dart';
