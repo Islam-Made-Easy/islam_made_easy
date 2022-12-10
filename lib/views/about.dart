@@ -68,7 +68,7 @@ class _AboutAppState extends State<AboutApp> {
             Divider(),
             Image.asset(
               'assets/images/logo.png',
-              height: isDesktop ? size.height * 0.3 : 150,
+              height: isDesktop ? size.height * .3 : 150,
             ),
             FutureBuilder(
               future: getVersionNumber(),

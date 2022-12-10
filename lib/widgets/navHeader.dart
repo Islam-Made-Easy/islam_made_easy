@@ -22,7 +22,6 @@ class NavigationRailHeader extends StatelessWidget {
       builder: (context, child) {
         return Align(
           alignment: AlignmentDirectional.centerStart,
-          widthFactor: animation.value,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -49,13 +48,15 @@ class NavigationRailHeader extends StatelessWidget {
                               opacity: animation.value,
                               child: Text(
                                 'IME',
-                                style: textTheme.bodyText1!.copyWith(fontFamily: 'Quicksand'),
+                                style: textTheme.bodyText1!
+                                    .copyWith(fontFamily: 'Quicksand'),
                               ),
                             ),
                           ),
                           SizedBox(width: 18 * animation.value),
                         ],
                       ),
+                      hoverColor: Get.theme.primaryColor.withOpacity(.1),
                       onTap: () => extended.value = !extended.value!,
                     ),
                     if (animation.value > 0)
@@ -65,33 +66,52 @@ class NavigationRailHeader extends StatelessWidget {
                           children: [
                             SizedBox(width: 20),
                             IconButton(
-                              icon: FaIcon(FontAwesomeIcons.cog),
+                              icon: FaIcon(
+                                FontAwesomeIcons.cog,
+                                color: Theme.of(context).primaryColor,
+                              ),
                               splashRadius: 15,
+                              hoverColor:
+                                  Get.theme.primaryColor.withOpacity(.1),
                               onPressed: () {
                                 Get.dialog(
-                                  Align(alignment: locale.languageCode == 'ar'
-                                        ? Alignment.centerLeft : Alignment.centerRight,
-                                    child: Container(
-                                      height: double.infinity,
-                                      width: MediaQuery.of(context).size.width / 3,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFFAFAFC).withOpacity(0.1),
-                                        border: Border.all(color: Colors.transparent),
-                                        borderRadius: BorderRadius.only(topLeft: Radius.circular(5)),
+                                    Align(
+                                      alignment: locale.languageCode == 'ar'
+                                          ? Alignment.centerLeft
+                                          : Alignment.centerRight,
+                                      child: Container(
+                                        height: double.infinity,
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                3,
+                                        decoration: BoxDecoration(
+                                          color:
+                                              Color(0xFFFAFAFC).withOpacity(.1),
+                                          border: Border.all(
+                                              color: Colors.transparent),
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(5)),
+                                        ),
+                                        child: Settings(),
                                       ),
-                                      child: Settings(),
                                     ),
-                                  ),transitionDuration: DelayUI(Duration(milliseconds: 1000)).duration,
-                                  transitionCurve: Curves.easeInOutSine,
-                                    name: 'Preferences'
-                                );
+                                    transitionDuration:
+                                        DelayUI(Duration(milliseconds: 1000))
+                                            .duration,
+                                    transitionCurve: Curves.easeInOutSine,
+                                    name: 'Preferences');
                               },
                             ),
                             SizedBox(width: 20),
                             IconButton(
-                              icon: FaIcon(FontAwesomeIcons.info),
+                              icon: FaIcon(
+                                FontAwesomeIcons.info,
+                                color: Theme.of(context).primaryColor,
+                              ),
                               onPressed: () => about.showAboutDialog(),
                               splashRadius: 15,
+                              hoverColor:
+                                  Get.theme.primaryColor.withOpacity(.1),
                             ),
                             SizedBox(width: 10),
                           ],

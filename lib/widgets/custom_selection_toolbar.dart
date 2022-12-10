@@ -23,7 +23,7 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
     Offset selectionMidpoint,
     List<TextSelectionPoint> endpoints,
     TextSelectionDelegate delegate,
-    ClipboardStatusNotifier clipboardStatus,
+    ClipboardStatusNotifier? clipboardStatus,
     Offset? lastSecondaryTapDownPosition,
   ) {
     final TextSelectionPoint startTextSelectionPoint = endpoints[0];
@@ -42,7 +42,7 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
           _kToolbarContentDistanceBelow,
     );
 
-    return MyTextSelectionToolbar(
+    return CustomTextSelectionToolbar(
       anchorAbove: anchorAbove,
       anchorBelow: anchorBelow,
       clipboardStatus: clipboardStatus,
@@ -60,7 +60,7 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
       customButton: () {
         customButton!(delegate.textEditingValue.selection.start,
             delegate.textEditingValue.selection.end);
-        delegate.textEditingValue = delegate.textEditingValue.copyWith(
+        delegate.textEditingValue.copyWith(
           selection: TextSelection.collapsed(
             offset: delegate.textEditingValue.selection.baseOffset,
           ),
@@ -211,8 +211,8 @@ class Event {
   Event(this.assetName);
 }
 
-class MyTextSelectionToolbar extends StatefulWidget {
-  const MyTextSelectionToolbar({
+class CustomTextSelectionToolbar extends StatefulWidget {
+  const CustomTextSelectionToolbar({
     Key? key,
     this.anchorAbove,
     this.anchorBelow,
@@ -235,10 +235,12 @@ class MyTextSelectionToolbar extends StatefulWidget {
       customButton;
 
   @override
-  MyTextSelectionToolbarState createState() => MyTextSelectionToolbarState();
+  CustomTextSelectionToolbarState createState() =>
+      CustomTextSelectionToolbarState();
 }
 
-class MyTextSelectionToolbarState extends State<MyTextSelectionToolbar> {
+class CustomTextSelectionToolbarState
+    extends State<CustomTextSelectionToolbar> {
   void _onChangedClipboardStatus() {
     setState(() {
       // Inform the widget that the value of clipboardStatus has changed.
@@ -253,7 +255,7 @@ class MyTextSelectionToolbarState extends State<MyTextSelectionToolbar> {
   }
 
   @override
-  void didUpdateWidget(MyTextSelectionToolbar oldWidget) {
+  void didUpdateWidget(CustomTextSelectionToolbar oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.clipboardStatus != oldWidget.clipboardStatus) {
       widget.clipboardStatus!.addListener(_onChangedClipboardStatus);
