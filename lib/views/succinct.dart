@@ -11,16 +11,17 @@ class Succinct extends StatefulWidget {
 }
 
 class _SuccinctState extends State<Succinct> {
-
   @override
   void initState() {
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
-   double? proSize = Provider.of<SettingProvide>(context, listen: false).fontSize;
-   String? proType = Provider.of<SettingProvide>(context, listen: false).fontType??'Amiri';
-     Function(TextSelection)? onSelectionChange;
+    double? proSize =
+        Provider.of<SettingProvide>(context, listen: false).fontSize;
+    String? proType =
+        Provider.of<SettingProvide>(context, listen: false).fontType ?? 'Amiri';
+    Function(TextSelection)? onSelectionChange;
     TextSelection textSelection = TextSelection.collapsed(offset: -1);
     final isDesktop = isDisplayDesktop(context);
     final size = MediaQuery.of(context).size;
@@ -28,7 +29,7 @@ class _SuccinctState extends State<Succinct> {
     final bodyTextStyle = textTheme.bodyText1!.copyWith(
       fontFamily: proType,
       height: isDesktop ? 1.85 : 1.8,
-      fontSize: isDesktop ? proSize!+1 : proSize,
+      fontSize: isDesktop ? proSize! + 1 : proSize,
     );
     final bodyTextStyle2 =
         textTheme.headline5!.apply(fontFamily: 'Amiri', heightDelta: 2);
@@ -36,10 +37,9 @@ class _SuccinctState extends State<Succinct> {
         fontFamily: proType,
         fontStyle: FontStyle.italic,
         decoration: TextDecoration.underline,
-        fontSize: proSize!+2,
+        fontSize: proSize! + 2,
         fontWeight: FontWeight.bold);
     return Scaffold(
-      backgroundColor: context.isDarkMode ? null : Theme.of(context).primaryColorLight,
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8),
         child: ListView(
@@ -56,7 +56,8 @@ class _SuccinctState extends State<Succinct> {
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: size.height * .06,
-                  letterSpacing: -3,fontFamily: 'Quicksand',
+                  letterSpacing: -3,
+                  fontFamily: 'Quicksand',
                   color: Color(0xff404040)),
             )),
             Padding(
@@ -75,7 +76,8 @@ class _SuccinctState extends State<Succinct> {
                         fontWeight: FontWeight.w300),
                   ),
                   SelectableText(
-                    S.current.succinctPar1,selectionControls: CustomTextSelectionControls(),
+                    S.current.succinctPar1,
+                    selectionControls: CustomTextSelectionControls(),
                     style: bodyTextStyle,
                   ),
                   SizedBox(height: 20),
