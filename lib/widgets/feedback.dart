@@ -207,20 +207,16 @@ class _AppFeedbackState extends State<AppFeedback> {
                           children: [
                             CustomIconButton(
                                 icon: FontAwesomeIcons.github,
-                                onTap: () {
-                                  launchUrl(
-                                      "https://github.com/Islam-Made-Easy/Islam-Made-Easy/issues",
-                                      DeviceOS.isWeb);
-                                },
+                                onTap: () => launchUrl(
+                                    "https://github.com/Islam-Made-Easy/Islam-Made-Easy/issues",
+                                    DeviceOS.isWeb),
                                 data: 'Github'),
                             SizedBox(width: 10),
                             CustomIconButton(
                                 icon: FontAwesomeIcons.gitter,
-                                onTap: () {
-                                  launchUrl(
-                                      "https://gitter.im/orgs/Islam-Made-Easy/rooms",
-                                      DeviceOS.isWeb);
-                                },
+                                onTap: () => launchUrl(
+                                    "https://gitter.im/orgs/Islam-Made-Easy/rooms",
+                                    DeviceOS.isWeb),
                                 data: 'Gitter'),
                             SizedBox(width: 10),
                             CustomIconButton(
