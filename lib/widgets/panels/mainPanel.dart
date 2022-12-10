@@ -25,37 +25,42 @@ class _MainPanelState extends State<MainPanel> {
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
     final size = context.mediaQuery.size;
-    final appTheme = theme.textTheme.button!
-        .copyWith(fontWeight: FontWeight.bold, fontSize: isDesktop||context.isTablet ? 30 : 22);
+    final appTheme = theme.textTheme.button!.copyWith(
+        fontWeight: FontWeight.bold,
+        fontSize: isDesktop || context.isTablet ? 30 : 22);
     final selectTheme = theme.textTheme.caption!.copyWith(
       fontWeight: FontWeight.w100,
       fontSize: 22,
-      letterSpacing: isDesktop||context.isTablet ? 2 : null,
+      letterSpacing: isDesktop || context.isTablet ? 2 : null,
       fontFamily: ar ? 'Amiri' : 'Roboto',
     );
     if (DeviceOS.isDesktopOrWeb && isDesktop ||
         (context.isTablet && DeviceOS.isMobile)) {
       return Scaffold(
-        backgroundColor: context.isDarkMode ? null : theme.primaryColorLight,
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding:  EdgeInsets.only(left:size.width * .02),
-                child: Text(S.current.salam, style: appTheme.copyWith(fontFamily: 'Quicksand')),
+                padding: EdgeInsets.only(left: size.width * .02),
+                child: Text(
+                  S.current.salam,
+                  style: appTheme.copyWith(fontFamily: 'Quicksand'),
+                ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 30, horizontal: size.width * .02),
+                padding: EdgeInsets.symmetric(
+                    vertical: 30, horizontal: size.width * .02),
                 child: Text(S.current.quizDirection, style: selectTheme),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: size.width * .02,vertical: size.height*.07),
+                padding: EdgeInsets.symmetric(
+                    horizontal: size.width * .02, vertical: size.height * .07),
                 child: GridView(
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                      mainAxisSpacing: size.width*.05,
-                      maxCrossAxisExtent: size.height*.4,
-                      crossAxisSpacing: size.height*.09,
+                      mainAxisSpacing: size.width * .05,
+                      maxCrossAxisExtent: size.height * .4,
+                      crossAxisSpacing: size.height * .09,
                       childAspectRatio: 2.4),
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
@@ -86,7 +91,8 @@ class _MainPanelState extends State<MainPanel> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 5),
-                  Text(S.current.salam, style: appTheme.copyWith(fontFamily: 'Quicksand')),
+                  Text(S.current.salam,
+                      style: appTheme.copyWith(fontFamily: 'Quicksand')),
                   SizedBox(height: 10),
                   Text(S.current.quizDirection, style: selectTheme),
                 ],
@@ -132,8 +138,16 @@ class _MainPanelState extends State<MainPanel> {
             children: [
               Positioned(
                 bottom: isDesktop ? size.height * .097 : size.height * .1,
-                right: ar ? isDesktop ? size.width * .15 : size.width * .55 : 0,
-                left: ar ? 0 : isDesktop ? size.width * .15 : size.width * .55,
+                right: ar
+                    ? isDesktop
+                        ? size.width * .15
+                        : size.width * .55
+                    : 0,
+                left: ar
+                    ? 0
+                    : isDesktop
+                        ? size.width * .15
+                        : size.width * .55,
                 child: Container(
                   height: isDesktop ? size.height * .9 : size.height * .2,
                   decoration: BoxDecoration(
@@ -149,16 +163,26 @@ class _MainPanelState extends State<MainPanel> {
               ),
               Positioned(
                 top: -size.height * .08,
-                left: ar ? isDesktop ? size.width * .05 : size.width * .43 : 0,
-                right: ar ? 0 : isDesktop ? size.width * .05 : size.width * .43,
+                left: ar
+                    ? isDesktop
+                        ? size.width * .05
+                        : size.width * .43
+                    : 0,
+                right: ar
+                    ? 0
+                    : isDesktop
+                        ? size.width * .05
+                        : size.width * .43,
                 child: Container(
                   height: size.height * .165,
                   decoration: BoxDecoration(
                     color: theme.primaryColor,
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(50),
-                        bottomLeft: ar ? Radius.elliptical(50, 120) : Radius.zero,
-                        bottomRight: ar ? Radius.zero : Radius.elliptical(50, 120)),
+                        bottomLeft:
+                            ar ? Radius.elliptical(50, 120) : Radius.zero,
+                        bottomRight:
+                            ar ? Radius.zero : Radius.elliptical(50, 120)),
                     gradient: LinearGradient(
                       colors: [
                         theme.colorScheme.primaryContainer,
@@ -174,16 +198,26 @@ class _MainPanelState extends State<MainPanel> {
               ),
               Positioned(
                 top: isDesktop ? size.height * .098 : -size.height * .065,
-                left: ar ? isDesktop ? size.width * .05 : size.width * .35 : 0,
-                right: ar ? 0 : isDesktop ? size.width * .05 : size.width * .35,
+                left: ar
+                    ? isDesktop
+                        ? size.width * .05
+                        : size.width * .35
+                    : 0,
+                right: ar
+                    ? 0
+                    : isDesktop
+                        ? size.width * .05
+                        : size.width * .35,
                 child: Container(
                   height: size.height * .175,
                   decoration: BoxDecoration(
                     color: theme.splashColor.withOpacity(.07),
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(50),
-                        bottomLeft: ar ? Radius.elliptical(50, 110) : Radius.zero,
-                        bottomRight: ar ? Radius.zero : Radius.elliptical(50, 121)),
+                        bottomLeft:
+                            ar ? Radius.elliptical(50, 110) : Radius.zero,
+                        bottomRight:
+                            ar ? Radius.zero : Radius.elliptical(50, 121)),
                   ),
                 ),
               ),
@@ -195,17 +229,18 @@ class _MainPanelState extends State<MainPanel> {
                       borderRadius: BorderRadius.circular(50),
                       color: theme.colorScheme.secondary),
                   child: IconButton(
-                    icon: FaIcon(ar ? Icons.chevron_left : Icons.chevron_right,
+                    icon: FaIcon(
+                      ar ? Icons.chevron_left : Icons.chevron_right,
                       color: Colors.white,
                     ),
                     splashRadius: isDesktop ? 20 : 30,
-                    onPressed: ()  {
+                    onPressed: () {
                       setState(() async {
-                        Provider.of<SettingProvide>(context, listen: false).getFullScreen(true);
+                        Provider.of<SettingProvide>(context, listen: false)
+                            .getFullScreen(true);
                         await DesktopWindow.setFullScreen(true);
                         Get.to(() => QuizHome());
                       });
-
                     },
                   ),
                 ),
@@ -213,15 +248,27 @@ class _MainPanelState extends State<MainPanel> {
                   title,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: context.isTablet?22:context.isPhone?17:null,
-                      fontFamily: ar?'Amiri':'Quicksand'),
+                      fontSize: context.isTablet
+                          ? 22
+                          : context.isPhone
+                              ? 17
+                              : null,
+                      fontFamily: ar ? 'Amiri' : 'Quicksand'),
                 ),
                 tileColor: theme.hoverColor,
               ),
               Positioned(
                 top: isDesktop ? size.height * .098 : size.height * .1,
-                left: ar ? 0 : isDesktop ? size.width * .16 : size.width * .55,
-                right: ar ? isDesktop ? size.width * .16 : size.width * .55 : 0,
+                left: ar
+                    ? 0
+                    : isDesktop
+                        ? size.width * .16
+                        : size.width * .55,
+                right: ar
+                    ? isDesktop
+                        ? size.width * .16
+                        : size.width * .55
+                    : 0,
                 child: Container(
                   height: size.height * .175,
                   decoration: BoxDecoration(
