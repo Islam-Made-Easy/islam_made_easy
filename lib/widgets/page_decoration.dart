@@ -61,7 +61,8 @@ class _GradientCirclesState extends State<GradientCircles>
             height: _animation3.value + 10.0,
             width: 140.0,
             decoration: BoxDecoration(
-                gradient: yellowOrangeGradient, shape: BoxShape.circle,
+              gradient: yellowOrangeGradient,
+              shape: BoxShape.circle,
             ),
           ),
         ),
@@ -187,37 +188,37 @@ class _GradientCirclesState extends State<GradientCircles>
 }
 
 var blackGradient = LinearGradient(
-    colors: [const Color(0xFFD626C2), const Color(0xFFA629CC)],
+    colors: [Get.theme.primaryColor, const Color(0xFFA629CC)],
     tileMode: TileMode.decal,
     begin: Alignment.bottomLeft,
     end: Alignment.topRight,
     stops: [0.0, 1.0]);
 var violetGradient = LinearGradient(
-    colors: [const Color(0xFF4884E7), const Color(0xFF7236C0)],
+    colors: [const Color(0xFF4884E7), Get.theme.primaryColor],
     tileMode: TileMode.mirror,
     begin: Alignment.bottomLeft,
     end: Alignment.topRight,
     stops: [0.0, 1.0]);
 var thodGradient = LinearGradient(
-    colors: [const Color(0xFFF58573), const Color(0xFF5F79F4)],
+    colors: [Get.theme.primaryColor, const Color(0xFF5F79F4)],
     tileMode: TileMode.mirror,
     begin: Alignment.bottomLeft,
     end: Alignment.topRight,
     stops: [0.0, 1.0]);
 var skyBlueGradient = LinearGradient(
-    colors: [Color(0xffffe598).withOpacity(.5), Color(0xFFD6FC51).withOpacity(.05)],
+    colors: [Color(0xffffe598).withOpacity(.5), Get.theme.primaryColor],
     tileMode: TileMode.mirror,
     begin: Alignment.bottomLeft,
     end: Alignment.topRight,
     stops: [0.0, 1.0]);
 var blackBlueGradient = LinearGradient(
-    colors: [Colors.blueGrey.shade800, Colors.black87],
+    colors: [Colors.blueGrey.shade800, Get.theme.primaryColor],
     tileMode: TileMode.mirror,
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     stops: [0.0, 1.0]);
 var yellowOrangeGradient = LinearGradient(
-  colors: [const Color(0xFFF58573), const Color(0xFF5F79F4)],
+  colors: [Get.theme.primaryColor, const Color(0xFF5F79F4)],
   tileMode: TileMode.mirror,
   begin: Alignment.bottomRight,
   end: Alignment.topLeft,
