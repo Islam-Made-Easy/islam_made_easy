@@ -43,7 +43,7 @@ class _PrerequisiteState extends State<Prerequisite> {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: dp ? 30 : 1, vertical: 20),
         child: FutureBuilder<String>(
-          future: DefaultAssetBundle.of(context).loadString(data, cache: false),
+          future: DefaultAssetBundle.of(context).loadString(data),
           builder: (context, AsyncSnapshot<String> snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               return Column(
@@ -61,30 +61,39 @@ class _PrerequisiteState extends State<Prerequisite> {
                         styleSheet: MarkdownStyleSheet(
                           h1Align: WrapAlignment.center,
                           h1: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: dp ? provide.fontSize! + 24 : 30,
-                              letterSpacing: -3,
-                              fontFamily: 'Quicksand',
-                              color: Color(0xff404040)),
+                            fontWeight: FontWeight.bold,
+                            fontSize: dp ? provide.fontSize! + 24 : 30,
+                            letterSpacing: -3,
+                            fontFamily: provide.fontType,
+                            color: Color(0xff404040),
+                          ),
                           h2: theme.headline6!.copyWith(
-                              letterSpacing: .2,
-                              decoration: TextDecoration.underline,
-                              fontSize: dp
-                                  ? provide.fontSize! + 18
-                                  : provide.fontSize! + 8,
-                              fontWeight: FontWeight.w500),
+                            letterSpacing: .2,
+                            decoration: TextDecoration.underline,
+                            fontFamily: provide.fontType,
+                            fontSize: dp
+                                ? provide.fontSize! + 18
+                                : provide.fontSize! + 8,
+                            fontWeight: FontWeight.w500,
+                          ),
                           p: theme.bodyText1!.copyWith(
-                              fontWeight: FontWeight.w100,
-                              height: dp ? 1.85 : 1.8,
-                              fontSize: provide.fontSize),
+                            fontWeight: FontWeight.w100,
+                            fontFamily: provide.fontType,
+                            height: dp ? 1.85 : 1.8,
+                            fontSize: provide.fontSize,
+                          ),
                           blockquote: theme.bodyText1!.copyWith(
-                              fontWeight: FontWeight.w100,
-                              height: dp ? 1.85 : 1.8,
-                              fontSize: provide.fontSize),
+                            fontWeight: FontWeight.w100,
+                            height: dp ? 1.85 : 1.8,
+                            fontFamily: provide.fontType,
+                            fontSize: provide.fontSize,
+                          ),
                           strong: theme.bodyText1!.copyWith(
-                              fontWeight: FontWeight.w600,
-                              height: dp ? 1.85 : 1.8,
-                              fontSize: dp ? 17 : 15),
+                            fontWeight: FontWeight.w600,
+                            fontFamily: provide.fontType,
+                            height: dp ? 1.85 : 1.8,
+                            fontSize: dp ? 17 : 15,
+                          ),
                           blockSpacing: dp ? 25 : 10,
                           textScaleFactor: 1.0,
                         ),
