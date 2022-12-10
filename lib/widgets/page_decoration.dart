@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
@@ -189,7 +188,7 @@ class _GradientCirclesState extends State<GradientCircles>
 
 var blackGradient = LinearGradient(
     colors: [const Color(0xFFD626C2), const Color(0xFFA629CC)],
-    tileMode: TileMode.mirror,
+    tileMode: TileMode.decal,
     begin: Alignment.bottomLeft,
     end: Alignment.topRight,
     stops: [0.0, 1.0]);
@@ -206,7 +205,7 @@ var thodGradient = LinearGradient(
     end: Alignment.topRight,
     stops: [0.0, 1.0]);
 var skyBlueGradient = LinearGradient(
-    colors: [const Color(0xFF54B6E8), const Color(0xFF39AFDC)],
+    colors: [Color(0xffffe598).withOpacity(.5), Color(0xFFD6FC51).withOpacity(.05)],
     tileMode: TileMode.mirror,
     begin: Alignment.bottomLeft,
     end: Alignment.topRight,
@@ -218,10 +217,10 @@ var blackBlueGradient = LinearGradient(
     end: Alignment.bottomRight,
     stops: [0.0, 1.0]);
 var yellowOrangeGradient = LinearGradient(
-  colors: [const Color(0xFFFC944D), const Color(0xFFF53E84)],
+  colors: [const Color(0xFFF58573), const Color(0xFF5F79F4)],
   tileMode: TileMode.mirror,
-  begin: Alignment.topLeft,
-  end: Alignment.bottomRight,
+  begin: Alignment.bottomRight,
+  end: Alignment.topLeft,
   stops: [0.0, 1.0],
 );
 
