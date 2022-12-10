@@ -1,8 +1,8 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'buttons/custom_icon_button.dart';
 
 void showFeedbackDialog(BuildContext context, bool isPanelVisible) {
   Get.dialog(
@@ -205,34 +205,32 @@ class _AppFeedbackState extends State<AppFeedback> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            IconButton(
-                                color: theme.buttonColor,
-                                tooltip: 'Github',
-                                onPressed: () => launchUrl(
-                                    "https://github.com/Islam-Made-Easy/Islam-Made-Easy/issues",
-                                    DeviceOS.isWeb),
-                                icon: FaIcon(FontAwesomeIcons.github),
-                                splashRadius: 1),
+                            CustomIconButton(
+                                icon: FontAwesomeIcons.github,
+                                onTap: () {
+                                  launchUrl(
+                                      "https://github.com/Islam-Made-Easy/Islam-Made-Easy/issues",
+                                      DeviceOS.isWeb);
+                                },
+                                data: 'Github'),
                             SizedBox(width: 10),
-                            IconButton(
-                                color: theme.buttonColor,
-                                tooltip: 'Gitter',
-                                onPressed: () => launchUrl(
-                                    "https://gitter.im/orgs/Islam-Made-Easy/rooms",
-                                    DeviceOS.isWeb),
-                                icon: FaIcon(FontAwesomeIcons.gitter),
-                                splashRadius: 1),
+                            CustomIconButton(
+                                icon: FontAwesomeIcons.gitter,
+                                onTap: () {
+                                  launchUrl(
+                                      "https://gitter.im/orgs/Islam-Made-Easy/rooms",
+                                      DeviceOS.isWeb);
+                                },
+                                data: 'Gitter'),
                             SizedBox(width: 10),
-                            IconButton(
-                                color: theme.buttonColor,
-                                tooltip: 'Mail',
-                                onPressed: () {
-                                  sendViaEmail('');
+                            CustomIconButton(
+                                icon: Icons.mail,
+                                onTap: () {
+                                  sendViaEmail(feed!.text);
                                   launchUrl("mailto:info.islamadeasy@gmail.com",
                                       DeviceOS.isWeb);
                                 },
-                                icon: FaIcon(Icons.mail),
-                                splashRadius: 1),
+                                data: 'Mail'),
                           ],
                         ),
                       ],

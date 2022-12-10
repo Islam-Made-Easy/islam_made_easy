@@ -5,6 +5,8 @@ import 'package:islam_made_easy/widgets/anim/shared_switcher.dart';
 import 'package:islam_made_easy/widgets/navHeader.dart';
 import 'package:islam_made_easy/widgets/popup_menu.dart';
 
+import 'buttons/custom_icon_button.dart';
+
 class DesktopNav extends StatefulWidget {
   const DesktopNav({this.extended});
 
@@ -118,22 +120,15 @@ class _DesktopNavState extends State<DesktopNav>
                               ],
                               extended: _isExtended.value!,
                               selectedIndex: _selectedIndex,
-                              trailing: GestureDetector(
-                                onTap: () {
-                                  Get.dialog(FeedDialog(ar: ar),
-                                      transitionDuration: delay.duration,
-                                      transitionCurve: Curves.easeIn,
-                                      name: 'Feedback Dialog');
-                                },
-                                child: Expanded(
-                                  child: Tooltip(
-                                    message: 'Please give your Feedback',
-                                    child: FaIcon(
-                                        FontAwesomeIcons.affiliatetheme,
-                                        color: Get.theme.primaryColor),
-                                  ),
-                                ),
-                              ),
+                              trailing: CustomIconButton(
+                                  icon: FontAwesomeIcons.mailBulk,
+                                  onTap: () {
+                                    Get.dialog(FeedDialog(ar: ar),
+                                        transitionDuration: delay.duration,
+                                        transitionCurve: Curves.easeIn,
+                                        name: 'Feedback Dialog');
+                                  },
+                                  data: 'Please provide your Feedback'),
                               leading:
                                   NavigationRailHeader(extended: _isExtended),
                               onDestinationSelected: (index) {
