@@ -79,7 +79,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         (context.isLargeTablet && DeviceOS.isMobile)) {
       return Scaffold(
         body: WindowBorder(
-          color: Get.theme.primaryColor,
+          color: Theme.of(context).primaryColor.withOpacity(.5),
           width: 1,
           child: DesktopNav(extended: !isTablet),
         ),

@@ -145,8 +145,13 @@ class _DesktopNavState extends State<DesktopNav>
             ),
           );
         }),
-        const VerticalDivider(
-            thickness: 1, width: 1, endIndent: 30, indent: 30),
+        VerticalDivider(
+          thickness: 1,
+          width: 1,
+          endIndent: 30,
+          indent: 30,
+          color: theme.primaryColor.withOpacity(.5),
+        ),
         Expanded(
           child: SharedAxisTransitionSwitcher(
             child: IMENav(
@@ -171,31 +176,40 @@ class _DesktopNavState extends State<DesktopNav>
   }
 }
 
-final buttonColors = WindowButtonColors(
-  iconNormal: Get.theme.primaryColor,
-  mouseOver: Get.theme.primaryColor,
-  mouseDown: Get.theme.primaryColor,
-  iconMouseOver: Colors.white,
-  iconMouseDown: Get.theme.backgroundColor,
-);
-
-final closeDeco = WindowButtonColors(
-  mouseOver: const Color(0xFFD32F2F),
-  mouseDown: const Color(0xFFB71C1C),
-  iconNormal: Get.theme.primaryColor,
-  iconMouseOver: Colors.white,
-);
-
 class WindowButtons extends StatelessWidget {
   const WindowButtons({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).primaryColor;
     return Row(
       children: [
-        MinimizeWindowButton(colors: buttonColors),
-        MaximizeWindowButton(colors: buttonColors),
-        CloseWindowButton(colors: closeDeco),
+        MinimizeWindowButton(
+          colors: WindowButtonColors(
+            iconNormal: theme.withOpacity(.5),
+            mouseOver: theme.withOpacity(.5),
+            mouseDown: theme.withOpacity(.5),
+            iconMouseOver: Colors.white,
+            iconMouseDown: Get.theme.backgroundColor,
+          ),
+        ),
+        MaximizeWindowButton(
+          colors: WindowButtonColors(
+            iconNormal: theme.withOpacity(.5),
+            mouseOver: theme.withOpacity(.5),
+            mouseDown: theme.withOpacity(.5),
+            iconMouseOver: Colors.white,
+            iconMouseDown: Get.theme.backgroundColor,
+          ),
+        ),
+        CloseWindowButton(
+          colors: WindowButtonColors(
+            mouseOver: const Color(0xFFD32F2F).withOpacity(.5),
+            mouseDown: const Color(0xFFB71C1C).withOpacity(.5),
+            iconNormal: theme.withOpacity(.5),
+            iconMouseOver: Colors.white,
+          ),
+        ),
       ],
     );
   }
