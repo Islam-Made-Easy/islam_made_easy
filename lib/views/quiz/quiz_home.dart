@@ -94,60 +94,65 @@ class _QuizHomeState extends State<QuizHome> {
           ],
         ),
       ),
-      body: CustomScrollView(slivers: <Widget>[
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: isDesktop
-                    ? 30
-                    : context.isTablet
-                        ? 20
-                        : 16.0,
-                vertical: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(S.current.playAndWin),
-              ],
+      body: Stack(
+        children: [
+          GradientCircles(),
+          CustomScrollView(slivers: <Widget>[
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: isDesktop
+                        ? 30
+                        : context.isTablet
+                            ? 20
+                            : 16.0,
+                    vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(S.current.playAndWin),
+                  ],
+                ),
+              ),
             ),
-          ),
-        ),
-        SliverFillRemaining(
-          child: GridView(
-            padding: EdgeInsets.symmetric(
-              horizontal: isDesktop
-                  ? 30
-                  : context.isTablet
-                      ? 20
-                      : 16.0,
-              vertical: 30.0,
+            SliverFillRemaining(
+              child: GridView(
+                padding: EdgeInsets.symmetric(
+                  horizontal: isDesktop
+                      ? 30
+                      : context.isTablet
+                          ? 20
+                          : 16.0,
+                  vertical: 30.0,
+                ),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisSpacing: size.height * .02,
+                  childAspectRatio: 1.15,
+                  crossAxisCount: isDesktop
+                      ? 4
+                      : context.isTablet
+                          ? 3
+                          : 2,
+                  crossAxisSpacing: isDesktop
+                      ? 30
+                      : context.isTablet
+                          ? 25
+                          : 20,
+                ),
+                children: [
+                  _activeTile(),
+                  _inActiveTile('Names of Allah'),
+                  _inActiveTile('Imaan'),
+                  _inActiveTile('Angels'),
+                  _inActiveTile('Books of Allah'),
+                  _inActiveTile('Prophets & Messengers'),
+                  // _inActiveTile('Others'),
+                ],
+              ),
             ),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              mainAxisSpacing: size.height * .02,
-              childAspectRatio: 1.15,
-              crossAxisCount: isDesktop
-                  ? 4
-                  : context.isTablet
-                      ? 3
-                      : 2,
-              crossAxisSpacing: isDesktop
-                  ? 30
-                  : context.isTablet
-                      ? 25
-                      : 20,
-            ),
-            children: [
-              _activeTile(),
-              _inActiveTile('Names of Allah'),
-              _inActiveTile('Imaan'),
-              _inActiveTile('Angels'),
-              _inActiveTile('Books of Allah'),
-              _inActiveTile('Prophets & Messengers'),
-              // _inActiveTile('Others'),
-            ],
-          ),
-        ),
-      ]),
+          ]),
+        ],
+      ),
     );
   }
 
