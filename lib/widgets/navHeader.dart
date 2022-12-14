@@ -14,7 +14,7 @@ class NavigationRailHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final theme = Theme.of(context);
     final animation = NavigationRail.extendedAnimation(context);
     Locale locale = Localizations.localeOf(context);
     return AnimatedBuilder(
@@ -48,7 +48,7 @@ class NavigationRailHeader extends StatelessWidget {
                               opacity: animation.value,
                               child: Text(
                                 'IME',
-                                style: textTheme.bodyText1!
+                                style: theme.textTheme.bodyText1!
                                     .copyWith(fontFamily: 'Quicksand'),
                               ),
                             ),
@@ -68,11 +68,10 @@ class NavigationRailHeader extends StatelessWidget {
                             IconButton(
                               icon: FaIcon(
                                 FontAwesomeIcons.cog,
-                                color: Theme.of(context).primaryColor,
+                                color: theme.primaryColor,
                               ),
                               splashRadius: 15,
-                              hoverColor:
-                                  Get.theme.primaryColor.withOpacity(.1),
+                              hoverColor: theme.primaryColor.withOpacity(.1),
                               onPressed: () {
                                 Get.dialog(
                                     Align(
@@ -85,8 +84,8 @@ class NavigationRailHeader extends StatelessWidget {
                                             MediaQuery.of(context).size.width /
                                                 3,
                                         decoration: BoxDecoration(
-                                          color:
-                                              Color(0xFFFAFAFC).withOpacity(.1),
+                                          color: theme.primaryColor
+                                              .withOpacity(.05),
                                           border: Border.all(
                                               color: Colors.transparent),
                                           borderRadius: BorderRadius.only(
@@ -106,12 +105,11 @@ class NavigationRailHeader extends StatelessWidget {
                             IconButton(
                               icon: FaIcon(
                                 FontAwesomeIcons.info,
-                                color: Theme.of(context).primaryColor,
+                                color: theme.primaryColor,
                               ),
                               onPressed: () => about.showAboutDialog(),
                               splashRadius: 15,
-                              hoverColor:
-                                  Get.theme.primaryColor.withOpacity(.1),
+                              hoverColor: theme.primaryColor.withOpacity(.1),
                             ),
                             SizedBox(width: 10),
                           ],
