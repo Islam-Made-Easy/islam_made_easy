@@ -51,7 +51,45 @@ class _GradientCirclesState extends State<GradientCircles>
     final size = MediaQuery.of(context).size;
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
-    final theme = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
+    var blackGradient = LinearGradient(
+        colors: [theme.primaryColor, const Color(0xFFA629CC)],
+        tileMode: TileMode.decal,
+        begin: Alignment.bottomLeft,
+        end: Alignment.topRight,
+        stops: [0.0, 1.0]);
+    var violetGradient = LinearGradient(
+        colors: [const Color(0xFF4884E7), theme.primaryColor],
+        tileMode: TileMode.mirror,
+        begin: Alignment.bottomLeft,
+        end: Alignment.topRight,
+        stops: [0.0, 1.0]);
+    var thodGradient = LinearGradient(
+        colors: [theme.primaryColor, const Color(0xFF5F79F4)],
+        tileMode: TileMode.mirror,
+        begin: Alignment.bottomLeft,
+        end: Alignment.topRight,
+        stops: [0.0, 1.0]);
+    var skyBlueGradient = LinearGradient(
+        colors: [Color(0xffffe598).withOpacity(.5), theme.primaryColor],
+        tileMode: TileMode.mirror,
+        begin: Alignment.bottomLeft,
+        end: Alignment.topRight,
+        stops: [0.0, 1.0]);
+    var blackBlueGradient = LinearGradient(
+        colors: [Colors.blueGrey.shade800, theme.primaryColor],
+        tileMode: TileMode.mirror,
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        stops: [0.0, 1.0]);
+    var yellowOrangeGradient = LinearGradient(
+      colors: [theme.primaryColor, const Color(0xFF5F79F4)],
+      tileMode: TileMode.mirror,
+      begin: Alignment.bottomRight,
+      end: Alignment.topLeft,
+      stops: [0.0, 1.0],
+    );
+
     return Stack(
       children: [
         Positioned(
@@ -74,8 +112,8 @@ class _GradientCirclesState extends State<GradientCircles>
             opacity: .05,
             child: Container(
               height: _animation.value + 10.0,
-              decoration:
-                  BoxDecoration(color: theme.secondary, shape: BoxShape.circle),
+              decoration: BoxDecoration(
+                  color: theme.colorScheme.secondary, shape: BoxShape.circle),
             ),
           ),
         ),
@@ -109,8 +147,8 @@ class _GradientCirclesState extends State<GradientCircles>
             child: Container(
               // height: 110.0,
               height: _animation1.value + 10.0,
-              decoration:
-                  BoxDecoration(color: theme.secondary, shape: BoxShape.circle),
+              decoration: BoxDecoration(
+                  color: theme.colorScheme.secondary, shape: BoxShape.circle),
             ),
           ),
         ),
@@ -157,7 +195,7 @@ class _GradientCirclesState extends State<GradientCircles>
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(50),
                       topRight: Radius.elliptical(80, 20)),
-                  color: theme.secondary,
+                  color: theme.colorScheme.secondary,
                   shape: BoxShape.rectangle),
             ),
           ),
@@ -185,141 +223,4 @@ class _GradientCirclesState extends State<GradientCircles>
     controller.dispose();
     super.dispose();
   }
-}
-
-var blackGradient = LinearGradient(
-    colors: [Get.theme.primaryColor, const Color(0xFFA629CC)],
-    tileMode: TileMode.decal,
-    begin: Alignment.bottomLeft,
-    end: Alignment.topRight,
-    stops: [0.0, 1.0]);
-var violetGradient = LinearGradient(
-    colors: [const Color(0xFF4884E7), Get.theme.primaryColor],
-    tileMode: TileMode.mirror,
-    begin: Alignment.bottomLeft,
-    end: Alignment.topRight,
-    stops: [0.0, 1.0]);
-var thodGradient = LinearGradient(
-    colors: [Get.theme.primaryColor, const Color(0xFF5F79F4)],
-    tileMode: TileMode.mirror,
-    begin: Alignment.bottomLeft,
-    end: Alignment.topRight,
-    stops: [0.0, 1.0]);
-var skyBlueGradient = LinearGradient(
-    colors: [Color(0xffffe598).withOpacity(.5), Get.theme.primaryColor],
-    tileMode: TileMode.mirror,
-    begin: Alignment.bottomLeft,
-    end: Alignment.topRight,
-    stops: [0.0, 1.0]);
-var blackBlueGradient = LinearGradient(
-    colors: [Colors.blueGrey.shade800, Get.theme.primaryColor],
-    tileMode: TileMode.mirror,
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    stops: [0.0, 1.0]);
-var yellowOrangeGradient = LinearGradient(
-  colors: [Get.theme.primaryColor, const Color(0xFF5F79F4)],
-  tileMode: TileMode.mirror,
-  begin: Alignment.bottomRight,
-  end: Alignment.topLeft,
-  stops: [0.0, 1.0],
-);
-
-class ScaleDetector extends StatefulWidget {
-  final VoidCallback? onTap;
-  final double? end;
-  final Widget? child;
-
-  const ScaleDetector({Key? key, this.onTap, this.end, this.child})
-      : super(key: key);
-
-  @override
-  _ScaleDetectorState createState() => _ScaleDetectorState();
-}
-
-class _ScaleDetectorState extends State<ScaleDetector>
-    with TickerProviderStateMixin {
-  late AnimationController _anim;
-  late Animation _scale;
-
-  @override
-  void initState() {
-    modulate();
-    super.initState();
-  }
-
-  void modulate() {
-    _anim =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 100));
-    _scale = Tween(begin: 1, end: widget.end).animate(
-      CurvedAnimation(parent: _anim, curve: Curves.easeInOutExpo),
-    );
-  }
-
-  void playAnim() {
-    _anim.forward();
-    _anim.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        _anim.reverse();
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: () {
-        widget.onTap;
-        playAnim();
-      },
-      child: AnimatedBuilder(
-        animation: _anim,
-        builder: (context, child) => Transform.scale(
-          scale: _scale.value * 1.1 != 1.0
-              ? _scale.value * 1.1
-              : _scale.value * 1.1,
-          child: child,
-        ),
-        child: widget.child,
-      ),
-    );
-  }
-}
-
-class BackgroundPainter extends CustomPainter {
-  late Random rand;
-  List<Offset> circles = [];
-  List<double> sizes = [];
-  List<double> opacities = [];
-  int seeds = 60;
-
-  BackgroundPainter(int seed, height) {
-    rand = Random(seed);
-    for (int x = 0; x < seeds; x++) {
-      circles.add(Offset(rand.nextInt(1.0.round()).toDouble(),
-          rand.nextInt(height.round()).toDouble()));
-    }
-    for (int x = 0; x < seeds; x++) {
-      sizes.add(rand.nextInt(.05.round()).toDouble());
-    }
-    for (int x = 0; x < seeds; x++) {
-      opacities.add(rand.nextDouble());
-    }
-  }
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    circles.forEach((offset) {
-      Paint circle = Paint()
-        ..color = Colors.white.withOpacity(opacities[circles.indexOf(offset)]);
-      canvas.drawCircle(offset, sizes[circles.indexOf(offset)], circle);
-    });
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-
-  @override
-  bool shouldRebuildSemantics(covariant CustomPainter oldDelegate) => false;
 }
