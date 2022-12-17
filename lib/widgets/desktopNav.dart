@@ -60,82 +60,84 @@ class _DesktopNavState extends State<DesktopNav>
                       builder: (context, value, child) {
                         return Stack(
                           children: [
-                            NavigationRail(
-                              destinations: [
-                                NavigationRailDestination(
-                                  icon: Material(
-                                    color: transparent,
-                                    borderRadius: BorderRadius.zero,
-                                    child: Icon(FontAwesomeIcons.quora),
+                            FocusTraversalGroup(
+                              child: NavigationRail(
+                                destinations: [
+                                  NavigationRailDestination(
+                                    icon: Material(
+                                      color: transparent,
+                                      borderRadius: BorderRadius.zero,
+                                      child: Icon(FontAwesomeIcons.quora),
+                                    ),
+                                    label: Text(S.current.quiz, style: text),
                                   ),
-                                  label: Text(S.current.quiz, style: text),
-                                ),
-                                NavigationRailDestination(
-                                  icon: Material(
-                                    color: transparent,
-                                    child: Icon(FontAwesomeIcons.fileAlt),
+                                  NavigationRailDestination(
+                                    icon: Material(
+                                      color: transparent,
+                                      child: Icon(FontAwesomeIcons.fileAlt),
+                                    ),
+                                    label:
+                                        Text(S.current.prerequisite, style: text),
                                   ),
-                                  label:
-                                      Text(S.current.prerequisite, style: text),
-                                ),
-                                NavigationRailDestination(
-                                  icon: Material(
-                                    color: transparent,
-                                    child: Icon(FontAwesomeIcons.bookOpen),
+                                  NavigationRailDestination(
+                                    icon: Material(
+                                      color: transparent,
+                                      child: Icon(FontAwesomeIcons.bookOpen),
+                                    ),
+                                    label: Text('Methodology', style: text),
                                   ),
-                                  label: Text('Methodology', style: text),
-                                ),
-                                NavigationRailDestination(
-                                  icon: Material(
-                                    color: transparent,
-                                    child: Icon(FontAwesomeIcons.quinscape),
+                                  NavigationRailDestination(
+                                    icon: Material(
+                                      color: transparent,
+                                      child: Icon(FontAwesomeIcons.quinscape),
+                                    ),
+                                    label: Text(S.current.questionsAndAnswers,
+                                        style: text),
                                   ),
-                                  label: Text(S.current.questionsAndAnswers,
-                                      style: text),
-                                ),
-                                NavigationRailDestination(
-                                  icon: Material(
-                                    color: transparent,
-                                    child: Icon(FontAwesomeIcons.book),
+                                  NavigationRailDestination(
+                                    icon: Material(
+                                      color: transparent,
+                                      child: Icon(FontAwesomeIcons.book),
+                                    ),
+                                    label: Text(S.current.generalKnowledge,
+                                        style: text),
                                   ),
-                                  label: Text(S.current.generalKnowledge,
-                                      style: text),
-                                ),
-                                NavigationRailDestination(
-                                  icon: Material(
-                                    color: transparent,
-                                    child: Icon(FontAwesomeIcons.scroll),
+                                  NavigationRailDestination(
+                                    icon: Material(
+                                      color: transparent,
+                                      child: Icon(FontAwesomeIcons.scroll),
+                                    ),
+                                    label:
+                                        Text(S.current.references, style: text),
                                   ),
-                                  label:
-                                      Text(S.current.references, style: text),
-                                ),
-                                NavigationRailDestination(
-                                  icon: Material(
-                                    color: transparent,
-                                    child: Icon(FontAwesomeIcons.ussunnah),
+                                  NavigationRailDestination(
+                                    icon: Material(
+                                      color: transparent,
+                                      child: Icon(FontAwesomeIcons.ussunnah),
+                                    ),
+                                    label:
+                                        Text(S.current.shortPhrases, style: text),
                                   ),
-                                  label:
-                                      Text(S.current.shortPhrases, style: text),
-                                ),
-                              ],
-                              extended: _isExtended.value!,
-                              selectedIndex: _selectedIndex,
-                              trailing: CustomIconButton(
-                                  icon: FontAwesomeIcons.mailBulk,
-                                  onTap: () {
-                                    Get.dialog(FeedDialog(ar: ar),
-                                        transitionDuration: delay.duration,
-                                        transitionCurve: Curves.easeIn,
-                                        name: 'Feedback Dialog');
-                                  },
-                                  data: 'Please provide your Feedback'),
-                              leading:
-                                  NavigationRailHeader(extended: _isExtended),
-                              onDestinationSelected: (index) {
-                                setState(() {
-                                  _selectedIndex = index;
-                                });
-                              },
+                                ],
+                                extended: _isExtended.value!,
+                                selectedIndex: _selectedIndex,
+                                trailing: CustomIconButton(
+                                    icon: FontAwesomeIcons.mailBulk,
+                                    onTap: () {
+                                      Get.dialog(FeedDialog(ar: ar),
+                                          transitionDuration: delay.duration,
+                                          transitionCurve: Curves.easeIn,
+                                          name: 'Feedback Dialog');
+                                    },
+                                    data: 'Please provide your Feedback'),
+                                leading:
+                                    NavigationRailHeader(extended: _isExtended),
+                                onDestinationSelected: (index) {
+                                  setState(() {
+                                    _selectedIndex = index;
+                                  });
+                                },
+                              ),
                             ),
                           ],
                         );
