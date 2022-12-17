@@ -43,10 +43,10 @@ class _SettingsState extends State<Settings>
       Provider.of<LocaleProvide>(context, listen: false).changeLocale(locale);
       // TODO: Get permission before restart in future if relevant
       // relevance ^> if the data[translation files] is from remote source.
-      // Needs to 'rebirth' to update the ui since GetMaterialApp is not effective
-      if(DeviceOS.isDesktop){
+      if (DeviceOS.isDesktop) {
         Get.dialog(widget);
       }
+      // Needs to 'rebirth' to update the ui since GetMaterialApp is not effective
       Phoenix.rebirth(context);
     });
   }
@@ -72,12 +72,11 @@ class _SettingsState extends State<Settings>
     super.build(context);
     final MaterialLocalizations localize = MaterialLocalizations.of(context);
     final theme = Theme.of(context);
-    String? proType =
-        Provider.of<SettingProvide>(context, listen: false).fontType ?? 'Amiri';
     final bodyTextStyle = theme.textTheme.bodyText1!
-        .apply(color: theme.colorScheme.onPrimary, fontFamily: 'Quattrocento');
+        .apply(color: theme.colorScheme.onPrimary, fontFamily: 'Roboto');
     final isDesktop = isDisplayDesktop(context);
-    String txt = context.isDarkMode ? S.current.switchLight : S.current.switchDark;
+    String txt =
+        context.isDarkMode ? S.current.switchLight : S.current.switchDark;
     return Scaffold(
       backgroundColor: isDesktop ? Colors.transparent : null,
       appBar: AppBar(
@@ -107,7 +106,8 @@ class _SettingsState extends State<Settings>
                     value: ThemeProvide.isDarkMode,
                     onChanged: (value) {
                       setState(() {
-                        Provider.of<ThemeProvide>(context, listen: false).getDark(value);
+                        Provider.of<ThemeProvide>(context, listen: false)
+                            .getDark(value);
                         SpUtil.setDarkTheme(value);
                       });
                     },
@@ -148,7 +148,8 @@ class _SettingsState extends State<Settings>
                       title: Text(getLanguageUiString('')),
                       value: '',
                       groupValue: selectedLanguage,
-                      onChanged: (String? languageCode) => _changeLanguage(languageCode)),
+                      onChanged: (String? languageCode) =>
+                          _changeLanguage(languageCode)),
                   SettingsRadio(subtitle: S.current.english, value: 0),
                   SettingsRadio(subtitle: S.current.arabi, value: 1),
                   SettingsRadio(subtitle: S.current.bosanski, value: 2),
@@ -362,12 +363,13 @@ class _SettingsState extends State<Settings>
     );
   }
 }
+
 class RestartDialog extends StatelessWidget {
   const RestartDialog({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(title: Text('Restart'),);
+    return AlertDialog(title: Text('Restart'));
   }
 }
 
