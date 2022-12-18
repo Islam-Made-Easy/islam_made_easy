@@ -67,7 +67,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.nullifiersTitle,
                   image: 'assets/images/hkm.png',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 50),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -107,7 +108,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.monotheistTitle,
                   image: 'assets/images/hrs1.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 50),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -123,16 +125,14 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.assistSubTitle,
                   image: 'assets/images/ist.jpg',
                 ),
-                Divider(
-                  endIndent: 40,
-                  indent: 40,
-                  height: 60,
-                ),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5))
               ],
               barTitle: S.current.tawheed,
               image: 'assets/images/sun.jpg',
             ),
-            Divider(endIndent: 40, indent: 40, height: 50),
+            Image.asset('assets/images/1.png',
+                color: Theme.of(context).primaryColor.withOpacity(.5)),
             OpenContainerWrapper(
               closedBuilder: (context, openContainer) => DetailsCard(
                 openContainer: openContainer,
@@ -183,7 +183,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.swalah,
                   image: 'assets/images/msd2.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 50),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) {
                     return DetailsCard(
@@ -241,7 +242,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.swalah,
                   image: 'assets/images/rose.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 50),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) {
                     return DetailsCard(
@@ -259,16 +261,14 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.swalah,
                   image: 'assets/images/sky.jpg',
                 ),
-                Divider(
-                  endIndent: 40,
-                  indent: 40,
-                  height: 60,
-                ),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5))
               ],
               barTitle: S.current.swalah,
               image: 'assets/images/wtr.jpg',
             ),
-            Divider(endIndent: 40, indent: 40, height: 50),
+            Image.asset('assets/images/1.png',
+                color: Theme.of(context).primaryColor.withOpacity(.5)),
             OpenContainerWrapper(
               closedBuilder: (context, openContainer) => DetailsCard(
                 openContainer: openContainer,
@@ -291,7 +291,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
               barTitle: S.current.fastBreakSubTitle,
               image: 'assets/images/flw.jpg',
             ),
-            Divider(endIndent: 40, indent: 40, height: 50),
+            Image.asset('assets/images/1.png',
+                color: Theme.of(context).primaryColor.withOpacity(.5)),
 
             /// ---------------------------------------Hajj--------------------///
             OpenContainerWrapper(
@@ -328,7 +329,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     ],
                   ),
                 ),
-                Divider(endIndent: 40, indent: 40, height: 50),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -346,7 +348,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/hajj1.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 50),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -361,7 +364,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/hajj2.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 50),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -380,7 +384,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Hajj.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 50),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -394,7 +399,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Hajj.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 50),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -425,7 +431,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Hajj.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 60),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -466,7 +473,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Hajj.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 60),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -504,7 +512,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Hajj.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 50),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -527,7 +536,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Hajj.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 60),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -547,7 +557,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Hajj.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 60),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -589,7 +600,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Hajj.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 60),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -607,7 +619,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Hajj.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 60),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -635,7 +648,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Jamarat.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 60),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -685,7 +699,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/thwaf.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 60),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -731,7 +746,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Hajj.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 60),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -749,7 +765,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/thwaf.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 60),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -771,7 +788,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Hajj.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 60),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -789,7 +807,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Hajj.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 60),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
                 OpenContainerWrapper(
                   closedBuilder: (context, openContainer) => DetailsCard(
                     openContainer: openContainer,
@@ -825,12 +844,14 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                   barTitle: S.current.hajj,
                   image: 'assets/images/Hajj.jpg',
                 ),
-                Divider(endIndent: 40, indent: 40, height: 60),
+                Image.asset('assets/images/1.png',
+                    color: Theme.of(context).primaryColor.withOpacity(.5)),
               ],
               barTitle: S.current.hajj,
               image: 'assets/images/hajj.jpg',
             ),
-            Divider(endIndent: 40, indent: 40, height: 50),
+            Image.asset('assets/images/1.png',
+                color: Theme.of(context).primaryColor.withOpacity(.5)),
             //--------------------------------------------------------------------------------------//
             OpenContainerWrapper(
               closedBuilder: (context, openContainer) => DetailsCard(
@@ -851,7 +872,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
               barTitle: S.current.eatingMeatTitle,
               image: 'assets/images/fish.jpg',
             ),
-            Divider(endIndent: 40, indent: 40, height: 50),
+            Image.asset('assets/images/1.png',
+                color: Theme.of(context).primaryColor.withOpacity(.5)),
             OpenContainerWrapper(
               closedBuilder: (context, openContainer) {
                 return DetailsCard(
@@ -879,7 +901,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
               barTitle: S.current.fabricated,
               image: 'assets/images/sun2.jpg',
             ),
-            Divider(endIndent: 40, indent: 40, height: 50),
+            Image.asset('assets/images/1.png',
+                color: Theme.of(context).primaryColor.withOpacity(.5)),
             OpenContainerWrapper(
               closedBuilder: (context, openContainer) => DetailsCard(
                 openContainer: openContainer,

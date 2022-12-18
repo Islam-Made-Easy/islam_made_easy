@@ -76,8 +76,8 @@ class _DesktopNavState extends State<DesktopNav>
                                       color: transparent,
                                       child: Icon(FontAwesomeIcons.fileAlt),
                                     ),
-                                    label:
-                                        Text(S.current.prerequisite, style: text),
+                                    label: Text(S.current.prerequisite,
+                                        style: text),
                                   ),
                                   NavigationRailDestination(
                                     icon: Material(
@@ -115,8 +115,8 @@ class _DesktopNavState extends State<DesktopNav>
                                       color: transparent,
                                       child: Icon(FontAwesomeIcons.ussunnah),
                                     ),
-                                    label:
-                                        Text(S.current.shortPhrases, style: text),
+                                    label: Text(S.current.shortPhrases,
+                                        style: text),
                                   ),
                                 ],
                                 extended: _isExtended.value!,
@@ -150,9 +150,13 @@ class _DesktopNavState extends State<DesktopNav>
         VerticalDivider(
           thickness: 1,
           width: 1,
-          endIndent: 30,
-          indent: 30,
-          color: theme.primaryColor.withOpacity(.5),
+          endIndent: 44,
+          indent: 45,
+          color: theme.primaryColor.withOpacity(.3),
+        ),
+        Image.asset(
+          'assets/images/divid.png',
+          color: Theme.of(context).primaryColor.withOpacity(.5),
         ),
         Expanded(
           child: SharedAxisTransitionSwitcher(

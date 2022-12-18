@@ -65,7 +65,11 @@ class _AboutAppState extends State<AboutApp> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Divider(),
+            Image.asset(
+              'assets/images/1.png',
+              color: Theme.of(context).primaryColor.withOpacity(.5),
+              width: 350,
+            ),
             Image.asset(
               'assets/images/Logo3.png',
               height: isDesktop ? size.height * .3 : 150,
