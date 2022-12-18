@@ -94,7 +94,7 @@ class _SettingsState extends State<Settings>
         children: [
           _SettingsTitle(title: S.current.customizeExp),
           _SettingsTitle(title: S.current.interface),
-          Divider(endIndent: 30, indent: 30, height: 20),
+          Image.asset('assets/images/1.png',color: Theme.of(context).primaryColor.withOpacity(.5)),
           WidgetAnimator(
             Card(
               child: Column(
@@ -167,7 +167,7 @@ class _SettingsState extends State<Settings>
           SizedBox(height: 10),
           isDesktop ? _SettingsTitle(title: S.current.shortcuts) : Container(),
           isDesktop
-              ? Divider(endIndent: 30, indent: 30, height: 20)
+              ? Image.asset('assets/images/1.png',color: Theme.of(context).primaryColor.withOpacity(.5))
               : Container(),
           isDesktop
               ? WidgetAnimator(
@@ -240,7 +240,7 @@ class _SettingsState extends State<Settings>
                 )
               : Container(),
           _SettingsTitle(title: 'Fonts'),
-          Divider(endIndent: 30, indent: 30, height: 20),
+          Image.asset('assets/images/1.png',color: Theme.of(context).primaryColor.withOpacity(.5),),
           Card(
             child: ExpansionTile(
               title: Text('Change Font Size',
