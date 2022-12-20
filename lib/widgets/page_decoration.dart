@@ -110,31 +110,34 @@ class _GradientCirclesState extends State<GradientCircles>
           left: ar ? 140 : -195.0,
           child: Opacity(
             opacity: .05,
-            child: Container(
+            child: AnimatedContainer(
               height: _animation.value + 10.0,
               decoration: BoxDecoration(
                   color: theme.colorScheme.secondary, shape: BoxShape.circle),
+              duration: Duration(milliseconds: 300),
             ),
           ),
         ),
         Positioned(
           left: -75.0,
           top: 775.0,
-          child: Container(
+          child: AnimatedContainer(
             height: 150.0,
             width: 150.0,
             decoration: BoxDecoration(
                 gradient: blackBlueGradient, shape: BoxShape.circle),
+            duration: Duration(milliseconds: 300),
           ),
         ),
         Positioned(
           right: -7.0,
           top: 620.0,
-          child: Container(
+          child: AnimatedContainer(
             height: 50.0,
             width: 50.0,
             decoration: BoxDecoration(
                 gradient: yellowOrangeGradient, shape: BoxShape.circle),
+            duration: Duration(milliseconds: 300),
           ),
         ),
         Positioned(
@@ -144,42 +147,46 @@ class _GradientCirclesState extends State<GradientCircles>
           // right: ar ? -30 : 0,
           child: Opacity(
             opacity: .05,
-            child: Container(
+            child: AnimatedContainer(
               // height: 110.0,
               height: _animation1.value + 10.0,
               decoration: BoxDecoration(
                   color: theme.colorScheme.secondary, shape: BoxShape.circle),
+              duration: Duration(milliseconds: 300),
             ),
           ),
         ),
         Positioned(
           left: 325.0,
           top: 845.0,
-          child: Container(
+          child: AnimatedContainer(
             height: 25.0,
             width: 25.0,
             decoration:
                 BoxDecoration(gradient: violetGradient, shape: BoxShape.circle),
+            duration: Duration(milliseconds: 300),
           ),
         ),
         Positioned(
           left: 65.0,
           top: 575.0,
-          child: Container(
+          child: AnimatedContainer(
             height: 25.0,
             width: 25.0,
             decoration:
                 BoxDecoration(gradient: thodGradient, shape: BoxShape.circle),
+            duration: Duration(milliseconds: 300),
           ),
         ),
         Positioned(
           right: -7.0,
           top: 245.0,
-          child: Container(
+          child: AnimatedContainer(
             height: 150.0,
             width: 150.0,
             decoration:
                 BoxDecoration(gradient: blackGradient, shape: BoxShape.circle),
+            duration: Duration(milliseconds: 300),
           ),
         ),
         Positioned(
@@ -188,28 +195,32 @@ class _GradientCirclesState extends State<GradientCircles>
           left: ar ? 0 : null,
           child: Opacity(
             opacity: .06,
-            child: Container(
+            child: AnimatedContainer(
               height: 80.0,
               width: _animation2.value + 10.0,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(50),
-                      topRight: Radius.elliptical(80, 20)),
-                  color: theme.colorScheme.secondary,
-                  shape: BoxShape.rectangle),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(50),
+                  topRight: Radius.elliptical(80, 20),
+                ),
+                color: theme.colorScheme.secondary,
+                shape: BoxShape.rectangle,
+              ),
+              duration: Duration(milliseconds: 300),
             ),
           ),
         ),
         Positioned(
           left: _animation3.value + 50.0,
           top: _controllers.value,
-          child: Container(
+          child: AnimatedContainer(
             height: _animation3.value + 50.0,
             width: 50.0,
             decoration: BoxDecoration(
               gradient: skyBlueGradient,
               shape: BoxShape.circle,
             ),
+            duration: Duration(milliseconds: 300),
           ),
         ),
       ],
