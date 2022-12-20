@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:islam_made_easy/utils/load_util.dart';
-import 'package:islam_made_easy/views/home.dart';
+import 'package:hijri/hijri_calendar.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/views/intro/fridayRem.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -12,18 +10,39 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with LoadingStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   bool isCelebration = false;
+  var _today = HijriCalendar.now().wkDay;
+  int _now = DateTime.now().hour;
+  late final AnimationController controller;
 
   Future handleStartUpLogic() async {}
 
   getNav() {
-    isCelebration ? Get.off(() => FridayRem()) : Get.off(() => Home());
+    if ((_today == DateTime.thursday && _now > 18) ||
+        (_today == DateTime.friday && _now < 18)) {
+      setState(() {
+        isCelebration = true;
+      });
+    }
+    !isCelebration ? Get.off(() => FridayRem()) : Get.off(() => Home());
   }
 
   @override
   void initState() {
     super.initState();
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 200),
+    );
+    controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() async {
+          getNav();
+        });
+      }
+    });
   }
 
   @override
@@ -31,6 +50,15 @@ class _SplashScreenState extends State<SplashScreen> with LoadingStateMixin {
     return Scaffold(
       body: Stack(
         children: [
+          Lottie.asset(
+            'assets/lottie/loading.json',
+            controller: controller,
+            repeat: true,
+            onLoaded: (load) {
+              controller.duration = load.duration;
+              controller.forward();
+            },
+          ),
           Center(
             child: Shimmer.fromColors(
               baseColor: Color(0xffe2cf84),
@@ -51,5 +79,11 @@ class _SplashScreenState extends State<SplashScreen> with LoadingStateMixin {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 }
