@@ -17,7 +17,7 @@ class _LoadingIndicatorState extends State<LoadingIndicator> {
   }
 
   Future<LottieComposition> _loadComposition() async {
-    var assetData = await rootBundle.load('assets/lottie/loading.json');
+    var assetData = await rootBundle.load('assets/lottie/please-wait-loading.json');
     return await LottieComposition.fromByteData(assetData);
   }
 
@@ -30,7 +30,13 @@ class _LoadingIndicatorState extends State<LoadingIndicator> {
           var composition = snapshot.data;
           if (composition != null) return Lottie(composition: composition);
           // To avoid errors on web where there is low network connection return CPI
-          return Center(child: CircularProgressIndicator());
+          return Center(
+            child: CircularProgressIndicator(
+              backgroundColor: Theme.of(context).primaryColor.withOpacity(.05),
+              strokeWidth: 1,
+              semanticsLabel: 'Loading...',
+            ),
+          );
         },
       ),
     );
