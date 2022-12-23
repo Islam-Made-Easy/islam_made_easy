@@ -152,11 +152,11 @@ class _DesktopNavState extends State<DesktopNav>
           width: 1,
           endIndent: 44,
           indent: 45,
-          color: theme.primaryColor.withOpacity(.3),
+          color: theme.primaryColor.withOpacity(.1),
         ),
         Image.asset(
           'assets/images/divid.png',
-          color: Theme.of(context).primaryColor.withOpacity(.5),
+          color: Theme.of(context).primaryColor.withOpacity(.05),
         ),
         Expanded(
           child: SharedAxisTransitionSwitcher(
