@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen>
         isCelebration = true;
       });
     }
-    !isCelebration ? Get.off(() => FridayRem()) : Get.off(() => Home());
+    isCelebration ? Get.off(() => FridayRem()) : Get.off(() => Home());
   }
 
   @override
@@ -38,9 +38,7 @@ class _SplashScreenState extends State<SplashScreen>
     );
     controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        setState(() async {
-          getNav();
-        });
+        getNav();
       }
     });
   }
@@ -50,14 +48,16 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       body: Stack(
         children: [
-          Lottie.asset(
-            'assets/lottie/loading.json',
-            controller: controller,
-            repeat: true,
-            onLoaded: (load) {
-              controller.duration = load.duration;
-              controller.forward();
-            },
+          Center(
+            child: Lottie.asset(
+              'assets/lottie/please-wait-loading.json',
+              controller: controller,
+              repeat: true,
+              onLoaded: (load) {
+                controller.duration = load.duration;
+                controller.forward();
+              },
+            ),
           ),
           Center(
             child: Shimmer.fromColors(
