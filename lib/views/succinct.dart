@@ -15,12 +15,11 @@ class _SuccinctState extends State<Succinct> {
   void initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    double? proSize =
-        Provider.of<SettingProvide>(context, listen: false).fontSize;
-    String? proType =
-        Provider.of<SettingProvide>(context, listen: false).fontType ?? 'Amiri';
+    double? proSize = Provider.of<SettingProvide>(context).fontSize;
+    String? proType = Provider.of<SettingProvide>(context).fontType;
     Function(TextSelection)? onSelectionChange;
     TextSelection textSelection = TextSelection.collapsed(offset: -1);
     final isDesktop = isDisplayDesktop(context);
@@ -32,7 +31,7 @@ class _SuccinctState extends State<Succinct> {
       fontSize: isDesktop ? proSize! + 1 : proSize,
     );
     final bodyTextStyle2 =
-        textTheme.headline5!.apply(fontFamily: 'Amiri', heightDelta: 2);
+        textTheme.headline5!.copyWith(fontFamily: 'Amiri', fontSize: proSize);
     final txtStyle = textTheme.headline6!.copyWith(
         fontFamily: proType,
         fontStyle: FontStyle.italic,
