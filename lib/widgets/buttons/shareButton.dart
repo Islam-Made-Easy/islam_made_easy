@@ -13,44 +13,46 @@ class ShareButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    return Container(
-      padding: EdgeInsets.all(isDesktop ? 10 : 0),
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[300]!,
-            offset: Offset(4.0, 4.0),
-            blurRadius: isDesktop ? 10 : 2,
-            spreadRadius: 1.0,
-          ),
-          BoxShadow(
-            color: color!.withOpacity(.09),
-            offset: Offset(-4.0, -4.0),
-            blurRadius: isDesktop ? 10 : 2,
-            spreadRadius: 1.0,
-          ),
-          BoxShadow(
-            color: Colors.transparent.withOpacity(.09),
-            offset: Offset(-4.0, -4.0),
-            blurRadius: isDesktop ? 10 : 2,
-            spreadRadius: 1.0,
-          ),
-        ],
-        gradient: gradient,
-      ),
-      child: Tooltip(
-        message: tip!,
+    return WidgetAnimator(
+      Container(
+        padding: EdgeInsets.all(isDesktop ? 10 : 0),
         decoration: BoxDecoration(
-          color: color!.withOpacity(.4),
-          borderRadius: BorderRadius.all(Radius.circular(isDesktop ? 14 : 7)),
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey[300]!,
+              offset: Offset(4.0, 4.0),
+              blurRadius: isDesktop ? 10 : 2,
+              spreadRadius: 1.0,
+            ),
+            BoxShadow(
+              color: color!.withOpacity(.09),
+              offset: Offset(-4.0, -4.0),
+              blurRadius: isDesktop ? 10 : 2,
+              spreadRadius: 1.0,
+            ),
+            BoxShadow(
+              color: Colors.transparent.withOpacity(.09),
+              offset: Offset(-4.0, -4.0),
+              blurRadius: isDesktop ? 10 : 2,
+              spreadRadius: 1.0,
+            ),
+          ],
+          gradient: gradient,
         ),
-        child: IconButton(
-          icon: FaIcon(icon!),
-          splashRadius: isDesktop ? 40 : 20,
-          hoverColor: color!.withOpacity(.04),
-          color: color,
-          onPressed: onPressed,
+        child: Tooltip(
+          message: tip!,
+          decoration: BoxDecoration(
+            color: color!.withOpacity(.4),
+            borderRadius: BorderRadius.all(Radius.circular(isDesktop ? 14 : 7)),
+          ),
+          child: IconButton(
+            icon: FaIcon(icon!),
+            splashRadius: isDesktop ? 40 : 20,
+            hoverColor: color!.withOpacity(.04),
+            color: color,
+            onPressed: onPressed,
+          ),
         ),
       ),
     );

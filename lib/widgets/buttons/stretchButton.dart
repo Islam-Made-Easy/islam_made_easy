@@ -1,30 +1,14 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
-import 'package:islam_made_easy/widgets/anim/anim.dart';
 
 class StretchButton extends StatelessWidget {
   final VoidCallback onTap;
   final String text;
-  final bool primary;
 
-  StretchButton({
-    Key? key,
-    required this.onTap,
-    required this.text,
-    this.primary = true,
-  }) : super(key: key);
+  StretchButton({Key? key, required this.onTap, required this.text})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Color? background = Theme.of(context).buttonColor;
-    var foreground = Theme.of(context).primaryTextTheme.bodyText2!.color;
-    if (primary) {
-      var temp = background;
-      background = foreground;
-      foreground = temp;
-    }
-    final border = primary
-        ? BorderSide.none
-        : BorderSide(color: foreground!.withOpacity(.5), width: .5);
     return WidgetAnimator(
       TextButton(
         child: Text(
@@ -36,9 +20,8 @@ class StretchButton extends StatelessWidget {
         ),
         style: ElevatedButton.styleFrom(
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          shape: RoundedRectangleBorder(
-              side: border, borderRadius: BorderRadius.circular(5)),
-          primary: Theme.of(context).buttonColor,
+          shape: StadiumBorder(),
+          backgroundColor: Theme.of(context).primaryColor,
           textStyle: Theme.of(context)
               .textTheme
               .button!
