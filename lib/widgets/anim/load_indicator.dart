@@ -17,8 +17,8 @@ class _LoadingIndicatorState extends State<LoadingIndicator> {
   }
 
   Future<LottieComposition> _loadComposition() async {
-    var assetData = await rootBundle.load('assets/lottie/please-wait-loading.json');
-    return await LottieComposition.fromByteData(assetData);
+    var data = await rootBundle.load('assets/lottie/please-wait-loading.json');
+    return await LottieComposition.fromByteData(data);
   }
 
   @override
@@ -33,8 +33,8 @@ class _LoadingIndicatorState extends State<LoadingIndicator> {
           return Center(
             child: CircularProgressIndicator(
               backgroundColor: Theme.of(context).primaryColor.withOpacity(.05),
-              strokeWidth: 1,
               semanticsLabel: 'Loading...',
+              strokeWidth: 1,
             ),
           );
         },
