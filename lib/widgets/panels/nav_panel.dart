@@ -15,8 +15,14 @@ class _NavigationPanelState extends State<NavigationPanel> {
         leading: Icon(icon, size: 35, color: colorScheme.secondary),
         dense: true,
         onTap: onTap,
-        title: Text(title,
-            style: Theme.of(context).textTheme.caption!.copyWith(fontWeight: FontWeight.w100, fontSize: 18, letterSpacing: 1.8,fontFamily: 'Quicksand')),
+        title: Text(
+          title,
+          style: Theme.of(context).textTheme.caption!.copyWith(
+              fontWeight: FontWeight.w100,
+              fontSize: 18,
+              letterSpacing: 1.8,
+              fontFamily: 'Quicksand'),
+        ),
       ),
     );
   }
