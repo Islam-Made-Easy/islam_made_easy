@@ -13,16 +13,13 @@ class CustomIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Tooltip(
-        message: data,
-        textStyle: TextStyle(color: Colors.white),
-        child: FaIcon(icon, color: Get.theme.primaryColor),
-        decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor.withOpacity(.4),
-          borderRadius: BorderRadius.all(Radius.circular(14)),
-        ),
+    return WidgetAnimator(
+      IconButton(
+        onPressed: onTap,
+        tooltip: data,
+        splashRadius: 20,
+        hoverColor: Theme.of(context).primaryColor.withOpacity(.04),
+        icon: FaIcon(icon, color: Theme.of(context).primaryColor),
       ),
     );
   }
