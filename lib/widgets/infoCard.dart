@@ -1,5 +1,4 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
-import 'package:islam_made_easy/widgets/anim/anim.dart';
 
 class InfoCard extends StatefulWidget {
   final String? quest;
@@ -41,30 +40,36 @@ class _InfoCardState extends State<InfoCard> {
                   tooltip: MaterialLocalizations.of(context).copyButtonLabel,
                   onPressed: () =>
                       Clipboard.setData(ClipboardData(text: widget.quest)).then(
-                        (value) => Get.snackbar(
-                            S.current.copiedToClipboardTitle,
-                            S.current.copiedToClipboard),
-                      ))
+                    (value) => Get.snackbar(
+                      S.current.copiedToClipboardTitle,
+                      S.current.copiedToClipboard,
+                    ),
+                  ),
+                )
               : IconButton(
                   icon: FaIcon(FontAwesomeIcons.shareAlt, size: 20),
                   splashRadius: 10,
-                  onPressed: () => shareDelay.run(() => Share.share(
-                      "Get Quizzes, Questions and more from: ${ShareUtil().getPlatformShare()}",
-                      subject: '𝗤. ${widget.quest}')),
+                  onPressed: () => shareDelay.run(
+                    () => Share.share(
+                        "Get Quizzes, Questions and more from: ${ShareUtil().getPlatformShare()}",
+                        subject: '𝗤. ${widget.quest}'),
+                  ),
                 ),
           expandedAlignment: Alignment.topCenter,
           tilePadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           childrenPadding: EdgeInsets.symmetric(
-              vertical: isDesktop || context.isTablet ? 20 : 10,
-              horizontal: isDesktop || context.isTablet ? 30 : 10),
+            vertical: isDesktop || context.isTablet ? 20 : 10,
+            horizontal: isDesktop || context.isTablet ? 30 : 10,
+          ),
           title: Text(
             "𝗤. ${widget.quest}",
             textAlign: TextAlign.center,
             style: const TextStyle(
-                fontSize: 17,
-                fontFamily: 'Amiri',
-                letterSpacing: .1,
-                fontWeight: FontWeight.w700),
+              fontSize: 17,
+              fontFamily: 'Amiri',
+              letterSpacing: .1,
+              fontWeight: FontWeight.w700,
+            ),
           ),
           children: widget.answers!,
         ),
