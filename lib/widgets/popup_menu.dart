@@ -17,7 +17,8 @@ class PopupOptionMenu extends StatelessWidget {
     final ar = locale.languageCode == 'ar';
     final color = Theme.of(context).iconTheme.color;
     return PopupMenuButton(
-      icon: FaIcon(FontAwesomeIcons.ellipsisV),elevation: 0,
+      icon: FaIcon(FontAwesomeIcons.ellipsisV),
+      elevation: 0,
       onSelected: (MenuOptions options) async {
         switch (options) {
           case MenuOptions.Settings:
@@ -42,7 +43,10 @@ class PopupOptionMenu extends StatelessWidget {
             children: [
               FaIcon(FontAwesomeIcons.info, color: color),
               const SizedBox(width: 10),
-              Text(MaterialLocalizations.of(context).aboutListTileTitle(''),style: TextStyle(fontFamily: 'Quicksand'),),
+              Text(
+                MaterialLocalizations.of(context).aboutListTileTitle(''),
+                style: TextStyle(fontFamily: 'Quicksand'),
+              ),
             ],
           ),
           value: MenuOptions.about,
@@ -50,9 +54,12 @@ class PopupOptionMenu extends StatelessWidget {
         PopupMenuItem(
           child: Row(
             children: [
-              FaIcon(FontAwesomeIcons.cog,color: color),
+              FaIcon(FontAwesomeIcons.cog, color: color),
               const SizedBox(width: 10),
-              Text(S.current.settings,style: TextStyle(fontFamily: 'Quicksand'),),
+              Text(
+                S.current.settings,
+                style: TextStyle(fontFamily: 'Quicksand'),
+              ),
             ],
           ),
           value: MenuOptions.Settings,
@@ -60,9 +67,12 @@ class PopupOptionMenu extends StatelessWidget {
         PopupMenuItem(
           child: Row(
             children: [
-              FaIcon(FontAwesomeIcons.comment,color: color),
+              FaIcon(FontAwesomeIcons.comment, color: color),
               const SizedBox(width: 10),
-              Text(S.current.sendFeed,style: TextStyle(fontFamily: 'Quicksand'),),
+              Text(
+                S.current.sendFeed,
+                style: TextStyle(fontFamily: 'Quicksand'),
+              ),
             ],
           ),
           value: MenuOptions.feed,
@@ -85,7 +95,9 @@ class FeedDialog extends StatelessWidget {
         height: double.infinity,
         width: MediaQuery.of(context).size.width / 2,
         decoration: BoxDecoration(
-          color: context.isDarkMode?Theme.of(context).scaffoldBackgroundColor:Color(0xFFFAFAFC),
+          color: context.isDarkMode
+              ? Theme.of(context).scaffoldBackgroundColor
+              : Color(0xFFFAFAFC),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(ar ? 0 : 20),
             bottomRight: Radius.circular(ar ? 20 : 0),
@@ -94,10 +106,7 @@ class FeedDialog extends StatelessWidget {
           ),
         ),
         child: Stack(
-          children: [
-            GradientCircles(),
-            feed.AppFeedback(),
-          ],
+          children: [GradientCircles(), feed.AppFeedback()],
         ),
       ),
     );
