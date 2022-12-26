@@ -1,5 +1,4 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
-import 'package:islam_made_easy/widgets/anim/anim.dart';
 
 import '../models/app_intents.dart';
 
@@ -24,7 +23,7 @@ class _DetailsPageState extends State<DetailsPage> {
     final theme = Theme.of(context);
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
-    final size = context.mediaQuery.size;
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.barTitle!),
@@ -264,10 +263,9 @@ class DetailsCard extends StatelessWidget {
     Locale locale = Localizations.localeOf(context);
     final isDesktop = isDisplayDesktop(context);
     final ar = locale.languageCode == 'ar';
-    final size = context.mediaQuery.size;
     final theme = Theme.of(context);
     return SizedBox(
-      height: size.height * .45,
+      height: MediaQuery.of(context).size.height * .45,
       child: InkWell(
         onTap: openContainer,
         child: LayoutBuilder(
