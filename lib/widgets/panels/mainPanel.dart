@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/views/quiz/quiz_home.dart';
-import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:provider/provider.dart';
 
 import '../../settings/settings_pro.dart';
@@ -24,7 +23,7 @@ class _MainPanelState extends State<MainPanel> {
     final isDesktop = isDisplayDesktop(context);
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
-    final size = context.mediaQuery.size;
+    final size = MediaQuery.of(context).size;
     final appTheme = theme.textTheme.button!.copyWith(
         fontWeight: FontWeight.bold,
         fontSize: isDesktop || context.isTablet ? 30 : 22);
