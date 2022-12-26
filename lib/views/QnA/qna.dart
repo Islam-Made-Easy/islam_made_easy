@@ -1,5 +1,5 @@
 export 'dart:math';
-
+export 'package:islam_made_easy/widgets/anim/anim.dart';
 export 'package:animated_text_kit/animated_text_kit.dart';
 export 'package:animations/animations.dart';
 export 'package:avatar_glow/avatar_glow.dart';
@@ -33,7 +33,6 @@ export 'package:islam_made_easy/views/home.dart';
 export 'package:islam_made_easy/views/prerequisite.dart';
 export 'package:islam_made_easy/views/succinct.dart';
 export 'package:islam_made_easy/widgets/anim/anim_container.dart';
-export 'package:islam_made_easy/widgets/anim/anim_size.dart';
 export 'package:islam_made_easy/widgets/anim/fade_slide.dart';
 export 'package:islam_made_easy/widgets/appBar.dart';
 export 'package:islam_made_easy/widgets/buttons/shareButton.dart';
@@ -49,4 +48,4 @@ export 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 export 'package:lottie/lottie.dart';
 export 'package:share/share.dart';
 export 'package:smooth_page_indicator/smooth_page_indicator.dart';
-export  'package:islam_made_easy/widgets/detailsPage.dart';
+export 'package:islam_made_easy/widgets/detailsPage.dart';
