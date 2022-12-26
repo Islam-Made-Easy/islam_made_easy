@@ -11,7 +11,8 @@ class RouteErrorPage extends StatefulWidget {
   _RouteErrorPageState createState() => _RouteErrorPageState();
 }
 
-class _RouteErrorPageState extends State<RouteErrorPage> with SingleTickerProviderStateMixin {
+class _RouteErrorPageState extends State<RouteErrorPage>
+    with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
