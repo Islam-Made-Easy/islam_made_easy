@@ -1,15 +1,12 @@
-import 'dart:ui';
-import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/implicit_animations.dart';
 import 'package:provider/provider.dart';
-import '../anim/anim.dart';
+import '../../settings/settings_pro.dart';
 
 class SettingsLinkButton extends StatefulWidget {
   final String? title, subtitle;
 
-  const SettingsLinkButton({Key? key, this.title, this.subtitle}) : super(key: key);
+  const SettingsLinkButton({Key? key, this.title, this.subtitle})
+      : super(key: key);
 
   @override
   State<SettingsLinkButton> createState() => _SettingsLinkButtonState();
@@ -27,11 +24,12 @@ class _SettingsLinkButtonState extends State<SettingsLinkButton> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
+    String? fontFamily = Provider.of<SettingProvide>(context).fontType;
     final theme = Theme.of(context).textTheme.button!.copyWith(
         fontSize: isDesktop ? size.width * .025 : size.width * .08,
         letterSpacing: .5,
         color: _isMouseOver ? Theme.of(context).primaryColor : null,
-        fontFamily: context.isDarkMode ? 'Roboto' : 'Amiri',
+        fontFamily: context.isDarkMode ? fontFamily : 'Amiri',
         fontWeight: FontWeight.w100);
 
     return WidgetAnimator(MouseRegion(
@@ -43,25 +41,19 @@ class _SettingsLinkButtonState extends State<SettingsLinkButton> {
       child: Stack(
         fit: StackFit.expand,
         children: [
-       //   AnimatedScale(
-        //    duration: Duration(milliseconds: 5000),
-          //  curve: Curves.easeIn,
-          //  scale: _isMouseOver ? 2 : 1.1,
-              Image.asset(
-              widget.title!,
-              fit: BoxFit.fitHeight,
-              width: size.width,
-              matchTextDirection: true,
-              height: size.height,
-            ),
-       //   ),
+          Image.asset(
+            widget.title!,
+            fit: BoxFit.fitHeight,
+            width: size.width,
+            matchTextDirection: true,
+            height: size.height,
+          ),
           Center(child: Text(widget.subtitle!, style: theme)),
           Positioned(
             child: Container(
-              height: size.height * .4,
-              width: size.width * .4,
-                color: Colors.transparent
-            ),
+                height: size.height * .4,
+                width: size.width * .4,
+                color: Colors.transparent),
           ),
         ],
       ),
@@ -71,9 +63,10 @@ class _SettingsLinkButtonState extends State<SettingsLinkButton> {
 
 class DesktopButton extends StatefulWidget {
   final Widget? openC;
-  final String? title,subtitle;
+  final String? title, subtitle;
 
-  const DesktopButton({Key? key, this.openC, this.title, this.subtitle}) : super(key: key);
+  const DesktopButton({Key? key, this.openC, this.title, this.subtitle})
+      : super(key: key);
 
   @override
   State<DesktopButton> createState() => _DesktopButtonState();
@@ -89,15 +82,16 @@ class _DesktopButtonState extends State<DesktopButton> {
 
   @override
   Widget build(BuildContext context) {
-    // double? proSize = Provider.of<SettingProvide>(context).fontSize;
+    String? fontFamily = Provider.of<SettingProvide>(context).fontType;
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
     final theme = Theme.of(context).textTheme.button!.copyWith(
-        fontSize: isDesktop ? size.width * .025 : size.width * .08,
-        letterSpacing: .5,
-        color: _isMouseOver ? Theme.of(context).primaryColor : null,
-        fontFamily: context.isDarkMode ? 'Roboto' : 'Amiri',
-        fontWeight: FontWeight.w100);
+          fontSize: isDesktop ? size.width * .025 : size.width * .08,
+          letterSpacing: .5,
+          color: _isMouseOver ? Theme.of(context).primaryColor : null,
+          fontFamily: context.isDarkMode ? fontFamily : 'Amiri',
+          fontWeight: FontWeight.w100,
+        );
     return WidgetAnimator(
       MouseRegion(
         opaque: false,
@@ -107,7 +101,8 @@ class _DesktopButtonState extends State<DesktopButton> {
         onExit: (_) => isOver = false,
         child: Container(
           height: _isMouseOver ? size.height * .07 : size.height,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(_isMouseOver ? 50 : 20)),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(_isMouseOver ? 50 : 20)),
           width: _isMouseOver ? size.width * .05 : size.width,
           child: OpenContainer<bool>(
             closedElevation: .0,
@@ -116,26 +111,32 @@ class _DesktopButtonState extends State<DesktopButton> {
             transitionType: ContainerTransitionType.fade,
             openBuilder: (context, openContainer) => widget.openC!,
             closedBuilder: (context, openContainer) => AnimatedSwitcher(
-                    duration: Duration(milliseconds: 500),
-                    switchInCurve: Curves.easeInOut,
-                    switchOutCurve: Curves.easeInOut,
-                    reverseDuration: Duration(milliseconds: 1000),
-                    transitionBuilder: (Widget child, Animation<double> animation) =>
-                        ScaleTransition(child: child, scale: animation),
-                    child: _isMouseOver
-                        ? Container(
+              duration: Duration(milliseconds: 500),
+              switchInCurve: Curves.easeInOut,
+              switchOutCurve: Curves.easeInOut,
+              reverseDuration: Duration(milliseconds: 1000),
+              transitionBuilder: (Widget child, Animation<double> animation) =>
+                  ScaleTransition(child: child, scale: animation),
+              child: _isMouseOver
+                  ? Container(
                       height: isDesktop ? size.height * .27 : size.height * .18,
                       width: isDesktop ? size.width * .15 : size.width * .35,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          image: DecorationImage(
-                            image: AssetImage(widget.title!),
-                            fit: BoxFit.fitHeight,
-                            matchTextDirection: true,
-                          )),
-                      child: Center(child: Text(widget.subtitle!, style: theme)),
+                        borderRadius: BorderRadius.circular(4),
+                        image: DecorationImage(
+                          image: AssetImage(widget.title!),
+                          fit: BoxFit.fitHeight,
+                          matchTextDirection: true,
+                        ),
+                      ),
+                      child:
+                          Center(child: Text(widget.subtitle!, style: theme)),
                     )
-                        : SettingsLinkButton(title: widget.title, subtitle: widget.subtitle)),
+                  : SettingsLinkButton(
+                      title: widget.title,
+                      subtitle: widget.subtitle,
+                    ),
+            ),
           ),
         ),
       ),
@@ -155,12 +156,15 @@ class TitleHeader extends StatelessWidget {
       Container(
         child: Column(
           children: [
-            Text(text!,
-                style: theme.primaryTextTheme.subtitle1!.copyWith(
-                    color: context.isDarkMode ? null : theme.primaryColor,
-                    fontWeight: FontWeight.w300,
-                    fontSize: 17,
-                    letterSpacing: 2)),
+            Text(
+              text!,
+              style: theme.primaryTextTheme.subtitle1!.copyWith(
+                color: context.isDarkMode ? null : theme.primaryColor,
+                fontWeight: FontWeight.w300,
+                fontSize: 17,
+                letterSpacing: 2,
+              ),
+            ),
           ],
         ),
         padding: const EdgeInsets.all(12),
@@ -169,7 +173,9 @@ class TitleHeader extends StatelessWidget {
           color: context.isDarkMode
               ? theme.highlightColor
               : theme.primaryColorLight.withOpacity(.2),
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(8),
+          ),
         ),
       ),
     );
