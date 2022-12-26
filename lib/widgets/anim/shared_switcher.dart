@@ -11,10 +11,10 @@ class SharedAxisTransitionSwitcher extends StatelessWidget {
     return PageTransitionSwitcher(
       transitionBuilder: (child, animation, secondaryAnimation) {
         return SharedAxisTransition(
-          fillColor: Theme.of(context).backgroundColor,
-          animation: animation,
-          secondaryAnimation: secondaryAnimation,
           transitionType: SharedAxisTransitionType.scaled,
+          fillColor: Theme.of(context).backgroundColor,
+          secondaryAnimation: secondaryAnimation,
+          animation: animation,
           child: child,
         );
       },
