@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../settings/settings_pro.dart';
 
 class ViewText extends StatelessWidget {
   final String? data;
@@ -7,9 +10,17 @@ class ViewText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double? fontSize = Provider.of<SettingProvide>(context).fontSize;
+    String? fontFamily = Provider.of<SettingProvide>(context).fontType;
     final theme = Theme.of(context);
-    return SelectableText(data!,
-        style: theme.textTheme.headline5!
-            .copyWith(fontWeight: FontWeight.w100, height: 1.8, fontSize: 17,));
+    return SelectableText(
+      data!,
+      style: theme.textTheme.headline5!.copyWith(
+        fontWeight: FontWeight.w100,
+        height: 1.8,
+        fontFamily: fontFamily,
+        fontSize: fontSize,
+      ),
+    );
   }
 }
