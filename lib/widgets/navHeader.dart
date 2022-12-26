@@ -74,31 +74,33 @@ class NavigationRailHeader extends StatelessWidget {
                               hoverColor: theme.primaryColor.withOpacity(.1),
                               onPressed: () {
                                 Get.dialog(
-                                    Align(
-                                      alignment: locale.languageCode == 'ar'
-                                          ? Alignment.centerLeft
-                                          : Alignment.centerRight,
-                                      child: Container(
-                                        height: double.infinity,
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                3,
-                                        decoration: BoxDecoration(
-                                          color: theme.primaryColor
-                                              .withOpacity(.05),
-                                          border: Border.all(
-                                              color: Colors.transparent),
-                                          borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(5)),
+                                  Align(
+                                    alignment: locale.languageCode == 'ar'
+                                        ? Alignment.centerLeft
+                                        : Alignment.centerRight,
+                                    child: Container(
+                                      height: double.infinity,
+                                      width:
+                                          MediaQuery.of(context).size.width / 3,
+                                      decoration: BoxDecoration(
+                                        color:
+                                            theme.primaryColor.withOpacity(.05),
+                                        border: Border.all(
+                                          color: Colors.transparent,
                                         ),
-                                        child: Settings(),
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(5),
+                                        ),
                                       ),
+                                      child: Settings(),
                                     ),
-                                    transitionDuration:
-                                        DelayUI(Duration(milliseconds: 1000))
-                                            .duration,
-                                    transitionCurve: Curves.easeInOutSine,
-                                    name: 'Preferences');
+                                  ),
+                                  transitionDuration:
+                                      DelayUI(Duration(milliseconds: 1000))
+                                          .duration,
+                                  transitionCurve: Curves.easeInOutSine,
+                                  name: 'Preferences',
+                                );
                               },
                             ),
                             SizedBox(width: 20),
