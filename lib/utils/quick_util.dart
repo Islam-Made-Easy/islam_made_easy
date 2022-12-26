@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
 import 'package:islam_made_easy/settings/settings.dart';
-import 'package:islam_made_easy/views/home.dart';
 import 'package:islam_made_easy/views/prerequisite.dart';
 import 'package:quick_actions/quick_actions.dart';
+
+import '../views/quiz/quiz_home.dart';
 
 class QuickUtil extends StatefulWidget {
   final Widget? child;
@@ -16,7 +17,7 @@ class QuickUtil extends StatefulWidget {
 }
 
 class _QuickUtilState extends State<QuickUtil> {
-  final QuickActions quickActions = QuickActions();
+  static const QuickActions quickActions = QuickActions();
 
   @override
   void didChangeDependencies() {
@@ -25,14 +26,14 @@ class _QuickUtilState extends State<QuickUtil> {
     _handleQuickActions();
   }
 
-  void _setupQuickActions() {
+  _setupQuickActions() {
     quickActions.setShortcutItems(<ShortcutItem>[
       ShortcutItem(
-          type: 'action_home',
+          type: 'action_prerequisite',
           localizedTitle: S.current.prerequisite,
           icon: 'ic_menu_home'),
       ShortcutItem(
-          type: 'action_quiz_start',
+          type: 'action_quiz',
           localizedTitle: S.current.quiz,
           icon: 'ic_menu_quiz'),
       ShortcutItem(
@@ -42,15 +43,17 @@ class _QuickUtilState extends State<QuickUtil> {
     ]);
   }
 
-  void _handleQuickActions() {
+  _handleQuickActions() {
     quickActions.initialize((String shortcutType) {
-      if (shortcutType == 'action_quiz_start') {
-        Get.off(() => Prerequisite());
-      } else if (shortcutType == 'action_home') {
-        Get.off(() => Home());
-      } else if (shortcutType == 'action_settings') {
-        Get.off(() => Settings());
-      }
+      setState(() {
+        if (shortcutType == 'action_prerequisite') {
+          Get.off(() => Prerequisite());
+        } else if (shortcutType == 'action_quiz') {
+          Get.off(() => QuizHome());
+        } else if (shortcutType == 'action_settings') {
+          Get.off(() => Settings());
+        }
+      });
     });
   }
 
