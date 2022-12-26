@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:islam_made_easy/generated/l10n.dart';
-import 'package:islam_made_easy/locale/localePro.dart';
+import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
 import 'package:islam_made_easy/widgets/anim/anim.dart';
@@ -31,8 +31,9 @@ class _SettingsRadioState extends State<SettingsRadio> {
       selectedLanguage = languageCode;
       SpUtil.setLanguage(selectedLanguage!);
       Locale? locale = StringUtil.isNullOrEmpty(selectedLanguage!)
-          ? null : Locale(languageCode!);
-      Provider.of<LocaleProvide>(context,listen: false).changeLocale(locale);
+          ? null
+          : Locale(languageCode!);
+      Provider.of<SettingProvide>(context, listen: false).changeLocale(locale);
       Phoenix.rebirth(context);
     });
   }
@@ -43,17 +44,26 @@ class _SettingsRadioState extends State<SettingsRadio> {
     final ar = locale.languageCode == 'ar';
     return WidgetAnimator(
       RadioListTile(
-        title: Text(getLanguageUiString(
-            S.delegate.supportedLocales[widget.value!].languageCode),style: Theme.of(context).textTheme.button!.copyWith(
-            fontSize: 10 * 1.5,fontFamily: ar?'Amiri':'Roboto',
-            fontWeight: FontWeight.w400,
-            letterSpacing: 2
-        )),
-        subtitle: Text(widget.subtitle!,style: Theme.of(context).textTheme.button!.copyWith(
-            fontSize: 10 * 1.3,fontFamily: ar?'Amiri':'Roboto',
-            fontWeight: FontWeight.w100,
-            letterSpacing: 2
-        )), activeColor: Theme.of(context).primaryColor,
+        title: Text(
+          getLanguageUiString(
+              S.delegate.supportedLocales[widget.value!].languageCode),
+          style: Theme.of(context).textTheme.button!.copyWith(
+                fontSize: 10 * 1.5,
+                fontFamily: ar ? 'Amiri' : 'Roboto',
+                fontWeight: FontWeight.w400,
+                letterSpacing: 2,
+              ),
+        ),
+        subtitle: Text(
+          widget.subtitle!,
+          style: Theme.of(context).textTheme.button!.copyWith(
+                fontSize: 10 * 1.3,
+                fontFamily: ar ? 'Amiri' : 'Roboto',
+                fontWeight: FontWeight.w100,
+                letterSpacing: 2,
+              ),
+        ),
+        activeColor: Theme.of(context).primaryColor,
         groupValue: selectedLanguage,
         value: S.delegate.supportedLocales[widget.value!].languageCode,
         onChanged: (String? languageCode) => _changeLanguage(languageCode),
