@@ -11,7 +11,8 @@ class Animator extends StatefulWidget {
   _AnimatorState createState() => _AnimatorState();
 }
 
-class _AnimatorState extends State<Animator> with SingleTickerProviderStateMixin {
+class _AnimatorState extends State<Animator>
+    with SingleTickerProviderStateMixin {
   late Timer timer;
   late AnimationController anim;
   late Animation animation;
@@ -19,7 +20,8 @@ class _AnimatorState extends State<Animator> with SingleTickerProviderStateMixin
   @override
   void initState() {
     super.initState();
-    anim = AnimationController(duration: Duration(milliseconds: 290), vsync: this);
+    anim =
+        AnimationController(duration: Duration(milliseconds: 290), vsync: this);
     animation = CurvedAnimation(parent: anim, curve: Curves.easeInOut);
     timer = Timer(widget.time, anim.forward);
   }
