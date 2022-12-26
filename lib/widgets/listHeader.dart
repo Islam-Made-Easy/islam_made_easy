@@ -18,9 +18,10 @@ class ListHeader extends StatelessWidget {
             text!,
             overflow: TextOverflow.clip,
             style: Theme.of(context).textTheme.button!.copyWith(
-                fontWeight: FontWeight.w400,
-                letterSpacing: 2,
-                fontFamily: ar! ? 'Amiri' : 'Quicksand'),
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 2,
+                  fontFamily: ar! ? 'Amiri' : 'Quicksand',
+                ),
           ),
           if (trailing != null) trailing!,
         ],
