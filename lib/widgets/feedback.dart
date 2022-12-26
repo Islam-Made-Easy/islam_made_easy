@@ -19,8 +19,8 @@ class AppFeedback extends StatefulWidget {
 
 class _AppFeedbackState extends State<AppFeedback> {
   launchUrl(String url, bool? isWebView) async {
-    if (await canLaunch(url)) {
-      await launch(url, forceWebView: isWebView!);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(url, isWebView!);
     } else {
       throw 'Could not launch $url';
     }
