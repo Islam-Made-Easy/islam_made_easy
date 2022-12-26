@@ -1,10 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:islam_made_easy/settings/settings.dart';
-import 'package:islam_made_easy/views/QnA.dart';
 import 'package:islam_made_easy/views/errorR.dart';
-import 'package:islam_made_easy/views/home.dart';
-import 'package:islam_made_easy/views/prerequisite.dart';
-import 'package:islam_made_easy/views/succinct.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class AppRoute extends NavigatorObserver {
   AppRoute._internal();
