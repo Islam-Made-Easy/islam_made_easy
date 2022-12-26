@@ -5,6 +5,7 @@ import 'package:islam_made_easy/views/QnA/qna.dart';
 
 typedef OffsetValue = void Function(int start, int end);
 
+// todo: Find a clean way to get data from clipboard
 class CustomTextSelectionControls extends MaterialTextSelectionControls {
   // Padding between the toolbar and the anchor.
   static const double _kToolbarContentDistanceBelow = 20.0;
@@ -92,8 +93,8 @@ Future<void> customBottomSheet(BuildContext context, data) async {
           child: Column(
             children: [
               Container(
-                height: size.height * 0.5,
-                width: size.width * 0.8,
+                height: size.height * .5,
+                width: size.width * .8,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
@@ -136,7 +137,7 @@ Future<void> customBottomSheet(BuildContext context, data) async {
               ),
               SizedBox(height: 70),
               Container(
-                  height: size.height * 0.25,
+                  height: size.height * .25,
                   decoration: BoxDecoration(
                     color: Theme.of(context).cardColor,
                     borderRadius: BorderRadius.only(
@@ -186,7 +187,7 @@ Future<void> customBottomSheet(BuildContext context, data) async {
                             onPressed: () {},
                             child: Text('Share'),
                             shape: StadiumBorder(),
-                            color: Theme.of(context).buttonColor,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ],
                       ),
@@ -201,7 +202,7 @@ Future<void> customBottomSheet(BuildContext context, data) async {
 final List<Event> events = [
   Event('logo.png'),
   Event('ctr.png'),
-  Event('logo.png'),
+  Event('Logo.png'),
   Event('logo.png'),
 ];
 
@@ -274,40 +275,23 @@ class CustomTextSelectionToolbarState
   @override
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterialLocalizations(context));
-    final MaterialLocalizations localizations =
-        MaterialLocalizations.of(context);
+    final MaterialLocalizations label = MaterialLocalizations.of(context);
 
-    final List<_TextSelectionToolbarItemData> itemDatas =
-        <_TextSelectionToolbarItemData>[
-      _TextSelectionToolbarItemData(
-        onPressed: widget.handleShare,
-        label: S.current.share,
-      ),
+    final List<_ItemData> itemData = <_ItemData>[
+      _ItemData(onPressed: widget.handleShare, label: S.current.share),
       if (widget.handleCut != null)
-        _TextSelectionToolbarItemData(
-          label: localizations.cutButtonLabel,
-          onPressed: widget.handleCut,
-        ),
+        _ItemData(label: label.cutButtonLabel, onPressed: widget.handleCut),
       if (widget.handleCopy != null)
-        _TextSelectionToolbarItemData(
-          label: localizations.copyButtonLabel,
-          onPressed: widget.handleCopy,
-        ),
+        _ItemData(label: label.copyButtonLabel, onPressed: widget.handleCopy),
       if (widget.handlePaste != null &&
           widget.clipboardStatus!.value == ClipboardStatus.pasteable)
-        _TextSelectionToolbarItemData(
-          label: localizations.pasteButtonLabel,
-          onPressed: widget.handlePaste,
-        ),
+        _ItemData(label: label.pasteButtonLabel, onPressed: widget.handlePaste),
       if (widget.handleSelectAll != null)
-        _TextSelectionToolbarItemData(
-          label: localizations.selectAllButtonLabel,
+        _ItemData(
+          label: label.selectAllButtonLabel,
           onPressed: widget.handleSelectAll,
         ),
-      _TextSelectionToolbarItemData(
-        onPressed: widget.customButton,
-        label: 'Correction',
-      ),
+      _ItemData(onPressed: widget.customButton, label: 'Correction'),
     ];
 
     int childIndex = 0;
@@ -317,20 +301,20 @@ class CustomTextSelectionToolbarState
       toolbarBuilder: (BuildContext context, Widget child) {
         return Card(child: child);
       },
-      children: itemDatas.map((_TextSelectionToolbarItemData itemData) {
+      children: itemData.map((_ItemData data) {
         return TextSelectionToolbarTextButton(
           padding: TextSelectionToolbarTextButton.getPadding(
-              childIndex++, itemDatas.length),
-          onPressed: itemData.onPressed,
-          child: Text(itemData.label!),
+              childIndex++, itemData.length),
+          onPressed: data.onPressed,
+          child: Text(data.label!),
         );
       }).toList(),
     );
   }
 }
 
-class _TextSelectionToolbarItemData {
-  const _TextSelectionToolbarItemData({this.label, this.onPressed});
+class _ItemData {
+  const _ItemData({this.label, this.onPressed});
 
   final String? label;
   final VoidCallback? onPressed;
