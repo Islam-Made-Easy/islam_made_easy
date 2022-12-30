@@ -202,7 +202,7 @@ Future<void> customBottomSheet(BuildContext context, data) async {
 final List<Event> events = [
   Event('logo.png'),
   Event('ctr.png'),
-  Event('Logo.png'),
+  Event('Logo3.png'),
   Event('logo.png'),
 ];
 
