@@ -409,15 +409,6 @@ class _SettingsState extends State<Settings>
   }
 }
 
-class RestartDialog extends StatelessWidget {
-  const RestartDialog({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(title: Text('Restart'));
-  }
-}
-
 class _SettingsTitle extends StatelessWidget {
   final String title;
 
