@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen>
               controller: controller,
               repeat: true,
               onLoaded: (load) {
-                controller.duration = load.duration + Duration(seconds: 10);
+                controller.duration = load.duration + Duration(seconds: 5);
                 controller.forward();
               },
             ),
