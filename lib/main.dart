@@ -111,9 +111,9 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     return GetMaterialApp(
       title: 'Islam Made Easy',
       locale: localeProvide.locale,
-      localeResolutionCallback: localeCallback,
       theme: themeProvide.themeData,
       darkTheme: themeProvide.themeDataDark,
+      localeResolutionCallback: localeCallback,
       themeMode: ThemeProvide.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       localizationsDelegates: [
         S.delegate,
@@ -127,13 +127,13 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
         };
         return widget!;
       },
-      navigatorObservers: [appRoute],
       routes: appRoute.routes,
-      onGenerateRoute: appRoute.generateRoute,
-      onGenerateTitle: (context) => S.current.appTitle,
-      supportedLocales: S.delegate.supportedLocales,
-      home: QuickUtil(child: SplashScreen()),
+      navigatorObservers: [appRoute],
       debugShowCheckedModeBanner: false,
+      onGenerateRoute: appRoute.generateRoute,
+      supportedLocales: S.delegate.supportedLocales,
+      onGenerateTitle: (context) => S.current.appTitle,
+      home: QuickUtil(child: SplashScreen()),
     );
   }
 
@@ -141,8 +141,8 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     return Center(
       child: AnimatedBackground(
         behaviour: RectanglesBehaviour(),
-        vsync: this,
         child: LoadingIndicator(),
+        vsync: this,
       ),
     );
   }
