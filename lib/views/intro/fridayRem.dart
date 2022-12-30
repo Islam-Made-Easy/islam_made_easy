@@ -57,11 +57,10 @@ class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    initializePages(); //initialize pages to be shown
+    initializePages();
     _pageController = PageController();
     _pageController!.addListener(() {
       _activeIndex = _pageController!.page;
-      // print("Active Index: $_activeIndex");
       if (_activeIndex! >= .5 && onBoardPage == false) {
         setState(() {
           onBoardPage = true;
@@ -75,7 +74,6 @@ class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
           glow = true;
         });
       }
-      // glow = false;
     });
     _anim = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1000))
@@ -129,7 +127,8 @@ class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
                 backgroundColor: theme.colorScheme.primary,
                 child: AvatarGlow(
                   endRadius: 50,
-                  glowColor: glow ? Colors.white : theme.primaryColor.withOpacity(.05),
+                  glowColor:
+                      glow ? Colors.white : theme.primaryColor.withOpacity(.05),
                   child: FaIcon(
                     ar
                         ? FontAwesomeIcons.angleLeft
@@ -199,6 +198,22 @@ class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
                     ),
                     child: Stack(
                       children: [
+                        Positioned(
+                          left: ar?200:-200,
+                          right: ar?-150:150,
+                          child: Transform.rotate(
+                            angle: onBoardPage
+                                ? 0
+                                : _pageController!.viewportFraction + 120,
+                            child: Opacity(
+                              opacity: .1,
+                              child: Image.asset(
+                                'assets/images/cir.png',
+                                matchTextDirection: true,
+                              ),
+                            ),
+                          ),
+                        ),
                         Positioned.fill(
                           child: PageView(
                               controller: _pageController,
@@ -250,40 +265,21 @@ class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
                                           color: Color(0xffeef2f5)
                                               .withOpacity(.5)),
                                     ),
-                                    child: FocusScope(
-                                      autofocus: true,
-                                      child: IconButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            _pageController!.nextPage(
-                                                duration:
-                                                    Duration(milliseconds: 300),
-                                                curve: Curves.easeOut);
-                                          });
-                                        },
-                                        icon: FaIcon(ar
-                                            ? FontAwesomeIcons.angleLeft
-                                            : FontAwesomeIcons.angleRight),
-                                      ),
+                                    child: IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _pageController!.nextPage(
+                                              duration:
+                                                  Duration(milliseconds: 300),
+                                              curve: Curves.easeOut);
+                                        });
+                                      },
+                                      icon: FaIcon(ar
+                                          ? FontAwesomeIcons.angleLeft
+                                          : FontAwesomeIcons.angleRight),
                                     ),
                                   ),
                                 ),
-                        ),
-                        Positioned(
-                          left: -200,
-                          right: 150,
-                          child: Transform.rotate(
-                            angle: onBoardPage
-                                ? 0
-                                : _pageController!.viewportFraction + 120,
-                            child: Opacity(
-                              opacity: .1,
-                              child: Image.asset(
-                                'assets/images/cir.png',
-                                matchTextDirection: true,
-                              ),
-                            ),
-                          ),
                         ),
                         Visibility(
                           visible: onBoardPage,
@@ -311,20 +307,17 @@ class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
                                 border: Border.all(
                                     color: Color(0xffeef2f5).withOpacity(.5)),
                               ),
-                              child: FocusScope(
-                                autofocus: true,
-                                child: IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      _pageController!.previousPage(
-                                          duration: Duration(milliseconds: 300),
-                                          curve: Curves.easeOut);
-                                    });
-                                  },
-                                  icon: FaIcon(ar
-                                      ? FontAwesomeIcons.angleRight
-                                      : FontAwesomeIcons.angleLeft),
-                                ),
+                              child: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _pageController!.previousPage(
+                                        duration: Duration(milliseconds: 300),
+                                        curve: Curves.easeOut);
+                                  });
+                                },
+                                icon: FaIcon(ar
+                                    ? FontAwesomeIcons.angleRight
+                                    : FontAwesomeIcons.angleLeft),
                               ),
                             ),
                           ),
@@ -530,8 +523,8 @@ class _WelcomeState extends State<WelcomePage>
                   child: Text(
                     S.current.fridayFirst,
                     style: TextStyle(
-                      color: const Color(0xFFFFFFFF),
-                      fontFamily: ar ? 'Amiri' : 'Amiri',
+                      color: Colors.white,
+                      fontFamily: ar ? 'Amiri' : 'Roboto',
                       fontWeight: FontWeight.w300,
                       fontSize: DeviceOS.isDesktopOrWeb && context.isTablet
                           ? width * .02
