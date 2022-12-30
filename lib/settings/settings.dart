@@ -111,8 +111,7 @@ class _SettingsState extends State<Settings>
     super.build(context);
     final MaterialLocalizations localize = MaterialLocalizations.of(context);
     final theme = Theme.of(context);
-    final bodyTextStyle = theme.textTheme.bodyText1!
-        .apply(color: theme.colorScheme.onPrimary, fontFamily: 'Roboto');
+    final Style = theme.textTheme.bodyText1!.apply(color: theme.colorScheme.onPrimary);
     final isDesktop = isDisplayDesktop(context);
     String txt =
         context.isDarkMode ? S.current.switchLight : S.current.switchDark;
@@ -129,7 +128,7 @@ class _SettingsState extends State<Settings>
       backgroundColor: isDesktop ? Colors.transparent : null,
       appBar: AppBar(
         title: Text(isDesktop ? S.current.preferences : S.current.settings,
-            style: bodyTextStyle),
+            style: Style),
         automaticallyImplyLeading: isDesktop ? false : true,
         centerTitle: true,
         backgroundColor: isDesktop ? Colors.transparent : null,
