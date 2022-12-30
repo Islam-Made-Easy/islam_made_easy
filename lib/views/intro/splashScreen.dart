@@ -1,3 +1,4 @@
+import 'package:animated_background/animated_background.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:islam_made_easy/views/intro/fridayRem.dart';
@@ -11,7 +12,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   bool isCelebration = false;
   var _today = HijriCalendar.now().wkDay;
   int _now = DateTime.now().hour;
@@ -46,35 +47,42 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kDarkPrimaryColor2,
       body: Stack(
         children: [
           Center(
             child: Lottie.asset(
-              'assets/lottie/please-wait-loading.json',
+              'assets/lottie/progress-bar.json',
               controller: controller,
               repeat: true,
               onLoaded: (load) {
-                controller.duration = load.duration;
+                controller.duration = load.duration + Duration(seconds: 10);
                 controller.forward();
               },
             ),
           ),
           Center(
             child: Shimmer.fromColors(
-              baseColor: Color(0xffe2cf84),
+              baseColor: Color(0xffFF3607),
               highlightColor: Get.theme.indicatorColor,
               child: Text(
                 'ISLAM MADE EASY',
                 style: TextStyle(
                   fontSize: 60,
                   fontFamily: 'Quicksand',
-                  color: Color(0xffe2cf84),
+                  color: Color(0xffFF3607),
                 ),
               ),
             ),
           ),
           Center(
-            child: Image.asset('assets/images/up.png', height: 600),
+            child: AnimatedBackground(
+              vsync: this,
+              behaviour: RacingLinesBehaviour(),
+              child: Center(
+                child: Image.asset('assets/images/red-simple.png', height: 600),
+              ),
+            ),
           ),
         ],
       ),
