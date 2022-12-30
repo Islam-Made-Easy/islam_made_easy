@@ -53,6 +53,7 @@ class _SettingsState extends State<Settings>
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
     TextStyle? _selectedFontTextStyle;
+    final theme = Theme.of(context);
     List<String> _gFonts = [
       "Abril Fatface",
       "Aclonica",
@@ -110,7 +111,6 @@ class _SettingsState extends State<Settings>
     ];
     super.build(context);
     final MaterialLocalizations localize = MaterialLocalizations.of(context);
-    final theme = Theme.of(context);
     final Style =
         theme.textTheme.bodyText1!.apply(color: theme.colorScheme.onPrimary);
     final isDesktop = isDisplayDesktop(context);
