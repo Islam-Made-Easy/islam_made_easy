@@ -111,7 +111,8 @@ class _SettingsState extends State<Settings>
     super.build(context);
     final MaterialLocalizations localize = MaterialLocalizations.of(context);
     final theme = Theme.of(context);
-    final Style = theme.textTheme.bodyText1!.apply(color: theme.colorScheme.onPrimary);
+    final Style =
+        theme.textTheme.bodyText1!.apply(color: theme.colorScheme.onPrimary);
     final isDesktop = isDisplayDesktop(context);
     String txt =
         context.isDarkMode ? S.current.switchLight : S.current.switchDark;
@@ -475,9 +476,9 @@ class _SettingsShort extends StatelessWidget {
 }
 
 class SettingsButton extends StatelessWidget {
+  final ValueChanged<bool>? onChanged;
   final String? title, subtitle;
   final bool? value;
-  final ValueChanged<bool>? onChanged;
 
   const SettingsButton(
       {Key? key, this.title, this.subtitle, this.value, this.onChanged})
