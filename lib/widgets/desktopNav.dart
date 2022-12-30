@@ -49,7 +49,9 @@ class _DesktopNavState extends State<DesktopNav>
     return CallbackShortcuts(
       bindings: {
         LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.alt):
-            coachMaker
+            coachMaker,
+        LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.shift):
+            settings,
       },
       child: Row(
         children: [
@@ -325,6 +327,8 @@ class _DesktopNavState extends State<DesktopNav>
       ),
     ]).show();
   }
+
+  settings() => showSettings(context);
 }
 
 class WindowButtons extends StatelessWidget {
