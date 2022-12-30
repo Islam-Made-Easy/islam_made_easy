@@ -5,18 +5,15 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:hijri/hijri_calendar.dart';
-import 'package:islam_made_easy/locale/localePro.dart';
 import 'package:islam_made_easy/routes/app_route.dart';
 import 'package:islam_made_easy/settings/settings_pro.dart';
-import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/logger.dart';
 import 'package:islam_made_easy/utils/quick_util.dart';
 import 'package:islam_made_easy/utils/sharedP.dart';
 import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
-import 'package:islam_made_easy/views/intro/fridayRem.dart';
+import 'package:islam_made_easy/views/intro/splashScreen.dart';
 import 'package:islam_made_easy/widgets/anim/load_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -24,7 +21,6 @@ import 'package:url_strategy/url_strategy.dart';
 void main() async {
   initLogger(() async {
     setPathUrlStrategy();
-    // await FeedbackServices.init();
     if (kIsWeb) {
       const int megabyte = 1000000;
       SystemChannels.skia
@@ -38,10 +34,8 @@ void main() async {
       Phoenix(
         child: MultiProvider(
           providers: [
-//            ChangeNotifierProvider.value(value: NotificationServices()),
             ChangeNotifierProvider.value(value: ThemeProvide()),
             ChangeNotifierProvider.value(value: SettingProvide()),
-            ChangeNotifierProvider.value(value: LocaleProvide()),
           ],
           child: IMEApp(),
         ),
@@ -71,26 +65,21 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     _initSp();
   }
 
-  bool isCelebration = false;
-
   Future _initSp() async {
     await appSP.init();
-    var _today = HijriCalendar.now().wkDay;
-    int _now = DateTime.now().hour;
     bool? dark = SpUtil.getDarkTheme();
     bool? full = SpUtil.getFullScreen();
     if (full != null) {
       Provider.of<SettingProvide>(context, listen: false).getFullScreen(full);
     }
     if (dark != null) {
-      Provider.of<ThemeProvide>(context, listen: false).getDark(dark);
+      Provider.of<SettingProvide>(context, listen: false).getDark(dark);
     }
     double? fontSize = SpUtil.getFontSize();
     if (fontSize != null) {
       Provider.of<SettingProvide>(context, listen: false).getFontSize(fontSize);
     }
     int? themeIndex = SpUtil.getThemeIndex();
-    //  Provider.of<NotificationServices>(context, listen: false).init();
     if (themeIndex != null) {
       Provider.of<ThemeProvide>(context, listen: false).changeTheme(themeIndex);
     }
@@ -100,14 +89,8 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     }
     String lang = SpUtil.getLanguage()!;
     if (StringUtil.isNotEmpty(lang)) {
-      Provider.of<LocaleProvide>(context, listen: false)
+      Provider.of<SettingProvide>(context, listen: false)
           .changeLocale(Locale(lang));
-    }
-    if ((_today == DateTime.thursday && _now > 18) ||
-        (_today == DateTime.friday && _now < 18)) {
-      setState(() {
-        isCelebration = true;
-      });
     }
   }
 
@@ -120,12 +103,10 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     return supportedLocales.first;
   }
 
-// TODO: Add floating feedback requester for web
-
   /// sEARch   
   @override
   Widget build(BuildContext context) {
-    final localeProvide = Provider.of<LocaleProvide>(context);
+    final localeProvide = Provider.of<SettingProvide>(context);
     final themeProvide = Provider.of<ThemeProvide>(context);
     return GetMaterialApp(
       title: 'Islam Made Easy',
@@ -151,7 +132,7 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
       onGenerateRoute: appRoute.generateRoute,
       onGenerateTitle: (context) => S.current.appTitle,
       supportedLocales: S.delegate.supportedLocales,
-      home: QuickUtil(child: isCelebration ? FridayRem() : Home()),
+      home: QuickUtil(child: SplashScreen()),
       debugShowCheckedModeBanner: false,
     );
   }
