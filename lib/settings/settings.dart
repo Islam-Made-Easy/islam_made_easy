@@ -2,14 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_font_picker/flutter_font_picker.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
-import 'package:islam_made_easy/locale/localePro.dart';
 import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/settings/settings_radio.dart';
-import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/utils/spUtil.dart';
 import 'package:islam_made_easy/utils/string_util.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
-import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:provider/provider.dart';
 
 class Settings extends StatefulWidget {
@@ -40,7 +37,7 @@ class _SettingsState extends State<Settings>
       Locale? locale = StringUtil.isNullOrEmpty(selectedLanguage!)
           ? null
           : Locale(languageCode!);
-      Provider.of<LocaleProvide>(context, listen: false).changeLocale(locale);
+      Provider.of<SettingProvide>(context, listen: false).changeLocale(locale);
       // TODO: Get permission before restart in future if relevant
       // relevance ^> if the data[translation files] is from remote source.
       if (DeviceOS.isDesktop) {
@@ -94,19 +91,20 @@ class _SettingsState extends State<Settings>
         children: [
           _SettingsTitle(title: S.current.customizeExp),
           _SettingsTitle(title: S.current.interface),
-          Image.asset('assets/images/1.png',color: Theme.of(context).primaryColor.withOpacity(.5)),
+          Image.asset('assets/images/1.png',
+              color: Theme.of(context).primaryColor.withOpacity(.5)),
           WidgetAnimator(
             Card(
               child: Column(
                 children: [
-                  _chooseTheme(),
+                  _chooseTheme(ar),
                   SettingsButton(
                     title: S.current.darkMode,
                     subtitle: txt,
                     value: ThemeProvide.isDarkMode,
                     onChanged: (value) {
                       setState(() {
-                        Provider.of<ThemeProvide>(context, listen: false)
+                        Provider.of<SettingProvide>(context, listen: false)
                             .getDark(value);
                         SpUtil.setDarkTheme(value);
                       });
@@ -123,7 +121,7 @@ class _SettingsState extends State<Settings>
                 title: Text(S.current.language,
                     style: theme.textTheme.button!.copyWith(
                         fontSize: kSpacingUnit * 1.5,
-                        fontFamily: ar ? 'Amiri' : 'Roboto',
+                        fontFamily: ar ? 'Amiri' : 'Quicksand',
                         fontWeight: FontWeight.w400,
                         letterSpacing: 2)),
                 leading: FaIcon(
@@ -167,7 +165,8 @@ class _SettingsState extends State<Settings>
           SizedBox(height: 10),
           isDesktop ? _SettingsTitle(title: S.current.shortcuts) : Container(),
           isDesktop
-              ? Image.asset('assets/images/1.png',color: Theme.of(context).primaryColor.withOpacity(.5))
+              ? Image.asset('assets/images/1.png',
+                  color: Theme.of(context).primaryColor.withOpacity(.5))
               : Container(),
           isDesktop
               ? WidgetAnimator(
@@ -180,9 +179,13 @@ class _SettingsState extends State<Settings>
                       title: Text(S.current.shortcuts,
                           style: theme.textTheme.button!.copyWith(
                               fontSize: kSpacingUnit * 1.5,
-                              fontFamily: ar ? 'Amiri' : 'Roboto',
+                              fontFamily: ar ? 'Amiri' : 'Quicksand',
                               fontWeight: FontWeight.w400,
                               letterSpacing: 2)),
+                      leading: FaIcon(
+                        FontAwesomeIcons.shapes,
+                        color: theme.primaryColor,
+                      ),
                       children: [
                         _SettingsShort(
                           title: localize.copyButtonLabel,
@@ -202,6 +205,13 @@ class _SettingsState extends State<Settings>
                           icon: Icons.arrow_back,
                           color: Colors.brown,
                         ),
+                        _SettingsShort(
+                          title: S.current.qDocs,
+                          subtitle: 'Ctrl+Alt',
+                          icon: Icons.description,
+                          color: Colors.deepPurple,
+                        ),
+                        // Below shortcuts are Not Implemented at the moment >>> We accept PR
                         Container(
                           decoration: BoxDecoration(
                             color: context.isDarkMode
@@ -225,12 +235,6 @@ class _SettingsState extends State<Settings>
                                 icon: Icons.assignment,
                                 color: Colors.amberAccent,
                               ),
-                              _SettingsShort(
-                                title: S.current.qDocs,
-                                subtitle: 'Ctrl+Q',
-                                icon: Icons.description,
-                                color: Colors.deepPurple,
-                              ),
                             ],
                           ),
                         ),
@@ -240,26 +244,32 @@ class _SettingsState extends State<Settings>
                 )
               : Container(),
           _SettingsTitle(title: 'Fonts'),
-          Image.asset('assets/images/1.png',color: Theme.of(context).primaryColor.withOpacity(.5),),
+          Image.asset(
+            'assets/images/1.png',
+            color: Theme.of(context).primaryColor.withOpacity(.5),
+          ),
           Card(
             child: ExpansionTile(
               title: Text('Change Font Size',
                   style: theme.textTheme.button!.copyWith(
                       fontSize: kSpacingUnit * 1.5,
-                      fontFamily: ar ? 'Amiri' : 'Roboto',
+                      fontFamily: ar ? 'Amiri' : 'Quicksand',
                       fontWeight: FontWeight.w400,
                       letterSpacing: 2)),
+              leading: FaIcon(
+                FontAwesomeIcons.slidersH,
+                color: theme.primaryColor,
+              ),
               children: [
                 Slider(
-                  label: Provider.of<SettingProvide>(context, listen: false)
+                  label: Provider.of<SettingProvide>(context)
                       .fontSize!
                       .toDouble()
                       .toString(),
                   min: 12.0,
                   max: 22.0,
                   divisions: 5,
-                  value: Provider.of<SettingProvide>(context, listen: false)
-                      .fontSize!,
+                  value: Provider.of<SettingProvide>(context).fontSize!,
                   onChanged: (value) {
                     setState(() {
                       Provider.of<SettingProvide>(context, listen: false)
@@ -279,9 +289,14 @@ class _SettingsState extends State<Settings>
                     EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 title: Text('Select Font',
                     style: theme.textTheme.button!.copyWith(
-                        fontSize: kSpacingUnit * 1.3,
-                        fontWeight: FontWeight.w100,
-                        letterSpacing: 2)),
+                        fontSize: kSpacingUnit * 1.5,
+                        fontFamily: ar ? 'Amiri' : 'Quicksand',
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 2,)),
+                leading: FaIcon(
+                  FontAwesomeIcons.font,
+                  color: theme.primaryColor,
+                ),
                 children: [
                   FontPicker(
                       showInDialog: true,
@@ -304,7 +319,7 @@ class _SettingsState extends State<Settings>
     );
   }
 
-  ExpansionTile _chooseTheme() {
+  ExpansionTile _chooseTheme(bool ar) {
     final List<Widget> themeChildren = [];
     for (int i = 0; i < Colors.primaries.length; i++) {
       Color? color = context.isDarkMode
@@ -328,9 +343,7 @@ class _SettingsState extends State<Settings>
               decoration: BoxDecoration(
                 color: color,
                 borderRadius: BorderRadius.circular(8),
-                border: Provider.of<ThemeProvide>(context, listen: false)
-                            .themeIndex ==
-                        i
+                border: Provider.of<ThemeProvide>(context).themeIndex == i
                     ? bd
                     : null,
               ),
@@ -349,7 +362,11 @@ class _SettingsState extends State<Settings>
           color: Theme.of(context).primaryColor),
       title: Text(
         S.current.chooseTheme,
-        style: TextStyle(color: Theme.of(context).primaryColor),
+        style: Theme.of(context).textTheme.button!.copyWith(
+            fontSize: kSpacingUnit * 1.5,
+            fontFamily: ar ? 'Amiri' : 'Roboto',
+            fontWeight: FontWeight.w400,
+            letterSpacing: 2),
       ),
       subtitle: Text(
         S.current.selectTheme,
@@ -411,7 +428,7 @@ class _SettingsShort extends StatelessWidget {
               FaIcon(icon, color: color!.withOpacity(.4)),
               Text(title!,
                   style: Theme.of(context).textTheme.button!.copyWith(
-                      fontSize: kSpacingUnit * 1.3,
+                      fontSize: kSpacingUnit * 1.1,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w100,
                       letterSpacing: 2))
