@@ -54,17 +54,59 @@ class _SettingsState extends State<Settings>
     final ar = locale.languageCode == 'ar';
     TextStyle? _selectedFontTextStyle;
     List<String> _gFonts = [
-      "Abril Fatface", "Aclonica", "Alegreya Sans", "Amiri",
-      "Architects Daughter", "Archivo", "Archivo Narrow",
-      "Bebas Neue", "Bitter", "Bree Serif", "Bungee",
-      "Cabin", "Cairo", "Coda", "Comfortaa", "Comic Neue", "Cousine",
-      "Croissant One", "Faster One", "Forum", "Great Vibes", "Heebo",
-      "Inconsolata", "Josefin Slab", "Lato", "Libre Baskerville", "Lobster",
-      "Lora", "Merriweather", "Montserrat", "Mukta", "Nunito", "Offside",
-      "Open Sans", "Oswald", "Overlock", "Pacifico", "Playfair Display",
-      "Poppins", "Raleway", "Roboto", "Roboto Mono", "Source Sans Pro",
-      "Space Mono", "Spicy Rice", "Squada One", "Sue Ellen Francisco", "Trade Winds",
-      "Ubuntu", "Varela", "Vollkorn", "Work Sans", "Zilla Slab"
+      "Abril Fatface",
+      "Aclonica",
+      "Alegreya Sans",
+      "Amiri",
+      "Architects Daughter",
+      "Archivo",
+      "Archivo Narrow",
+      "Bebas Neue",
+      "Bitter",
+      "Bree Serif",
+      "Bungee",
+      "Cabin",
+      "Cairo",
+      "Coda",
+      "Comfortaa",
+      "Comic Neue",
+      "Cousine",
+      "Croissant One",
+      "Faster One",
+      "Forum",
+      "Great Vibes",
+      "Heebo",
+      "Inconsolata",
+      "Josefin Slab",
+      "Lato",
+      "Libre Baskerville",
+      "Lobster",
+      "Lora",
+      "Merriweather",
+      "Montserrat",
+      "Mukta",
+      "Nunito",
+      "Offside",
+      "Open Sans",
+      "Oswald",
+      "Overlock",
+      "Pacifico",
+      "Playfair Display",
+      "Poppins",
+      "Raleway",
+      "Roboto",
+      "Roboto Mono",
+      "Source Sans Pro",
+      "Space Mono",
+      "Spicy Rice",
+      "Squada One",
+      "Sue Ellen Francisco",
+      "Trade Winds",
+      "Ubuntu",
+      "Varela",
+      "Vollkorn",
+      "Work Sans",
+      "Zilla Slab"
     ];
     super.build(context);
     final MaterialLocalizations localize = MaterialLocalizations.of(context);
@@ -74,6 +116,16 @@ class _SettingsState extends State<Settings>
     final isDesktop = isDisplayDesktop(context);
     String txt =
         context.isDarkMode ? S.current.switchLight : S.current.switchDark;
+    final title = theme.textTheme.button!.copyWith(
+        fontSize: kSpacingUnit * 1.5,
+        fontFamily: ar ? 'Amiri' : 'Quicksand',
+        fontWeight: FontWeight.w400,
+        letterSpacing: 2);
+    final sub = theme.textTheme.button!.copyWith(
+        fontSize: kSpacingUnit * 1.3,
+        fontFamily: ar ? 'Amiri' : 'Roboto',
+        fontWeight: FontWeight.w100,
+        letterSpacing: 2);
     return Scaffold(
       backgroundColor: isDesktop ? Colors.transparent : null,
       appBar: AppBar(
@@ -118,22 +170,13 @@ class _SettingsState extends State<Settings>
           WidgetAnimator(
             Card(
               child: ExpansionTile(
-                title: Text(S.current.language,
-                    style: theme.textTheme.button!.copyWith(
-                        fontSize: kSpacingUnit * 1.5,
-                        fontFamily: ar ? 'Amiri' : 'Quicksand',
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 2)),
+                title: Text(S.current.language, style: title),
                 leading: FaIcon(
                   FontAwesomeIcons.language,
                   color: theme.primaryColor,
                 ),
-                subtitle: Text(getLanguageUiString(selectedLanguage!),
-                    style: theme.textTheme.button!.copyWith(
-                        fontSize: kSpacingUnit * 1.3,
-                        fontFamily: ar ? 'Amiri' : 'Roboto',
-                        fontWeight: FontWeight.w100,
-                        letterSpacing: 2)),
+                subtitle:
+                    Text(getLanguageUiString(selectedLanguage!), style: sub),
                 tilePadding: EdgeInsets.symmetric(
                     vertical: context.isTablet ? 15 : 10,
                     horizontal: context.isTablet ? 15 : 10),
@@ -176,17 +219,18 @@ class _SettingsState extends State<Settings>
                           EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                       childrenPadding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                      title: Text(S.current.shortcuts,
-                          style: theme.textTheme.button!.copyWith(
-                              fontSize: kSpacingUnit * 1.5,
-                              fontFamily: ar ? 'Amiri' : 'Quicksand',
-                              fontWeight: FontWeight.w400,
-                              letterSpacing: 2)),
+                      title: Text(S.current.shortcuts, style: title),
                       leading: FaIcon(
                         FontAwesomeIcons.shapes,
                         color: theme.primaryColor,
                       ),
                       children: [
+                        _SettingsShort(
+                          title: S.current.preferences,
+                          subtitle: 'Ctrl+Shift',
+                          icon: FontAwesomeIcons.cog,
+                          color: Colors.blue,
+                        ),
                         _SettingsShort(
                           title: localize.copyButtonLabel,
                           subtitle: 'Ctrl+C',
@@ -250,12 +294,7 @@ class _SettingsState extends State<Settings>
           ),
           Card(
             child: ExpansionTile(
-              title: Text('Change Font Size',
-                  style: theme.textTheme.button!.copyWith(
-                      fontSize: kSpacingUnit * 1.5,
-                      fontFamily: ar ? 'Amiri' : 'Quicksand',
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 2)),
+              title: Text('Change Font Size', style: title),
               leading: FaIcon(
                 FontAwesomeIcons.slidersH,
                 color: theme.primaryColor,
@@ -287,12 +326,7 @@ class _SettingsState extends State<Settings>
                 tilePadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 childrenPadding:
                     EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                title: Text('Select Font',
-                    style: theme.textTheme.button!.copyWith(
-                        fontSize: kSpacingUnit * 1.5,
-                        fontFamily: ar ? 'Amiri' : 'Quicksand',
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 2,)),
+                title: Text('Select Font', style: title),
                 leading: FaIcon(
                   FontAwesomeIcons.font,
                   color: theme.primaryColor,
