@@ -7,6 +7,30 @@ import 'package:islam_made_easy/settings/settings.dart';
 import 'package:islam_made_easy/utils/device_info.dart';
 import 'package:islam_made_easy/views/about.dart' as about;
 
+showSettings(BuildContext context) {
+  final theme = Theme.of(context);
+  Get.dialog(
+    Align(
+      alignment: Localizations.localeOf(context).languageCode == 'ar'
+          ? Alignment.centerLeft
+          : Alignment.centerRight,
+      child: Container(
+        width: MediaQuery.of(context).size.width / 3,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          color: theme.primaryColor.withOpacity(.05),
+          border: Border.all(color: Colors.transparent),
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(5)),
+        ),
+        child: Settings(),
+      ),
+    ),
+    transitionDuration: DelayUI(Duration(milliseconds: 1000)).duration,
+    transitionCurve: Curves.easeInOutSine,
+    name: 'Preferences',
+  );
+}
+
 class NavigationRailHeader extends StatelessWidget {
   const NavigationRailHeader({required this.extended});
 
@@ -16,7 +40,6 @@ class NavigationRailHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final animation = NavigationRail.extendedAnimation(context);
-    Locale locale = Localizations.localeOf(context);
     return AnimatedBuilder(
       animation: animation,
       builder: (context, child) {
@@ -72,36 +95,7 @@ class NavigationRailHeader extends StatelessWidget {
                               ),
                               splashRadius: 15,
                               hoverColor: theme.primaryColor.withOpacity(.1),
-                              onPressed: () {
-                                Get.dialog(
-                                  Align(
-                                    alignment: locale.languageCode == 'ar'
-                                        ? Alignment.centerLeft
-                                        : Alignment.centerRight,
-                                    child: Container(
-                                      height: double.infinity,
-                                      width:
-                                          MediaQuery.of(context).size.width / 3,
-                                      decoration: BoxDecoration(
-                                        color:
-                                            theme.primaryColor.withOpacity(.05),
-                                        border: Border.all(
-                                          color: Colors.transparent,
-                                        ),
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(5),
-                                        ),
-                                      ),
-                                      child: Settings(),
-                                    ),
-                                  ),
-                                  transitionDuration:
-                                      DelayUI(Duration(milliseconds: 1000))
-                                          .duration,
-                                  transitionCurve: Curves.easeInOutSine,
-                                  name: 'Preferences',
-                                );
-                              },
+                              onPressed: () => showSettings(context),
                             ),
                             SizedBox(width: 20),
                             IconButton(
