@@ -1,5 +1,4 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
-import 'package:islam_made_easy/widgets/anim/anim.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'buttons/custom_icon_button.dart';
