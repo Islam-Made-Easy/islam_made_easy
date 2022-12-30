@@ -2,9 +2,9 @@ import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class ShareButtons extends StatelessWidget {
   final String? tip;
+  final Color? color;
   final IconData? icon;
   final void Function() onPressed;
-  final Color? color;
 
   const ShareButtons(
       {Key? key, this.color, this.icon, required this.onPressed, this.tip})
@@ -20,21 +20,21 @@ class ShareButtons extends StatelessWidget {
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey[300]!,
-              offset: Offset(4.0, 4.0),
               blurRadius: isDesktop ? 10 : 2,
+              color: color!.withOpacity(.2),
+              offset: Offset(4.0, 4.0),
               spreadRadius: 1.0,
             ),
             BoxShadow(
               color: color!.withOpacity(.09),
-              offset: Offset(-4.0, -4.0),
               blurRadius: isDesktop ? 10 : 2,
+              offset: Offset(-4.0, -4.0),
               spreadRadius: 1.0,
             ),
             BoxShadow(
               color: Colors.transparent.withOpacity(.09),
-              offset: Offset(-4.0, -4.0),
               blurRadius: isDesktop ? 10 : 2,
+              offset: Offset(-4.0, -4.0),
               spreadRadius: 1.0,
             ),
           ],
@@ -47,11 +47,12 @@ class ShareButtons extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(isDesktop ? 14 : 7)),
           ),
           child: IconButton(
+            color: color,
             icon: FaIcon(icon!),
+            onPressed: onPressed,
             splashRadius: isDesktop ? 40 : 20,
             hoverColor: color!.withOpacity(.04),
-            color: color,
-            onPressed: onPressed,
+            splashColor: color!.withOpacity(.04),
           ),
         ),
       ),
