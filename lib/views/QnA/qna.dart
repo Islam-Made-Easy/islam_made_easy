@@ -47,5 +47,6 @@ export 'package:islam_made_easy/widgets/viewText.dart';
 export 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 export 'package:lottie/lottie.dart';
 export 'package:share/share.dart';
+export '../../theme/themePro.dart';
 export 'package:smooth_page_indicator/smooth_page_indicator.dart';
 export 'package:islam_made_easy/widgets/detailsPage.dart';
