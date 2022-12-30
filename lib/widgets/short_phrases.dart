@@ -11,13 +11,15 @@ class ShortPhrases extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.current.shortPhrasesT,style: TextStyle(fontFamily: 'Quicksand'),),
         centerTitle: true,
+        title: Text(S.current.shortPhrasesT),
         backgroundColor: isDesktop ? Colors.transparent : null,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
-            horizontal: isDesktop ? 20 : 0, vertical: isDesktop ? 50 : 0),
+          horizontal: isDesktop ? 20 : 0,
+          vertical: isDesktop ? 50 : 0,
+        ),
         children: [
           Container(
             decoration: BoxDecoration(
@@ -26,8 +28,8 @@ class ShortPhrases extends StatelessWidget {
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(0),
-                bottomRight: Radius.elliptical(12, 200),
                 bottomLeft: Radius.elliptical(90, 10),
+                bottomRight: Radius.elliptical(12, 200),
               ),
             ),
             padding: EdgeInsets.all(isDesktop ? 42 : 10),
@@ -93,7 +95,8 @@ class ShortPhrases extends StatelessWidget {
 class _ShortW extends StatelessWidget {
   final String? title, subtitle, trailing;
 
-  const _ShortW({Key? key, this.title, this.subtitle, this.trailing}) : super(key: key);
+  const _ShortW({Key? key, this.title, this.subtitle, this.trailing})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +110,7 @@ class _ShortW extends StatelessWidget {
             color: Colors.transparent,
             elevation: 0,
             shape: RoundedRectangleBorder(
-              side: BorderSide(width: 0.5, color: theme.hoverColor),
+              side: BorderSide(width: .5, color: theme.hoverColor),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(ar ? 0 : 10),
                 topRight: Radius.circular(ar ? 10 : 0),
@@ -119,17 +122,21 @@ class _ShortW extends StatelessWidget {
             ),
             clipBehavior: Clip.antiAliasWithSaveLayer,
             child: ListTile(
-              title: Text(title!,style: theme.textTheme.button!.copyWith(
-                fontSize: 10 * 1.7,
-                fontWeight: FontWeight.w400,
-                letterSpacing: 2,
-              )),
+              title: Text(title!,
+                  style: theme.textTheme.button!.copyWith(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 10 * 1.7,
+                    letterSpacing: 2,
+                  )),
               trailing: Text(trailing!),
-              subtitle: Text(subtitle!,style: theme.textTheme.caption!.copyWith(
-                  fontSize: 10 * 1.3,
+              subtitle: Text(
+                subtitle!,
+                style: theme.textTheme.caption!.copyWith(
                   fontWeight: FontWeight.w100,
-                  fontFamily: 'Roboto',
-                  letterSpacing: 1.5)),
+                  fontSize: 10 * 1.3,
+                  letterSpacing: 1.5,
+                ),
+              ),
               tileColor: theme.hoverColor,
             ),
           ),
@@ -148,8 +155,8 @@ class _ShortW extends StatelessWidget {
                       theme.primaryColorLight
                     ],
                     tileMode: TileMode.mirror,
-                    begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
+                    begin: Alignment.topLeft,
                     stops: [.1, 1.0],
                   ),
                   shape: BoxShape.circle),

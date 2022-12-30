@@ -3,8 +3,8 @@ import 'package:islam_made_easy/views/QnA/qna.dart';
 import '../models/app_intents.dart';
 
 class QnAppBar extends StatelessWidget with PreferredSizeWidget {
-  final String? title;
   final bool isDesktop;
+  final String? title;
   final Color? color;
 
   const QnAppBar({Key? key, this.title, this.isDesktop = false, this.color})
@@ -14,12 +14,10 @@ class QnAppBar extends StatelessWidget with PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    Locale locale = Localizations.localeOf(context);
     return AppBar(
       title: Text(
         title!,
-        style:
-            TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Quicksand'),
+        style: TextStyle(fontWeight: FontWeight.w400),
         overflow: TextOverflow.fade,
       ),
       centerTitle: true,
@@ -39,9 +37,7 @@ class QnAppBar extends StatelessWidget with PreferredSizeWidget {
             child: isDesktop
                 ? BackButton()
                 : IconButton(
-                    icon: FaIcon(locale.languageCode == 'ar'
-                        ? FontAwesomeIcons.angleRight
-                        : FontAwesomeIcons.angleLeft),
+                    icon: FaIcon(Icons.chevron_left),
                     onPressed: Get.back,
                     tooltip:
                         MaterialLocalizations.of(context).backButtonTooltip,
@@ -70,11 +66,10 @@ class QnAppBar2 extends StatelessWidget with PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    Locale locale = Localizations.localeOf(context);
     return AppBar(
       title: Text(
         title!,
-        style: TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Quicksand'),
+        style: TextStyle(fontWeight: FontWeight.w400),
         overflow: TextOverflow.fade,
       ),
       centerTitle: true,
@@ -82,9 +77,7 @@ class QnAppBar2 extends StatelessWidget with PreferredSizeWidget {
       leading: isDesktop
           ? null
           : IconButton(
-              icon: FaIcon(locale.languageCode == 'ar'
-                  ? FontAwesomeIcons.angleRight
-                  : FontAwesomeIcons.angleLeft),
+              icon: FaIcon(Icons.chevron_left),
               onPressed: Get.back,
               tooltip: MaterialLocalizations.of(context).backButtonTooltip,
             ),

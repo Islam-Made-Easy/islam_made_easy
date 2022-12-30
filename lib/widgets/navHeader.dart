@@ -65,8 +65,8 @@ class NavigationRailHeader extends StatelessWidget {
                           Image.asset('assets/images/Logo3.png', width: 32),
                           const SizedBox(width: 10),
                           Align(
-                            alignment: AlignmentDirectional.centerStart,
                             widthFactor: animation.value,
+                            alignment: AlignmentDirectional.centerStart,
                             child: Opacity(
                               opacity: animation.value,
                               child: Text(

@@ -30,8 +30,7 @@ class _SuccinctState extends State<Succinct> {
       height: isDesktop ? 1.85 : 1.8,
       fontSize: isDesktop ? proSize! + 1 : proSize,
     );
-    final bodyTextStyle2 =
-        textTheme.headline5!.copyWith(fontFamily: 'Amiri', fontSize: proSize);
+    final bodyTextStyle2 = textTheme.headline5!.copyWith(fontSize: proSize);
     final txtStyle = textTheme.headline6!.copyWith(
         fontFamily: proType,
         fontStyle: FontStyle.italic,

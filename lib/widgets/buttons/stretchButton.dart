@@ -22,10 +22,6 @@ class StretchButton extends StatelessWidget {
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           shape: StadiumBorder(),
           backgroundColor: Theme.of(context).primaryColor,
-          textStyle: Theme.of(context)
-              .textTheme
-              .button!
-              .copyWith(fontFamily: 'Quicksand', letterSpacing: 2),
           padding: EdgeInsets.symmetric(vertical: 15),
         ),
         onPressed: onTap,

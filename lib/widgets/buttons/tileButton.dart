@@ -1,5 +1,6 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:provider/provider.dart';
+
 import '../../settings/settings_pro.dart';
 
 class SettingsLinkButton extends StatefulWidget {
@@ -26,11 +27,12 @@ class _SettingsLinkButtonState extends State<SettingsLinkButton> {
     final isDesktop = isDisplayDesktop(context);
     String? fontFamily = Provider.of<SettingProvide>(context).fontType;
     final theme = Theme.of(context).textTheme.button!.copyWith(
-        fontSize: isDesktop ? size.width * .025 : size.width * .08,
-        letterSpacing: .5,
-        color: _isMouseOver ? Theme.of(context).primaryColor : null,
-        fontFamily: context.isDarkMode ? fontFamily : 'Amiri',
-        fontWeight: FontWeight.w100);
+          fontSize: isDesktop ? size.width * .025 : size.width * .08,
+          color: _isMouseOver ? Theme.of(context).primaryColor : null,
+          fontFamily: context.isDarkMode ? fontFamily : 'Amiri',
+          fontWeight: FontWeight.w100,
+          letterSpacing: .5,
+        );
 
     return WidgetAnimator(MouseRegion(
       opaque: false,
@@ -173,9 +175,7 @@ class TitleHeader extends StatelessWidget {
           color: context.isDarkMode
               ? theme.highlightColor
               : theme.primaryColorLight.withOpacity(.2),
-          borderRadius: BorderRadius.all(
-            Radius.circular(8),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
       ),
     );

@@ -18,10 +18,11 @@ class _NavigationPanelState extends State<NavigationPanel> {
         title: Text(
           title,
           style: Theme.of(context).textTheme.caption!.copyWith(
-              fontWeight: FontWeight.w100,
-              fontSize: 18,
-              letterSpacing: 1.8,
-              fontFamily: 'Quicksand'),
+                fontWeight: FontWeight.w100,
+                fontFamily: 'Quicksand',
+                letterSpacing: 1.8,
+                fontSize: 18,
+              ),
         ),
       ),
     );

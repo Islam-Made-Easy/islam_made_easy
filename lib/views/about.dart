@@ -93,10 +93,7 @@ class _AboutAppState extends State<AboutApp> {
             ),
             Text(
               S.current.aboutApp,
-              style: textButton.copyWith(
-                fontFamily: ar ? 'Amiri' : 'Roboto',
-                fontWeight: FontWeight.w300,
-              ),
+              style: textButton.copyWith(fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             ),
             Shimmer.fromColors(
@@ -158,9 +155,7 @@ class _AboutAppState extends State<AboutApp> {
                   },
                   color: Color(0xFF666666),
                   tip: verified ? "Link Copied" : local.copyButtonLabel,
-                  icon: verified
-                      ? Icons.verified_user
-                      : FontAwesomeIcons.link,
+                  icon: verified ? Icons.verified_user : FontAwesomeIcons.link,
                 ),
               ],
             ),

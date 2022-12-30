@@ -21,8 +21,6 @@ class _MainPanelState extends State<MainPanel> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDesktop = isDisplayDesktop(context);
-    Locale locale = Localizations.localeOf(context);
-    final ar = locale.languageCode == 'ar';
     final size = MediaQuery.of(context).size;
     final appTheme = theme.textTheme.button!.copyWith(
         fontWeight: FontWeight.bold,
@@ -31,7 +29,6 @@ class _MainPanelState extends State<MainPanel> {
       fontWeight: FontWeight.w100,
       fontSize: 22,
       letterSpacing: isDesktop || context.isTablet ? 2 : null,
-      fontFamily: ar ? 'Amiri' : 'Roboto',
     );
     if (DeviceOS.isDesktopOrWeb && isDesktop ||
         (context.isTablet && DeviceOS.isMobile)) {
@@ -90,8 +87,7 @@ class _MainPanelState extends State<MainPanel> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 5),
-                  Text(S.current.salam,
-                      style: appTheme.copyWith(fontFamily: 'Quicksand')),
+                  Text(S.current.salam),
                   SizedBox(height: 10),
                   Text(S.current.quizDirection, style: selectTheme),
                 ],
@@ -123,9 +119,6 @@ class _MainPanelState extends State<MainPanel> {
   }
 
   Widget buildCard(String title) {
-    final isDesktop = isDisplayDesktop(context);
-    Locale locale = Localizations.localeOf(context);
-    final ar = locale.languageCode == 'ar';
     return WidgetAnimator(
       AnimContainer(
         alignment: Alignment.center,
@@ -145,19 +138,11 @@ class _MainPanelState extends State<MainPanel> {
               ),
             ),
             ListTile(
-              contentPadding: EdgeInsets.only(
-                left: 50,
-                right: 20,
-                top: 15,
-                bottom: 20,
-              ),
-              enableFeedback: true,
+              contentPadding:
+                  EdgeInsets.only(left: 50, right: 20, top: 15, bottom: 20),
               trailing: IconButton(
-                icon: FaIcon(
-                  ar ? Icons.chevron_left : Icons.chevron_right,
-                  color: Colors.white,
-                ),
-                splashRadius: isDesktop ? 20 : 30,
+                icon: FaIcon(Icons.chevron_right),
+                splashRadius: 10,
                 onPressed: () {
                   setState(() async {
                     Provider.of<SettingProvide>(context, listen: false)
@@ -176,7 +161,6 @@ class _MainPanelState extends State<MainPanel> {
                       : context.isPhone
                           ? 14
                           : null,
-                  fontFamily: ar ? 'Amiri' : 'Quicksand',
                 ),
               ),
             ),

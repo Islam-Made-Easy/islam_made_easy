@@ -13,9 +13,10 @@ class PopupOptionMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Locale locale = Localizations.localeOf(context);
+    final color = Theme.of(context).iconTheme.color;
     final isDesktop = isDisplayDesktop(context);
     final ar = locale.languageCode == 'ar';
-    final color = Theme.of(context).iconTheme.color;
+
     return PopupMenuButton(
       icon: FaIcon(FontAwesomeIcons.ellipsisV),
       elevation: 0,
@@ -99,15 +100,13 @@ class FeedDialog extends StatelessWidget {
               ? Theme.of(context).scaffoldBackgroundColor
               : Color(0xFFFAFAFC),
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(ar ? 0 : 20),
             bottomRight: Radius.circular(ar ? 20 : 0),
             bottomLeft: Radius.circular(ar ? 0 : 20),
             topRight: Radius.circular(ar ? 20 : 0),
+            topLeft: Radius.circular(ar ? 0 : 20),
           ),
         ),
-        child: Stack(
-          children: [GradientCircles(), feed.AppFeedback()],
-        ),
+        child: Stack(children: [GradientCircles(), feed.AppFeedback()]),
       ),
     );
   }

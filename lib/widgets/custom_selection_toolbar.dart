@@ -7,7 +7,6 @@ typedef OffsetValue = void Function(int start, int end);
 
 // todo: Find a clean way to get data from clipboard
 class CustomTextSelectionControls extends MaterialTextSelectionControls {
-  // Padding between the toolbar and the anchor.
   static const double _kToolbarContentDistanceBelow = 20.0;
   static const double _kToolbarContentDistance = 8.0;
 
@@ -15,7 +14,6 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
 
   final OffsetValue? customButton;
 
-  /// Builder for material-style copy/paste text selection toolbar.
   @override
   Widget buildToolbar(
     BuildContext context,
@@ -49,11 +47,7 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
       clipboardStatus: clipboardStatus,
       handleShare: () async {
         canCopy(delegate) ? () => handleCopy(delegate, clipboardStatus) : null;
-        // Map<String, dynamic> result = await SystemChannels.platform.invokeMethod('Clipboard.getData');
-        // delegate.userUpdateTextEditingValue(
-        //     delegate.textEditingValue, SelectionChangedCause.tap);
         customBottomSheet(context, delegate.textEditingValue.text);
-        // delegate.hideToolbar();
       },
       handleCopy: canCopy(delegate)
           ? () => handleCopy(delegate, clipboardStatus)
@@ -75,12 +69,6 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
           canSelectAll(delegate) ? () => handleSelectAll(delegate) : null,
     );
   }
-}
-
-Future<String?> getClipBoardData() async {
-  ClipboardData data = await (Clipboard.getData(Clipboard.kTextPlain)
-      as FutureOr<ClipboardData>);
-  return data.text;
 }
 
 Future<void> customBottomSheet(BuildContext context, data) async {
@@ -110,8 +98,8 @@ Future<void> customBottomSheet(BuildContext context, data) async {
                             ),
                             color: Theme.of(context).cardColor,
                             borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
                               topRight: Radius.circular(10),
+                              topLeft: Radius.circular(10),
                             ),
                           ),
                         )),
@@ -164,9 +152,9 @@ Future<void> customBottomSheet(BuildContext context, data) async {
                                     ),
                                     child: Image.asset(
                                       'assets/images/${event.assetName}',
-                                      width: 100,
-                                      height: 100,
                                       fit: BoxFit.cover,
+                                      height: 100,
+                                      width: 100,
                                     ),
                                   ),
                                 ),
@@ -179,9 +167,9 @@ Future<void> customBottomSheet(BuildContext context, data) async {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           MaterialButton(
-                            onPressed: () => Get.back(),
                             child: Text('Close'),
                             shape: StadiumBorder(),
+                            onPressed: () => Get.back(),
                           ),
                           MaterialButton(
                             onPressed: () {},

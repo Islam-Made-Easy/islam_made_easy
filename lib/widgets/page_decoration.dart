@@ -48,44 +48,44 @@ class _GradientCirclesState extends State<GradientCircles>
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     Locale locale = Localizations.localeOf(context);
+    final size = MediaQuery.of(context).size;
     final ar = locale.languageCode == 'ar';
     final theme = Theme.of(context);
     var blackGradient = LinearGradient(
         colors: [theme.primaryColor, const Color(0xFFA629CC)],
-        tileMode: TileMode.decal,
         begin: Alignment.bottomLeft,
+        tileMode: TileMode.decal,
         end: Alignment.topRight,
         stops: [0.0, 1.0]);
     var violetGradient = LinearGradient(
         colors: [const Color(0xFF4884E7), theme.primaryColor],
-        tileMode: TileMode.mirror,
         begin: Alignment.bottomLeft,
+        tileMode: TileMode.mirror,
         end: Alignment.topRight,
         stops: [0.0, 1.0]);
     var thodGradient = LinearGradient(
         colors: [theme.primaryColor, const Color(0xFF5F79F4)],
-        tileMode: TileMode.mirror,
         begin: Alignment.bottomLeft,
+        tileMode: TileMode.mirror,
         end: Alignment.topRight,
         stops: [0.0, 1.0]);
     var skyBlueGradient = LinearGradient(
         colors: [Color(0xffffe598).withOpacity(.5), theme.primaryColor],
-        tileMode: TileMode.mirror,
         begin: Alignment.bottomLeft,
+        tileMode: TileMode.mirror,
         end: Alignment.topRight,
         stops: [0.0, 1.0]);
     var blackBlueGradient = LinearGradient(
         colors: [Colors.blueGrey.shade800, theme.primaryColor],
+        end: Alignment.bottomRight,
         tileMode: TileMode.mirror,
         begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
         stops: [0.0, 1.0]);
     var yellowOrangeGradient = LinearGradient(
       colors: [theme.primaryColor, const Color(0xFF5F79F4)],
-      tileMode: TileMode.mirror,
       begin: Alignment.bottomRight,
+      tileMode: TileMode.mirror,
       end: Alignment.topLeft,
       stops: [0.0, 1.0],
     );
@@ -96,8 +96,8 @@ class _GradientCirclesState extends State<GradientCircles>
           top: -75.0,
           right: 85.0,
           child: Container(
-            height: _animation3.value + 10.0,
             width: 140.0,
+            height: _animation3.value + 10.0,
             decoration: BoxDecoration(
               gradient: yellowOrangeGradient,
               shape: BoxShape.circle,
@@ -119,8 +119,8 @@ class _GradientCirclesState extends State<GradientCircles>
           ),
         ),
         Positioned(
-          left: -75.0,
           top: 775.0,
+          left: -75.0,
           child: AnimatedContainer(
             height: 150.0,
             width: 150.0,
@@ -142,13 +142,11 @@ class _GradientCirclesState extends State<GradientCircles>
         ),
         Positioned(
           top: size.height * .2,
-          right: ar ? size.width * .3 : -100,
           left: ar ? 0 : size.width * .3,
-          // right: ar ? -30 : 0,
+          right: ar ? size.width * .3 : -100,
           child: Opacity(
             opacity: .05,
             child: AnimatedContainer(
-              // height: 110.0,
               height: _animation1.value + 10.0,
               decoration: BoxDecoration(
                   color: theme.colorScheme.secondary, shape: BoxShape.circle),
@@ -191,8 +189,8 @@ class _GradientCirclesState extends State<GradientCircles>
         ),
         Positioned(
           bottom: 0,
-          right: ar ? null : 0,
           left: ar ? 0 : null,
+          right: ar ? null : 0,
           child: Opacity(
             opacity: .06,
             child: AnimatedContainer(

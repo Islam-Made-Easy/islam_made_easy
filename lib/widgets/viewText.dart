@@ -17,9 +17,9 @@ class ViewText extends StatelessWidget {
       data!,
       style: theme.textTheme.headline5!.copyWith(
         fontWeight: FontWeight.w100,
-        height: 1.8,
         fontFamily: fontFamily,
         fontSize: fontSize,
+        height: 1.8,
       ),
     );
   }

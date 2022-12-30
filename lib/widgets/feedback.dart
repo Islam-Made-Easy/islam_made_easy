@@ -47,10 +47,7 @@ class _AppFeedbackState extends State<AppFeedback> {
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
     final labelStyle = Theme.of(context).textTheme.button!.copyWith(
-        fontSize: 10 * 1.4,
-        fontFamily: 'Roboto',
-        fontWeight: FontWeight.w300,
-        letterSpacing: 2);
+        fontWeight: FontWeight.w300, fontSize: 10 * 1.4, letterSpacing: 2);
     return Scaffold(
       backgroundColor:
           isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
@@ -84,10 +81,10 @@ class _AppFeedbackState extends State<AppFeedback> {
                 SizedBox(
                   child: DefaultTextStyle(
                     style: theme.textTheme.caption!.copyWith(
-                        fontFamily: ar ? 'Amiri' : 'Roboto',
-                        fontSize: isDesktop || context.isTablet ? 26.0 : 20,
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.w100),
+                      fontSize: isDesktop || context.isTablet ? 26.0 : 20,
+                      fontWeight: FontWeight.w100,
+                      letterSpacing: 1,
+                    ),
                     child: AnimatedTextKit(
                       animatedTexts: [
                         TyperAnimatedText(S.current.salam),
@@ -99,9 +96,8 @@ class _AppFeedbackState extends State<AppFeedback> {
                 ),
                 Text(
                   S.current.wait,
-                  style: theme.textTheme.headline6!.copyWith(
-                      fontWeight: FontWeight.w100,
-                      fontFamily: ar ? 'Amiri' : 'Roboto'),
+                  style: theme.textTheme.headline6!
+                      .copyWith(fontWeight: FontWeight.w100),
                 ),
                 SizedBox(height: 10),
                 InputContainer(
@@ -116,8 +112,8 @@ class _AppFeedbackState extends State<AppFeedback> {
                       return null;
                     }
                   },
-                  autoFocus: true,
                   inputType: TextInputType.name,
+                  autoFocus: true,
                   controller: name,
                   autofillHints: const [
                     AutofillHints.name,
@@ -197,9 +193,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                           '${S.current.notSend}\n\n${S.current.alternative}',
                           textAlign: TextAlign.center,
                           style: theme.textTheme.caption!.copyWith(
-                              fontWeight: FontWeight.w300,
-                              letterSpacing: 2,
-                              fontFamily: ar ? 'Amiri' : 'Roboto'),
+                              fontWeight: FontWeight.w300, letterSpacing: 2),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -242,28 +236,28 @@ class _AppFeedbackState extends State<AppFeedback> {
 }
 
 class InputContainer extends StatelessWidget {
+  final String? Function(String?)? validator;
   final TextEditingController? controller;
+  final List<String>? autofillHints;
   final InputDecoration? decoration;
   final TextInputType? inputType;
-  final String? Function(String?)? validator;
   final bool autoFocus;
-  final List<String>? autofillHints;
 
-  const InputContainer(
-      {Key? key,
-      this.decoration,
-      this.controller,
-      this.autofillHints,
-      this.validator,
-      this.autoFocus = false,
-      this.inputType})
-      : super(key: key);
+  const InputContainer({
+    this.autoFocus = false,
+    this.autofillHints,
+    this.decoration,
+    this.controller,
+    this.validator,
+    this.inputType,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Locale locale = Localizations.localeOf(context);
-    final ar = locale.languageCode == 'ar';
     final size = MediaQuery.of(context).size;
+    final ar = locale.languageCode == 'ar';
     final theme = Theme.of(context);
     return WidgetAnimator(
       Stack(
@@ -276,20 +270,20 @@ class InputContainer extends StatelessWidget {
               child: Stack(
                 children: [
                   TextFormField(
-                    autofillHints: autofillHints,
+                    maxLines: null,
+                    autofocus: autoFocus,
+                    validator: validator,
+                    controller: controller,
                     decoration: decoration,
+                    keyboardType: inputType,
+                    autofillHints: autofillHints,
                     textInputAction: TextInputAction.newline,
                     smartQuotesType: SmartQuotesType.enabled,
-                    controller: controller,
                     style: theme.textTheme.button!.copyWith(
-                        fontSize: 10 * 1.3,
-                        fontFamily: ar ? 'Amiri' : 'Roboto',
-                        fontWeight: FontWeight.w100,
-                        letterSpacing: 2),
-                    keyboardType: inputType,
-                    maxLines: null,
-                    validator: validator,
-                    autofocus: autoFocus,
+                      fontWeight: FontWeight.w100,
+                      fontSize: 10 * 1.3,
+                      letterSpacing: 2,
+                    ),
                   ),
                   Positioned(
                     left: ar ? null : 0,

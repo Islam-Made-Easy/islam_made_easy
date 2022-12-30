@@ -1,8 +1,8 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class InfoCard extends StatefulWidget {
-  final String? quest;
   final List<Widget>? answers;
+  final String? quest;
 
   const InfoCard({Key? key, this.quest, this.answers}) : super(key: key);
 
@@ -22,8 +22,8 @@ class _InfoCardState extends State<InfoCard> {
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(4),
             topRight: Radius.circular(4),
-            bottomRight: Radius.elliptical(10, 90),
             bottomLeft: Radius.elliptical(90, 10),
+            bottomRight: Radius.elliptical(10, 90),
           ),
         ),
         elevation: 0,
@@ -66,7 +66,6 @@ class _InfoCardState extends State<InfoCard> {
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 17,
-              fontFamily: 'Amiri',
               letterSpacing: .1,
               fontWeight: FontWeight.w700,
             ),

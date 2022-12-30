@@ -123,7 +123,6 @@ class _SettingsState extends State<Settings>
         letterSpacing: 2);
     final sub = theme.textTheme.button!.copyWith(
         fontSize: kSpacingUnit * 1.3,
-        fontFamily: ar ? 'Amiri' : 'Roboto',
         fontWeight: FontWeight.w100,
         letterSpacing: 2);
     return Scaffold(
@@ -327,10 +326,8 @@ class _SettingsState extends State<Settings>
                 childrenPadding:
                     EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 title: Text('Select Font', style: title),
-                leading: FaIcon(
-                  FontAwesomeIcons.font,
-                  color: theme.primaryColor,
-                ),
+                leading:
+                    FaIcon(FontAwesomeIcons.font, color: theme.primaryColor),
                 children: [
                   FontPicker(
                       showInDialog: true,
@@ -339,7 +336,6 @@ class _SettingsState extends State<Settings>
                           Provider.of<SettingProvide>(context, listen: false)
                               .getFontFamily(font.fontFamily);
                           _selectedFontTextStyle = font.toTextStyle();
-                          // SpUtil.setFont(font.fontFamily);
                           SpUtil.setFont(_selectedFontTextStyle!.fontFamily!);
                         });
                       },
@@ -398,7 +394,6 @@ class _SettingsState extends State<Settings>
         S.current.chooseTheme,
         style: Theme.of(context).textTheme.button!.copyWith(
             fontSize: kSpacingUnit * 1.5,
-            fontFamily: ar ? 'Amiri' : 'Roboto',
             fontWeight: FontWeight.w400,
             letterSpacing: 2),
       ),
@@ -407,7 +402,6 @@ class _SettingsState extends State<Settings>
         style: Theme.of(context).textTheme.button!.copyWith(
             fontSize: kSpacingUnit * 1.2,
             fontWeight: FontWeight.w100,
-            fontFamily: 'Roboto',
             letterSpacing: 2),
       ),
       children: <Widget>[Wrap(children: themeChildren)],
@@ -463,7 +457,6 @@ class _SettingsShort extends StatelessWidget {
               Text(title!,
                   style: Theme.of(context).textTheme.button!.copyWith(
                       fontSize: kSpacingUnit * 1.1,
-                      fontFamily: 'Roboto',
                       fontWeight: FontWeight.w100,
                       letterSpacing: 2))
             ],
@@ -473,7 +466,6 @@ class _SettingsShort extends StatelessWidget {
           label: Text(subtitle!,
               style: Theme.of(context).textTheme.button!.copyWith(
                   fontSize: kSpacingUnit * 1.3,
-                  fontFamily: 'Roboto',
                   fontWeight: FontWeight.w100,
                   letterSpacing: 2)),
           backgroundColor: Theme.of(context).hoverColor,
@@ -494,8 +486,6 @@ class SettingsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Locale locale = Localizations.localeOf(context);
-    final ar = locale.languageCode == 'ar';
     return WidgetAnimator(
       ListTile(
         title: Text(
@@ -504,14 +494,12 @@ class SettingsButton extends StatelessWidget {
                 fontSize: kSpacingUnit * 1.7,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 2,
-                fontFamily: ar ? 'Amiri' : 'Roboto',
               ),
         ),
         subtitle: Text(subtitle!,
             style: Theme.of(context).textTheme.button!.copyWith(
                 fontSize: kSpacingUnit * 1.3,
                 fontWeight: FontWeight.w100,
-                fontFamily: ar ? 'Amiri' : 'Roboto',
                 letterSpacing: 2)),
         trailing: CupertinoSwitch(
           value: value!,

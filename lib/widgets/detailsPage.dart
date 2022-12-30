@@ -3,8 +3,8 @@ import 'package:islam_made_easy/views/QnA/qna.dart';
 import '../models/app_intents.dart';
 
 class DetailsPage extends StatefulWidget {
-  final List<Widget>? data;
   final String? title, barTitle, image;
+  final List<Widget>? data;
 
   DetailsPage({Key? key, this.data, this.title, this.barTitle, this.image})
       : super(key: key);
@@ -18,12 +18,12 @@ class _DetailsPageState extends State<DetailsPage> {
 
   @override
   Widget build(BuildContext context) {
+    Locale locale = Localizations.localeOf(context);
     final textTheme = Theme.of(context).textTheme;
     final isDesktop = isDisplayDesktop(context);
-    final theme = Theme.of(context);
-    Locale locale = Localizations.localeOf(context);
-    final ar = locale.languageCode == 'ar';
     final size = MediaQuery.of(context).size;
+    final ar = locale.languageCode == 'ar';
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.barTitle!),
@@ -43,9 +43,7 @@ class _DetailsPageState extends State<DetailsPage> {
               child: isDesktop
                   ? BackButton()
                   : IconButton(
-                      icon: FaIcon(ar
-                          ? FontAwesomeIcons.angleRight
-                          : FontAwesomeIcons.angleLeft),
+                      icon: FaIcon(Icons.chevron_left),
                       onPressed: Get.back,
                       tooltip:
                           MaterialLocalizations.of(context).backButtonTooltip,
@@ -232,9 +230,9 @@ class OpenContainerWrapper extends StatelessWidget {
     final theme = Theme.of(context);
     return WidgetAnimator(
       OpenContainer<bool>(
-        transitionType: ContainerTransitionType.fade,
         closedElevation: 0,
         closedColor: theme.hoverColor,
+        transitionType: ContainerTransitionType.fade,
         closedShape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),

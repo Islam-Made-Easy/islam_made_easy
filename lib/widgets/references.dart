@@ -1,5 +1,4 @@
 import 'package:flip_card/flip_card.dart';
-
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class References extends StatefulWidget {
@@ -14,10 +13,7 @@ class _ReferencesState extends State<References> {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          S.current.references,
-          style: TextStyle(fontFamily: 'Quicksand'),
-        ),
+        title: Text(S.current.references),
         centerTitle: true,
         backgroundColor: isDesktop ? Colors.transparent : null,
       ),

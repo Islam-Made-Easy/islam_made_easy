@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class ListHeader extends StatelessWidget {
   ListHeader({this.text, this.trailing, this.ar});
 
+  final bool? ar;
   final String? text;
   final Widget? trailing;
-  final bool? ar;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,9 @@ class ListHeader extends StatelessWidget {
             text!,
             overflow: TextOverflow.clip,
             style: Theme.of(context).textTheme.button!.copyWith(
+                  fontFamily: ar! ? 'Amiri' : 'Quicksand',
                   fontWeight: FontWeight.w400,
                   letterSpacing: 2,
-                  fontFamily: ar! ? 'Amiri' : 'Quicksand',
                 ),
           ),
           if (trailing != null) trailing!,
