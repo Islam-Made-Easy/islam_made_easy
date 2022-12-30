@@ -141,10 +141,6 @@ class _FridayRemState extends State<FridayRem>
                   decoration: BoxDecoration(
                     color: theme.splashColor,
                     borderRadius: BorderRadius.circular(20),
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/cor.png'),
-                        opacity: .02,
-                        fit: BoxFit.cover),
                   ),
                 ),
               ),
@@ -161,11 +157,6 @@ class _FridayRemState extends State<FridayRem>
                   width: width * .25,
                   decoration: BoxDecoration(
                     color: theme.splashColor,
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/cor.png'),
-                        opacity: .05,
-                        repeat: ImageRepeat.repeatY,
-                        fit: BoxFit.cover),
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20)),
@@ -287,12 +278,21 @@ class _FridayRemState extends State<FridayRem>
                               ),
                       ),
                       Positioned(
+                        left: -200,
+                        right: 150,
+                        child: Transform.rotate(
+                          angle: onBoardPage
+                              ? 0
+                              : _pageController!.viewportFraction +120 ,
                           child: Opacity(
-                              opacity: .3,
-                              child: Image.asset(
-                                'assets/images/mas.png',
-                                matchTextDirection: true,
-                              ))),
+                            opacity: .1,
+                            child: Image.asset(
+                              'assets/images/cir.png',
+                              matchTextDirection: true,
+                            ),
+                          ),
+                        ),
+                      ),
                       Visibility(
                         visible: onBoardPage,
                         child: Positioned(
