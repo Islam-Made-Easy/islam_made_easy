@@ -1,7 +1,5 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
-import '../../models/app_intents.dart';
-
 class FridayRem extends StatefulWidget {
   static const ROUTE_NAME = "/fridayReminder";
 
@@ -9,8 +7,7 @@ class FridayRem extends StatefulWidget {
   _FridayRemState createState() => _FridayRemState();
 }
 
-class _FridayRemState extends State<FridayRem>
-    with SingleTickerProviderStateMixin {
+class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
   List<OnBoardPageItem> onboardPageItems = [
     OnBoardPageItem(
       lottieAsset: 'assets/lottie/bookI.json',
@@ -78,7 +75,7 @@ class _FridayRemState extends State<FridayRem>
           glow = true;
         });
       }
-      glow = false;
+      // glow = false;
     });
     _anim = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1000))
@@ -100,270 +97,245 @@ class _FridayRemState extends State<FridayRem>
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     final theme = Theme.of(context);
-    // final isDesktop = isDisplayDesktop(context);
-    if (DeviceOS.isDesktopOrWeb && context.isTablet) {
-      return Scaffold(
-        backgroundColor: theme.colorScheme.primary,
-        floatingActionButton: Visibility(
-          visible: onBoardPage,
-          child: FadingSlidingWidget(
-            anim: _anim,
-            child: FloatingActionButton(
-              onPressed: () => Get.off(() => Home()),
-              backgroundColor: theme.colorScheme.primary,
-              child: glow
-                  ? FaIcon(
-                      ar
-                          ? FontAwesomeIcons.angleLeft
-                          : FontAwesomeIcons.angleRight,
-                      color: Colors.white,
-                    )
-                  : FaIcon(
-                      ar
-                          ? FontAwesomeIcons.angleLeft
-                          : FontAwesomeIcons.angleRight,
-                      color: Colors.white),
+    final isDesktop = isDisplayDesktop(context);
+    if (DeviceOS.isDesktopOrWeb && isDesktop) {
+      return CallbackShortcuts(
+        bindings: {
+          SingleActivator(
+            ar ? LogicalKeyboardKey.arrowLeft : LogicalKeyboardKey.arrowRight,
+          ): () {
+            setState(() {
+              _pageController!.nextPage(
+                  duration: Duration(milliseconds: 300), curve: Curves.easeOut);
+            });
+          },
+          SingleActivator(
+            ar ? LogicalKeyboardKey.arrowRight : LogicalKeyboardKey.arrowLeft,
+          ): () {
+            setState(() {
+              _pageController!.previousPage(
+                  duration: Duration(milliseconds: 300), curve: Curves.easeOut);
+            });
+          }
+        },
+        child: Scaffold(
+          backgroundColor: theme.colorScheme.primary,
+          floatingActionButton: Visibility(
+            visible: onBoardPage,
+            child: FadingSlidingWidget(
+              anim: _anim,
+              child: FloatingActionButton(
+                onPressed: () => Get.off(() => Home()),
+                backgroundColor: theme.colorScheme.primary,
+                child: AvatarGlow(
+                  endRadius: 50,
+                  glowColor: glow ? Colors.white : theme.primaryColor.withOpacity(.05),
+                  child: FaIcon(
+                    ar
+                        ? FontAwesomeIcons.angleLeft
+                        : FontAwesomeIcons.angleRight,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
           ),
-        ),
-        body: Stack(
-          children: [
-            Positioned(
-              top: height * .11,
-              left: ar ? width * .6 : width * .165,
-              right: ar ? width * .16 : width * .6,
-              child: FadingSlidingWidget(
-                anim: _anim,
-                child: AnimatedContainer(
-                  duration: const Duration(seconds: 1),
-                  height: height * .45,
-                  width: width * .25,
-                  decoration: BoxDecoration(
-                    color: theme.splashColor,
-                    borderRadius: BorderRadius.circular(20),
+          body: Stack(
+            children: [
+              Positioned(
+                top: height * .11,
+                left: ar ? width * .6 : width * .165,
+                right: ar ? width * .16 : width * .6,
+                child: FadingSlidingWidget(
+                  anim: _anim,
+                  child: AnimatedContainer(
+                    duration: const Duration(seconds: 1),
+                    height: height * .45,
+                    width: width * .25,
+                    decoration: BoxDecoration(
+                      color: theme.splashColor,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
                 ),
               ),
-            ),
-            Positioned(
-              bottom: 0,
-              right: ar ? width * .6 : width * .15,
-              left: ar ? width * .15 : width * .6,
-              child: FadingSlidingWidget(
-                anim: _anim,
-                child: AnimatedContainer(
-                  duration: const Duration(seconds: 1),
-                  height: height * .03,
-                  width: width * .25,
-                  decoration: BoxDecoration(
-                    color: theme.splashColor,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20)),
+              Positioned(
+                bottom: 0,
+                right: ar ? width * .6 : width * .15,
+                left: ar ? width * .15 : width * .6,
+                child: FadingSlidingWidget(
+                  anim: _anim,
+                  child: AnimatedContainer(
+                    duration: const Duration(seconds: 1),
+                    height: height * .03,
+                    width: width * .25,
+                    decoration: BoxDecoration(
+                      color: theme.splashColor,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20)),
+                    ),
                   ),
                 ),
               ),
-            ),
-            Positioned(
-              top: height * .15,
-              left: ar ? width * .18 : width * .185,
-              right: ar ? width * .186 : width * .18,
-              child: Material(
-                color: theme.colorScheme.primary,
-                borderRadius: BorderRadius.circular(20),
-                elevation: 50,
-                child: AnimatedContainer(
-                  duration: const Duration(seconds: 1),
-                  height: height * .75,
-                  width: width * .65,
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.primary,
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                        color: Theme.of(context).backgroundColor,
-                        style: BorderStyle.none),
-                  ),
-                  child: Stack(
-                    children: [
-                      Positioned.fill(
-                        child: PageView(
-                            controller: _pageController,
-                            children: onBoardItems),
-                      ),
-                      Positioned(
-                        bottom: height * .03,
-                        left: ar ? width * .1 : width * .3,
-                        right: ar ? width * .3 : width * .1,
-                        child: SmoothPageIndicator(
-                          controller: _pageController!,
-                          count: onBoardItems.length,
-                          effect: WormEffect(
-                            dotWidth: width * .015,
-                            dotHeight: width * .015,
-                            dotColor: onBoardPage
-                                ? const Color(0x11000000)
-                                : const Color(0x566FFFFFF),
-                            activeDotColor: const Color(0xffeef2f5),
+              Positioned(
+                top: height * .15,
+                left: ar ? width * .18 : width * .185,
+                right: ar ? width * .186 : width * .18,
+                child: Material(
+                  color: theme.colorScheme.primary,
+                  borderRadius: BorderRadius.circular(20),
+                  elevation: 50,
+                  child: AnimatedContainer(
+                    duration: const Duration(seconds: 1),
+                    height: height * .75,
+                    width: width * .65,
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.primary,
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                          color: Theme.of(context).backgroundColor,
+                          style: BorderStyle.none),
+                    ),
+                    child: Stack(
+                      children: [
+                        Positioned.fill(
+                          child: PageView(
+                              controller: _pageController,
+                              children: onBoardItems),
+                        ),
+                        Positioned(
+                          bottom: height * .03,
+                          left: ar ? width * .1 : width * .3,
+                          right: ar ? width * .3 : width * .1,
+                          child: SmoothPageIndicator(
+                            controller: _pageController!,
+                            count: onBoardItems.length,
+                            effect: WormEffect(
+                              dotWidth: width * .015,
+                              dotHeight: width * .015,
+                              dotColor: onBoardPage
+                                  ? const Color(0x11000000)
+                                  : const Color(0x566FFFFFF),
+                              activeDotColor: const Color(0xffeef2f5),
+                            ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                        right: ar ? null : 1,
-                        left: ar ? 1 : null,
-                        top: height * .35,
-                        child: _activeIndex == 10
-                            ? Container()
-                            : Visibility(
-                                visible: DeviceOS.isDesktopOrWeb,
-                                child: AnimContainer(
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: theme.colorScheme.primary,
-                                          offset: Offset(8.0, 8.0),
-                                          blurRadius: 20,
-                                          spreadRadius: 1.0),
-                                      BoxShadow(
-                                          color: theme.colorScheme.primary,
-                                          offset: Offset(-8.0, -8.0),
-                                          blurRadius: 20,
-                                          spreadRadius: 1.0),
-                                    ],
-                                    gradient: gradient,
-                                    color: theme.colorScheme.primary,
-                                    border: Border.all(
-                                        color:
-                                            Color(0xffeef2f5).withOpacity(.5)),
-                                  ),
-                                  child: FocusScope(
-                                    autofocus: true,
-                                    child: Shortcuts(
-                                      shortcuts: {
-                                        SingleActivator(
-                                                LogicalKeyboardKey.arrowRight):
-                                            BackIndent(),
-                                      },
-                                      child: Actions(
-                                        actions: {
-                                          BackIndent:
-                                              CallbackAction<BackIndent>(
-                                                  onInvoke: (intent) {
-                                            setState(() {
-                                              _pageController!.nextPage(
-                                                  duration: Duration(
-                                                      milliseconds: 300),
-                                                  curve: Curves.easeOut);
-                                            });
-                                            return null;
-                                          })
+                        Positioned(
+                          right: ar ? null : 1,
+                          left: ar ? 1 : null,
+                          top: height * .35,
+                          child: _activeIndex == 10
+                              ? Container()
+                              : Visibility(
+                                  visible: DeviceOS.isDesktopOrWeb,
+                                  child: AnimContainer(
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: theme.colorScheme.primary,
+                                            offset: Offset(8.0, 8.0),
+                                            blurRadius: 20,
+                                            spreadRadius: 1.0),
+                                        BoxShadow(
+                                            color: theme.colorScheme.primary,
+                                            offset: Offset(-8.0, -8.0),
+                                            blurRadius: 20,
+                                            spreadRadius: 1.0),
+                                      ],
+                                      gradient: gradient,
+                                      color: theme.colorScheme.primary,
+                                      border: Border.all(
+                                          color: Color(0xffeef2f5)
+                                              .withOpacity(.5)),
+                                    ),
+                                    child: FocusScope(
+                                      autofocus: true,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            _pageController!.nextPage(
+                                                duration:
+                                                    Duration(milliseconds: 300),
+                                                curve: Curves.easeOut);
+                                          });
                                         },
-                                        child: IconButton(
-                                          onPressed: () {
-                                            setState(() {
-                                              _pageController!.nextPage(
-                                                  duration: Duration(
-                                                      milliseconds: 300),
-                                                  curve: Curves.easeOut);
-                                            });
-                                          },
-                                          icon: FaIcon(ar
-                                              ? FontAwesomeIcons.angleLeft
-                                              : FontAwesomeIcons.angleRight),
-                                        ),
+                                        icon: FaIcon(ar
+                                            ? FontAwesomeIcons.angleLeft
+                                            : FontAwesomeIcons.angleRight),
                                       ),
                                     ),
                                   ),
                                 ),
+                        ),
+                        Positioned(
+                          left: -200,
+                          right: 150,
+                          child: Transform.rotate(
+                            angle: onBoardPage
+                                ? 0
+                                : _pageController!.viewportFraction + 120,
+                            child: Opacity(
+                              opacity: .1,
+                              child: Image.asset(
+                                'assets/images/cir.png',
+                                matchTextDirection: true,
                               ),
-                      ),
-                      Positioned(
-                        left: -200,
-                        right: 150,
-                        child: Transform.rotate(
-                          angle: onBoardPage
-                              ? 0
-                              : _pageController!.viewportFraction +120 ,
-                          child: Opacity(
-                            opacity: .1,
-                            child: Image.asset(
-                              'assets/images/cir.png',
-                              matchTextDirection: true,
                             ),
                           ),
                         ),
-                      ),
-                      Visibility(
-                        visible: onBoardPage,
-                        child: Positioned(
-                          right: ar ? 1 : null,
-                          left: ar ? null : 1,
-                          top: height * .35,
-                          child: AnimContainer(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                    color: theme.colorScheme.primary,
-                                    offset: Offset(8.0, 8.0),
-                                    blurRadius: 20,
-                                    spreadRadius: 1.0),
-                                BoxShadow(
-                                    color: theme.colorScheme.primary,
-                                    offset: Offset(-8.0, -8.0),
-                                    blurRadius: 20,
-                                    spreadRadius: 1.0),
-                              ],
-                              gradient: gradient,
-                              color: theme.colorScheme.primary,
-                              border: Border.all(
-                                  color: Color(0xffeef2f5).withOpacity(.5)),
-                            ),
-                            child: FocusScope(
-                              autofocus: true,
-                              child: Shortcuts(
-                                shortcuts: {
-                                  SingleActivator(LogicalKeyboardKey.arrowLeft):
-                                      BackIndent(),
-                                },
-                                child: Actions(
-                                  actions: {
-                                    BackIndent: CallbackAction<BackIndent>(
-                                        onInvoke: (intent) {
-                                      setState(() {
-                                        _pageController!.previousPage(
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                            curve: Curves.easeOut);
-                                      });
-                                      return null;
-                                    })
+                        Visibility(
+                          visible: onBoardPage,
+                          child: Positioned(
+                            right: ar ? 1 : null,
+                            left: ar ? null : 1,
+                            top: height * .35,
+                            child: AnimContainer(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: theme.colorScheme.primary,
+                                      offset: Offset(8.0, 8.0),
+                                      blurRadius: 20,
+                                      spreadRadius: 1.0),
+                                  BoxShadow(
+                                      color: theme.colorScheme.primary,
+                                      offset: Offset(-8.0, -8.0),
+                                      blurRadius: 20,
+                                      spreadRadius: 1.0),
+                                ],
+                                gradient: gradient,
+                                color: theme.colorScheme.primary,
+                                border: Border.all(
+                                    color: Color(0xffeef2f5).withOpacity(.5)),
+                              ),
+                              child: FocusScope(
+                                autofocus: true,
+                                child: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _pageController!.previousPage(
+                                          duration: Duration(milliseconds: 300),
+                                          curve: Curves.easeOut);
+                                    });
                                   },
-                                  child: IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        _pageController!.previousPage(
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                            curve: Curves.easeOut);
-                                      });
-                                    },
-                                    icon: FaIcon(ar
-                                        ? FontAwesomeIcons.angleRight
-                                        : FontAwesomeIcons.angleLeft),
-                                  ),
+                                  icon: FaIcon(ar
+                                      ? FontAwesomeIcons.angleRight
+                                      : FontAwesomeIcons.angleLeft),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     } else {
