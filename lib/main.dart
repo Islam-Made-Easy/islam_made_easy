@@ -27,6 +27,7 @@ void main() async {
           .invokeMethod('Skia.setResourceCacheMaxBytes', 512 * megabyte);
       await Future<void>.delayed(Duration.zero);
     } else if (DeviceOS.isDesktop) {
+      // await flutter_acrylic.Window.initialize();
       await DesktopWindow.setMinWindowSize(const Size(1051.0, 646.0));
     }
 
@@ -106,14 +107,14 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
   /// sEARch   
   @override
   Widget build(BuildContext context) {
-    final localeProvide = Provider.of<SettingProvide>(context);
-    final themeProvide = Provider.of<ThemeProvide>(context);
+    final localeProvide = context.watch<SettingProvide>();
+    final themeProvide = context.watch<ThemeProvide>();
     return GetMaterialApp(
       title: 'Islam Made Easy',
       locale: localeProvide.locale,
+      localeResolutionCallback: localeCallback,
       theme: themeProvide.themeData,
       darkTheme: themeProvide.themeDataDark,
-      localeResolutionCallback: localeCallback,
       themeMode: ThemeProvide.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       localizationsDelegates: [
         S.delegate,
@@ -127,13 +128,13 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
         };
         return widget!;
       },
-      routes: appRoute.routes,
       navigatorObservers: [appRoute],
-      debugShowCheckedModeBanner: false,
+      routes: appRoute.routes,
       onGenerateRoute: appRoute.generateRoute,
-      supportedLocales: S.delegate.supportedLocales,
       onGenerateTitle: (context) => S.current.appTitle,
+      supportedLocales: S.delegate.supportedLocales,
       home: QuickUtil(child: SplashScreen()),
+      debugShowCheckedModeBanner: false,
     );
   }
 
@@ -141,8 +142,8 @@ class _IMEAppState extends State<IMEApp> with SingleTickerProviderStateMixin {
     return Center(
       child: AnimatedBackground(
         behaviour: RectanglesBehaviour(),
-        child: LoadingIndicator(),
         vsync: this,
+        child: LoadingIndicator(),
       ),
     );
   }
