@@ -53,7 +53,6 @@ class _SettingsState extends State<Settings>
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
     TextStyle? _selectedFontTextStyle;
-    final theme = Theme.of(context);
     List<String> _gFonts = [
       "Abril Fatface",
       "Aclonica",
@@ -111,8 +110,9 @@ class _SettingsState extends State<Settings>
     ];
     super.build(context);
     final MaterialLocalizations localize = MaterialLocalizations.of(context);
-    final Style =
-        theme.textTheme.bodyText1!.apply(color: theme.colorScheme.onPrimary);
+    final theme = Theme.of(context);
+    final bodyTextStyle = theme.textTheme.bodyText1!
+        .apply(color: theme.colorScheme.onPrimary, fontFamily: 'Roboto');
     final isDesktop = isDisplayDesktop(context);
     String txt =
         context.isDarkMode ? S.current.switchLight : S.current.switchDark;
@@ -123,13 +123,14 @@ class _SettingsState extends State<Settings>
         letterSpacing: 2);
     final sub = theme.textTheme.button!.copyWith(
         fontSize: kSpacingUnit * 1.3,
+        fontFamily: ar ? 'Amiri' : 'Roboto',
         fontWeight: FontWeight.w100,
         letterSpacing: 2);
     return Scaffold(
       backgroundColor: isDesktop ? Colors.transparent : null,
       appBar: AppBar(
         title: Text(isDesktop ? S.current.preferences : S.current.settings,
-            style: Style),
+            style: bodyTextStyle),
         automaticallyImplyLeading: isDesktop ? false : true,
         centerTitle: true,
         backgroundColor: isDesktop ? Colors.transparent : null,
@@ -231,18 +232,6 @@ class _SettingsState extends State<Settings>
                           color: Colors.blue,
                         ),
                         _SettingsShort(
-                          title: localize.copyButtonLabel,
-                          subtitle: 'Ctrl+C',
-                          icon: Icons.copy,
-                          color: Colors.greenAccent,
-                        ),
-                        _SettingsShort(
-                          title: localize.pasteButtonLabel,
-                          subtitle: 'Ctrl+V',
-                          icon: Icons.paste,
-                          color: Colors.orangeAccent,
-                        ),
-                        _SettingsShort(
                           title: localize.backButtonTooltip,
                           subtitle: 'Alt+Left',
                           icon: Icons.arrow_back,
@@ -253,6 +242,18 @@ class _SettingsState extends State<Settings>
                           subtitle: 'Ctrl+Alt',
                           icon: Icons.description,
                           color: Colors.deepPurple,
+                        ),
+                        _SettingsShort(
+                          title: localize.copyButtonLabel,
+                          subtitle: 'Ctrl+C',
+                          icon: Icons.copy,
+                          color: Colors.greenAccent,
+                        ),
+                        _SettingsShort(
+                          title: localize.pasteButtonLabel,
+                          subtitle: 'Ctrl+V',
+                          icon: Icons.paste,
+                          color: Colors.orangeAccent,
                         ),
                         // Below shortcuts are Not Implemented at the moment >>> We accept PR
                         Container(
@@ -336,6 +337,7 @@ class _SettingsState extends State<Settings>
                           Provider.of<SettingProvide>(context, listen: false)
                               .getFontFamily(font.fontFamily);
                           _selectedFontTextStyle = font.toTextStyle();
+                          // SpUtil.setFont(font.fontFamily);
                           SpUtil.setFont(_selectedFontTextStyle!.fontFamily!);
                         });
                       },
@@ -394,6 +396,7 @@ class _SettingsState extends State<Settings>
         S.current.chooseTheme,
         style: Theme.of(context).textTheme.button!.copyWith(
             fontSize: kSpacingUnit * 1.5,
+            fontFamily: ar ? 'Amiri' : 'Roboto',
             fontWeight: FontWeight.w400,
             letterSpacing: 2),
       ),
@@ -402,10 +405,20 @@ class _SettingsState extends State<Settings>
         style: Theme.of(context).textTheme.button!.copyWith(
             fontSize: kSpacingUnit * 1.2,
             fontWeight: FontWeight.w100,
+            fontFamily: 'Roboto',
             letterSpacing: 2),
       ),
       children: <Widget>[Wrap(children: themeChildren)],
     );
+  }
+}
+
+class RestartDialog extends StatelessWidget {
+  const RestartDialog({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(title: Text('Restart'));
   }
 }
 
@@ -448,6 +461,7 @@ class _SettingsShort extends StatelessWidget {
               Text(title!,
                   style: Theme.of(context).textTheme.button!.copyWith(
                       fontSize: kSpacingUnit * 1.1,
+                      fontFamily: 'Roboto',
                       fontWeight: FontWeight.w100,
                       letterSpacing: 2))
             ],
@@ -457,6 +471,7 @@ class _SettingsShort extends StatelessWidget {
           label: Text(subtitle!,
               style: Theme.of(context).textTheme.button!.copyWith(
                   fontSize: kSpacingUnit * 1.3,
+                  fontFamily: 'Roboto',
                   fontWeight: FontWeight.w100,
                   letterSpacing: 2)),
           backgroundColor: Theme.of(context).hoverColor,
@@ -467,9 +482,9 @@ class _SettingsShort extends StatelessWidget {
 }
 
 class SettingsButton extends StatelessWidget {
-  final ValueChanged<bool>? onChanged;
   final String? title, subtitle;
   final bool? value;
+  final ValueChanged<bool>? onChanged;
 
   const SettingsButton(
       {Key? key, this.title, this.subtitle, this.value, this.onChanged})
@@ -477,6 +492,8 @@ class SettingsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     return WidgetAnimator(
       ListTile(
         title: Text(
@@ -485,12 +502,14 @@ class SettingsButton extends StatelessWidget {
                 fontSize: kSpacingUnit * 1.7,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 2,
+                fontFamily: ar ? 'Amiri' : 'Roboto',
               ),
         ),
         subtitle: Text(subtitle!,
             style: Theme.of(context).textTheme.button!.copyWith(
                 fontSize: kSpacingUnit * 1.3,
                 fontWeight: FontWeight.w100,
+                fontFamily: ar ? 'Amiri' : 'Roboto',
                 letterSpacing: 2)),
         trailing: CupertinoSwitch(
           value: value!,
