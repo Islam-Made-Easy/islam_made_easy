@@ -21,6 +21,8 @@ class _MainPanelState extends State<MainPanel> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDesktop = isDisplayDesktop(context);
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     final size = MediaQuery.of(context).size;
     final appTheme = theme.textTheme.button!.copyWith(
         fontWeight: FontWeight.bold,
@@ -29,6 +31,7 @@ class _MainPanelState extends State<MainPanel> {
       fontWeight: FontWeight.w100,
       fontSize: 22,
       letterSpacing: isDesktop || context.isTablet ? 2 : null,
+      fontFamily: ar ? 'Amiri' : 'Roboto',
     );
     if (DeviceOS.isDesktopOrWeb && isDesktop ||
         (context.isTablet && DeviceOS.isMobile)) {
@@ -87,7 +90,9 @@ class _MainPanelState extends State<MainPanel> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 5),
-                  Text(S.current.salam),
+                  Text(S.current.salam,
+                      style: appTheme.copyWith(
+                          fontFamily: ar ? 'Amiri' : 'Quicksand')),
                   SizedBox(height: 10),
                   Text(S.current.quizDirection, style: selectTheme),
                 ],
@@ -119,6 +124,8 @@ class _MainPanelState extends State<MainPanel> {
   }
 
   Widget buildCard(String title) {
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
     return WidgetAnimator(
       AnimContainer(
         alignment: Alignment.center,
@@ -143,13 +150,11 @@ class _MainPanelState extends State<MainPanel> {
               trailing: IconButton(
                 icon: FaIcon(Icons.chevron_right),
                 splashRadius: 10,
-                onPressed: () {
-                  setState(() async {
-                    Provider.of<SettingProvide>(context, listen: false)
-                        .getFullScreen(true);
-                    await DesktopWindow.setFullScreen(true);
-                    Get.to(() => QuizHome());
-                  });
+                onPressed: () async {
+                  await DesktopWindow.setFullScreen(true);
+                  Provider.of<SettingProvide>(context, listen: false)
+                      .getFullScreen(true);
+                  Get.to(() => QuizHome());
                 },
               ),
               title: AutoSizeText(
@@ -161,6 +166,7 @@ class _MainPanelState extends State<MainPanel> {
                       : context.isPhone
                           ? 14
                           : null,
+                  fontFamily: ar ? 'Amiri' : 'Quicksand',
                 ),
               ),
             ),
