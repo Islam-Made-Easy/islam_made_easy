@@ -129,12 +129,7 @@ class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
                   endRadius: 50,
                   glowColor:
                       glow ? Colors.white : theme.primaryColor.withOpacity(.05),
-                  child: FaIcon(
-                    ar
-                        ? FontAwesomeIcons.angleLeft
-                        : FontAwesomeIcons.angleRight,
-                    color: Colors.white,
-                  ),
+                  child: FaIcon(Icons.chevron_right, color: Colors.white),
                 ),
               ),
             ),
@@ -199,8 +194,8 @@ class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
                     child: Stack(
                       children: [
                         Positioned(
-                          left: ar?200:-200,
-                          right: ar?-150:150,
+                          left: ar ? 200 : -200,
+                          right: ar ? -150 : 150,
                           child: Transform.rotate(
                             angle: onBoardPage
                                 ? 0
@@ -274,9 +269,7 @@ class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
                                               curve: Curves.easeOut);
                                         });
                                       },
-                                      icon: FaIcon(ar
-                                          ? FontAwesomeIcons.angleLeft
-                                          : FontAwesomeIcons.angleRight),
+                                      icon: FaIcon(Icons.chevron_right),
                                     ),
                                   ),
                                 ),
@@ -315,9 +308,7 @@ class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
                                         curve: Curves.easeOut);
                                   });
                                 },
-                                icon: FaIcon(ar
-                                    ? FontAwesomeIcons.angleRight
-                                    : FontAwesomeIcons.angleLeft),
+                                icon: FaIcon(Icons.chevron_left),
                               ),
                             ),
                           ),
@@ -505,9 +496,8 @@ class _WelcomeState extends State<WelcomePage>
                 child: Text(
                   S.current.fridayRemind,
                   style: TextStyle(
+                    fontSize: width * .07,
                     fontFamily: ar ? 'Amiri' : 'Quicksand',
-                    color: const Color(0xFFFFFFFF),
-                    fontSize: width * 0.07,
                   ),
                 ),
               ),
@@ -524,8 +514,8 @@ class _WelcomeState extends State<WelcomePage>
                     S.current.fridayFirst,
                     style: TextStyle(
                       color: Colors.white,
-                      fontFamily: ar ? 'Amiri' : 'Roboto',
                       fontWeight: FontWeight.w300,
+                      fontFamily: ar ? 'Amiri' : 'Quicksand',
                       fontSize: DeviceOS.isDesktopOrWeb && context.isTablet
                           ? width * .02
                           : width * .056,
