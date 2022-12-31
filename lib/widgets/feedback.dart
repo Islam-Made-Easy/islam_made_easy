@@ -46,8 +46,12 @@ class _AppFeedbackState extends State<AppFeedback> {
     final theme = Theme.of(context);
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
-    final labelStyle = Theme.of(context).textTheme.button!.copyWith(
-        fontWeight: FontWeight.w300, fontSize: 10 * 1.4, letterSpacing: 2);
+    final style = Theme.of(context).textTheme.button!.copyWith(
+          fontWeight: FontWeight.w300,
+          fontFamily: 'Roboto',
+          fontSize: 10 * 1.4,
+          letterSpacing: 2,
+        );
     return Scaffold(
       backgroundColor:
           isDesktop || (context.isTablet && DeviceOS.isDesktopOrWeb)
@@ -82,6 +86,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                   child: DefaultTextStyle(
                     style: theme.textTheme.caption!.copyWith(
                       fontSize: isDesktop || context.isTablet ? 26.0 : 20,
+                      fontFamily: ar ? 'Amiri' : 'Roboto',
                       fontWeight: FontWeight.w100,
                       letterSpacing: 1,
                     ),
@@ -96,8 +101,10 @@ class _AppFeedbackState extends State<AppFeedback> {
                 ),
                 Text(
                   S.current.wait,
-                  style: theme.textTheme.headline6!
-                      .copyWith(fontWeight: FontWeight.w100),
+                  style: theme.textTheme.headline6!.copyWith(
+                    fontFamily: ar ? 'Amiri' : 'Roboto',
+                    fontWeight: FontWeight.w100,
+                  ),
                 ),
                 SizedBox(height: 10),
                 InputContainer(
@@ -120,11 +127,12 @@ class _AppFeedbackState extends State<AppFeedback> {
                     AutofillHints.username
                   ],
                   decoration: InputDecoration(
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                      hintText: S.current.enterName,
-                      labelText: S.current.lName,
-                      labelStyle: labelStyle),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    hintText: S.current.enterName,
+                    labelText: S.current.lName,
+                    labelStyle: style,
+                  ),
                 ),
                 InputContainer(
                   validator: (value) {
@@ -144,7 +152,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                       contentPadding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                       hintText: S.current.enterEmail,
-                      labelStyle: labelStyle,
+                      labelStyle: style,
                       labelText: S.current.email),
                 ),
                 InputContainer(
@@ -168,7 +176,7 @@ class _AppFeedbackState extends State<AppFeedback> {
                           borderRadius: BorderRadius.all(Radius.circular(8)),
                         ),
                         border: InputBorder.none,
-                        labelStyle: labelStyle,
+                        labelStyle: style,
                         hintText: S.current.leaveFeed,
                         labelText: S.current.feedback)),
                 SizedBox(height: 20),
@@ -193,7 +201,10 @@ class _AppFeedbackState extends State<AppFeedback> {
                           '${S.current.notSend}\n\n${S.current.alternative}',
                           textAlign: TextAlign.center,
                           style: theme.textTheme.caption!.copyWith(
-                              fontWeight: FontWeight.w300, letterSpacing: 2),
+                            fontFamily: ar ? 'Amiri' : 'Roboto',
+                            fontWeight: FontWeight.w300,
+                            letterSpacing: 2,
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -280,6 +291,7 @@ class InputContainer extends StatelessWidget {
                     textInputAction: TextInputAction.newline,
                     smartQuotesType: SmartQuotesType.enabled,
                     style: theme.textTheme.button!.copyWith(
+                      fontFamily: ar ? 'Amiri' : 'Roboto',
                       fontWeight: FontWeight.w100,
                       fontSize: 10 * 1.3,
                       letterSpacing: 2,
