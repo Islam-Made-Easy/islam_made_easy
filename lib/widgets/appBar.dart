@@ -22,29 +22,30 @@ class QnAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
       centerTitle: true,
       backgroundColor: color,
-      leading: Shortcuts(
-        shortcuts: <LogicalKeySet, Intent>{
-          LogicalKeySet(LogicalKeyboardKey.alt, LogicalKeyboardKey.arrowLeft):
-              BackIndent(),
-        },
-        child: Actions(
-          actions: {
-            BackIndent: CallbackAction<BackIndent>(
-                onInvoke: (intent) => Navigator.pop(context))
-          },
-          child: Focus(
-            autofocus: true,
-            child: isDesktop
-                ? BackButton()
-                : IconButton(
+      leading: isDesktop
+          ? BackButton()
+          : Shortcuts(
+              shortcuts: <LogicalKeySet, Intent>{
+                LogicalKeySet(
+                        LogicalKeyboardKey.alt, LogicalKeyboardKey.arrowLeft):
+                    BackIndent(),
+              },
+              child: Actions(
+                actions: {
+                  BackIndent: CallbackAction<BackIndent>(
+                      onInvoke: (intent) => Navigator.pop(context))
+                },
+                child: Focus(
+                  autofocus: true,
+                  child: IconButton(
                     icon: FaIcon(Icons.chevron_left),
                     onPressed: Get.back,
                     tooltip:
                         MaterialLocalizations.of(context).backButtonTooltip,
                   ),
-          ),
-        ),
-      ),
+                ),
+              ),
+            ),
       elevation: 0,
     );
   }
