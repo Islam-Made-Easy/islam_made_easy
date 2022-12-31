@@ -60,11 +60,13 @@ dependencies:
   flutter_font_picker:
   pdftron_flutter:
   equatable:
-  just_audio: 
+#  audioplayers:
 #  flutter_acrylic:
   fluent_ui:
-  super_editor: ^0.2.3+1
-  super_editor_markdown: ^0.1.4+1
+  local_hero:
+  desktop_notifications:
+  coachmaker:
+  scroll_to_index:
 #  system_tray: ^0.0.7
 dev_dependencies:
   msix:
@@ -106,3 +108,6 @@ flutter_intl:
     - asset: assets/fonts/Roboto-Light.ttf
     - asset: assets/fonts/Roboto-Thin.ttf
     - asset: assets/fonts/Roboto-Bold.ttf
+  - family: pegan yr
+    fonts:
+    - asset: assets/fonts/bayjan.ttf
