@@ -29,13 +29,13 @@ class _DesktopNavState extends State<DesktopNav>
 
   int _selectedIndex = 0;
   List<Widget> screens = [
-    GeneralKnowledge(),
-    ShortPhrases(),
-    Prerequisite(),
-    References(),
     MainPanel(),
+    Prerequisite(),
     Succinct(),
     QnA(),
+    GeneralKnowledge(),
+    References(),
+    ShortPhrases(),
   ];
   static DelayUI delay = DelayUI(Duration(seconds: 1));
 
