@@ -79,7 +79,7 @@ class NavigationRailHeader extends StatelessWidget {
                           SizedBox(width: 18 * animation.value),
                         ],
                       ),
-                      hoverColor: Get.theme.primaryColor.withOpacity(.1),
+                      hoverColor: theme.primaryColor.withOpacity(.1),
                       onTap: () => extended.value = !extended.value!,
                     ),
                     if (animation.value > 0)
