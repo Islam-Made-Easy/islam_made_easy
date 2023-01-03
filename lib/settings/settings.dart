@@ -144,7 +144,7 @@ class _SettingsState extends State<Settings>
           _SettingsTitle(title: S.current.customizeExp),
           _SettingsTitle(title: S.current.interface),
           Image.asset('assets/images/1.png',
-              color: Theme.of(context).primaryColor.withOpacity(.5)),
+              color:theme.primaryColor.withOpacity(.5)),
           WidgetAnimator(
             Card(
               child: Column(
@@ -185,7 +185,7 @@ class _SettingsState extends State<Settings>
                     horizontal: context.isTablet ? 15 : 10),
                 children: [
                   RadioListTile(
-                      activeColor: Theme.of(context).primaryColor,
+                      activeColor:theme.primaryColor,
                       title: Text(getLanguageUiString('')),
                       value: '',
                       groupValue: selectedLanguage,
@@ -209,7 +209,7 @@ class _SettingsState extends State<Settings>
           isDesktop ? _SettingsTitle(title: S.current.shortcuts) : Container(),
           isDesktop
               ? Image.asset('assets/images/1.png',
-                  color: Theme.of(context).primaryColor.withOpacity(.5))
+                  color:theme.primaryColor.withOpacity(.5))
               : Container(),
           isDesktop
               ? WidgetAnimator(
@@ -225,6 +225,12 @@ class _SettingsState extends State<Settings>
                         color: theme.primaryColor,
                       ),
                       children: [
+                        _SettingsShort(
+                          title: S.current.feedback,
+                          subtitle: 'Ctrl+Space',
+                          icon: Icons.mark_email_read_rounded,
+                          color: Colors.tealAccent,
+                        ),
                         _SettingsShort(
                           title: S.current.preferences,
                           subtitle: 'Ctrl+Shift',
@@ -290,7 +296,7 @@ class _SettingsState extends State<Settings>
           _SettingsTitle(title: 'Fonts'),
           Image.asset(
             'assets/images/1.png',
-            color: Theme.of(context).primaryColor.withOpacity(.5),
+            color:theme.primaryColor.withOpacity(.5),
           ),
           Card(
             child: ExpansionTile(
