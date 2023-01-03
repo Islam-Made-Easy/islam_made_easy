@@ -370,6 +370,29 @@ class WindowButtons extends StatelessWidget {
             iconNormal: theme.withOpacity(.5),
             iconMouseOver: Colors.white,
           ),
+          onPressed: () {
+            SystemSound.play(SystemSoundType.alert);
+            Get.dialog(
+                AlertDialog(
+                  title: Text('Are you sure you want to exit?'),
+                  content: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TextButton(
+                        onPressed: () => SystemNavigator.pop(),
+                        child: Text('Exit'),
+                      ),
+                      TextButton(
+                        onPressed: () => Get.back(),
+                        child: Text('Cancel'),
+                      )
+                    ],
+                  ),
+                  iconColor: theme.withOpacity(.5),
+                  icon: FaIcon(FontAwesomeIcons.solidQuestionCircle),
+                ),
+                name: 'Exit Dialog');
+          },
         ),
       ],
     );
