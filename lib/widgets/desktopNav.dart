@@ -43,8 +43,6 @@ class _DesktopNavState extends State<DesktopNav>
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final tr = Colors.transparent;
-    Locale locale = Localizations.localeOf(context);
-    final ar = locale.languageCode == 'ar';
     final text = theme.textTheme.labelLarge!.copyWith(fontFamily: 'Quicksand');
     return CallbackShortcuts(
       bindings: {
@@ -52,6 +50,8 @@ class _DesktopNavState extends State<DesktopNav>
             coachMaker,
         LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.shift):
             settings,
+        LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.space):
+            feedback,
       },
       child: Row(
         children: [
@@ -149,14 +149,10 @@ class _DesktopNavState extends State<DesktopNav>
                             trailing: CoachPoint(
                               initial: '8',
                               child: CustomIconButton(
-                                  icon: FontAwesomeIcons.mailBulk,
-                                  onTap: () => Get.dialog(
-                                        FeedDialog(ar: ar),
-                                        name: 'Feedback Dialog',
-                                        transitionCurve: Curves.easeIn,
-                                        transitionDuration: delay.duration,
-                                      ),
-                                  data: 'Please provide your Feedback'),
+                                icon: FontAwesomeIcons.mailBulk,
+                                onTap: () => feedback(),
+                                data: 'Please provide your Feedback',
+                              ),
                             ),
                             leading: CoachPoint(
                               initial: '9',
@@ -325,6 +321,17 @@ class _DesktopNavState extends State<DesktopNav>
         ],
       ),
     ]).show();
+  }
+
+  feedback() {
+    Locale locale = Localizations.localeOf(context);
+    final ar = locale.languageCode == 'ar';
+    Get.dialog(
+      FeedDialog(ar: ar),
+      name: 'Feedback Dialog',
+      transitionCurve: Curves.easeIn,
+      transitionDuration: delay.duration,
+    );
   }
 
   settings() => showSettings(context);
