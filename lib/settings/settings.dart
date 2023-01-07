@@ -226,28 +226,28 @@ class _SettingsState extends State<Settings>
                       ),
                       children: [
                         _SettingsShort(
-                          title: S.current.feedback,
-                          subtitle: 'Ctrl+Space',
-                          icon: Icons.mark_email_read_rounded,
-                          color: Colors.tealAccent,
-                        ),
-                        _SettingsShort(
                           title: S.current.preferences,
-                          subtitle: 'Ctrl+Shift',
+                          subtitle: 'Ctrl+P',
                           icon: FontAwesomeIcons.cog,
                           color: Colors.blue,
+                        ),
+                        _SettingsShort(
+                          title: S.current.qDocs,
+                          subtitle: 'Ctrl+D',
+                          icon: Icons.description,
+                          color: Colors.deepPurple,
+                        ),
+                        _SettingsShort(
+                          title: S.current.feedback,
+                          subtitle: 'F1',
+                          icon: Icons.mark_email_read_rounded,
+                          color: Colors.tealAccent,
                         ),
                         _SettingsShort(
                           title: localize.backButtonTooltip,
                           subtitle: 'Alt+Left',
                           icon: Icons.arrow_back,
                           color: Colors.brown,
-                        ),
-                        _SettingsShort(
-                          title: S.current.qDocs,
-                          subtitle: 'Ctrl+Alt',
-                          icon: Icons.description,
-                          color: Colors.deepPurple,
                         ),
                         _SettingsShort(
                           title: localize.copyButtonLabel,
