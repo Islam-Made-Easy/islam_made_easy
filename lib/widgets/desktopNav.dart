@@ -46,12 +46,11 @@ class _DesktopNavState extends State<DesktopNav>
     final text = theme.textTheme.labelLarge!.copyWith(fontFamily: 'Quicksand');
     return CallbackShortcuts(
       bindings: {
-        LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.alt):
+        LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.keyD):
             coachMaker,
-        LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.shift):
+        LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.keyP):
             settings,
-        LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.space):
-            feedback,
+        SingleActivator(LogicalKeyboardKey.f1): feedback,
       },
       child: Row(
         children: [
