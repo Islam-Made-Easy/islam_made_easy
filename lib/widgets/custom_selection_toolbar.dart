@@ -25,29 +25,30 @@ class CustomTextSelectionControls extends MaterialTextSelectionControls {
     ClipboardStatusNotifier? clipboardStatus,
     Offset? lastSecondaryTapDownPosition,
   ) {
-    final TextSelectionPoint startTextSelectionPoint = endpoints[0];
-    final TextSelectionPoint endTextSelectionPoint =
+    final TextSelectionPoint startPoint = endpoints[0];
+    final TextSelectionPoint endPoint =
         endpoints.length > 1 ? endpoints[1] : endpoints[0];
     final Offset anchorAbove = Offset(
         globalEditableRegion.left + selectionMidpoint.dx,
         globalEditableRegion.top +
-            startTextSelectionPoint.point.dy -
+            startPoint.point.dy -
             textLineHeight -
             _kToolbarContentDistance);
     final Offset anchorBelow = Offset(
       globalEditableRegion.left + selectionMidpoint.dx,
       globalEditableRegion.top +
-          endTextSelectionPoint.point.dy +
+          endPoint.point.dy +
           _kToolbarContentDistanceBelow,
     );
 
-    return CustomTextSelectionToolbar(
+    return SelectionToolbar(
       anchorAbove: anchorAbove,
       anchorBelow: anchorBelow,
       clipboardStatus: clipboardStatus,
       handleShare: () async {
         canCopy(delegate) ? () => handleCopy(delegate, clipboardStatus) : null;
-        customBottomSheet(context, delegate.textEditingValue.text);
+        final data = await delegate.textEditingValue.text;
+        customBottomSheet(context, data.toString());
       },
       handleCopy: canCopy(delegate)
           ? () => handleCopy(delegate, clipboardStatus)
@@ -125,62 +126,63 @@ Future<void> customBottomSheet(BuildContext context, data) async {
               ),
               SizedBox(height: 70),
               Container(
-                  height: size.height * .25,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).cardColor,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                    ),
+                height: size.height * .25,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            ...events.map((event) {
-                              return GestureDetector(
-                                onTap: () {},
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.horizontal(
-                                      left: Radius.circular(16),
-                                      right: Radius.circular(16),
-                                    ),
-                                    child: Image.asset(
-                                      'assets/images/${event.assetName}',
-                                      fit: BoxFit.cover,
-                                      height: 100,
-                                      width: 100,
-                                    ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          ...events.map((event) {
+                            return GestureDetector(
+                              onTap: () {},
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.horizontal(
+                                    left: Radius.circular(16),
+                                    right: Radius.circular(16),
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/${event.assetName}',
+                                    fit: BoxFit.cover,
+                                    height: 100,
+                                    width: 100,
                                   ),
                                 ),
-                              );
-                            }),
-                          ],
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          MaterialButton(
-                            child: Text('Close'),
-                            shape: StadiumBorder(),
-                            onPressed: () => Get.back(),
-                          ),
-                          MaterialButton(
-                            onPressed: () {},
-                            child: Text('Share'),
-                            shape: StadiumBorder(),
-                            color: Theme.of(context).primaryColor,
-                          ),
+                              ),
+                            );
+                          }),
                         ],
                       ),
-                    ],
-                  ))
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        MaterialButton(
+                          child: Text('Close'),
+                          shape: StadiumBorder(),
+                          onPressed: () => Get.back(),
+                        ),
+                        MaterialButton(
+                          onPressed: () {},
+                          child: Text('Share'),
+                          shape: StadiumBorder(),
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         );
@@ -200,8 +202,8 @@ class Event {
   Event(this.assetName);
 }
 
-class CustomTextSelectionToolbar extends StatefulWidget {
-  const CustomTextSelectionToolbar({
+class SelectionToolbar extends StatefulWidget {
+  const SelectionToolbar({
     Key? key,
     this.anchorAbove,
     this.anchorBelow,
@@ -224,17 +226,11 @@ class CustomTextSelectionToolbar extends StatefulWidget {
       customButton;
 
   @override
-  CustomTextSelectionToolbarState createState() =>
-      CustomTextSelectionToolbarState();
+  SelectionToolbarState createState() => SelectionToolbarState();
 }
 
-class CustomTextSelectionToolbarState
-    extends State<CustomTextSelectionToolbar> {
-  void _onChangedClipboardStatus() {
-    setState(() {
-      // Inform the widget that the value of clipboardStatus has changed.
-    });
-  }
+class SelectionToolbarState extends State<SelectionToolbar> {
+  void _onChangedClipboardStatus() => setState(() {});
 
   @override
   void initState() {
@@ -244,7 +240,7 @@ class CustomTextSelectionToolbarState
   }
 
   @override
-  void didUpdateWidget(CustomTextSelectionToolbar oldWidget) {
+  void didUpdateWidget(SelectionToolbar oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.clipboardStatus != oldWidget.clipboardStatus) {
       widget.clipboardStatus!.addListener(_onChangedClipboardStatus);
@@ -286,9 +282,8 @@ class CustomTextSelectionToolbarState
     return TextSelectionToolbar(
       anchorAbove: widget.anchorAbove!,
       anchorBelow: widget.anchorBelow!,
-      toolbarBuilder: (BuildContext context, Widget child) {
-        return Card(child: child);
-      },
+      toolbarBuilder: (BuildContext context, Widget child) =>
+          Card(child: child),
       children: itemData.map((_ItemData data) {
         return TextSelectionToolbarTextButton(
           padding: TextSelectionToolbarTextButton.getPadding(
