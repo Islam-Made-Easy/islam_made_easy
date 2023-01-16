@@ -59,7 +59,7 @@ dependencies:
   flutter_font_picker:
   pdftron_flutter:
   equatable:
-#  audioplayers:
+  #  audioplayers:
   local_hero:
   desktop_notifications:
   coachmaker:
@@ -77,32 +77,32 @@ msix_config:
 flutter:
   uses-material-design: true
   assets:
-  - assets/images/
-  - assets/lottie/
-  - assets/quiz/
-  - assets/fonts/
-  - assets/icons/
-  - assets/md/
+    - assets/images/
+    - assets/lottie/
+    - assets/quiz/
+    - assets/fonts/
+    - assets/icons/
+    - assets/md/
 flutter_intl:
   enabled: true
   fonts:
-  - family: Amiri
-    fonts:
-    - asset: assets/fonts/Amiri-Regular.ttf
-    - asset: assets/fonts/Amiri-Bold.ttf
-    - asset: assets/fonts/Amiri-BoldItalic.ttf
-    - asset: assets/fonts/Amiri-Italic.ttf
-  - family: Quicksand
-    fonts:
-    - asset: assets/fonts/Quicksand-Regular.ttf
-    - asset: assets/fonts/Quicksand-Bold.ttf
-    - asset: assets/fonts/Quicksand-Light.ttf
-  - family: Roboto
-    fonts:
-    - asset: assets/fonts/Roboto-Regular.ttf
-    - asset: assets/fonts/Roboto-Light.ttf
-    - asset: assets/fonts/Roboto-Thin.ttf
-    - asset: assets/fonts/Roboto-Bold.ttf
-  - family: pegan yr
-    fonts:
-    - asset: assets/fonts/bayjan.ttf
+    - family: Amiri
+      fonts:
+        - asset: assets/fonts/Amiri-Regular.ttf
+        - asset: assets/fonts/Amiri-Bold.ttf
+        - asset: assets/fonts/Amiri-BoldItalic.ttf
+        - asset: assets/fonts/Amiri-Italic.ttf
+    - family: Quicksand
+      fonts:
+        - asset: assets/fonts/Quicksand-Regular.ttf
+        - asset: assets/fonts/Quicksand-Bold.ttf
+        - asset: assets/fonts/Quicksand-Light.ttf
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Light.ttf
+        - asset: assets/fonts/Roboto-Thin.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
+    - family: pegan yr
+      fonts:
+        - asset: assets/fonts/bayjan.ttf
