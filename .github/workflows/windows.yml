@@ -13,5 +13,19 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: 'beta'
+      - run: flutter pub get
       - run: flutter config --enable-windows-desktop
       - run: flutter build windows --release
+      - name: Archive Release
+        uses: thedoctor0/zip-release@master
+        with:
+          type: 'zip'
+          filename: '${{github.event.repository.name}}-windows.zip'
+          directory: build/windows/runner/Release
+      - run: mkdir build/windows/runner/Release/result
+      - run: move build/windows/runner/Release/${{github.event.repository.name}}-windows.zip build/windows/runner/Release/result
+      - run: git config user.name github-actions
+      - run: git config user.email github-actions@github.com
+      - run: git --work-tree build/windows/runner/Release/result add --all
+      - run: git commit -m "Automatic deployment by github-actions"
+      - run: git push origin HEAD:buildWin --force
