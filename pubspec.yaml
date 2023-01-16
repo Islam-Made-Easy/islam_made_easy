@@ -56,18 +56,13 @@ dependencies:
   permission_handler: ^9.2.0
   flextras: ^0.0.2
   animated_radial_menu: ^0.0.1
-  flutter_collapsing_toolbar:
   flutter_font_picker:
   pdftron_flutter:
   equatable:
 #  audioplayers:
-#  flutter_acrylic:
-  fluent_ui:
   local_hero:
   desktop_notifications:
   coachmaker:
-  scroll_to_index:
-#  system_tray: ^0.0.7
 dev_dependencies:
   msix:
   flutter_test:

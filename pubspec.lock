@@ -295,13 +295,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.0"
-  fluent_ui:
-    dependency: "direct main"
-    description:
-      name: fluent_ui
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.0.3+1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -321,13 +314,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.3.0"
-  flutter_collapsing_toolbar:
-    dependency: "direct main"
-    description:
-      name: flutter_collapsing_toolbar
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   flutter_easyrefresh:
     dependency: "direct main"
     description:
@@ -770,13 +756,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
-  recase:
-    dependency: transitive
-    description:
-      name: recase
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.1.0"
   rxdart:
     dependency: transitive
     description:
@@ -784,20 +763,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.7"
-  scroll_pos:
-    dependency: transitive
-    description:
-      name: scroll_pos
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.0"
-  scroll_to_index:
-    dependency: "direct main"
-    description:
-      name: scroll_to_index
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.1"
   share:
     dependency: "direct main"
     description:
