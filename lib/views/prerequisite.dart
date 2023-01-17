@@ -1,8 +1,10 @@
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:http/http.dart' as http;
 import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/widgets/anim/load_indicator.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:provider/provider.dart';
+
 import 'QnA/qna.dart';
 
 class Prerequisite extends StatefulWidget {
@@ -15,6 +17,9 @@ class Prerequisite extends StatefulWidget {
 class _PrerequisiteState extends State<Prerequisite> {
   var _extensionSet = MarkdownExtensionSet.githubFlavored;
   late String data;
+  late String url;
+  late String api =
+      'https://raw.githubusercontent.com/Islam-Made-Easy/ime-api/main/Assets/markdown/prerequisite';
 
   @override
   void initState() {
@@ -26,24 +31,29 @@ class _PrerequisiteState extends State<Prerequisite> {
     final dp = isDisplayDesktop(context);
     final theme = Theme.of(context).textTheme;
     final locale = Localizations.localeOf(context).languageCode;
-    getFiles() {
+    Future<String> getDataFiles() async {
       if (locale == 'ar') {
-        data = 'assets/md/intro_ar.md';
+        url = '${api}/intro_ar.md';
       } else if (locale == 'sw') {
-        data = 'assets/md/intro_sw.md';
+        url = '${api}/intro_sw.md';
       } else if (locale == 'id') {
-        data = 'assets/md/intro_id.md';
+        url = '${api}/intro_id.md';
       } else {
-        data = 'assets/md/intro.md';
+        url = '${api}/intro.md';
+      }
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        return data = response.body;
+      } else {
+        return throw Exception("Failed to fetch Data");
       }
     }
 
-    getFiles();
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: dp ? 30 : 1, vertical: 20),
         child: FutureBuilder<String>(
-          future: DefaultAssetBundle.of(context).loadString(data),
+          future: getDataFiles(),
           builder: (context, AsyncSnapshot<String> snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               return Column(
