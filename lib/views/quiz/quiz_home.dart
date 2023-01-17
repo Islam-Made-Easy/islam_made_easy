@@ -1,6 +1,5 @@
+import 'package:desktop_notifications/desktop_notifications.dart';
 import 'package:desktop_window/desktop_window.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:islam_made_easy/theme/themePro.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
 import 'package:provider/provider.dart';
 
@@ -13,9 +12,22 @@ class QuizHome extends StatefulWidget {
   _QuizHomeState createState() => _QuizHomeState();
 }
 
-class _QuizHomeState extends State<QuizHome> {
+class _QuizHomeState extends State<QuizHome> with TickerProviderStateMixin {
+  late final AnimationController controller;
+  bool load = false;
+  late bool loaded;
+
   @override
   void initState() {
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 200),
+    );
+    controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        load = true;
+      }
+    });
     super.initState();
   }
 
@@ -37,15 +49,13 @@ class _QuizHomeState extends State<QuizHome> {
         toolbarHeight: 200,
         shape: kAppBarShape,
         leading: IconButton(
-            onPressed: () {
-              setState(() async {
-                Provider.of<SettingProvide>(context, listen: false)
-                    .getFullScreen(false);
-                await DesktopWindow.setFullScreen(false);
-                Get.back();
-              });
+            onPressed: () async {
+              Provider.of<SettingProvide>(context, listen: false)
+                  .getFullScreen(false);
+              await DesktopWindow.setFullScreen(false);
+              Get.back();
             },
-            icon: FaIcon(FontAwesomeIcons.angleLeft)),
+            icon: FaIcon(Icons.chevron_left)),
         backgroundColor: Colors.transparent,
         flexibleSpace: Stack(
           children: [
@@ -62,15 +72,15 @@ class _QuizHomeState extends State<QuizHome> {
                             fontSize: kSpacingUnit * 1.7,
                             fontWeight: FontWeight.w400,
                             letterSpacing: 2,
-                            fontFamily: 'Roboto',
                           ),
                     ),
                     SizedBox(width: 10),
                     Hero(
-                        tag: 'tag',
-                        child: CircleAvatar(
-                          child: FaIcon(FontAwesomeIcons.user),
-                        ))
+                      tag: 'tag',
+                      child: AvatarGlow(
+                          endRadius: 80,
+                          child: Image.asset('assets/images/light.png')),
+                    )
                   ],
                 ),
               ),
@@ -89,8 +99,8 @@ class _QuizHomeState extends State<QuizHome> {
               //     //     image: AssetImage('assets/images/deco.jpg')),
               // ),
             ),
-            Lottie.asset('assets/lottie/plant.json',
-                alignment: Alignment.bottomRight),
+            // Lottie.asset('assets/lottie/plant.json',
+            //     alignment: Alignment.bottomRight),
           ],
         ),
       ),
@@ -116,38 +126,63 @@ class _QuizHomeState extends State<QuizHome> {
               ),
             ),
             SliverFillRemaining(
-              child: GridView(
-                padding: EdgeInsets.symmetric(
-                  horizontal: isDesktop
-                      ? 30
-                      : context.isTablet
-                          ? 20
-                          : 16.0,
-                  vertical: 30.0,
+              child: Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    border: Border.all(color: Theme.of(context).primaryColor),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(1.0, 4.0),
+                        blurRadius: isDesktop ? 10 : 2,
+                        spreadRadius: 1.0,
+                      ),
+                      BoxShadow(
+                        color: Theme.of(context).primaryColor.withOpacity(.09),
+                        offset: Offset(-4.0, -4.0),
+                        blurRadius: isDesktop ? 10 : 2,
+                        spreadRadius: 1.0,
+                      ),
+                      BoxShadow(
+                        color: Colors.transparent.withOpacity(.09),
+                        offset: Offset(-4.0, -4.0),
+                        blurRadius: isDesktop ? 10 : 2,
+                        spreadRadius: 1.0,
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(10)),
+                child: GridView(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: isDesktop
+                        ? 30
+                        : context.isTablet
+                            ? 20
+                            : 16.0,
+                    vertical: 30.0,
+                  ),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisSpacing: size.height * .02,
+                    childAspectRatio: 1.15,
+                    crossAxisCount: isDesktop
+                        ? 4
+                        : context.isTablet
+                            ? 3
+                            : 2,
+                    crossAxisSpacing: isDesktop
+                        ? 30
+                        : context.isTablet
+                            ? 25
+                            : 20,
+                  ),
+                  children: [
+                    _activeTile(),
+                    _inActiveTile('Names of Allah'),
+                    _inActiveTile('Imaan'),
+                    _inActiveTile('Angels'),
+                    _inActiveTile('Books of Allah'),
+                    _inActiveTile('Prophets & Messengers'),
+                    // _inActiveTile('Others'),
+                  ],
                 ),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisSpacing: size.height * .02,
-                  childAspectRatio: 1.15,
-                  crossAxisCount: isDesktop
-                      ? 4
-                      : context.isTablet
-                          ? 3
-                          : 2,
-                  crossAxisSpacing: isDesktop
-                      ? 30
-                      : context.isTablet
-                          ? 25
-                          : 20,
-                ),
-                children: [
-                  _activeTile(),
-                  _inActiveTile('Names of Allah'),
-                  _inActiveTile('Imaan'),
-                  _inActiveTile('Angels'),
-                  _inActiveTile('Books of Allah'),
-                  _inActiveTile('Prophets & Messengers'),
-                  // _inActiveTile('Others'),
-                ],
               ),
             ),
           ]),
@@ -157,29 +192,79 @@ class _QuizHomeState extends State<QuizHome> {
   }
 
   Widget _activeTile() {
+    var client = NotificationsClient();
     return GestureDetector(
-      onTap: () {
+      onTap: () async {
+        setState(() {
+          loaded = true;
+        });
+        await client.notify(
+          S.current.salam,
+          body: 'This section is under development',
+          appName: S.current.appTitle,
+          appIcon: 'assets/images/logo.png',
+        );
+        await client.close();
         shareDelay.run(() =>
             Get.snackbar(S.current.salam, 'This section is under development'));
       },
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: Theme.of(context).primaryColorDark),
+            image: DecorationImage(
+              image: AssetImage('assets/images/sense.png'),
+              colorFilter: ColorFilter.mode(
+                Theme.of(context).primaryColor,
+                BlendMode.modulate,
+              ),
+              fit: BoxFit.fill,
+              repeat: ImageRepeat.repeatY,
+            ),
+            border: Border.all(color: Theme.of(context).primaryColor),
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(-4.0, 4.0),
+                blurRadius: 10,
+                spreadRadius: 1.0,
+              ),
+              BoxShadow(
+                color: Theme.of(context).primaryColor.withOpacity(.8),
+                offset: Offset(-4.0, -4.0),
+                blurRadius: 10,
+                spreadRadius: 1.0,
+              ),
+              BoxShadow(
+                color: Colors.transparent.withOpacity(.9),
+                offset: Offset(-4.0, -4.0),
+                blurRadius: 10,
+                spreadRadius: 1.0,
+              ),
+            ],
+            gradient: RadialGradient(colors: [
+              Color(0xffffe598).withOpacity(.5),
+              Color(0xff2934BE).withOpacity(.5),
+              Color(0xFF5F79F4).withOpacity(.5),
+              Color(0x95AC25FF).withOpacity(.5)
+            ])),
         height: 80,
         width: 80,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Lottie.asset('assets/lottie/star.json', height: 50, repeat: false),
+            // Lottie.asset('assets/lottie/loading.json',
+            //     height: 100, controller: controller),
             Text(
               'Tawheed and Shirk',
               style: Theme.of(context).textTheme.button!.copyWith(
                     fontSize: 18,
-                    fontWeight: FontWeight.w300,
+                    fontWeight: FontWeight.w900,
                   ),
             ),
-            Divider(indent: 32, endIndent: 32, color: kGreyColor)
+            Image.asset(
+              'assets/images/1.png',
+              color: Theme.of(context).primaryColor.withOpacity(.5),
+              width: 222,
+            ),
           ],
         ),
       ),
@@ -187,41 +272,66 @@ class _QuizHomeState extends State<QuizHome> {
   }
 
   Widget _inActiveTile(tittle) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.forbidden,
-      child: Container(
-        decoration: BoxDecoration(
-            border: Border.all(color: kGreyColor.withOpacity(.3)),
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          load = true;
+        });
+      },
+      child: MouseRegion(
+        cursor: SystemMouseCursors.forbidden,
+        child: Container(
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: Theme.of(context).disabledColor.withOpacity(.05)),
-        height: 80,
-        width: 80,
-        child: Stack(
-          children: [
-            Center(
-              child: Text(
-                tittle,
-                style: Theme.of(context).textTheme.button!.copyWith(
-                    fontSize: 20,
-                    color: Theme.of(context).disabledColor,
-                    fontWeight: FontWeight.w100,
-                    fontFamily: 'Roboto'),
-                textAlign: TextAlign.center,
+            image: DecorationImage(
+              image: AssetImage('assets/images/sense.png'),
+              colorFilter: ColorFilter.mode(
+                Theme.of(context).primaryColor.withOpacity(.5),
+                BlendMode.modulate,
               ),
+              fit: BoxFit.fill,
+              repeat: ImageRepeat.repeatY,
             ),
-            Positioned(
-              left: 0,
-              bottom: 0,
-              child: SvgPicture.asset(
-                'assets/icons/icons8-lock-80.svg',
-                matchTextDirection: true,
-                color: kGreyColor,
-                height: 50,
+          ),
+          child: Stack(
+            children: [
+              Center(
+                child: Text(
+                  tittle,
+                  style: Theme.of(context).textTheme.button!.copyWith(
+                      fontSize: 20,
+                      color: Theme.of(context).disabledColor,
+                      fontWeight: FontWeight.w100,
+                      fontFamily: 'Roboto'),
+                  textAlign: TextAlign.center,
+                ),
               ),
-            ),
-          ],
+              Positioned(
+                left: 20,
+                bottom: 24,
+                child: load
+                    ? Lottie.asset('assets/lottie/lock.json',
+                        height: 50, controller: controller, onLoaded: (loaded) {
+                        controller.duration = loaded.duration;
+                        controller.forward();
+                        load = false;
+                      })
+                    : Image.asset(
+                        'assets/images/encry.png',
+                        matchTextDirection: true,
+                        height: 50,
+                      ),
+              ),
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 }
