@@ -136,7 +136,14 @@ class _AboutAppState extends State<AboutApp> {
                 ),
                 ShareButtons(
                   onPressed: () => launchURL(
-                      'https://wa.me/?text=$name ${S.current.aboutApp}.\nGet it from Now: ${ShareUtil().getPlatformShare()}'),
+                      'https://twitter.com/intent/tweet?url=${ShareUtil().getPlatformShare()}&text=Get $name. An ${S.current.aboutApp}'),
+                  tip: 'Twitter',
+                  color: Color(0xff0133fd),
+                  icon: FontAwesomeIcons.twitter,
+                ),
+                ShareButtons(
+                  onPressed: () => launchURL(
+                      'https://wa.me/?text=$name ${S.current.aboutApp}.\nGet it Now from: ${ShareUtil().getPlatformShare()}'),
                   tip: 'WhatsApp',
                   color: Color(0xff11C11E),
                   icon: FontAwesomeIcons.whatsapp,
