@@ -2,11 +2,11 @@
 Name=Islam Made Easy
 Version=1.0.0
 Comment=Islamic Quiz application that let you understand your religion easier
-Exec=islam_made_easy
+Exec=islam-made-easy
 Icon=${SNAP}/meta/gui/Logo.png
 Terminal=false
 Type=Application
-Categories=Education;Islam;
+Categories=Islam;Education;Game;
 GenericName=IME
 StartupNotify=true
-Keywords=Islam;Quiz;Learn;Tawheed;Aqeedah;
+Keywords=Islam;Quiz;Learn;Tawheed;Aqeedah;Flutter;
