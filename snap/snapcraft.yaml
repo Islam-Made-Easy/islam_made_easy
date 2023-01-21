@@ -15,7 +15,7 @@ slots:
 
 apps:
   islam-made-easy:
-    command: islam-made-easy
+    command: islam_made_easy
     extensions: [ flutter-stable ] # Where "master" defines which Flutter channel to use for the build
     slots:
       - dbus-islam-made-easy
