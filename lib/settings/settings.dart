@@ -37,14 +37,8 @@ class _SettingsState extends State<Settings>
       Locale? locale = StringUtil.isNullOrEmpty(selectedLanguage!)
           ? null
           : Locale(languageCode!);
-      Provider.of<SettingProvide>(context, listen: false).changeLocale(locale);
-      // TODO: Get permission before restart in future if relevant
-      // relevance ^> if the data[translation files] is from remote source.
-      if (DeviceOS.isDesktop) {
-        Get.dialog(widget);
-      }
-      // Needs to 'rebirth' to update the ui since GetMaterialApp is not effective
       Phoenix.rebirth(context);
+      Provider.of<SettingProvide>(context, listen: false).changeLocale(locale);
     });
   }
 
@@ -144,7 +138,7 @@ class _SettingsState extends State<Settings>
           _SettingsTitle(title: S.current.customizeExp),
           _SettingsTitle(title: S.current.interface),
           Image.asset('assets/images/1.png',
-              color:theme.primaryColor.withOpacity(.5)),
+              color: theme.primaryColor.withOpacity(.5)),
           WidgetAnimator(
             Card(
               child: Column(
@@ -185,7 +179,7 @@ class _SettingsState extends State<Settings>
                     horizontal: context.isTablet ? 15 : 10),
                 children: [
                   RadioListTile(
-                      activeColor:theme.primaryColor,
+                      activeColor: theme.primaryColor,
                       title: Text(getLanguageUiString('')),
                       value: '',
                       groupValue: selectedLanguage,
@@ -209,7 +203,7 @@ class _SettingsState extends State<Settings>
           isDesktop ? _SettingsTitle(title: S.current.shortcuts) : Container(),
           isDesktop
               ? Image.asset('assets/images/1.png',
-                  color:theme.primaryColor.withOpacity(.5))
+                  color: theme.primaryColor.withOpacity(.5))
               : Container(),
           isDesktop
               ? WidgetAnimator(
@@ -296,7 +290,7 @@ class _SettingsState extends State<Settings>
           _SettingsTitle(title: 'Fonts'),
           Image.asset(
             'assets/images/1.png',
-            color:theme.primaryColor.withOpacity(.5),
+            color: theme.primaryColor.withOpacity(.5),
           ),
           Card(
             child: ExpansionTile(
