@@ -31,6 +31,7 @@ class _PrerequisiteState extends State<Prerequisite> {
     final dp = isDisplayDesktop(context);
     final theme = Theme.of(context).textTheme;
     final locale = Localizations.localeOf(context).languageCode;
+    // todo: Load files to the local directory for offline access on desktop & mobile except for web
     Future<String> getDataFiles() async {
       if (locale == 'ar') {
         url = '${api}/intro_ar.md';
