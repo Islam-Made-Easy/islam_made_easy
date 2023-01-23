@@ -4,10 +4,10 @@ class CustomIconButton extends StatelessWidget {
   const CustomIconButton({
     Key? key,
     required this.icon,
-    required this.data,
+    this.data,
     required this.onTap,
   }) : super(key: key);
-  final String data;
+  final String? data;
   final IconData icon;
   final void Function() onTap;
 
