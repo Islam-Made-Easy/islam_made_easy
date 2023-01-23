@@ -1,12 +1,9 @@
 import 'package:islam_made_easy/views/QnA/qna.dart';
 
 class CustomIconButton extends StatelessWidget {
-  const CustomIconButton({
-    Key? key,
-    required this.icon,
-    this.data,
-    required this.onTap,
-  }) : super(key: key);
+  const CustomIconButton(
+      {Key? key, this.data, required this.icon, required this.onTap})
+      : super(key: key);
   final String? data;
   final IconData icon;
   final void Function() onTap;
