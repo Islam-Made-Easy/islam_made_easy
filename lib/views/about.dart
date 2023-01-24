@@ -48,8 +48,8 @@ class _AboutAppState extends State<AboutApp> {
         trailing: IconButton(
           icon: FaIcon(
             DeviceOS.isMobile
-                ? FontAwesomeIcons.shareAlt
-                : FontAwesomeIcons.timesCircle,
+                ? FontAwesomeIcons.shareNodes
+                : FontAwesomeIcons.circleXmark,
           ),
           onPressed: () {
             DeviceOS.isDesktopOrWeb
