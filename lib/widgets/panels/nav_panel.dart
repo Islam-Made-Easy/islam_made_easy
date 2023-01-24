@@ -38,7 +38,7 @@ class _NavigationPanelState extends State<NavigationPanel> {
           drawerTile(
               S.current.prerequisite,
               () => Get.to(() => Prerequisite(), transition: Transition.size),
-              FontAwesomeIcons.fileAlt),
+              FontAwesomeIcons.fileLines),
           drawerTile(
               S.current.questionsAndAnswers,
               () => Get.to(() => QnA(), transition: Transition.size),
