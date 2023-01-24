@@ -83,7 +83,7 @@ class _DesktopNavState extends State<DesktopNav>
                                   initial: '2',
                                   child: Material(
                                     color: tr,
-                                    child: Icon(FontAwesomeIcons.fileAlt),
+                                    child: Icon(FontAwesomeIcons.fileLines),
                                   ),
                                 ),
                                 label:
@@ -148,7 +148,7 @@ class _DesktopNavState extends State<DesktopNav>
                             trailing: CoachPoint(
                               initial: '8',
                               child: CustomIconButton(
-                                icon: FontAwesomeIcons.mailBulk,
+                                icon: FontAwesomeIcons.envelopesBulk,
                                 onTap: () => feedback(),
                                 data: 'Please provide your Feedback',
                               ),
@@ -388,7 +388,7 @@ class WindowButtons extends StatelessWidget {
                     ],
                   ),
                   iconColor: theme.withOpacity(.5),
-                  icon: FaIcon(FontAwesomeIcons.solidQuestionCircle),
+                  icon: FaIcon(FontAwesomeIcons.solidCircleQuestion),
                 ),
                 name: 'Exit Dialog');
           },
