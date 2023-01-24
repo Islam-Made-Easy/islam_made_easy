@@ -222,7 +222,7 @@ class _SettingsState extends State<Settings>
                         _SettingsShort(
                           title: S.current.preferences,
                           subtitle: 'Ctrl+P',
-                          icon: FontAwesomeIcons.cog,
+                          icon: FontAwesomeIcons.gear,
                           color: Colors.blue,
                         ),
                         _SettingsShort(
@@ -296,7 +296,7 @@ class _SettingsState extends State<Settings>
             child: ExpansionTile(
               title: Text('Change Font Size', style: title),
               leading: FaIcon(
-                FontAwesomeIcons.slidersH,
+                FontAwesomeIcons.sliders,
                 color: theme.primaryColor,
               ),
               children: [
