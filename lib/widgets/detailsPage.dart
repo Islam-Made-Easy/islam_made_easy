@@ -66,7 +66,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     );
                   })
               : IconButton(
-                  icon: FaIcon(FontAwesomeIcons.shareAlt),
+                  icon: FaIcon(FontAwesomeIcons.shareNodes),
                   onPressed: () {
                     shareDelay.run(
                       () => Share.share(

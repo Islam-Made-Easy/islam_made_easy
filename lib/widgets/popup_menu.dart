@@ -18,7 +18,7 @@ class PopupOptionMenu extends StatelessWidget {
     final ar = locale.languageCode == 'ar';
 
     return PopupMenuButton(
-      icon: FaIcon(FontAwesomeIcons.ellipsisV),
+      icon: FaIcon(FontAwesomeIcons.ellipsisVertical),
       elevation: 0,
       onSelected: (MenuOptions options) async {
         switch (options) {
@@ -55,7 +55,7 @@ class PopupOptionMenu extends StatelessWidget {
         PopupMenuItem(
           child: Row(
             children: [
-              FaIcon(FontAwesomeIcons.cog, color: color),
+              FaIcon(FontAwesomeIcons.gear, color: color),
               const SizedBox(width: 10),
               Text(
                 S.current.settings,

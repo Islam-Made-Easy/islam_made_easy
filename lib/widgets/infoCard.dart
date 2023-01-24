@@ -47,7 +47,7 @@ class _InfoCardState extends State<InfoCard> {
                   ),
                 )
               : IconButton(
-                  icon: FaIcon(FontAwesomeIcons.shareAlt, size: 20),
+                  icon: FaIcon(FontAwesomeIcons.shareNodes, size: 20),
                   splashRadius: 10,
                   onPressed: () => shareDelay.run(
                     () => Share.share(

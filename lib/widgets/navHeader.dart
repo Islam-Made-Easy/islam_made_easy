@@ -90,7 +90,7 @@ class NavigationRailHeader extends StatelessWidget {
                             SizedBox(width: 20),
                             IconButton(
                               icon: FaIcon(
-                                FontAwesomeIcons.cog,
+                                FontAwesomeIcons.gear,
                                 color: theme.primaryColor,
                               ),
                               splashRadius: 15,
