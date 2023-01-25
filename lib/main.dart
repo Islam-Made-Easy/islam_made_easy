@@ -27,7 +27,6 @@ void main() async {
           .invokeMethod('Skia.setResourceCacheMaxBytes', 512 * megabyte);
       await Future<void>.delayed(Duration.zero);
     } else if (DeviceOS.isDesktop) {
-      // await flutter_acrylic.Window.initialize();
       await DesktopWindow.setMinWindowSize(const Size(1051.0, 646.0));
     }
 
