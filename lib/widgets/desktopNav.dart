@@ -213,10 +213,12 @@ class _DesktopNavState extends State<DesktopNav>
         fontFamily: ar ? 'Amiri' : 'Quicksand',
         fontSize: kSpacingUnit * 1.5,
         fontWeight: FontWeight.w400,
+        color: Colors.black,
         letterSpacing: 2);
     final sub = theme.textTheme.button!.copyWith(
         fontSize: kSpacingUnit * 1.3,
         fontWeight: FontWeight.w100,
+        color: Colors.black54,
         letterSpacing: 2);
     CoachMaker(context, initialList: [
       CoachModel(
