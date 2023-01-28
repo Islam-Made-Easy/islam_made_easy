@@ -50,7 +50,13 @@ class _SettingsLinkButtonState extends State<SettingsLinkButton> {
             matchTextDirection: true,
             height: size.height,
           ),
-          Center(child: Text(widget.subtitle!, style: theme)),
+          Center(
+            child: Text(
+              widget.subtitle!,
+              style: theme,
+              textAlign: TextAlign.center,
+            ),
+          ),
           Positioned(
             child: Container(
                 height: size.height * .4,
@@ -131,8 +137,13 @@ class _DesktopButtonState extends State<DesktopButton> {
                           matchTextDirection: true,
                         ),
                       ),
-                      child:
-                          Center(child: Text(widget.subtitle!, style: theme)),
+                      child: Center(
+                        child: Text(
+                          widget.subtitle!,
+                          style: theme,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     )
                   : SettingsLinkButton(
                       title: widget.title,
