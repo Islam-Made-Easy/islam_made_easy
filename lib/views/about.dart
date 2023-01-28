@@ -136,7 +136,7 @@ class _AboutAppState extends State<AboutApp> {
                 ),
                 ShareButtons(
                   onPressed: () => launchURL(
-                      'https://twitter.com/intent/tweet?url=${ShareUtil().getPlatformShare()}&text=Get $name. An ${S.current.aboutApp}'),
+                      'https://twitter.com/intent/tweet?url=${ShareUtil().getPlatformShare()}&text=Get $name. An ${S.current.aboutApp}&via=ime_app'),
                   tip: 'Twitter',
                   color: Color(0xff0133fd),
                   icon: FontAwesomeIcons.twitter,
