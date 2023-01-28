@@ -27,7 +27,7 @@ class _AppFeedbackState extends State<AppFeedback> {
 
   void sendViaEmail(String messageContent) {
     final emailLink = Uri.encodeFull(
-        'mailto:info.islamadeasy@gmail.com?subject=Feedback IME&body=$messageContent');
+        'mailto:info.islamadeasy@gmail.com?subject=IME Feedback&body=$messageContent');
     launchUrl(emailLink, DeviceOS.isWeb);
   }
 
