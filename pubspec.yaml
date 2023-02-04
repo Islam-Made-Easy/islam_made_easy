@@ -59,13 +59,13 @@ dependencies:
   pdftron_flutter: null
   equatable: null
   local_hero: null
-  flutter_to_debian: ^1.0.4
   desktop_notifications: null
   coachmaker: null
   badges: null
   vector_math: null
 dev_dependencies:
   msix: null
+  flutter_to_debian:
   flutter_test:
     sdk: flutter
 msix_config:

@@ -381,7 +381,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_to_debian:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: flutter_to_debian
       url: "https://pub.dartlang.org"
