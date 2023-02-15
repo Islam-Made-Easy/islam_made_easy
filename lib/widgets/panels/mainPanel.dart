@@ -132,7 +132,7 @@ class _MainPanelState extends State<MainPanel> {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            AnimContainer(
+            Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 image: DecorationImage(
