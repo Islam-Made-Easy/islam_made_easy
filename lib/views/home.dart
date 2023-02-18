@@ -85,31 +85,26 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         ),
       );
     } else {
-      return DoubleBack(
-        onFirstBackPress: (context) => Get.snackbar('Smile It\'s Sunnah', ''),
-        child: Scaffold(
-          backgroundColor: context.isDarkMode
-              ? null
-              : Theme.of(context).secondaryHeaderColor,
-          appBar: AppBar(
-            // backgroundColor: context.isDarkMode?Theme.of(context).primaryColorDark: Theme.of(context).primaryColorLight,
-            leading: IconButton(
-              onPressed: () {
-                double velocity = 2.0;
-                controller.fling(
-                    velocity: isPanelVisible ? -velocity : velocity);
-              },
-              splashRadius: 10,
-              icon: AnimatedIcon(
-                icon: AnimatedIcons.close_menu,
-                size: 30,
-                progress: controller.view,
-              ),
+      return Scaffold(
+        backgroundColor:
+            context.isDarkMode ? null : Theme.of(context).secondaryHeaderColor,
+        appBar: AppBar(
+          // backgroundColor: context.isDarkMode?Theme.of(context).primaryColorDark: Theme.of(context).primaryColorLight,
+          leading: IconButton(
+            onPressed: () {
+              double velocity = 2.0;
+              controller.fling(velocity: isPanelVisible ? -velocity : velocity);
+            },
+            splashRadius: 10,
+            icon: AnimatedIcon(
+              icon: AnimatedIcons.close_menu,
+              size: 30,
+              progress: controller.view,
             ),
-            actions: [PopupOptionMenu(isVisible: isPanelVisible)],
           ),
-          body: LayoutBuilder(builder: bothPanels),
+          actions: [PopupOptionMenu(isVisible: isPanelVisible)],
         ),
+        body: LayoutBuilder(builder: bothPanels),
       );
     }
   }
