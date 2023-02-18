@@ -239,13 +239,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.6"
-  double_back_to_close:
-    dependency: "direct main"
-    description:
-      name: double_back_to_close
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   equatable:
     dependency: "direct main"
     description:
@@ -462,13 +455,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.4"
-  lazy_load_scrollview:
-    dependency: "direct main"
-    description:
-      name: lazy_load_scrollview
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.3.0"
   local_hero:
     dependency: "direct main"
     description:
