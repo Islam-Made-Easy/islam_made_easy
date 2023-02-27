@@ -2,6 +2,7 @@
 name: islam_made_easy
 description: Islamic  application that let you understand your religion easier.
 publish_to: none
+repository: https://github.com/Islam-Made-Easy/islam_made_easy
 version: 99.99.99+99
 environment:
   sdk: '>=2.18.6 <3.0.0'
