@@ -24,10 +24,10 @@ class _MainPanelState extends State<MainPanel> {
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
     final size = MediaQuery.of(context).size;
-    final appTheme = theme.textTheme.button!.copyWith(
+    final appTheme = theme.textTheme.labelLarge!.copyWith(
         fontWeight: FontWeight.bold,
         fontSize: isDesktop || context.isTablet ? 30 : 22);
-    final selectTheme = theme.textTheme.caption!.copyWith(
+    final selectTheme = theme.textTheme.bodySmall!.copyWith(
       fontWeight: FontWeight.w100,
       fontSize: 22,
       letterSpacing: isDesktop || context.isTablet ? 2 : null,
