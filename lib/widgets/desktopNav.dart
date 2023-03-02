@@ -209,13 +209,13 @@ class _DesktopNavState extends State<DesktopNav>
     Locale locale = Localizations.localeOf(context);
     final ar = locale.languageCode == 'ar';
     final theme = Theme.of(context);
-    final title = theme.textTheme.button!.copyWith(
+    final title = theme.textTheme.labelLarge!.copyWith(
         fontFamily: ar ? 'Amiri' : 'Quicksand',
         fontSize: kSpacingUnit * 1.5,
         fontWeight: FontWeight.w400,
         color: Colors.black,
         letterSpacing: 2);
-    final sub = theme.textTheme.button!.copyWith(
+    final sub = theme.textTheme.labelLarge!.copyWith(
         fontSize: kSpacingUnit * 1.3,
         fontWeight: FontWeight.w100,
         color: Colors.black54,
@@ -348,7 +348,7 @@ class WindowButtons extends StatelessWidget {
       children: [
         MinimizeWindowButton(
           colors: WindowButtonColors(
-            iconMouseDown: Get.theme.backgroundColor,
+            iconMouseDown: Get.theme.colorScheme.background,
             iconNormal: theme.withOpacity(.5),
             mouseOver: theme.withOpacity(.5),
             mouseDown: theme.withOpacity(.5),
@@ -357,7 +357,7 @@ class WindowButtons extends StatelessWidget {
         ),
         MaximizeWindowButton(
           colors: WindowButtonColors(
-            iconMouseDown: Get.theme.backgroundColor,
+            iconMouseDown: Get.theme.colorScheme.background,
             iconNormal: theme.withOpacity(.5),
             mouseOver: theme.withOpacity(.5),
             mouseDown: theme.withOpacity(.5),
