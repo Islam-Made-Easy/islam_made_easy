@@ -78,7 +78,7 @@ class _PrerequisiteState extends State<Prerequisite> {
                             fontFamily: provide.fontType,
                             color: Color(0xff404040),
                           ),
-                          h2: theme.headline6!.copyWith(
+                          h2: theme.titleLarge!.copyWith(
                             letterSpacing: .2,
                             decoration: TextDecoration.underline,
                             fontFamily: provide.fontType,
@@ -87,19 +87,19 @@ class _PrerequisiteState extends State<Prerequisite> {
                                 : provide.fontSize! + 8,
                             fontWeight: FontWeight.w500,
                           ),
-                          p: theme.bodyText1!.copyWith(
+                          p: theme.bodyLarge!.copyWith(
                             fontWeight: FontWeight.w100,
                             fontFamily: provide.fontType,
                             height: dp ? 1.85 : 1.8,
                             fontSize: provide.fontSize,
                           ),
-                          blockquote: theme.bodyText1!.copyWith(
+                          blockquote: theme.bodyLarge!.copyWith(
                             fontWeight: FontWeight.w100,
                             height: dp ? 1.85 : 1.8,
                             fontFamily: provide.fontType,
                             fontSize: provide.fontSize,
                           ),
-                          strong: theme.bodyText1!.copyWith(
+                          strong: theme.bodyLarge!.copyWith(
                             fontWeight: FontWeight.w600,
                             fontFamily: provide.fontType,
                             height: dp ? 1.85 : 1.8,
