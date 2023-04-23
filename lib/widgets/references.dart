@@ -93,7 +93,6 @@ class _ReferencesState extends State<References> {
                     : Radius.elliptical(12, 200),
               ),
             ),
-      elevation: GetPlatform.isWeb ? 10 : 30,
       clipBehavior: Clip.hardEdge,
       child: ListTile(
         contentPadding: EdgeInsets.all(10),
@@ -122,7 +121,6 @@ class _ReferencesState extends State<References> {
                     ar ? Radius.elliptical(12, 200) : Radius.elliptical(90, 10),
               ),
             ),
-      elevation: 4,
       clipBehavior: Clip.hardEdge,
       child: ListTile(
         contentPadding: EdgeInsets.all(10),
