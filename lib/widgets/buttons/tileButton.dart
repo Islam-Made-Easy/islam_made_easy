@@ -26,7 +26,7 @@ class _SettingsLinkButtonState extends State<SettingsLinkButton> {
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
     String? fontFamily = Provider.of<SettingProvide>(context).fontType;
-    final theme = Theme.of(context).textTheme.button!.copyWith(
+    final theme = Theme.of(context).textTheme.labelLarge!.copyWith(
           fontSize: isDesktop ? size.width * .025 : size.width * .08,
           color: _isMouseOver ? Theme.of(context).primaryColor : null,
           fontFamily: context.isDarkMode ? fontFamily : 'Amiri',
@@ -93,7 +93,7 @@ class _DesktopButtonState extends State<DesktopButton> {
     String? fontFamily = Provider.of<SettingProvide>(context).fontType;
     final size = MediaQuery.of(context).size;
     final isDesktop = isDisplayDesktop(context);
-    final theme = Theme.of(context).textTheme.button!.copyWith(
+    final theme = Theme.of(context).textTheme.labelLarge!.copyWith(
           fontSize: isDesktop ? size.width * .025 : size.width * .08,
           letterSpacing: .5,
           color: _isMouseOver ? Theme.of(context).primaryColor : null,
@@ -171,7 +171,7 @@ class TitleHeader extends StatelessWidget {
           children: [
             Text(
               text!,
-              style: theme.primaryTextTheme.subtitle1!.copyWith(
+              style: theme.primaryTextTheme.titleMedium!.copyWith(
                 color: context.isDarkMode ? null : theme.primaryColor,
                 fontWeight: FontWeight.w300,
                 fontSize: 17,
