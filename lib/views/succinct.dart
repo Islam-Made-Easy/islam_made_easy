@@ -20,18 +20,18 @@ class _SuccinctState extends State<Succinct> {
   Widget build(BuildContext context) {
     double? proSize = Provider.of<SettingProvide>(context).fontSize;
     String? proType = Provider.of<SettingProvide>(context).fontType;
-    Function(TextSelection)? onSelectionChange;
-    TextSelection textSelection = TextSelection.collapsed(offset: -1);
+    // Function(TextSelection)? onSelectionChange;
+    // TextSelection textSelection = TextSelection.collapsed(offset: -1);
     final isDesktop = isDisplayDesktop(context);
     final size = MediaQuery.of(context).size;
     final textTheme = Theme.of(context).textTheme;
-    final bodyTextStyle = textTheme.bodyText1!.copyWith(
+    final bodyTextStyle = textTheme.bodyLarge!.copyWith(
       fontFamily: proType,
       height: isDesktop ? 1.85 : 1.8,
       fontSize: isDesktop ? proSize! + 1 : proSize,
     );
-    final bodyTextStyle2 = textTheme.headline5!.copyWith(fontSize: proSize);
-    final txtStyle = textTheme.headline6!.copyWith(
+    final bodyTextStyle2 = textTheme.headlineSmall!.copyWith(fontSize: proSize);
+    final txtStyle = textTheme.titleLarge!.copyWith(
         fontFamily: proType,
         fontStyle: FontStyle.italic,
         decoration: TextDecoration.underline,
@@ -66,7 +66,7 @@ class _SuccinctState extends State<Succinct> {
                 children: [
                   SelectableText.rich(
                     TextSpan(text: S.current.basmallah),
-                    onSelectionChanged: onSelectionChange?.call(textSelection),
+                    // onSelectionChanged: onSelectionChange?.call(textSelection),
                     selectionControls: CustomTextSelectionControls(),
                     style: TextStyle(
                         letterSpacing: .2,
