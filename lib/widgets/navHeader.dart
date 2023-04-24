@@ -71,7 +71,7 @@ class NavigationRailHeader extends StatelessWidget {
                               opacity: animation.value,
                               child: Text(
                                 'IME',
-                                style: theme.textTheme.bodyText1!
+                                style: theme.textTheme.bodyLarge!
                                     .copyWith(fontFamily: 'Quicksand'),
                               ),
                             ),
