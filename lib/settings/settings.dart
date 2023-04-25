@@ -105,17 +105,17 @@ class _SettingsState extends State<Settings>
     super.build(context);
     final MaterialLocalizations localize = MaterialLocalizations.of(context);
     final theme = Theme.of(context);
-    final bodyTextStyle = theme.textTheme.bodyText1!
+    final bodyTextStyle = theme.textTheme.bodyLarge!
         .apply(color: theme.colorScheme.onPrimary, fontFamily: 'Roboto');
     final isDesktop = isDisplayDesktop(context);
     String txt =
         context.isDarkMode ? S.current.switchLight : S.current.switchDark;
-    final title = theme.textTheme.button!.copyWith(
+    final title = theme.textTheme.bodyLarge!.copyWith(
         fontSize: kSpacingUnit * 1.5,
         fontFamily: ar ? 'Amiri' : 'Quicksand',
         fontWeight: FontWeight.w400,
         letterSpacing: 2);
-    final sub = theme.textTheme.button!.copyWith(
+    final sub = theme.textTheme.bodyLarge!.copyWith(
         fontSize: kSpacingUnit * 1.3,
         fontFamily: ar ? 'Amiri' : 'Roboto',
         fontWeight: FontWeight.w100,
@@ -202,8 +202,10 @@ class _SettingsState extends State<Settings>
           SizedBox(height: 10),
           isDesktop ? _SettingsTitle(title: S.current.shortcuts) : Container(),
           isDesktop
-              ? Image.asset('assets/images/1.png',
-                  color: theme.primaryColor.withOpacity(.5))
+              ? Image.asset(
+                  'assets/images/1.png',
+                  color: theme.primaryColor.withOpacity(.5),
+                )
               : Container(),
           isDesktop
               ? WidgetAnimator(
@@ -394,7 +396,7 @@ class _SettingsState extends State<Settings>
           color: Theme.of(context).primaryColor),
       title: Text(
         S.current.chooseTheme,
-        style: Theme.of(context).textTheme.button!.copyWith(
+        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
             fontSize: kSpacingUnit * 1.5,
             fontFamily: ar ? 'Amiri' : 'Roboto',
             fontWeight: FontWeight.w400,
@@ -402,7 +404,7 @@ class _SettingsState extends State<Settings>
       ),
       subtitle: Text(
         S.current.selectTheme,
-        style: Theme.of(context).textTheme.button!.copyWith(
+        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
             fontSize: kSpacingUnit * 1.2,
             fontWeight: FontWeight.w100,
             fontFamily: 'Roboto',
@@ -433,7 +435,7 @@ class _SettingsTitle extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(6, 8, 6, 8),
       child: Text(
         title,
-        style: Theme.of(context).textTheme.button!.copyWith(
+        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
             fontSize: 20, fontWeight: FontWeight.w500, letterSpacing: 1.8),
       ),
     );
@@ -458,23 +460,25 @@ class _SettingsShort extends StatelessWidget {
           child: Row(
             children: [
               FaIcon(icon, color: color!.withOpacity(.4)),
-              Text(title!,
-                  style: Theme.of(context).textTheme.button!.copyWith(
-                      fontSize: kSpacingUnit * 1.1,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w100,
-                      letterSpacing: 2))
+              Text(
+                title!,
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    fontSize: kSpacingUnit * 1.1,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w100,
+                    letterSpacing: 2),
+              )
             ],
           ),
         ),
-        trailing: Chip(
-          label: Text(subtitle!,
-              style: Theme.of(context).textTheme.button!.copyWith(
-                  fontSize: kSpacingUnit * 1.3,
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.w100,
-                  letterSpacing: 2)),
-          backgroundColor: Theme.of(context).hoverColor,
+        trailing: Text(
+          subtitle!,
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                fontSize: kSpacingUnit * 1.3,
+                fontFamily: 'Quicksand',
+                fontWeight: FontWeight.w100,
+                letterSpacing: 2,
+              ),
         ),
       ),
     );
@@ -498,7 +502,7 @@ class SettingsButton extends StatelessWidget {
       ListTile(
         title: Text(
           title!,
-          style: Theme.of(context).textTheme.button!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontSize: kSpacingUnit * 1.7,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 2,
@@ -506,7 +510,7 @@ class SettingsButton extends StatelessWidget {
               ),
         ),
         subtitle: Text(subtitle!,
-            style: Theme.of(context).textTheme.button!.copyWith(
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontSize: kSpacingUnit * 1.3,
                 fontWeight: FontWeight.w100,
                 fontFamily: ar ? 'Amiri' : 'Roboto',
