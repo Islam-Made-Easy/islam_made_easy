@@ -35,7 +35,7 @@ class _AboutAppState extends State<AboutApp> {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final textButton =
-        textTheme.labelLarge!.copyWith(letterSpacing: 2, fontFamily: 'Roboto');
+        textTheme.labelLarge!.copyWith(letterSpacing: 2, fontFamily: 'Quicksand');
     final name =
         'Islam Made Easy ${S.current.forPlatform} ${DeviceOS.isWeb ? 'Web' : Platform.operatingSystem}';
     final legalese = '${DateTime.now().year} The IME team';
