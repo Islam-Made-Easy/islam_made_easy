@@ -1,16 +1,25 @@
 # Islam Made Easy
 
+[![islam-made-easy](https://snapcraft.io/islam-made-easy/badge.svg)](https://snapcraft.io/islam-made-easy)
+[![islam-made-easy](https://snapcraft.io/islam-made-easy/trending.svg?name=0)](https://snapcraft.io/islam-made-easy)
+
+
 Islamic Quiz application that let you understand your religion easier.
 
-Islam Made Easy is a comprehensive application designed to facilitate easy and interactive learning about Islam. This app serves as a valuable resource for individuals seeking to enhance their knowledge and understanding of religion through quizzes and informative content. With its user-friendly interface and comprehensive features, IME is your ultimate companion to navigate the teachings and principles of Islam effortlessly.
+**Islam Made Easy** is a comprehensive app designed to facilitate easy and interactive learning about Islam. This app serves as a valuable resource for individuals seeking to enhance their knowledge and understanding of religion through quizzes and informative content. With its user-friendly interface and comprehensive features, IME is your ultimate companion to navigate the teachings and principles of Islam effortlessly.
+
+## **Features:**
+* **Quiz Challenges:** Test your knowledge and enhance your understanding through captivating quizzes. Challenge yourself with thought-provoking quizzes covering various aspects of Islam, including Quranic verses, Hadiths (sayings of Prophet Muhammad(ﷺ)), Islamic history, and more. Engage in challenging yet enjoyable quiz sessions to assess your understanding and track your progress.
+* **Prerequisite Knowledge:** Access a curated collection of resources that provide fundamental knowledge about Islam. Whether you are new to the faith or seeking to refresh your understanding, these resources will help establish a strong foundation.
+* **General Q & A:** Find answers to commonly asked questions about Islam, from basic principles to more nuanced topics. Expand your understanding through concise and informative explanations.
+
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/islam-made-easy)
 
-
-| [Get the Pre-release APK version](https://github.com/Islam-Made-Easy/Islam-Made-Easy/releases)
-
-
 | Get the Web App [https://islam-made-easy.web.app](https://islam-made-easy.web.app)
+
+<!--- | [Get the Pre-release APK version](https://github.com/Islam-Made-Easy/Islam-Made-Easy/releases) --->
+
 
 ## Getting help
 
