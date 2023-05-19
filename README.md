@@ -4,7 +4,7 @@
 [![islam-made-easy](https://snapcraft.io/islam-made-easy/trending.svg?name=0)](https://snapcraft.io/islam-made-easy)
 
 
-Islamic Quiz application that let you understand your religion easier.
+Unveiling the Beauty of Islam, Effortlessly.
 
 **Islam Made Easy** is a comprehensive app designed to facilitate easy and interactive learning about Islam. This app serves as a valuable resource for individuals seeking to enhance their knowledge and understanding of religion through quizzes and informative content. With its user-friendly interface and comprehensive features, IME is your ultimate companion to navigate the teachings and principles of Islam effortlessly.
 
