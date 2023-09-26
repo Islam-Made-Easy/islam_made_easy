@@ -12,7 +12,7 @@ Unveiling the Beauty of Islam, Effortlessly.
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/islam-made-easy)
 
-| Try the Web App [https://islamadeasy.works](https://islamadeasy.works)
+| Try the Web App [https://app.islamadeasy.works](https://app.islamadeasy.works)
 
 <!--- | [Get the Pre-release APK version](https://github.com/Islam-Made-Easy/Islam-Made-Easy/releases) --->
 
