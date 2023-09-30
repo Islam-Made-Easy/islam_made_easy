@@ -60,7 +60,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                   tooltip: MaterialLocalizations.of(context).copyButtonLabel,
                   onPressed: () {
-                    Clipboard.setData(ClipboardData(text: widget.title)).then(
+                    Clipboard.setData(ClipboardData(text: widget.title!)).then(
                       (value) => Get.snackbar(S.current.copiedToClipboardTitle,
                           S.current.copiedToClipboard),
                     );
@@ -103,7 +103,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         gradient: LinearGradient(
                           colors: [
                             theme.colorScheme.secondary,
-                            theme.backgroundColor,
+                            theme.colorScheme.background,
                           ],
                           tileMode: TileMode.mirror,
                           end: ar ? Alignment.topLeft : Alignment.topRight,
@@ -124,7 +124,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         gradient: LinearGradient(
                           colors: [
                             theme.colorScheme.secondary,
-                            theme.backgroundColor
+                            theme.colorScheme.background
                           ],
                           tileMode: TileMode.mirror,
                           end: ar ? Alignment.topLeft : Alignment.topRight,
@@ -152,7 +152,7 @@ class _DetailsPageState extends State<DetailsPage> {
                           gradient: LinearGradient(
                             colors: [
                               theme.colorScheme.secondary,
-                              theme.backgroundColor
+                              theme.colorScheme.background
                             ],
                             tileMode: TileMode.mirror,
                             begin: ar ? Alignment.topRight : Alignment.topLeft,
@@ -170,7 +170,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       gradient: LinearGradient(
                         colors: [
                           theme.primaryColorDark,
-                          theme.backgroundColor,
+                          theme.colorScheme.background,
                         ],
                         tileMode: TileMode.mirror,
                         end: ar ? Alignment.topLeft : Alignment.topRight,
@@ -197,7 +197,7 @@ class _DetailsPageState extends State<DetailsPage> {
               SelectableText(
                 widget.title!,
                 textAlign: TextAlign.center,
-                style: textTheme.headline5!.copyWith(
+                style: textTheme.headlineSmall!.copyWith(
                   color: theme.colorScheme.secondary,
                   fontSize: 30,
                 ),
@@ -295,7 +295,7 @@ class DetailsCard extends StatelessWidget {
                               gradient: LinearGradient(
                                 colors: [
                                   theme.colorScheme.secondary,
-                                  theme.backgroundColor
+                                  theme.colorScheme.background
                                 ],
                                 tileMode: TileMode.mirror,
                                 end:
@@ -319,7 +319,7 @@ class DetailsCard extends StatelessWidget {
                               gradient: LinearGradient(
                                 colors: [
                                   theme.colorScheme.secondary,
-                                  theme.backgroundColor
+                                  theme.colorScheme.background
                                 ],
                                 tileMode: TileMode.mirror,
                                 end:
@@ -351,7 +351,7 @@ class DetailsCard extends StatelessWidget {
                                 gradient: LinearGradient(
                                   colors: [
                                     theme.colorScheme.secondary,
-                                    theme.backgroundColor
+                                    theme.colorScheme.background
                                   ],
                                   tileMode: TileMode.mirror,
                                   begin: ar
@@ -389,7 +389,7 @@ class DetailsCard extends StatelessWidget {
                     title: Text(
                       title!,
                       textAlign: TextAlign.center,
-                      style: theme.textTheme.headline6!.copyWith(
+                      style: theme.textTheme.titleLarge!.copyWith(
                           fontWeight: FontWeight.w200,
                           fontSize: isDesktop || context.isTablet ? 21 : 15),
                     ),

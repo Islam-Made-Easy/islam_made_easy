@@ -147,7 +147,7 @@ class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
                     height: height * .45,
                     width: width * .25,
                     decoration: BoxDecoration(
-                      color: theme.splashColor,
+                      color: theme.hoverColor,
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
@@ -164,7 +164,7 @@ class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
                     height: height * .03,
                     width: width * .25,
                     decoration: BoxDecoration(
-                      color: theme.splashColor,
+                      color: theme.hoverColor,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20)),
@@ -188,7 +188,7 @@ class _FridayRemState extends State<FridayRem> with TickerProviderStateMixin {
                       color: theme.colorScheme.primary,
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
-                          color: Theme.of(context).backgroundColor,
+                          color: theme.colorScheme.background,
                           style: BorderStyle.none),
                     ),
                     child: Stack(

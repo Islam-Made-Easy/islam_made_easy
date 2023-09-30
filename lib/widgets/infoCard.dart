@@ -39,7 +39,7 @@ class _InfoCardState extends State<InfoCard> {
                   splashRadius: 10,
                   tooltip: MaterialLocalizations.of(context).copyButtonLabel,
                   onPressed: () =>
-                      Clipboard.setData(ClipboardData(text: widget.quest)).then(
+                      Clipboard.setData(ClipboardData(text: widget.quest!)).then(
                     (value) => Get.snackbar(
                       S.current.copiedToClipboardTitle,
                       S.current.copiedToClipboard,
