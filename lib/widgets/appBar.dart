@@ -2,7 +2,7 @@ import 'package:islam_made_easy/views/QnA/qna.dart';
 
 import '../models/app_intents.dart';
 
-class QnAppBar extends StatelessWidget with PreferredSizeWidget {
+class QnAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isDesktop;
   final String? title;
   final Color? color;
@@ -50,13 +50,12 @@ class QnAppBar extends StatelessWidget with PreferredSizeWidget {
     );
   }
 
-  @override
   Size get preferredSize => isDesktop
       ? Size.fromHeight(myAppBarHeight)
       : const Size.fromHeight(kToolbarHeight);
 }
 
-class QnAppBar2 extends StatelessWidget with PreferredSizeWidget {
+class QnAppBar2 extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final bool isDesktop;
 
@@ -86,7 +85,6 @@ class QnAppBar2 extends StatelessWidget with PreferredSizeWidget {
     );
   }
 
-  @override
   Size get preferredSize => isDesktop
       ? Size.fromHeight(myAppBarHeight)
       : const Size.fromHeight(kToolbarHeight);
