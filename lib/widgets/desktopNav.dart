@@ -73,7 +73,7 @@ class _DesktopNavState extends State<DesktopNav>
                                   child: Material(
                                     color: tr,
                                     borderRadius: BorderRadius.zero,
-                                    child: Icon(FontAwesomeIcons.quora),
+                                    child: FaIcon(FontAwesomeIcons.quora),
                                   ),
                                 ),
                                 label: Text(S.current.quiz, style: text),
@@ -83,7 +83,7 @@ class _DesktopNavState extends State<DesktopNav>
                                   initial: '2',
                                   child: Material(
                                     color: tr,
-                                    child: Icon(FontAwesomeIcons.fileLines),
+                                    child: FaIcon(FontAwesomeIcons.fileLines),
                                   ),
                                 ),
                                 label:
@@ -94,7 +94,7 @@ class _DesktopNavState extends State<DesktopNav>
                                   initial: '3',
                                   child: Material(
                                     color: tr,
-                                    child: Icon(FontAwesomeIcons.bookOpen),
+                                    child: FaIcon(FontAwesomeIcons.bookOpen),
                                   ),
                                 ),
                                 label: Text('Methodology', style: text),
@@ -104,7 +104,7 @@ class _DesktopNavState extends State<DesktopNav>
                                   initial: '4',
                                   child: Material(
                                     color: tr,
-                                    child: Icon(FontAwesomeIcons.quinscape),
+                                    child: FaIcon(FontAwesomeIcons.quinscape),
                                   ),
                                 ),
                                 label: Text(S.current.questionsAndAnswers,
@@ -115,7 +115,7 @@ class _DesktopNavState extends State<DesktopNav>
                                   initial: '5',
                                   child: Material(
                                     color: tr,
-                                    child: Icon(FontAwesomeIcons.book),
+                                    child: FaIcon(FontAwesomeIcons.book),
                                   ),
                                 ),
                                 label: Text(S.current.generalKnowledge,
@@ -126,7 +126,7 @@ class _DesktopNavState extends State<DesktopNav>
                                   initial: '6',
                                   child: Material(
                                     color: tr,
-                                    child: Icon(FontAwesomeIcons.scroll),
+                                    child: FaIcon(FontAwesomeIcons.scroll),
                                   ),
                                 ),
                                 label: Text(S.current.references, style: text),
@@ -136,7 +136,7 @@ class _DesktopNavState extends State<DesktopNav>
                                   initial: '7',
                                   child: Material(
                                     color: tr,
-                                    child: Icon(FontAwesomeIcons.ussunnah),
+                                    child: FaIcon(FontAwesomeIcons.ussunnah),
                                   ),
                                 ),
                                 label:
