@@ -12,7 +12,7 @@ class SharedAxisTransitionSwitcher extends StatelessWidget {
       transitionBuilder: (child, animation, secondaryAnimation) {
         return SharedAxisTransition(
           transitionType: SharedAxisTransitionType.scaled,
-          fillColor: Theme.of(context).backgroundColor,
+          fillColor: Theme.of(context).colorScheme.background,
           secondaryAnimation: secondaryAnimation,
           animation: animation,
           child: child,
