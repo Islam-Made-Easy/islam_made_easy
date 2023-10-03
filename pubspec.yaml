@@ -1,11 +1,11 @@
 ---
 name: islam_made_easy
-description: Islamic  application that let you understand your religion easier.
+description: Unveiling the Beauty of Islam, Effortlessly.
 publish_to: none
 repository: https://github.com/Islam-Made-Easy/islam_made_easy
 version: 99.99.99+99
 environment:
-  sdk: '>=2.18.6 <3.0.0'
+  sdk: '>=3.1.0 <4.0.0'
 dependencies:
   flutter:
     sdk: flutter
@@ -19,13 +19,13 @@ dependencies:
   lottie: ^2.2.0
   flutter_easyrefresh: ^2.2.2
   dio: ^4.0.6
-  intl: ^0.17.0
+  intl:
   flutter_statusbarcolor_ns: ^0.5.0
   sqflite: ^2.2.3
   sp_util: ^2.0.3
   shared_preferences: ^2.0.17
   cached_network_image: ^3.2.3
-  http: ^0.13.5
+  http: ^1.1.0
   path: ^1.8.2
   url_launcher: ^6.1.8
   animated_background: ^2.0.0
@@ -37,22 +37,22 @@ dependencies:
   get: ^4.6.5
   package_info: ^2.0.2
   animations: ^2.0.7
-  flutter_svg: ^1.1.6
+  flutter_svg: ^2.0.7
   quick_actions: ^1.0.1
   avatar_glow: ^2.0.2
   animator: ^3.2.0
   animated_text_kit: ^4.2.2
   popover: ^0.2.8
   auto_size_text: ^3.0.0
-  shimmer: ^2.0.0
-  flutter_local_notifications: ^13.0.0
-  markdown: ^6.0.1
+  shimmer: ^3.0.0
+  flutter_local_notifications: ^15.1.1
+  markdown: ^7.1.1
   flutter_markdown: ^0.6.13
   url_strategy: ^0.2.0
   animate_do: ^3.0.2
   desktop_window: ^0.4.0
   bitsdojo_window: ^0.1.5
-  permission_handler: ^10.2.0
+  permission_handler: ^11.0.0
   flextras: ^1.0.0
   flutter_font_picker: null
   pdftron_flutter: null
@@ -62,9 +62,13 @@ dependencies:
   coachmaker: null
   badges: null
   vector_math: null
+  dio_http_cache: ^0.3.0
+  json_annotation: 
 dev_dependencies:
   msix: null
   flutter_to_debian:
+  build_runner:
+  json_serializable:
   flutter_test:
     sdk: flutter
 msix_config:
