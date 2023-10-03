@@ -415,8 +415,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     SizedBox(height: 10),
                     Container(
                       decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Theme.of(context).primaryColor),
+                        border:
+                            Border.all(color: Theme.of(context).primaryColor),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       padding: EdgeInsets.all(20),
@@ -453,8 +453,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     SizedBox(height: 10),
                     Container(
                       decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Theme.of(context).primaryColor),
+                        border:
+                            Border.all(color: Theme.of(context).primaryColor),
                         image: DecorationImage(
                           image: AssetImage('assets/images/sense.png'),
                           colorFilter: ColorFilter.mode(
@@ -511,8 +511,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                           fit: BoxFit.fill,
                           repeat: ImageRepeat.repeatY,
                         ),
-                        border: Border.all(
-                            color: Theme.of(context).primaryColor),
+                        border:
+                            Border.all(color: Theme.of(context).primaryColor),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       padding: EdgeInsets.all(20),
@@ -595,8 +595,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     SizedBox(height: 10),
                     Container(
                       decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Theme.of(context).primaryColor),
+                        border:
+                            Border.all(color: Theme.of(context).primaryColor),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       padding: EdgeInsets.all(20),
@@ -688,8 +688,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     SizedBox(height: 10),
                     Container(
                       decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Theme.of(context).primaryColor),
+                        border:
+                            Border.all(color: Theme.of(context).primaryColor),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       padding: EdgeInsets.all(20),
@@ -739,8 +739,8 @@ class _GeneralKnowledgeState extends State<GeneralKnowledge> {
                     SizedBox(height: 10),
                     Container(
                       decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Theme.of(context).primaryColor),
+                        border:
+                            Border.all(color: Theme.of(context).primaryColor),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       padding: EdgeInsets.all(20),
