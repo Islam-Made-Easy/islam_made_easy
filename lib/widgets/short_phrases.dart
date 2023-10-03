@@ -121,23 +121,26 @@ class _ShortW extends StatelessWidget {
               ),
             ),
             clipBehavior: Clip.antiAliasWithSaveLayer,
-            child: ListTile(
-              title: Text(title!,
-                  style: theme.textTheme.button!.copyWith(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 10 * 1.7,
-                    letterSpacing: 2,
-                  )),
-              trailing: Text(trailing!),
-              subtitle: Text(
-                subtitle!,
-                style: theme.textTheme.caption!.copyWith(
-                  fontWeight: FontWeight.w100,
-                  fontSize: 10 * 1.3,
-                  letterSpacing: 1.5,
-                ),
-              ),
+            child: ListTileTheme(
               tileColor: theme.hoverColor,
+              child: ListTile(
+                title: Text(title!,
+                    style: theme.textTheme.labelLarge!.copyWith(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 10 * 1.7,
+                      letterSpacing: 2,
+                    )),
+                trailing: Text(trailing!),
+                subtitle: Text(
+                  subtitle!,
+                  style: theme.textTheme.bodySmall!.copyWith(
+                    fontWeight: FontWeight.w100,
+                    fontSize: 10 * 1.3,
+                    letterSpacing: 1.5,
+                  ),
+                ),
+                tileColor: theme.hoverColor,
+              ),
             ),
           ),
           Positioned(
