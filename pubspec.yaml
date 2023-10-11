@@ -63,10 +63,13 @@ dependencies:
   badges: null
   vector_math: null
   dio_http_cache: ^0.3.0
-  json_annotation: 
+  json_annotation:
+  auto_route:
+
 dev_dependencies:
   msix: null
   flutter_to_debian:
+  auto_route_generator:
   build_runner:
   json_serializable:
   flutter_test:
