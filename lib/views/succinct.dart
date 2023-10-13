@@ -1,6 +1,5 @@
 import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/views/QnA/qna.dart';
-import 'package:islam_made_easy/widgets/custom_selection_toolbar.dart';
 import 'package:provider/provider.dart';
 
 class Succinct extends StatefulWidget {
@@ -49,8 +48,8 @@ class _SuccinctState extends State<Succinct> {
                 child: SelectableText.rich(
               TextSpan(text: S.current.prerequisiteTitle),
               textAlign: TextAlign.center,
-              selectionControls:
-                  CustomTextSelectionControls(customButton: (start, end) {}),
+              // selectionControls:
+              // CustomTextSelectionControls(customButton: (start, end) {}),
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: size.height * .06,
@@ -67,7 +66,7 @@ class _SuccinctState extends State<Succinct> {
                   SelectableText.rich(
                     TextSpan(text: S.current.basmallah),
                     // onSelectionChanged: onSelectionChange?.call(textSelection),
-                    selectionControls: CustomTextSelectionControls(),
+                    // selectionControls: CustomTextSelectionControls(),
                     style: TextStyle(
                         letterSpacing: .2,
                         fontSize: isDesktop ? 35 : 24,
@@ -75,13 +74,13 @@ class _SuccinctState extends State<Succinct> {
                   ),
                   SelectableText(
                     S.current.succinctPar1,
-                    selectionControls: CustomTextSelectionControls(),
+                    // selectionControls: CustomTextSelectionControls(),
                     style: bodyTextStyle,
                   ),
                   SizedBox(height: 20),
                   SelectableText(
                     S.current.succinctSubTitle1,
-                    selectionControls: CustomTextSelectionControls(),
+                    // selectionControls: CustomTextSelectionControls(),
                     style: bodyTextStyle2,
                   ),
                   SelectableText(
