@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen>
         isCelebration = true;
       });
     }
-    isCelebration ? Get.off(() => FridayRem()) : Get.off(() => Home());
+    isCelebration ? Get.offAll(() => FridayRem()) : Get.offAll(() => Home());
   }
 
   @override
