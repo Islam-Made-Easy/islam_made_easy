@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Islam Made Easy
 Version=1.0.0
-Comment=Islamic Quiz application that let you understand your religion easier
+Comment=Unveiling the Beauty of Islam, Effortlessly.
 Exec=islam-made-easy
 Icon=${SNAP}/meta/gui/Logo.png
 Terminal=false
