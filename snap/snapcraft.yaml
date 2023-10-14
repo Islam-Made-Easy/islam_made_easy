@@ -1,7 +1,12 @@
 name: islam-made-easy
 version: 1.0.0
-summary: Islamic Quiz app to understand your religion easier.
-description: Islamic Quiz application that let you understand your religion easier.
+summary: Unveiling the Beauty of Islam, Effortlessly.
+description: Islam Made Easy  is a comprehensive Linux application designed to
+            facilitate easy and interactive learning about Islam. This app serves as a
+            valuable resource for individuals seeking to enhance their knowledge and
+            understanding of religion through quizzes and informative content. With its
+            user-friendly interface and comprehensive features, IME is your
+            ultimate companion to navigate the teachings and principles of Islam effortlessly.
 
 confinement: strict
 base: core18
@@ -16,7 +21,7 @@ slots:
 apps:
   islam-made-easy:
     command: islam_made_easy
-    extensions: [ flutter-stable ] # Where "master" defines which Flutter channel to use for the build
+    extensions: [ flutter-stable ] # Where "stable" defines which Flutter channel to use for the build
     slots:
       - dbus-islam-made-easy
     plugs:
