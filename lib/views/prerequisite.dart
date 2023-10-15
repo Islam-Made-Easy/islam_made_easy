@@ -1,11 +1,12 @@
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:http/http.dart' as http;
 import 'package:islam_made_easy/settings/settings_pro.dart';
 import 'package:islam_made_easy/widgets/anim/load_indicator.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:provider/provider.dart';
 
+// import 'package:dio_http_cache/dio_http_cache.dart';
 import 'QnA/qna.dart';
+import 'package:dio/dio.dart' as di;
 
 class Prerequisite extends StatefulWidget {
   static const ROUTE_NAME = "/prerequisite";
@@ -16,6 +17,8 @@ class Prerequisite extends StatefulWidget {
 
 class _PrerequisiteState extends State<Prerequisite> {
   var _extensionSet = MarkdownExtensionSet.githubFlavored;
+  late di.Response response;
+  di.Dio dio = di.Dio();
   late String data;
   late String url;
   late String api =
@@ -31,7 +34,6 @@ class _PrerequisiteState extends State<Prerequisite> {
     final dp = isDisplayDesktop(context);
     final theme = Theme.of(context).textTheme;
     final locale = Localizations.localeOf(context).languageCode;
-    // todo: Load files to the local directory for offline access on desktop & mobile except for web
     Future<String> getDataFiles() async {
       if (locale == 'ar') {
         url = '${api}/intro_ar.md';
@@ -42,9 +44,12 @@ class _PrerequisiteState extends State<Prerequisite> {
       } else {
         url = '${api}/intro.md';
       }
-      final response = await http.get(Uri.parse(url));
+      response = await dio.get(url);
+      // options:
+      //     buildCacheOptions(Duration(days: 7), maxStale: Duration(days: 10)),
+
       if (response.statusCode == 200) {
-        return data = response.body;
+        return data = response.data;
       } else {
         return throw Exception("Failed to fetch Data");
       }
