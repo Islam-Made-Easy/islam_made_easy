@@ -17,7 +17,7 @@ class ListHeader extends StatelessWidget {
           Text(
             text!,
             overflow: TextOverflow.clip,
-            style: Theme.of(context).textTheme.button!.copyWith(
+            style: Theme.of(context).textTheme.labelLarge!.copyWith(
                   fontFamily: ar! ? 'Amiri' : 'Quicksand',
                   fontWeight: FontWeight.w400,
                   letterSpacing: 2,
