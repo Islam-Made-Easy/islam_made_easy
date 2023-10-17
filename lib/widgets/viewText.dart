@@ -15,7 +15,7 @@ class ViewText extends StatelessWidget {
     final theme = Theme.of(context);
     return SelectableText(
       data!,
-      style: theme.textTheme.headline5!.copyWith(
+      style: theme.textTheme.headlineSmall!.copyWith(
         fontWeight: FontWeight.w100,
         fontFamily: fontFamily,
         fontSize: fontSize,
