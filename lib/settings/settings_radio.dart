@@ -47,7 +47,7 @@ class _SettingsRadioState extends State<SettingsRadio> {
         title: Text(
           getLanguageUiString(
               S.delegate.supportedLocales[widget.value!].languageCode),
-          style: Theme.of(context).textTheme.button!.copyWith(
+          style: Theme.of(context).textTheme.labelLarge!.copyWith(
                 fontSize: 10 * 1.5,
                 fontFamily: ar ? 'Amiri' : 'Roboto',
                 fontWeight: FontWeight.w400,
@@ -56,7 +56,7 @@ class _SettingsRadioState extends State<SettingsRadio> {
         ),
         subtitle: Text(
           widget.subtitle!,
-          style: Theme.of(context).textTheme.button!.copyWith(
+          style: Theme.of(context).textTheme.labelLarge!.copyWith(
                 fontSize: 10 * 1.3,
                 fontFamily: ar ? 'Amiri' : 'Roboto',
                 fontWeight: FontWeight.w100,
