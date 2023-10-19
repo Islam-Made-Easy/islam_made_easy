@@ -7,6 +7,7 @@ class SpUtil {
   static String fontFamily = 'fontFamily';
   static String fontSize = 'fontSize';
   static String fullScreen = 'fullScreen';
+  static String firstUser = 'firstUser';
 
   static int? getThemeIndex() => appSP.getInt(themeIndex);
 
@@ -23,6 +24,8 @@ class SpUtil {
 
   static bool? getFullScreen() => appSP.getBool(fullScreen);
 
+  static bool? getFirstUser() => appSP.getBool(firstUser);
+
   static Future<bool> setLanguage(String value) =>
       appSP.setString(language, value);
 
@@ -31,6 +34,9 @@ class SpUtil {
 
   static Future<bool> setDarkTheme(bool value) =>
       appSP.setBool(isDarkMode, value);
+
+  static Future<bool> setFirstUser(bool value) =>
+      appSP.setBool(firstUser, value);
 
   static Future<bool> setFont(String value) =>
       appSP.setString(fontFamily, value);
