@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:islam_made_easy/views/QnA/qna.dart';
 
 const kSpacingUnit = 10;
 const kLightSecondaryColor = Color(0xfff4f6f9);
@@ -76,140 +75,156 @@ class ThemeProvide with ChangeNotifier {
     if (themeIndex >= 0 && themeIndex < Colors.primaries.length) {
       this._themeIndex = themeIndex;
       this._themeData = ThemeData(
-        fontFamily: 'Amiri',
+        useMaterial3: true,
+        brightness: Brightness.light,
+        cardColor: kLightSecondaryColor,
         splashFactory: InkRipple.splashFactory,
-        appBarTheme: AppBarTheme(elevation: 0),
+        primaryColorLight: kLightSecondaryColor,
+        primaryColor: Colors.primaries[themeIndex].shade100,
         scaffoldBackgroundColor: kBackgroundLight,
-        backgroundColor: kBackgroundLight,
         primarySwatch: Colors.primaries[themeIndex],
-        tooltipTheme: TooltipThemeData(
+        dividerTheme: themeData.dividerTheme.copyWith(color: kDividerLight),
+        splashColor: Colors.primaries[themeIndex].withOpacity(.05),
+        textTheme: _textTheme(themeData.textTheme, kTextDark, kTextDarker),
+        textSelectionTheme: themeData.textSelectionTheme
+            .copyWith(cursorColor: Colors.primaries[themeIndex].shade100),
+        primaryTextTheme:
+            _textTheme(themeData.textTheme, kTextDark, kTextDarker),
+        colorScheme: themeData.colorScheme.copyWith(
+          brightness: Brightness.light,
+          primary: Colors.primaries[themeIndex],
+          onPrimary: Colors.primaries[themeIndex],
+          secondary: Colors.primaries[themeIndex],
+          onSecondary: Colors.primaries[themeIndex],
+          error: themeData.colorScheme.error,
+          onError: themeData.colorScheme.error,
+          background: kBackgroundLight,
+          onBackground: kBackgroundLight,
+          surface: Colors.primaries[themeIndex],
+          onSurface: Colors.primaries[themeIndex],
+        ),
+        sliderTheme: themeData.sliderTheme.copyWith(
+          valueIndicatorTextStyle: TextStyle(color: kLight),
+        ),
+        dialogTheme: themeData.dialogTheme.copyWith(
+          backgroundColor: kLight,
+          elevation: 0,
+        ),
+        chipTheme: themeData.chipTheme.copyWith(
+          backgroundColor: kLight.withOpacity(.05),
+        ),
+        appBarTheme: themeData.appBarTheme.copyWith(
+          elevation: 0,
+          scrolledUnderElevation: 0,
+          color: Colors.transparent,
+          systemOverlayStyle: SystemUiOverlayStyle.light,
+        ),
+        tooltipTheme: themeData.tooltipTheme.copyWith(
           decoration: BoxDecoration(
-            color: Colors.primaries[themeIndex].withOpacity(.4),
+            color: Colors.primaries[themeIndex].shade50,
             borderRadius: BorderRadius.all(Radius.circular(14)),
           ),
-          textStyle: TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
+          textStyle: TextStyle(color: kLight),
         ),
-        splashColor: Colors.primaries[themeIndex].withOpacity(.05),
-        textTheme: TextTheme(
-          bodyText1: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 16.0,
-            fontFamily: 'Amiri',
-          ),
-          headline5: TextStyle(
-            fontWeight: FontWeight.w700,
-            letterSpacing: .5,
-            fontSize: 20,
-            fontFamily: 'Amiri',
-          ),
-          headline6: TextStyle(
-            fontWeight: FontWeight.w500,
-            letterSpacing: .5,
-            fontSize: 20,
-            fontFamily: 'Amiri',
-          ),
-          subtitle1: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 16.0,
-            fontFamily: 'Amiri',
+        textButtonTheme: TextButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            textStyle: TextStyle(
+              fontSize: kSpacingUnit * 1.3,
+              fontWeight: FontWeight.w100,
+              letterSpacing: 2,
+            ),
           ),
         ),
-        cardColor: kLightSecondaryColor,
-        cardTheme: CardTheme(
+        cardTheme: themeData.cardTheme.copyWith(
+          elevation: 0,
+          color: kLight,
           clipBehavior: Clip.antiAlias,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
-        textButtonTheme: TextButtonThemeData(
-            style: ElevatedButton.styleFrom(
-                textStyle: TextStyle(
-                    fontSize: kSpacingUnit * 1.3,
-                    fontWeight: FontWeight.w100,
-                    letterSpacing: 2))),
-        textSelectionTheme:
-            TextSelectionThemeData(cursorColor: Colors.primaries[themeIndex]),
-        navigationRailTheme: NavigationRailThemeData(
+        navigationRailTheme: themeData.navigationRailTheme.copyWith(
           backgroundColor: Color(0xFFF2F2F2),
           labelType: NavigationRailLabelType.none,
+          indicatorColor: Colors.primaries[themeIndex].shade100,
           selectedLabelTextStyle: TextStyle(fontWeight: FontWeight.w900),
         ),
       );
       this._themeDataDark = ThemeData(
+        cardColor: kDark,
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        primaryColorDark: kDarkPrimaryColor2,
+        splashFactory: InkRipple.splashFactory,
+        scaffoldBackgroundColor: kBackgroundDark,
+        primaryColor: Colors.primaries[themeIndex],
+        primarySwatch: Colors.primaries[themeIndex],
+        splashColor: Colors.primaries[themeIndex].withOpacity(.05),
+        dividerColor: Colors.primaries[themeIndex].withOpacity(.05),
+        dividerTheme: themeDataDark.dividerTheme.copyWith(color: kDividerDark),
+        textTheme:
+            _textTheme(themeDataDark.textTheme, kTextLight, kTextLighter),
+        primaryTextTheme:
+            _textTheme(themeDataDark.textTheme, kTextLight, kTextLighter),
+        textSelectionTheme: themeDataDark.textSelectionTheme.copyWith(
+          cursorColor: Colors.primaries[themeIndex],
+        ),
+        colorScheme: themeDataDark.colorScheme.copyWith(
           brightness: Brightness.dark,
-          fontFamily: 'Amiri',
-          splashFactory: InkRipple.splashFactory,
-          appBarTheme: AppBarTheme(elevation: 0),
-          accentColor: Colors.primaries[themeIndex],
-          tooltipTheme: TooltipThemeData(
-            decoration: BoxDecoration(
-              color: Colors.primaries[themeIndex].withOpacity(.4),
-              borderRadius: BorderRadius.all(Radius.circular(14)),
-            ),
-            textStyle: TextStyle(color: Colors.white),
+          primary: Colors.primaries[themeIndex],
+          onPrimary: Colors.primaries[themeIndex],
+          secondary: Colors.primaries[themeIndex],
+          onSecondary: Colors.primaries[themeIndex],
+          error: themeDataDark.colorScheme.error,
+          onError: themeDataDark.colorScheme.error,
+          background: kBackgroundDark,
+          onBackground: kBackgroundDark,
+          surface: Colors.primaries[themeIndex],
+          onSurface: Colors.primaries[themeIndex],
+        ),
+        chipTheme: themeDataDark.chipTheme.copyWith(
+          backgroundColor: kLight.withOpacity(.05),
+        ),
+        dialogTheme: themeDataDark.dialogTheme.copyWith(
+          backgroundColor: kDark,
+          elevation: 0,
+        ),
+        sliderTheme: themeDataDark.sliderTheme.copyWith(
+          valueIndicatorTextStyle: TextStyle(color: kLight),
+        ),
+        appBarTheme: themeDataDark.appBarTheme.copyWith(
+          elevation: 0,
+          scrolledUnderElevation: 0,
+          color: Colors.transparent,
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
+        ),
+        tooltipTheme: themeDataDark.tooltipTheme.copyWith(
+          decoration: BoxDecoration(
+            color: Colors.primaries[themeIndex].withOpacity(.4),
+            borderRadius: BorderRadius.all(Radius.circular(14)),
           ),
-          splashColor: Colors.primaries[themeIndex].withOpacity(.05),
-          // colorScheme: ColorScheme(
-          //     brightness: Brightness.dark,
-          //     primary: Colors.primaries[themeIndex],
-          //     onPrimary: Colors.primaries[themeIndex],
-          //     secondary: Colors.primaries[themeIndex],
-          //     onSecondary: Colors.primaries[themeIndex],
-          //     error: themeData.errorColor,
-          //     onError: themeData.errorColor,
-          //     background: kBackgroundDark,
-          //     onBackground: kBackgroundDark,
-          //     surface: Colors.primaries[themeIndex],
-          //     onSurface: Colors.primaries[themeIndex]),
-          dialogTheme: DialogTheme(backgroundColor: kDark),
-          primaryColor: Colors.primaries[themeIndex],
-          primarySwatch: Colors.primaries[themeIndex],
-          dividerTheme: DividerThemeData(color: kDividerDark),
-          textButtonTheme: TextButtonThemeData(
-              style: ElevatedButton.styleFrom(
-                  textStyle: TextStyle(
-                      fontSize: kSpacingUnit * 1.3,
-                      fontWeight: FontWeight.w100,
-                      letterSpacing: 2))),
-          textTheme: TextTheme(
-            bodyText1: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 16.0,
-              fontFamily: 'Amiri',
-            ),
-            headline5: TextStyle(
-              fontWeight: FontWeight.w700,
-              letterSpacing: 0.5,
-              fontSize: 20,
-              fontFamily: 'Amiri',
-            ),
-            headline6: TextStyle(
-              fontWeight: FontWeight.w500,
-              letterSpacing: 0.5,
-              fontSize: 20,
-              fontFamily: 'Amiri',
-            ),
-            subtitle1: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 16.0,
-              fontFamily: 'Amiri',
+          textStyle: TextStyle(color: kLight),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            textStyle: TextStyle(
+              fontSize: kSpacingUnit * 1.3,
+              fontWeight: FontWeight.w100,
+              letterSpacing: 2,
             ),
           ),
-          textSelectionTheme:
-              TextSelectionThemeData(cursorColor: Colors.primaries[themeIndex]),
-          cardColor: kDark,
-          cardTheme: CardTheme(
-            clipBehavior: Clip.antiAlias,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          ),
-          primaryColorDark: kDarkPrimaryColor2,
-          scaffoldBackgroundColor: kBackgroundDark,
-          backgroundColor: kDarkSecondaryColor,
-          dividerColor: Colors.primaries[themeIndex].withOpacity(.05),
-          navigationRailTheme: NavigationRailThemeData(
-            backgroundColor: kDark,
-            labelType: NavigationRailLabelType.none,
-            selectedLabelTextStyle: TextStyle(fontWeight: FontWeight.w900),
-          ));
+        ),
+        cardTheme: themeDataDark.cardTheme.copyWith(
+          elevation: 0,
+          color: kDark,
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        ),
+        navigationRailTheme: themeDataDark.navigationRailTheme.copyWith(
+          backgroundColor: kDark,
+          labelType: NavigationRailLabelType.none,
+          indicatorColor: Colors.primaries[themeIndex].shade500,
+          selectedLabelTextStyle: TextStyle(fontWeight: FontWeight.w900),
+        ),
+      );
       _overlayStyle = SystemUiOverlayStyle.light.copyWith(
         statusBarColor: Colors.primaries[themeIndex],
         systemNavigationBarColor: Colors.primaries[themeIndex],
@@ -222,6 +237,36 @@ class ThemeProvide with ChangeNotifier {
       );
       notifyListeners();
     }
+  }
+
+  TextTheme _textTheme(
+      TextTheme textTheme, Color displayColor, Color bodyColor) {
+    return textTheme
+        .copyWith(
+          headlineSmall: textTheme.headlineSmall!.copyWith(
+            fontWeight: FontWeight.w700,
+            letterSpacing: .5,
+            fontSize: 20,
+          ),
+          titleLarge: textTheme.titleLarge!.copyWith(
+            fontWeight: FontWeight.w500,
+            letterSpacing: .5,
+            fontSize: 20,
+          ),
+          bodyLarge: textTheme.bodyLarge!.copyWith(
+            fontWeight: FontWeight.w500,
+            fontSize: 16.0,
+          ),
+          titleMedium: textTheme.titleMedium!.copyWith(
+            fontWeight: FontWeight.w500,
+            fontSize: 16.0,
+          ),
+        )
+        .apply(
+          fontFamily: 'Quicksand',
+          displayColor: displayColor,
+          bodyColor: bodyColor,
+        );
   }
 
   static bool isDarkMode = false;
